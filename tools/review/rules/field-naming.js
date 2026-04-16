@@ -23,6 +23,11 @@ const DEFAULT_NAME_PATTERNS = {
     FieldDataGrid: /^DataGrid\d+$/,
     FormIDStamp: /^FormIDStamp\d*$/,
     CellField: /^DataField\d+$/,
+    FieldRectangle: /^DataField\d+$/,
+    FieldSlider: /^(DataField|Slider)\d+$/,
+    BarCodeFormControl: /^BarCode\d+$/,
+    QuestionsControl: /^QuestionsControl\d+$/,
+    WizardStep: /^WizardStep\d+$/,
 };
 
 const TITLE_CASE_FIELD_TYPES = [
@@ -33,6 +38,7 @@ const TITLE_CASE_FIELD_TYPES = [
     'FieldCheckbox',
     'CellField',
     'UserIDStamp',
+    'FieldSlider',
 ];
 
 // --- Shared helpers ---

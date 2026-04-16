@@ -18,6 +18,7 @@ const LABELED_INPUT_TYPES = [
     'FieldDropDownList3',
     'CellField',
     'UserIDStamp',
+    'FieldSlider',
 ];
 
 const ALL_CHECKED_TYPES = [...LABELED_INPUT_TYPES, ...SELF_LABELED_TYPES];

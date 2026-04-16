@@ -44,6 +44,8 @@ const SPELLING_FIELD_TYPES = [
     'FieldDataGrid',
     'FormIDStamp',
     'RepeatingRowControl',
+    'FieldSlider',
+    'RepeatingRowControlColumn',
 ];
 
 function isDefaultName(name) {

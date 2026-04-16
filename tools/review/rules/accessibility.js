@@ -13,6 +13,7 @@ const NEEDS_ACCESSIBILITY = [
     'CellField',
     'UploadButton',
     'UserIDStamp',
+    'FieldSlider',
 ];
 
 module.exports = [

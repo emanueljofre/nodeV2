@@ -46,6 +46,15 @@ Standards for VV form template XML construction. Each standard is a single atomi
 | 38  | `group-meaningful-name`        | Group names should be descriptive                       | info     | Template-level                    | [group-checks.js](../../tools/review/rules/group-checks.js)               |
 | 39  | `group-consolidate-conditions` | Groups with identical conditions should be consolidated | info     | Template-level                    | [group-checks.js](../../tools/review/rules/group-checks.js)               |
 | 40  | `tab-reference-by-name`        | Scripts should reference tabs by name, not number       | warning  | Template-level                    | [script-hygiene.js](../../tools/review/rules/script-hygiene.js)           |
+| 41  | `standard-hidden-group`        | Template must have Hidden Fields group                  | warning  | Template-level                    | [standard-groups.js](../../tools/review/rules/standard-groups.js)         |
+| 42  | `standard-readonly-group`      | Template must have Read-Only Fields group               | warning  | Template-level                    | [standard-groups.js](../../tools/review/rules/standard-groups.js)         |
+| 43  | `label-truncation`             | Labels should not be truncated                          | warning  | FieldLabel                        | [label-layout.js](../../tools/review/rules/label-layout.js)               |
+| 44  | `label-wrap-textbox`           | Labels should not wrap next to single-line inputs       | warning  | FieldLabel                        | [label-layout.js](../../tools/review/rules/label-layout.js)               |
+| 45  | `font-consistency`             | Label fonts and styles must be consistent               | info     | FieldLabel                        | [visual-consistency.js](../../tools/review/rules/visual-consistency.js)   |
+| 46  | `dropdown-width`               | Drop-down fields must have appropriate width            | warning  | FieldDropDownList3                | [dropdown-config.js](../../tools/review/rules/dropdown-config.js)         |
+| 47  | `query-not-default`            | Drop-downs must not use auto-generated form query       | warning  | FieldDropDownList3                | [dropdown-config.js](../../tools/review/rules/dropdown-config.js)         |
+| 48  | `data-lookup-in-properties`    | Data lookups should use properties, not event scripts   | info     | Template-level                    | [dropdown-config.js](../../tools/review/rules/dropdown-config.js)         |
+| 49  | `field-width-standard`         | Field width appropriate for content type                | info     | 4 input types                     | [field-width.js](../../tools/review/rules/field-width.js)                 |
 
 ---
 
@@ -313,11 +322,11 @@ Every template must have an Admin Override container with a checkbox named "Admi
 
 ### 33. `admin-override-security` — Admin Override Security Visibility
 
-The group containing the Admin Override container must have a SecurityMemberCollection (VaultAccess-only visibility).
+The group containing the Admin Override container must have a SecurityMemberCollection (VaultAccess-only visibility). Additionally, only the admin override container and its direct children (checkbox, save button) should be in this group.
 
 - **Applies to:** Template-level (groups)
-- **Pass:** Admin Override container is in a group with security members
-- **Fail:** Container not in any group, or group has no security visibility
+- **Pass:** Admin Override container is in a group with security members, and only admin-related fields are in the group
+- **Fail:** Container not in any group, group has no security visibility, or non-admin fields are in the admin group
 
 ### 34. `save-button-hidden` — SaveButton Must Be Hidden
 
@@ -376,6 +385,87 @@ Scripts and conditions should reference tabs by name, not by numeric index, to e
 - **Detection:** Regex for `SelectTab(0)`, `TabIndex` numeric patterns
 - **Pass:** No numeric tab references in script code
 - **Fail:** Script contains `SelectTab(N)` or similar numeric tab reference
+
+### 41. `standard-hidden-group` — Hidden Fields Group Required
+
+Every template must have a Hidden Fields group with an "Is Visible" condition referencing the Admin Override checkbox. Fields in this group are hidden by default and become visible when Admin Override is active.
+
+- **Applies to:** Template-level (groups)
+- **Prerequisite:** Admin Override checkbox must exist (otherwise skipped)
+- **Pass:** A group's ConditionCollection references the Admin Override field
+- **Fail:** No group has a visibility condition referencing Admin Override
+
+### 42. `standard-readonly-group` — Read-Only Fields Group Required
+
+Every template must have a Read-Only Fields group with a read-only condition referencing the Admin Override checkbox. Fields in this group are read-only by default and become editable when Admin Override is active.
+
+- **Applies to:** Template-level (groups)
+- **Prerequisite:** Admin Override checkbox must exist (otherwise skipped)
+- **Pass:** A group's ReadOnlyConditionCollection references the Admin Override field
+- **Fail:** No group has a read-only condition referencing Admin Override
+
+### 43. `label-truncation` — Labels Should Not Be Truncated
+
+Label text must fit within the label's declared width. Uses heuristic character width estimation (~7px/char at 10pt) with a 10% tolerance.
+
+- **Applies to:** FieldLabel (with LabelWrap disabled)
+- **Pass:** Estimated text width ≤ 110% of label width
+- **Fail:** Text likely truncated (estimated width exceeds width with tolerance)
+- **Limitation:** Heuristic only — actual rendering depends on font, browser, and zoom
+
+### 44. `label-wrap-textbox` — Labels Should Not Wrap Next to Single-Line Inputs
+
+Labels with LabelWrap enabled should not wrap when positioned next to a single-line input field (textbox, calendar, dropdown).
+
+- **Applies to:** FieldLabel (with LabelWrap enabled)
+- **Detection:** Checks if label text exceeds label width AND a single-line input is adjacent (same row ±15px, to the right)
+- **Pass:** Label text fits in one line, or no adjacent input
+- **Fail:** Label wraps next to a textbox, calendar, or dropdown
+
+### 45. `font-consistency` — Label Fonts and Styles Must Be Consistent
+
+Fonts, colors, and bolding should be uniformly used across labels. Allows two style variants (regular + heading) but flags outliers.
+
+- **Applies to:** FieldLabel (minimum 2 labels required)
+- **Properties checked:** FontSize, Bold, ForegroundColorString
+- **Pass:** All labels match one of the two most common style combinations
+- **Fail:** Label has a style combination not matching either the dominant or second-most-common pattern
+
+### 46. `dropdown-width` — Drop-Down Fields Must Have Appropriate Width
+
+Drop-down fields must be wide enough to display their values without excessive truncation.
+
+- **Applies to:** FieldDropDownList3
+- **Pass:** Width ≥ 100px
+- **Fail:** Width < 100px
+
+### 47. `query-not-default` — Drop-Downs Must Not Use Auto-Generated Form Query
+
+The automatically created VisualVault form query should not be used on drop-down fields. Create dedicated custom queries instead.
+
+- **Applies to:** FieldDropDownList3
+- **Detection:** Checks `EnableFormQuery` raw property
+- **Pass:** `EnableFormQuery` is false or not set
+- **Fail:** `EnableFormQuery` is true
+
+### 48. `data-lookup-in-properties` — Data Lookups Should Use Properties Panel
+
+Data lookup events should be configured in the properties panel, not as event scripts making server-side API calls.
+
+- **Applies to:** Template-level (scripts assigned to FieldDropDownList3 fields)
+- **Detection:** Checks scripts assigned to dropdown fields for API call patterns ($.ajax, fetch, XMLHttpRequest, vvClient, VV.Form.Template)
+- **Pass:** No dropdown event scripts contain server-side API patterns
+- **Fail:** Script on a dropdown contains API call patterns
+
+### 49. `field-width-standard` — Field Width Appropriate for Content
+
+Fields must have appropriate widths for the type of content they capture.
+
+- **Applies to:** FieldTextbox3, FieldTextArea3, FieldCalendar3, FieldDropDownList3
+- **Name-based minimums:** Name fields→150px, Address→250px, Email→200px, Phone→120px, Notes→300px
+- **Type-based minimums:** Textbox→80px, TextArea→200px, Calendar→120px, DropDown→100px
+- **Pass:** Width meets or exceeds the recommended minimum
+- **Fail:** Width below the recommended minimum for the field's content type or field type
 
 ---
 

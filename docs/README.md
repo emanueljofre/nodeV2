@@ -21,13 +21,14 @@ docs/
 ### Standards
 
 - [bug-report-standard.md](standards/bug-report-standard.md) — Bug report structure, writing principles, severity levels, companion doc format, field configuration appendix pattern
-- [form-template-standard.md](standards/form-template-standard.md) — 40 atomic form template standards (naming, accessibility, layout, calendar config, script hygiene, groups, admin override, form controls) with pass/fail definitions
+- [form-template-standard.md](standards/form-template-standard.md) — 49 atomic form template standards (naming, accessibility, layout, calendar config, script hygiene, groups, admin override, form controls, dropdown config, label layout, visual consistency, field width) with pass/fail definitions
 
 ### Guides
 
 - [dev-setup.md](guides/dev-setup.md) — **Canonical setup guide** — environment setup, Playwright, credentials, code quality, troubleshooting
 - [playwright-testing.md](guides/playwright-testing.md) — Playwright patterns, architecture, extension guide
 - [scripting.md](guides/scripting.md) — Node.js server data flow, script contracts, API field casing, date passthrough behavior, FormsAPI access, `response.json()` vs `postCompletion()` execution flow
+- [unit-testing.md](guides/unit-testing.md) — Jest unit testing conventions, helpers API, custom matchers, fixture patterns, writing tests for new review rules
 
 ### Reference
 
