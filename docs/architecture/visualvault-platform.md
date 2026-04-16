@@ -349,9 +349,20 @@ https://{env}.visualvault.com/FormDesigner/index.html#!/formdesigner?xcid={custo
 | Ignore Timezones     | `ignoreTimezones`         | checkbox | TZ display behavior   |
 | Enable Initial Value | (in properties panel)     | checkbox | Pre-populate on load  |
 
+### Template Storage Formats
+
+The Form Designer produces two distinct storage formats depending on when the template was created:
+
+- **XML format** (legacy): ExportForm endpoint returns a full `<FormEntity>` XML download. All field properties stored explicitly. Used by older templates.
+- **JSON format** (newer): ExportForm returns nothing. Design data accessible only via PreFormsAPI (`/FormTemplate/Controls/{revisionId}`). Uses a **sparse format** — only non-default property values are stored; the platform injects defaults at runtime. FormViewer requires `formid={revisionId}` (the template CH ID fails with "Could not locate Form Template").
+
+Both formats produce identical runtime behavior in `fieldMaster` for the same field configuration. See `docs/reference/form-template-xml.md` § XML vs JSON Template Format.
+
+**Identification**: JSON templates are identifiable by ExportForm returning no download, or `contentHash: null` in the extract manifest.
+
 ### Export Mechanism
 
-The Export link triggers `__doPostBack(eventTarget, '')` which sends a server-side request to generate the template XML. The server responds with a file download (Content-Disposition attachment). This is an **AJAX partial postback** (UpdatePanel) — the grid refreshes after the download starts.
+The Export link triggers `__doPostBack(eventTarget, '')` which sends a server-side request to generate the template XML. The server responds with a file download (Content-Disposition attachment). This is an **AJAX partial postback** (UpdatePanel) — the grid refreshes after the download starts. **Only works for XML-format templates** — JSON-format templates return no download.
 
 The downloaded XML is a `<FormEntity>` document containing the full template definition: metadata, pages, fields, scripts, groups/conditions, and PDF settings. See `docs/reference/form-template-xml.md` for the XML format reference.
 

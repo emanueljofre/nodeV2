@@ -4,16 +4,16 @@ Browser automation for VisualVault platform testing. Everything here is **shared
 
 ## Structure
 
-| Folder                 | Purpose                                                                                             |
-| ---------------------- | --------------------------------------------------------------------------------------------------- |
-| `specs/date-handling/` | Parameterized spec files (categories 1-16 + dashboard + audit + document library)                   |
-| `web-services/`        | Web service API date-handling specs                                                                 |
-| `helpers/`             | Test-specific page helpers: `vv-form.js` (form automation), `vv-calendar.js` (calendar interaction) |
-| `fixtures/`            | Shared test data and config: `test-data.js`, `vv-config.js`, `env-config.js`, `ws-config.js`        |
-| `pipelines/`           | Regression orchestrators: `run-regression.js`, `run-ws-regression.js`, `run-dash-regression.js`     |
-| `config/`              | Auth state (gitignored), TZ configs (committed), saved records (gitignored)                         |
-| `scripts/`             | Standalone Playwright scripts for one-off browser tasks (IST record creation, WS-4 verification)    |
-| `reporters/`           | Custom Playwright reporter for regression artifact generation                                       |
+| Folder                 | Purpose                                                                                                                 |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `specs/date-handling/` | Parameterized spec files (categories 1-16 + dashboard + audit + document library)                                       |
+| `web-services/`        | Web service API date-handling specs                                                                                     |
+| `helpers/`             | Test-specific page helpers: `vv-form.js` (form automation), `vv-calendar.js` (calendar interaction)                     |
+| `fixtures/`            | Shared test data and config: `test-data.js`, `vv-config.js`, `env-config.js`, `ws-config.js`                            |
+| `pipelines/`           | Regression orchestrators: `run-regression.js`, `run-ws-regression.js`, `run-dash-regression.js`                         |
+| `config/`              | Auth state (gitignored), TZ configs (committed), saved records (gitignored)                                             |
+| `scripts/`             | Standalone Playwright scripts for one-off tasks (IST record creation, WS-4 verification, JSON template date validation) |
+| `reporters/`           | Custom Playwright reporter for regression artifact generation                                                           |
 
 ## How It Works
 

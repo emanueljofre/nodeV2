@@ -4,17 +4,17 @@ Standalone CLI utilities for working with VV environments. Not tied to Playwrigh
 
 ## Subfolders
 
-| Folder        | Purpose                                       | Example usage                                                                          |
-| ------------- | --------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `extract/`    | Extract data from any VV environment          | `node tools/extract/extract.js --output projects/wadnr/extracts`                       |
-| `runners/`    | Execute workflows, WS/SP harness, debug       | `node tools/runners/run-ws-test.js --action WS-2`, `node tools/runners/run-sp-test.js` |
-| `audit/`      | Verify platform behaviors in browser          | `node tools/audit/audit-bug5-fake-z.js`                                                |
-| `inventory/`  | Analyze extracted project data                | `node tools/inventory/inventory-fields.js`                                             |
-| `generators/` | Create structured artifacts from test results | `node tools/generators/generate-artifacts.js`                                          |
-| `explore/`    | Platform exploration + version monitoring     | `npm run explore:headed`, `npm run version:snapshot`                                   |
-| `admin/`      | Create/manage VV admin objects via Playwright | `node tools/admin/create-ws.js --project emanueljofre --name myWS`                     |
-| `review/`     | Standards compliance review + reports         | `node tools/review/review.js --project wadnr`, `review.js --matrix`                    |
-| `helpers/`    | Shared libraries used by tools                | `vv-admin.js`, `vv-templates.js`, `vv-probes.js`, `vv-sync.js`, `build-context.js`     |
+| Folder        | Purpose                                       | Example usage                                                                                        |
+| ------------- | --------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `extract/`    | Extract data from any VV environment          | `node tools/extract/extract.js --output projects/wadnr/extracts`                                     |
+| `runners/`    | Execute workflows, WS/SP harness, debug       | `node tools/runners/run-ws-test.js --action WS-2`, `node tools/runners/run-sp-test.js`               |
+| `audit/`      | Verify platform behaviors in browser          | `node tools/audit/audit-bug5-fake-z.js`                                                              |
+| `inventory/`  | Analyze extracted project data                | `node tools/inventory/inventory-fields.js`                                                           |
+| `generators/` | Create structured artifacts from test results | `node tools/generators/generate-artifacts.js`                                                        |
+| `explore/`    | Platform exploration + version monitoring     | `npm run explore:headed`, `npm run version:snapshot`                                                 |
+| `admin/`      | Create/manage VV admin objects via Playwright | `node tools/admin/create-ws.js --project emanueljofre --name myWS`                                   |
+| `review/`     | Standards compliance review + reports         | `node tools/review/review.js --project wadnr`, `review.js --matrix`                                  |
+| `helpers/`    | Shared libraries used by tools                | `vv-admin.js`, `vv-templates.js`, `vv-formsapi.js`, `vv-probes.js`, `vv-sync.js`, `build-context.js` |
 
 ## Explore Commands
 

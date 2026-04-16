@@ -40,6 +40,32 @@ Structure and contents of the VV form template XML export format. Templates can 
 
 ---
 
+## XML vs JSON Template Format
+
+VV has two template storage formats depending on which Form Designer created the template:
+
+| Aspect                      | XML (legacy)                                            | JSON (newer)                                           |
+| --------------------------- | ------------------------------------------------------- | ------------------------------------------------------ |
+| Export                      | `ExportForm?xcdid={revisionId}` returns `.xml` download | ExportForm returns nothing (no download)               |
+| Read design data            | XML export file                                         | PreFormsAPI `/FormTemplate/Controls/{revisionId}`      |
+| Property storage            | **Explicit** — every property on every field            | **Sparse** — only non-default values stored            |
+| FormViewer `formid`         | Template CH ID or revisionId                            | **revisionId only** (CH ID returns "Could not locate") |
+| `VV.Form.formId` at runtime | Populated (template GUID)                               | Undefined/falsy — use URL `formid` param               |
+| Identification              | `contentHash` present in extract manifest               | `contentHash: null` in manifest                        |
+
+**JSON sparse format defaults** (omitted from JSON when matching):
+
+| Property             | Default |
+| -------------------- | ------- |
+| `enableTime`         | `false` |
+| `ignoreTimezone`     | `true`  |
+| `useLegacy`          | `false` |
+| `enableInitialValue` | `false` |
+
+At runtime, `fieldMaster` always shows the full resolved flags regardless of format. JSON and XML templates produce **identical runtime behavior** for the same field configuration. See `research/date-handling/forms-calendar/analysis/json-template-date-behavior.md`.
+
+---
+
 ## Field Types
 
 Fields are `<BaseField xsi:type="...">` elements within the page's `<FieldList>`.

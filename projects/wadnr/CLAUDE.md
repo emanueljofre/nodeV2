@@ -22,7 +22,7 @@ All data extracted via `tools/extract/` from the WADNR admin panels on vv5dev.
 | Web Services (Form + Workflow) | 251 scripts | `extracts/web-services/` |
 | Scheduled Services | 21 schedules + 20 scripts | `extracts/schedules/` |
 | Global Functions | 157 functions | `extracts/global-functions/` |
-| Form Templates | 77 XMLs | `extracts/form-templates/` |
+| Form Templates | 88 total (77 XML + 11 JSON) | `extracts/form-templates/` |
 | Custom Queries | 447 queries (11 main + 436 form DB) | `extracts/custom-queries/` |
 
 Last full extraction: 2026-04-08.
@@ -58,6 +58,7 @@ WADNR is a **near-production client environment**. Write operations are governed
 
 **Currently allowed writes:**
 - Form: `zzzDate Test Harness` (template `ff59bb37-b331-f111-830f-d3ae5cbd0a3d`) — create and update
+- Form: `zzzDateJsonTest` (template `26d16cf5-b939-f111-aafa-947a24228ff3`, JSON-based) — create and update. JSON template date validation (full A-H config matrix)
 - Form: `zzzTarget Date Test Harness` (template `3f3a0b1a-4834-f111-8310-f323cafecf11`) — Category 4 URL param tests (read-only — no form record writes needed, only URL param capture). Template updated to v1.2 (2026-04-10) with `enableQListener=true` on all fields
 - Web Service: `zzzJohnDevTestWebSvc` (script 203)
 
@@ -99,6 +100,6 @@ Runner requires `--template-name "zzzDate Test Harness"` (form name differs from
 
 ## Related
 
-- **Test assets catalog: [`test-assets.md`](test-assets.md)** — zzzDate Test Harness, zzzJohnDevTest, zzzJohnDevTestWebSvc
+- **Test assets catalog: [`test-assets.md`](test-assets.md)** — zzzDate Test Harness, zzzDateJsonTest, zzzJohnDevTest, zzzJohnDevTestWebSvc
 - Platform date bugs: `research/date-handling/` (FORM-BUG-1 through 7, WEBSERVICE-BUG-1 through 6, FORMDASHBOARD-BUG-1)
 - Support ticket tracking: Freshdesk #124697 / Jira WADNR-10407

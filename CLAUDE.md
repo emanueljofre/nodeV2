@@ -161,7 +161,7 @@ See `research/` folder. Each investigation gets its own subfolder with analysis,
 | Research                                               | Status      | Description                                                                                             |
 | ------------------------------------------------------ | ----------- | ------------------------------------------------------------------------------------------------------- |
 | [date-handling](research/date-handling/)               | In Progress | Cross-platform date handling bug investigation across Forms, Web Services, Dashboards, Document Library |
-| [form-templates](research/form-templates/)             | Active      | VV form template XML analysis, format documentation, and improved template generation                   |
+| [form-templates](research/form-templates/)             | Active      | VV form template format analysis (XML + JSON), documentation, and improved template generation          |
 | [extract-optimization](research/extract-optimization/) | Active      | Extract pipeline speed: parallel extraction, revision tracking, API-first                               |
 | [standards-review](research/standards-review/)         | In Progress | Deterministic standards compliance tool for VV components (form templates first)                        |
 | [wadnr](projects/wadnr/)                               | In Progress | WADNR client project: impact analysis, exported artifacts                                               |

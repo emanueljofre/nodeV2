@@ -8,12 +8,12 @@ Last verified: 2026-04-16
 
 ## Core Parameters
 
-| Parameter | Type           | Required                    | Description                                            |
-| --------- | -------------- | --------------------------- | ------------------------------------------------------ |
-| `formid`  | GUID           | One of `formid` or `DataID` | Form template ID — opens a **new blank** form instance |
-| `DataID`  | GUID           | One of `formid` or `DataID` | Revision ID — opens an **existing saved** form record  |
-| `xcid`    | GUID or string | Yes                         | Customer alias (e.g., `EmanuelJofre`) or customer GUID |
-| `xcdid`   | GUID or string | Yes                         | Database alias (e.g., `Main`) or database GUID         |
+| Parameter | Type           | Required                    | Description                                                                                                                                                                                                      |
+| --------- | -------------- | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `formid`  | GUID           | One of `formid` or `DataID` | Form template ID — opens a **new blank** form instance. **JSON templates**: must use the `revisionId`, not the template CH ID (returns "Could not locate Form Template" otherwise). XML templates accept either. |
+| `DataID`  | GUID           | One of `formid` or `DataID` | Revision ID — opens an **existing saved** form record                                                                                                                                                            |
+| `xcid`    | GUID or string | Yes                         | Customer alias (e.g., `EmanuelJofre`) or customer GUID                                                                                                                                                           |
+| `xcdid`   | GUID or string | Yes                         | Database alias (e.g., `Main`) or database GUID                                                                                                                                                                   |
 
 ### Examples
 
