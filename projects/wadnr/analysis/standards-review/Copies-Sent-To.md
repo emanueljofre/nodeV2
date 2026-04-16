@@ -1,6 +1,6 @@
 # Standards Review: Copies-Sent-To
 
-Generated: 2026-04-15 | Rules: 40 | Findings: 19 (0 errors, 15 warnings, 4 info)
+Generated: 2026-04-16 | Rules: 40 | Findings: 19 (0 errors, 15 warnings, 4 info)
 
 ## Summary
 

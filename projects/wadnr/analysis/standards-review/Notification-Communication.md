@@ -1,6 +1,6 @@
 # Standards Review: Notification-Communication
 
-Generated: 2026-04-15 | Rules: 40 | Findings: 54 (0 errors, 28 warnings, 26 info)
+Generated: 2026-04-16 | Rules: 40 | Findings: 54 (0 errors, 28 warnings, 26 info)
 
 ## Summary
 

@@ -1,6 +1,6 @@
 # Standards Review: Wetlands
 
-Generated: 2026-04-15 | Rules: 40 | Findings: 58 (0 errors, 37 warnings, 21 info)
+Generated: 2026-04-16 | Rules: 40 | Findings: 58 (0 errors, 37 warnings, 21 info)
 
 ## Summary
 

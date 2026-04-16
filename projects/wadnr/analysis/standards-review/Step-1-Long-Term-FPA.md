@@ -1,6 +1,6 @@
 # Standards Review: Step-1-Long-Term-FPA
 
-Generated: 2026-04-15 | Rules: 40 | Findings: 322 (0 errors, 247 warnings, 75 info)
+Generated: 2026-04-16 | Rules: 40 | Findings: 322 (0 errors, 247 warnings, 75 info)
 
 ## Summary
 
@@ -77,16 +77,16 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 322 (0 errors, 247 warnings, 75 in
 | accessibility-required | Landowner Business Or Individual | Page 1 | Required field AccessibilityLabel "Landowner Business Or Individual Dropdown Required" should end with "field Required" |
 | accessibility-required | Unstable Slopes Landforms | Page 1 | Required field AccessibilityLabel "Unstable Slopes Landforms" should end with "field Required" |
 | accessibility-required | Park Name | Page 1 | Required field AccessibilityLabel "Park Name" should end with "field Required" |
-| script-orphan-assignment | City_onBlur | — | Script assignment references non-existent control ID: b43f107f-c4f1-1971-e871-bec0a4890552 |
-| script-orphan-assignment | btn_HelpSensitiveSiteInventory_onClick | — | Script assignment references non-existent control ID: aea569a0-065e-bdd1-99ef-a9c14dbd3d65 |
 | script-orphan-assignment | Last_Name_Landowner_onBlur | — | Script assignment references non-existent control ID: 16d82648-9ea6-7819-9280-fe13c69accbd |
-| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
 | script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
+| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
+| script-orphan-assignment | First_Name_Landowner_onBlur | — | Script assignment references non-existent control ID: 8ff15494-5a24-9317-d5a0-2b0f92595160 |
 | script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
 | script-orphan-assignment | btnPayNow_Maintab_onClick | — | Script assignment references non-existent control ID: 25cc1bb6-cc30-0f53-2d5e-f99e40f01084 |
 | script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
-| script-orphan-assignment | First_Name_Landowner_onBlur | — | Script assignment references non-existent control ID: 8ff15494-5a24-9317-d5a0-2b0f92595160 |
 | script-orphan-assignment | City_onChange | — | Script assignment references non-existent control ID: b43f107f-c4f1-1971-e871-bec0a4890552 |
+| script-orphan-assignment | City_onBlur | — | Script assignment references non-existent control ID: b43f107f-c4f1-1971-e871-bec0a4890552 |
+| script-orphan-assignment | btn_HelpSensitiveSiteInventory_onClick | — | Script assignment references non-existent control ID: aea569a0-065e-bdd1-99ef-a9c14dbd3d65 |
 | script-unused-template | RemoveSelectedLandownersBusiness | — | Template helper "RemoveSelectedLandownersBusiness" is never referenced from any other script |
 | script-unused-template | LandownerSearch | — | Template helper "LandownerSearch" is never referenced from any other script |
 | script-unused-template | RemoveSelectedLandowners | — | Template helper "RemoveSelectedLandowners" is never referenced from any other script |

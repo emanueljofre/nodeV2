@@ -1,6 +1,6 @@
 # Standards Review: NP-Waters
 
-Generated: 2026-04-15 | Rules: 40 | Findings: 40 (0 errors, 21 warnings, 19 info)
+Generated: 2026-04-16 | Rules: 40 | Findings: 40 (0 errors, 21 warnings, 19 info)
 
 ## Summary
 

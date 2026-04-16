@@ -1,14 +1,14 @@
 # Standards Review: Long-Term-Application-5-Day-Notice
 
-Generated: 2026-04-15 | Rules: 40 | Findings: 321 (0 errors, 234 warnings, 87 info)
+Generated: 2026-04-16 | Rules: 40 | Findings: 329 (0 errors, 238 warnings, 91 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
 | Error    | 0 |
-| Warning  | 234 |
-| Info     | 87 |
+| Warning  | 238 |
+| Info     | 91 |
 
 ## Warnings
 
@@ -16,35 +16,39 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 321 (0 errors, 234 warnings, 87 in
 | :--- | :---- | :--- | :------ |
 | title-case | FPAN Number | Page 1 | Field name "FPAN Number" is not in Title Case |
 | title-case | Not required | Page 1 | Field name "Not required" is not in Title Case |
-| title-case | IsOfficeStaff | Page 1 | Field name "IsOfficeStaff" is not in Title Case |
-| title-case | IsProponent | Page 1 | Field name "IsProponent" is not in Title Case |
 | title-case | UserRoles | Page 1 | Field name "UserRoles" is not in Title Case |
 | title-case | old Status Change | Page 1 | Field name "old Status Change" is not in Title Case |
-| title-case | UserID | Page 1 | Field name "UserID" is not in Title Case |
 | title-case | StatusManuallySetToRecorded | Page 1 | Field name "StatusManuallySetToRecorded" is not in Title Case |
-| title-case | LTA 5-Day Status Updated At | Page 1 | Field name "LTA 5-Day Status Updated At" is not in Title Case |
+| title-case | UserID | Page 1 | Field name "UserID" is not in Title Case |
 | title-case | LTA 5-Day Status Flag | Page 1 | Field name "LTA 5-Day Status Flag" is not in Title Case |
+| title-case | LTA 5-Day Status Updated At | Page 1 | Field name "LTA 5-Day Status Updated At" is not in Title Case |
 | title-case | ActivityMapViewSubFormCreated | Page 1 | Field name "ActivityMapViewSubFormCreated" is not in Title Case |
 | title-case | FPAN Number Not Provided | Page 1 | Field name "FPAN Number Not Provided" is not in Title Case |
+| title-case | IsOfficeStaff | Page 1 | Field name "IsOfficeStaff" is not in Title Case |
+| title-case | IsProponent | Page 1 | Field name "IsProponent" is not in Title Case |
+| title-case | IsFieldStaff | Page 1 | Field name "IsFieldStaff" is not in Title Case |
+| title-case | IsGISEditor | Page 1 | Field name "IsGISEditor" is not in Title Case |
+| title-case | IsManagement | Page 1 | Field name "IsManagement" is not in Title Case |
+| title-case | IsOtherInternal | Page 1 | Field name "IsOtherInternal" is not in Title Case |
 | default-name | Image208 | Page 1 | Default field name "Image208" — use a descriptive name |
-| valid-identifier | LTA 5-Day Status Updated At | Page 1 | Field name "LTA 5-Day Status Updated At" contains invalid identifier characters |
 | valid-identifier | LTA 5-Day Status Flag | Page 1 | Field name "LTA 5-Day Status Flag" contains invalid identifier characters |
+| valid-identifier | LTA 5-Day Status Updated At | Page 1 | Field name "LTA 5-Day Status Updated At" contains invalid identifier characters |
 | accessibility-label | Appendix H Record | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | IsOfficeStaff | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | Relations Loaded In | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | IsProponent | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | Form Saved | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | Document Upload Path | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | UserRoles | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Region Zone | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | Related Record ID | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Individual ID | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Region Zone | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | old Status Change | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Individual ID | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | Effective Date | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | LTA 5-Day Status Updated At | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | ActivityMapViewSubFormCreated | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | Form Submitted | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | ActivityMapViewSubFormCreated | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | Forest Practice Notification Needed | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | IsOfficeStaff | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | IsProponent | Page 1 | Missing AccessibilityLabel |
 | accessibility-required | FPAN Number | Page 1 | Required field AccessibilityLabel "FPAN Number" should end with "field Required" |
 | accessibility-required | Region Project Information | Page 1 | Required field AccessibilityLabel "Region Project Information" should end with "field Required" |
 | accessibility-required | Operator Business Or Individual | Page 1 | Required field AccessibilityLabel "Operator Business Or Individual" should end with "field Required" |
@@ -52,14 +56,14 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 321 (0 errors, 234 warnings, 87 in
 | accessibility-required | Last Name Contact Person | Page 1 | Required field AccessibilityLabel "Last Name Contact Person Required field" should end with "field Required" |
 | accessibility-required | Start Date Operation | Page 1 | Required field AccessibilityLabel "Start Date Operation" should end with "field Required" |
 | accessibility-required | End Date Operation | Page 1 | Required field AccessibilityLabel "End Date Operation" should end with "field Required" |
+| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
+| script-orphan-assignment | btn_HelpNewTimberOwner_onClick | — | Script assignment references non-existent control ID: b2272856-ecfe-43de-7b57-d17ff73a287f |
 | script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
-| script-orphan-assignment | btn_HelpBusinessNameTimberOwner_onClick | — | Script assignment references non-existent control ID: 8e76a54f-3a17-ad4b-3fdd-d1b3510441c7 |
+| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
 | script-orphan-assignment | btn_HelpSmallForestLandowner_onClick | — | Script assignment references non-existent control ID: cd92a615-2d43-5009-3bce-26f6c0281069 |
 | script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
-| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
+| script-orphan-assignment | btn_HelpBusinessNameTimberOwner_onClick | — | Script assignment references non-existent control ID: 8e76a54f-3a17-ad4b-3fdd-d1b3510441c7 |
 | script-orphan-assignment | btn_HelpForestTaxNumberTimberOwner_onClick | — | Script assignment references non-existent control ID: 9a2f4a7d-30b1-a7ab-f753-14f113038968 |
-| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
-| script-orphan-assignment | btn_HelpNewTimberOwner_onClick | — | Script assignment references non-existent control ID: b2272856-ecfe-43de-7b57-d17ff73a287f |
 | script-unused-template | LandownerSearch | — | Template helper "LandownerSearch" is never referenced from any other script |
 | script-unused-template | OperatorSearch | — | Template helper "OperatorSearch" is never referenced from any other script |
 | script-unused-template | TimberOwnerSearch | — | Template helper "TimberOwnerSearch" is never referenced from any other script |
@@ -292,10 +296,10 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 321 (0 errors, 234 warnings, 87 in
 | label-unnamed-in-group | DataField35 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
 | label-unnamed-in-group | DataField3 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
 | label-unnamed-in-group | DataField25 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
-| label-unnamed-in-group | DataField32 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
 | label-unnamed-in-group | DataField4 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
-| label-unnamed-in-group | DataField33 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
+| label-unnamed-in-group | DataField32 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
 | label-unnamed-in-group | DataField34 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
+| label-unnamed-in-group | DataField33 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
 | label-unnamed-in-group | DataField36 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
 | spelling | FPAN Number | Page 1 | Possible misspelling: "FPAN" (suggestions: FRAN, FAN, FLAN) |
 | spelling | DG Landowners | Page 1 | Possible misspelling: "DG" (suggestions: CG, DB, DH) |
@@ -312,17 +316,21 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 321 (0 errors, 234 warnings, 87 in
 | spelling | DG Appendix H View | Page 1 | Possible misspelling: "DG" (suggestions: CG, DB, DH) |
 | spelling | Road Centerlines | Page 1 | Possible misspelling: "Centerlines" (suggestions: no suggestions) |
 | spelling | DG Signatures | Page 1 | Possible misspelling: "DG" (suggestions: CG, DB, DH) |
-| spelling | IsOfficeStaff | Page 1 | Possible misspelling: "IsOfficeStaff" (suggestions: no suggestions) |
-| spelling | IsProponent | Page 1 | Possible misspelling: "IsProponent" (suggestions: no suggestions) |
 | spelling | UserRoles | Page 1 | Possible misspelling: "UserRoles" (suggestions: no suggestions) |
-| spelling | UserID | Page 1 | Possible misspelling: "UserID" (suggestions: serIF, User'S, UserS) |
 | spelling | StatusManuallySetToRecorded | Page 1 | Possible misspelling: "StatusManuallySetToRecorded" (suggestions: no suggestions) |
-| spelling | LTA 5-Day Status Updated At | Page 1 | Possible misspelling: "LTA" (suggestions: LEA, ALTA, ETA) |
-| spelling | LTA 5-Day Status Updated At | Page 1 | Possible misspelling: "5-Day" (suggestions: day, toDay) |
+| spelling | UserID | Page 1 | Possible misspelling: "UserID" (suggestions: serIF, User'S, UserS) |
 | spelling | LTA 5-Day Status Flag | Page 1 | Possible misspelling: "LTA" (suggestions: LEA, ALTA, ETA) |
 | spelling | LTA 5-Day Status Flag | Page 1 | Possible misspelling: "5-Day" (suggestions: day, toDay) |
+| spelling | LTA 5-Day Status Updated At | Page 1 | Possible misspelling: "LTA" (suggestions: LEA, ALTA, ETA) |
+| spelling | LTA 5-Day Status Updated At | Page 1 | Possible misspelling: "5-Day" (suggestions: day, toDay) |
 | spelling | ActivityMapViewSubFormCreated | Page 1 | Possible misspelling: "ActivityMapViewSubFormCreated" (suggestions: no suggestions) |
 | spelling | FPAN Number Not Provided | Page 1 | Possible misspelling: "FPAN" (suggestions: FRAN, FAN, FLAN) |
+| spelling | IsOfficeStaff | Page 1 | Possible misspelling: "IsOfficeStaff" (suggestions: no suggestions) |
+| spelling | IsProponent | Page 1 | Possible misspelling: "IsProponent" (suggestions: no suggestions) |
+| spelling | IsFieldStaff | Page 1 | Possible misspelling: "IsFieldStaff" (suggestions: no suggestions) |
+| spelling | IsGISEditor | Page 1 | Possible misspelling: "IsGISEditor" (suggestions: no suggestions) |
+| spelling | IsManagement | Page 1 | Possible misspelling: "IsManagement" (suggestions: mIsManagement) |
+| spelling | IsOtherInternal | Page 1 | Possible misspelling: "IsOtherInternal" (suggestions: no suggestions) |
 | listener-disabled | FPAN Number | Page 1 | EnableQListener is enabled — verify this field requires query string fill-in/relate capability |
 | listener-disabled | Region Project Information | Page 1 | EnableQListener is enabled — verify this field requires query string fill-in/relate capability |
 | listener-disabled | Project Name | Page 1 | EnableQListener is enabled — verify this field requires query string fill-in/relate capability |

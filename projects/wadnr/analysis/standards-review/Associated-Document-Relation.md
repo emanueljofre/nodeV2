@@ -1,6 +1,6 @@
 # Standards Review: Associated-Document-Relation
 
-Generated: 2026-04-15 | Rules: 40 | Findings: 25 (0 errors, 15 warnings, 10 info)
+Generated: 2026-04-16 | Rules: 40 | Findings: 25 (0 errors, 15 warnings, 10 info)
 
 ## Summary
 

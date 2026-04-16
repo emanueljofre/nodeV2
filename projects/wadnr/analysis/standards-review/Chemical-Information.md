@@ -1,6 +1,6 @@
 # Standards Review: Chemical-Information
 
-Generated: 2026-04-15 | Rules: 40 | Findings: 62 (0 errors, 39 warnings, 23 info)
+Generated: 2026-04-16 | Rules: 40 | Findings: 62 (0 errors, 39 warnings, 23 info)
 
 ## Summary
 

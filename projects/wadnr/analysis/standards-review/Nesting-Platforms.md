@@ -1,6 +1,6 @@
 # Standards Review: Nesting-Platforms
 
-Generated: 2026-04-15 | Rules: 40 | Findings: 116 (0 errors, 105 warnings, 11 info)
+Generated: 2026-04-16 | Rules: 40 | Findings: 116 (0 errors, 105 warnings, 11 info)
 
 ## Summary
 

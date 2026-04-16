@@ -1,6 +1,6 @@
 # Standards Review: Region
 
-Generated: 2026-04-15 | Rules: 40 | Findings: 36 (0 errors, 24 warnings, 12 info)
+Generated: 2026-04-16 | Rules: 40 | Findings: 36 (0 errors, 24 warnings, 12 info)
 
 ## Summary
 

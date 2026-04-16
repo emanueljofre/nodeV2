@@ -1,14 +1,14 @@
 # Standards Review: FPAN-Notice-of-Decision
 
-Generated: 2026-04-15 | Rules: 40 | Findings: 65 (0 errors, 38 warnings, 27 info)
+Generated: 2026-04-16 | Rules: 40 | Findings: 67 (0 errors, 39 warnings, 28 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
 | Error    | 0 |
-| Warning  | 38 |
-| Info     | 27 |
+| Warning  | 39 |
+| Info     | 28 |
 
 ## Warnings
 
@@ -40,10 +40,10 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 65 (0 errors, 38 warnings, 27 info
 | accessibility-label | Application Type | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | Decision Control | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | Was AutoPopulated | Page 1 | Missing AccessibilityLabel |
-| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
 | script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
-| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
+| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
 | script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
+| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
 | field-multiple-groups | Decision Description | — | Field appears in 2 groups: Read Only Completed Record, Read Only Decision Description |
 | container-responsive-flow | Con_DeliveredBy | Page 1 | Container has 2 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
 | container-responsive-flow | Con_DateDelivered | Page 1 | Container has 2 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
@@ -52,11 +52,13 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 65 (0 errors, 38 warnings, 27 info
 | accessibility-label-match | btnComplete | Page 1 | AccessibilityLabel "Complete Button" does not match expected "Complete" |
 | accessibility-label-match | btnAdminSave | Page 1 | AccessibilityLabel "Admin Save Button" does not match expected "Admin Save" |
 | accessibility-label-match | Related Record ID | Page 1 | AccessibilityLabel "Tab Control" does not match expected "Related Record ID" |
+| tab-control-visible | TabControl | — | TabControl is in group "Hide Form Tabs" — tab visibility should be controlled via Menu tab, not groups |
 
 ## Info
 
 | Rule | Field | Page | Message |
 | :--- | :---- | :--- | :------ |
+| group-override-condition | Hide Form Tabs | — | Group does not reference an override field in its conditions |
 | group-override-condition | Show Amendment Header Label | — | Group does not reference an override field in its conditions |
 | group-override-condition | Show FPAN Header Label | — | Group does not reference an override field in its conditions |
 | group-override-condition | Show LTA Header Label | — | Group does not reference an override field in its conditions |

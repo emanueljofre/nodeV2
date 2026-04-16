@@ -1,14 +1,14 @@
 # Standards Review: Shopping-Cart
 
-Generated: 2026-04-15 | Rules: 40 | Findings: 131 (0 errors, 63 warnings, 68 info)
+Generated: 2026-04-16 | Rules: 40 | Findings: 133 (0 errors, 64 warnings, 69 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
 | Error    | 0 |
-| Warning  | 63 |
-| Info     | 68 |
+| Warning  | 64 |
+| Info     | 69 |
 
 ## Warnings
 
@@ -30,10 +30,10 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 131 (0 errors, 63 warnings, 68 inf
 | accessibility-label | CHKReturnedProviderNOTSendNewCHK | Page 1 | Missing AccessibilityLabel |
 | accessibility-required | Business Structure | Page 1 | Required field AccessibilityLabel "Business Structure field" should end with "field Required" |
 | accessibility-required | FEIN | Page 1 | Required field AccessibilityLabel "FEIN field" should end with "field Required" |
-| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
-| script-orphan-assignment | Amount_Received_onBlur | — | Script assignment references non-existent control ID: 42002bce-64ef-dd2e-b2fb-68ce1cad16fb |
-| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
 | script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
+| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
+| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
+| script-orphan-assignment | Amount_Received_onBlur | — | Script assignment references non-existent control ID: 42002bce-64ef-dd2e-b2fb-68ce1cad16fb |
 | script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
 | script-unused-template | SetupHPPResponseHandler | — | Template helper "SetupHPPResponseHandler" is never referenced from any other script |
 | script-unused-template | TabToFieldRelationships | — | Template helper "TabToFieldRelationships" is never referenced from any other script |
@@ -77,6 +77,7 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 131 (0 errors, 63 warnings, 68 inf
 | accessibility-label-match | btnApplyPayment | Page 1 | AccessibilityLabel "Apply Payment Button" does not match expected "Apply Payment" |
 | accessibility-label-match | btnContactProviderIssue | Page 1 | AccessibilityLabel "Check Issue, Contact Provider Button" does not match expected "Check Issue, Contact Provider" |
 | accessibility-label-match | btnCheckReturned | Page 1 | AccessibilityLabel "Check Returned Button" does not match expected "Check Returned" |
+| tab-control-visible | TabControl | — | TabControl is in group "Hide Form Tabs" — tab visibility should be controlled via Menu tab, not groups |
 
 ## Info
 
@@ -84,6 +85,7 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 131 (0 errors, 63 warnings, 68 inf
 | :--- | :---- | :--- | :------ |
 | group-override-condition | Check Issue Button | — | Group does not reference an override field in its conditions |
 | group-override-condition | Check Returned Button | — | Group does not reference an override field in its conditions |
+| group-override-condition | Hide Form Tabs | — | Group does not reference an override field in its conditions |
 | group-override-condition | PrintToSendCheck | — | Group does not reference an override field in its conditions |
 | label-unnamed-in-group | DataField2 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
 | label-unnamed-in-group | lblPayerInformationSectionHeader | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |

@@ -1,20 +1,14 @@
 # Standards Review: FPAN-Amendment-Request
 
-Generated: 2026-04-15 | Rules: 40 | Findings: 280 (1 errors, 213 warnings, 66 info)
+Generated: 2026-04-16 | Rules: 40 | Findings: 294 (0 errors, 223 warnings, 71 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
-| Error    | 1 |
-| Warning  | 213 |
-| Info     | 66 |
-
-## Errors
-
-| Rule | Field | Page | Message |
-| :--- | :---- | :--- | :------ |
-| duplicate-name | Con_SignatureHeader | Page 1 | Duplicate field name "Con_SignatureHeader" (2 occurrences) |
+| Error    | 0 |
+| Warning  | 223 |
+| Info     | 71 |
 
 ## Warnings
 
@@ -24,12 +18,17 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 280 (1 errors, 213 warnings, 66 in
 | title-case | Timber Owner Business Search Business ID NumberTimber Owner Business Search Business ID Number | Page 1 | Field name "Timber Owner Business Search Business ID NumberTimber Owner Business Search Business ID Number" is not in Title Case |
 | title-case | Describe the proposed amendment to the approved FPAN | Page 1 | Field name "Describe the proposed amendment to the approved FPAN" is not in Title Case |
 | title-case | UserID | Page 1 | Field name "UserID" is not in Title Case |
-| title-case | isProponent | Page 1 | Field name "isProponent" is not in Title Case |
 | title-case | old Amendment Status | Page 1 | Field name "old Amendment Status" is not in Title Case |
 | title-case | UserRoles | Page 1 | Field name "UserRoles" is not in Title Case |
-| title-case | isOfficeStaff | Page 1 | Field name "isOfficeStaff" is not in Title Case |
 | title-case | ActivityMapViewSubFormCreated | Page 1 | Field name "ActivityMapViewSubFormCreated" is not in Title Case |
 | title-case | FPAN Number Not Provided | Page 1 | Field name "FPAN Number Not Provided" is not in Title Case |
+| title-case | isOfficeStaff | Page 1 | Field name "isOfficeStaff" is not in Title Case |
+| title-case | IsFieldStaff | Page 1 | Field name "IsFieldStaff" is not in Title Case |
+| title-case | isProponent | Page 1 | Field name "isProponent" is not in Title Case |
+| title-case | IsManagement | Page 1 | Field name "IsManagement" is not in Title Case |
+| title-case | IsGISEditor | Page 1 | Field name "IsGISEditor" is not in Title Case |
+| title-case | IsIsOtherInternalPersonnel | Page 1 | Field name "IsIsOtherInternalPersonnel" is not in Title Case |
+| title-case | IsSignatory | Page 1 | Field name "IsSignatory" is not in Title Case |
 | default-name | Image171 | Page 1 | Default field name "Image171" — use a descriptive name |
 | valid-identifier | Amendment Status Updated At: | Page 1 | Field name "Amendment Status Updated At:" contains invalid identifier characters |
 | accessibility-label | Describe the proposed amendment to the approved FPAN | Page 1 | Missing AccessibilityLabel |
@@ -37,21 +36,21 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 280 (1 errors, 213 warnings, 66 in
 | accessibility-label | Effective Date | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | old Amendment Status | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | UserRoles | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Amendment Status Updated At | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | Email Flag | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Clean Text For Q2 | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | Form Submitted | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Amendment Status Updated At | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | ActivityMapViewSubFormCreated | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Clean Text For Q2 | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | Forest Practice Notification Needed | Page 1 | Missing AccessibilityLabel |
 | accessibility-required | First Name Contact Person | Page 1 | Required field AccessibilityLabel "First Name Contact Person Required Field" should end with "field Required" |
 | accessibility-required | Last Name Contact Person | Page 1 | Required field AccessibilityLabel "Last Name Contact Person Required field" should end with "field Required" |
-| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
-| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
-| script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
-| script-orphan-assignment | e46392e9-619f-7532-d7a9-22b99b57d32c | — | Script assignment references non-existent control ID: b157df97-e2ca-cf14-1c7d-e4f3a1a36a61 |
 | script-orphan-assignment | btn_HelpSmallForestLandowner_onClick | — | Script assignment references non-existent control ID: cd92a615-2d43-5009-3bce-26f6c0281069 |
-| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
 | script-orphan-assignment | btnTabFees_onClick | — | Script assignment references non-existent control ID: a3460bb7-0e78-43a4-767e-dbd192dc7969 |
+| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
+| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
+| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
+| script-orphan-assignment | e46392e9-619f-7532-d7a9-22b99b57d32c | — | Script assignment references non-existent control ID: b157df97-e2ca-cf14-1c7d-e4f3a1a36a61 |
+| script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
 | script-unused-template | RemoveSelectedTimberOwnersBusiness | — | Template helper "RemoveSelectedTimberOwnersBusiness" is never referenced from any other script |
 | script-unused-template | RemoveSelectedOperatorsBusiness | — | Template helper "RemoveSelectedOperatorsBusiness" is never referenced from any other script |
 | script-unused-template | RemoveSelectedLandowners | — | Template helper "RemoveSelectedLandowners" is never referenced from any other script |
@@ -208,10 +207,15 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 280 (1 errors, 213 warnings, 66 in
 | accessibility-label-match | btnAdminSave | Page 1 | AccessibilityLabel "Admin Save Button" does not match expected "Admin Save" |
 | accessibility-label-match | Individual ID | Page 1 | AccessibilityLabel "Related Record ID" does not match expected "Individual ID" |
 | accessibility-label-match | UserID | Page 1 | AccessibilityLabel "User ID" does not match expected "UserID" |
-| accessibility-label-match | isProponent | Page 1 | AccessibilityLabel "User Is Proponent" does not match expected "Is Proponent" |
 | accessibility-label-match | Form Saved | Page 1 | AccessibilityLabel "User Is Proponent" does not match expected "Form Saved" |
-| accessibility-label-match | isOfficeStaff | Page 1 | AccessibilityLabel "User Is Proponent" does not match expected "isOfficeStaff" |
 | accessibility-label-match | FPAN Number Not Provided | Page 1 | AccessibilityLabel "FPAN Number Not Provided flag" does not match expected "FPAN Number Not Provided" |
+| accessibility-label-match | isOfficeStaff | Page 1 | AccessibilityLabel "User Is Proponent" does not match expected "isOfficeStaff" |
+| accessibility-label-match | IsFieldStaff | Page 1 | AccessibilityLabel "User Is Field Staff" does not match expected "IsFieldStaff" |
+| accessibility-label-match | isProponent | Page 1 | AccessibilityLabel "User Is Proponent" does not match expected "Is Proponent" |
+| accessibility-label-match | IsManagement | Page 1 | AccessibilityLabel "User Is Management" does not match expected "IsManagement" |
+| accessibility-label-match | IsGISEditor | Page 1 | AccessibilityLabel "User Is FP GIS Editor" does not match expected "IsGISEditor" |
+| accessibility-label-match | IsIsOtherInternalPersonnel | Page 1 | AccessibilityLabel "User Is Other Internal Personnel" does not match expected "IsIsOtherInternalPersonnel" |
+| accessibility-label-match | IsSignatory | Page 1 | AccessibilityLabel "User Is Signatory" does not match expected "IsSignatory" |
 | button-label-camelcase | Landowner Individual Instructions lbl | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | button-label-camelcase | Landowner Business lbl | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | button-label-camelcase | Landowner Business Instructions lbl | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
@@ -283,12 +287,17 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 280 (1 errors, 213 warnings, 66 in
 | spelling | Describe the proposed amendment to the approved FPAN | Page 1 | Possible misspelling: "FPAN" (suggestions: FRAN, FAN, FLAN) |
 | spelling | DG Signatures | Page 1 | Possible misspelling: "DG" (suggestions: CG, DB, DH) |
 | spelling | UserID | Page 1 | Possible misspelling: "UserID" (suggestions: serIF, User'S, UserS) |
-| spelling | isProponent | Page 1 | Possible misspelling: "isProponent" (suggestions: no suggestions) |
 | spelling | UserRoles | Page 1 | Possible misspelling: "UserRoles" (suggestions: no suggestions) |
-| spelling | isOfficeStaff | Page 1 | Possible misspelling: "isOfficeStaff" (suggestions: no suggestions) |
-| spelling | Clean Text For Q2 | Page 1 | Possible misspelling: "Q2" (suggestions: 2, Qr, Qt) |
 | spelling | ActivityMapViewSubFormCreated | Page 1 | Possible misspelling: "ActivityMapViewSubFormCreated" (suggestions: no suggestions) |
 | spelling | FPAN Number Not Provided | Page 1 | Possible misspelling: "FPAN" (suggestions: FRAN, FAN, FLAN) |
+| spelling | Clean Text For Q2 | Page 1 | Possible misspelling: "Q2" (suggestions: 2, Qr, Qt) |
+| spelling | isOfficeStaff | Page 1 | Possible misspelling: "isOfficeStaff" (suggestions: no suggestions) |
+| spelling | IsFieldStaff | Page 1 | Possible misspelling: "IsFieldStaff" (suggestions: no suggestions) |
+| spelling | isProponent | Page 1 | Possible misspelling: "isProponent" (suggestions: no suggestions) |
+| spelling | IsManagement | Page 1 | Possible misspelling: "IsManagement" (suggestions: mIsManagement) |
+| spelling | IsGISEditor | Page 1 | Possible misspelling: "IsGISEditor" (suggestions: no suggestions) |
+| spelling | IsIsOtherInternalPersonnel | Page 1 | Possible misspelling: "IsIsOtherInternalPersonnel" (suggestions: no suggestions) |
+| spelling | IsSignatory | Page 1 | Possible misspelling: "IsSignatory" (suggestions: no suggestions) |
 | listener-disabled | FPAN Number | Page 1 | EnableQListener is enabled — verify this field requires query string fill-in/relate capability |
 | listener-disabled | Related Record ID | Page 1 | EnableQListener is enabled — verify this field requires query string fill-in/relate capability |
 | listener-disabled | Individual ID | Page 1 | EnableQListener is enabled — verify this field requires query string fill-in/relate capability |

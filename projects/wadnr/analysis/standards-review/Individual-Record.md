@@ -1,14 +1,14 @@
 # Standards Review: Individual-Record
 
-Generated: 2026-04-15 | Rules: 40 | Findings: 59 (0 errors, 35 warnings, 24 info)
+Generated: 2026-04-16 | Rules: 40 | Findings: 61 (0 errors, 36 warnings, 25 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
 | Error    | 0 |
-| Warning  | 35 |
-| Info     | 24 |
+| Warning  | 36 |
+| Info     | 25 |
 
 ## Warnings
 
@@ -28,9 +28,9 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 59 (0 errors, 35 warnings, 24 info
 | accessibility-required | First Name | Page 1 | Required field AccessibilityLabel "First Name" should end with "field Required" |
 | accessibility-required | Last Name | Page 1 | Required field AccessibilityLabel "Last Name" should end with "field Required" |
 | accessibility-required | Email | Page 1 | Required field AccessibilityLabel "Email" should end with "field Required" |
+| script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
 | script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
 | script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
-| script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
 | script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
 | script-unused-template | AddressFieldNamesMap | — | Template helper "AddressFieldNamesMap" is never referenced from any other script |
 | distance-to-border | Top Form ID | Page 1 | Field is 10px from the right border (minimum: 30px) |
@@ -49,11 +49,13 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 59 (0 errors, 35 warnings, 24 info
 | button-label-camelcase | Lbl_State | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | button-label-camelcase | Lbl_Province | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | button-label-camelcase | bntSave | Page 1 | Button name should start with "btn" prefix (camelCase convention) |
+| tab-control-visible | TabControl | — | TabControl is in group "Hide Form Tabs" — tab visibility should be controlled via Menu tab, not groups |
 
 ## Info
 
 | Rule | Field | Page | Message |
 | :--- | :---- | :--- | :------ |
+| group-override-condition | Hide Form Tabs | — | Group does not reference an override field in its conditions |
 | group-override-condition | Read Only Reviewer Field | — | Group does not reference an override field in its conditions |
 | label-unnamed-in-group | DataField2 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
 | label-unnamed-in-group | DataField1 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |

@@ -1,14 +1,14 @@
 # Standards Review: Forest-Practices-Application-Notification
 
-Generated: 2026-04-15 | Rules: 40 | Findings: 886 (0 errors, 643 warnings, 243 info)
+Generated: 2026-04-16 | Rules: 40 | Findings: 883 (0 errors, 639 warnings, 244 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
 | Error    | 0 |
-| Warning  | 643 |
-| Info     | 243 |
+| Warning  | 639 |
+| Info     | 244 |
 
 ## Warnings
 
@@ -49,12 +49,14 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 886 (0 errors, 643 warnings, 243 i
 | title-case | isViewOnly | Page 1 | Field name "isViewOnly" is not in Title Case |
 | title-case | AutoResubmitNeeded | Page 1 | Field name "AutoResubmitNeeded" is not in Title Case |
 | title-case | Application does not require payment | Page 1 | Field name "Application does not require payment" is not in Title Case |
+| title-case | isFPGISEditor | Page 1 | Field name "isFPGISEditor" is not in Title Case |
+| title-case | isSignatory | Page 1 | Field name "isSignatory" is not in Title Case |
 | title-case | ActivityMapViewSubFormCreated | Page 1 | Field name "ActivityMapViewSubFormCreated" is not in Title Case |
+| title-case | isOtherInternalPersonnel | Page 1 | Field name "isOtherInternalPersonnel" is not in Title Case |
 | title-case | sectionsMap | Page 1 | Field name "sectionsMap" is not in Title Case |
 | title-case | questionsMap | Page 1 | Field name "questionsMap" is not in Title Case |
 | title-case | Q8Text | Page 1 | Field name "Q8Text" is not in Title Case |
 | title-case | Q32Text | Page 1 | Field name "Q32Text" is not in Title Case |
-| default-name | Image508 | Page 1 | Default field name "Image508" — use a descriptive name |
 | accessibility-label | Show All Questions | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | Harvesting 50 Feet Np | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | All Questions | Page 1 | Missing AccessibilityLabel |
@@ -90,91 +92,90 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 886 (0 errors, 643 warnings, 243 i
 | accessibility-label | Q32Text | Page 1 | Missing AccessibilityLabel |
 | accessibility-required | First Name Contact Person | Page 1 | Required field AccessibilityLabel "Contact Person First Name" should end with "field Required" |
 | accessibility-required | Last Name Contact Person | Page 1 | Required field AccessibilityLabel "Contact Person Last Name" should end with "field Required" |
-| accessibility-required | Multiyear Permit Length Requested | Page 1 | Required field AccessibilityLabel "Multiyear Permit Length Requested" should end with "field Required" |
-| script-orphan-assignment | Timber_Owner_City_onBlur | — | Script assignment references non-existent control ID: c787d0da-5860-54ef-28fd-189b5917c577 |
-| script-orphan-assignment | 09aa7ed7-7012-39f0-3024-50f5e4ffdb75 | — | Script assignment references non-existent control ID: f113a46c-18c4-5ece-02f9-cb98615afc34 |
-| script-orphan-assignment | Operator_Email_onBlur | — | Script assignment references non-existent control ID: de8f2a7e-6541-4ebb-5a69-5cb93fba8e2c |
-| script-orphan-assignment | btnHelpTimberOwner_onClick | — | Script assignment references non-existent control ID: baabae08-866e-922e-5341-56f0d5194500 |
-| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
-| script-orphan-assignment | Timber_Owner_City_onBlur | — | Script assignment references non-existent control ID: b126e4d7-fe3f-be21-3cb5-6ff7717ef9a4 |
-| script-orphan-assignment | btnHelpTest_onClick | — | Script assignment references non-existent control ID: 390ce127-a0ca-c955-9496-8c63eaa3fcec |
-| script-orphan-assignment | Timber_Owner_Zip_Code_onBlur | — | Script assignment references non-existent control ID: 0c5ebdf8-511c-8746-54a5-78f90d6822ca |
-| script-orphan-assignment | Land_Owner_Phone_onBlur | — | Script assignment references non-existent control ID: 1d803007-e4e2-b6ed-ba8a-53838fe7ae60 |
-| script-orphan-assignment | Operator_Address_Line_1_onBlur | — | Script assignment references non-existent control ID: 16ee5fcb-1a3d-8ea6-af94-63497287ee11 |
-| script-orphan-assignment | Timber_Owner_Business_Signer_Last_Name_onBlur | — | Script assignment references non-existent control ID: 35d03fab-b7a3-5bbf-6236-379f8e1c0139 |
-| script-orphan-assignment | btnAddOperator_onClick | — | Script assignment references non-existent control ID: 44179f86-8d38-638e-b33f-38efb311626b |
-| script-orphan-assignment | btnAddLandowner_onClick | — | Script assignment references non-existent control ID: 5664d5db-8e40-cece-b189-9a6d9a1b4c72 |
-| script-orphan-assignment | Timber_Owner_Phone_onBlur | — | Script assignment references non-existent control ID: 3047f444-9e3f-c16e-87b2-05c1c630c25f |
-| script-orphan-assignment | Land_Owner_Last_Name_onBlur | — | Script assignment references non-existent control ID: 4a85c493-ec42-dcda-7c1e-bac09cadc8df |
-| script-orphan-assignment | btnBackNextSubmitBackButton_onClick | — | Script assignment references non-existent control ID: 4710f506-6fe9-09c6-edb4-894f9f5ebcb4 |
-| script-orphan-assignment | Forest_Tax_Number_onBlur | — | Script assignment references non-existent control ID: baf3caa3-ac61-cedf-0cc2-072f0de02a98 |
-| script-orphan-assignment | Timber_Owner_Country_onBlur | — | Script assignment references non-existent control ID: bc2bc0ae-0b3a-eaa3-cc80-1e1291a47ea2 |
+| script-orphan-assignment | Operator_Phone_onBlur | — | Script assignment references non-existent control ID: de9054a2-5a1c-a8a9-4737-d1060de1788d |
+| script-orphan-assignment | Timber_Owner_County_onBlur | — | Script assignment references non-existent control ID: 2cd5645a-51b5-c2c6-3f00-04811e059aea |
+| script-orphan-assignment | Land_Owner_County_onBlur | — | Script assignment references non-existent control ID: d97e05d3-0583-5234-7b66-33a93fc5b2c8 |
 | script-orphan-assignment | Land_Owner_City_onBlur | — | Script assignment references non-existent control ID: 9f6fb000-6af6-95e6-501a-2f97bb8fd255 |
-| script-orphan-assignment | btnSaveDraftNext_onClick | — | Script assignment references non-existent control ID: f80d30e4-f0c0-1a29-237d-e17b3c442c83 |
-| script-orphan-assignment | btnNext_onClick | — | Script assignment references non-existent control ID: 5bf96aa3-d9f1-fa9d-f92c-662b011cf8b0 |
-| script-orphan-assignment | Operator_Business_Signer_Email_onBlur | — | Script assignment references non-existent control ID: af769e00-5a4f-e3ae-4f70-f0703cc0ef98 |
-| script-orphan-assignment | Timber_Owner_Same_As_Landowner_onChange | — | Script assignment references non-existent control ID: 00172000-5d24-2a33-6ed1-b4c60e208206 |
-| script-orphan-assignment | btnTabContacts_onClick | — | Script assignment references non-existent control ID: 2596a76b-2061-8d28-678a-58c49f8ce544 |
-| script-orphan-assignment | Land_Owner_Business_Name_onBlur | — | Script assignment references non-existent control ID: c021c1eb-cf5f-7445-c4da-47af34760eec |
-| script-orphan-assignment | Timber_Owner_Business_Name_onBlur | — | Script assignment references non-existent control ID: a77cb4e1-5e29-8ccb-7bf0-7a52e19c96a6 |
-| script-orphan-assignment | btnAddLandowner_onClick | — | Script assignment references non-existent control ID: 24ac3794-4692-214f-9302-efb45824d262 |
-| script-orphan-assignment | Operator_Country_onBlur | — | Script assignment references non-existent control ID: 9ae02c15-1f0e-4cd9-afaa-a0ecb2ad7b7b |
+| script-orphan-assignment | Timber_Owner_Phone_onBlur | — | Script assignment references non-existent control ID: 3047f444-9e3f-c16e-87b2-05c1c630c25f |
 | script-orphan-assignment | Operator_Zip_Code_onBlur | — | Script assignment references non-existent control ID: b5cc1948-85cc-0610-3f20-74111a4057bf |
-| script-orphan-assignment | Operator_Last_Name_onBlur | — | Script assignment references non-existent control ID: c6fef813-e0bf-e4df-6bd7-a2a458dc574c |
-| script-orphan-assignment | Timber_Owner_Business_Signer_Name_onBlur | — | Script assignment references non-existent control ID: 3909b7a6-7d95-715c-f5b3-3ef8ddbccd97 |
-| script-orphan-assignment | Land_Owner_City_onBlur | — | Script assignment references non-existent control ID: 8ce22bd8-cb28-045e-10e3-e15876f4352d |
-| script-orphan-assignment | Contact_Person_Same_As_Landowner_onChange | — | Script assignment references non-existent control ID: fd976213-6694-0e3c-f123-fa89e15991fa |
-| script-orphan-assignment | Operator_City_onBlur | — | Script assignment references non-existent control ID: a808e949-3781-41b7-a515-17b2a21eeb8e |
-| script-orphan-assignment | MYP_Length_Requested_5_Years_onFocus | — | Script assignment references non-existent control ID: 958fb8f6-e5ff-171b-a64a-59da4f6779c2 |
-| script-orphan-assignment | btnBackNextSubmitNextButton_onClick | — | Script assignment references non-existent control ID: 10f9c0a4-afc6-b7fa-a769-ad45ade57d4e |
-| script-orphan-assignment | btnSaveDraftBack_onClick | — | Script assignment references non-existent control ID: 29fa1ffa-a583-da97-06c3-8e068eedbd92 |
-| script-orphan-assignment | btnHelpOperator_onClick | — | Script assignment references non-existent control ID: 02ad8992-2dcf-d18c-1f75-9e7182344e61 |
+| script-orphan-assignment | Land_Owner_Business_Signer_Email_onBlur | — | Script assignment references non-existent control ID: da02342a-fb21-ca7a-e34b-8f82f320b787 |
+| script-orphan-assignment | btnHelpContactPersonInformation_onClick | — | Script assignment references non-existent control ID: c712c45b-8dc2-87fe-72df-559e3295b317 |
+| script-orphan-assignment | Operator_Business_Signer_Last_Name_onBlur | — | Script assignment references non-existent control ID: 3acf6e78-f20b-a397-2db3-e5ff1302dcb7 |
+| script-orphan-assignment | Operator_Country_onBlur | — | Script assignment references non-existent control ID: 9ae02c15-1f0e-4cd9-afaa-a0ecb2ad7b7b |
+| script-orphan-assignment | btnAddLandowner_onClick | — | Script assignment references non-existent control ID: 5664d5db-8e40-cece-b189-9a6d9a1b4c72 |
+| script-orphan-assignment | btnAddContactPerson_onClick | — | Script assignment references non-existent control ID: e191e5a7-667d-1d3d-1782-8c26f4c4f463 |
+| script-orphan-assignment | btnSaveDraftNext_onClick | — | Script assignment references non-existent control ID: f80d30e4-f0c0-1a29-237d-e17b3c442c83 |
+| script-orphan-assignment | Timber_Owner_City_onBlur | — | Script assignment references non-existent control ID: b126e4d7-fe3f-be21-3cb5-6ff7717ef9a4 |
+| script-orphan-assignment | Timber_Owner_Last_Name_onBlur | — | Script assignment references non-existent control ID: 7173f53f-d76c-3c72-7890-35ecc50f57fa |
+| script-orphan-assignment | btnSaveDraftSubmit_onClick | — | Script assignment references non-existent control ID: 9111f372-08f6-bcf9-1694-71592c1bb190 |
+| script-orphan-assignment | btnTabContacts_onClick | — | Script assignment references non-existent control ID: 2596a76b-2061-8d28-678a-58c49f8ce544 |
+| script-orphan-assignment | Timber_Owner_Business_Signer_Last_Name_onBlur | — | Script assignment references non-existent control ID: 35d03fab-b7a3-5bbf-6236-379f8e1c0139 |
+| script-orphan-assignment | Northeast_Region_onBlur | — | Script assignment references non-existent control ID: 1d9f8cb8-1b9b-af80-f5db-180d16886bd0 |
+| script-orphan-assignment | Land_Owner_Province_State_onBlur | — | Script assignment references non-existent control ID: 7b257fd9-4280-3b19-4904-0138e160e643 |
+| script-orphan-assignment | Land_Owner_Business_Name_onBlur | — | Script assignment references non-existent control ID: c021c1eb-cf5f-7445-c4da-47af34760eec |
+| script-orphan-assignment | Timber_Owner_Address_Line_1_onBlur | — | Script assignment references non-existent control ID: 958d052c-1224-4fd1-9373-03c25f78b33a |
+| script-orphan-assignment | btnAddOperator_onClick | — | Script assignment references non-existent control ID: 44179f86-8d38-638e-b33f-38efb311626b |
+| script-orphan-assignment | Operator_First_Name_onBlur | — | Script assignment references non-existent control ID: ef07e4e8-81ce-e891-43ee-ddc695d14ced |
+| script-orphan-assignment | btnAddLandowner_onClick | — | Script assignment references non-existent control ID: 24ac3794-4692-214f-9302-efb45824d262 |
+| script-orphan-assignment | Land_Owner_Last_Name_onBlur | — | Script assignment references non-existent control ID: 4a85c493-ec42-dcda-7c1e-bac09cadc8df |
+| script-orphan-assignment | btnHelpActivitiesTypedWater_onClick | — | Script assignment references non-existent control ID: d1b804b4-abf8-76dd-0adf-23a1c8b02b45 |
+| script-orphan-assignment | Timber_Owner_Zip_Code_onBlur | — | Script assignment references non-existent control ID: 0c5ebdf8-511c-8746-54a5-78f90d6822ca |
+| script-orphan-assignment | Forest_Tax_Number_onBlur | — | Script assignment references non-existent control ID: baf3caa3-ac61-cedf-0cc2-072f0de02a98 |
+| script-orphan-assignment | Operator_City_onBlur | — | Script assignment references non-existent control ID: b0980d9e-c74d-d56a-d569-eca9b4eaf33c |
+| script-orphan-assignment | Timber_Owner_Business_Name_onBlur | — | Script assignment references non-existent control ID: a77cb4e1-5e29-8ccb-7bf0-7a52e19c96a6 |
+| script-orphan-assignment | Land_Owner_Country_onBlur | — | Script assignment references non-existent control ID: c1273cd8-31e5-1d5c-9a4c-a7a96b9ad570 |
+| script-orphan-assignment | btnSaveDraftNext_onClick | — | Script assignment references non-existent control ID: 7bd046c8-f30e-b42d-571c-2295b559e772 |
+| script-orphan-assignment | Land_Owner_Phone_onBlur | — | Script assignment references non-existent control ID: 1d803007-e4e2-b6ed-ba8a-53838fe7ae60 |
+| script-orphan-assignment | btnHelpLandowner_onClick | — | Script assignment references non-existent control ID: d4fe891f-0812-d983-f25e-39cae9879dfd |
+| script-orphan-assignment | Operator_Email_onBlur | — | Script assignment references non-existent control ID: de8f2a7e-6541-4ebb-5a69-5cb93fba8e2c |
+| script-orphan-assignment | Timber_Owner_Email_onBlur | — | Script assignment references non-existent control ID: 6a588f5e-4e31-12ac-e558-412fb4cefb46 |
 | script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
+| script-orphan-assignment | Land_Owner_City_onBlur | — | Script assignment references non-existent control ID: f4c2ca2f-86e9-5526-c4e9-f58dd0c8f127 |
+| script-orphan-assignment | Land_Owner_State_onBlur | — | Script assignment references non-existent control ID: 3531a224-3da3-ed9f-45e7-baee924d399a |
+| script-orphan-assignment | Timber_Owner_Country_onBlur | — | Script assignment references non-existent control ID: bc2bc0ae-0b3a-eaa3-cc80-1e1291a47ea2 |
+| script-orphan-assignment | Land_Owner_City_onBlur | — | Script assignment references non-existent control ID: 8ce22bd8-cb28-045e-10e3-e15876f4352d |
+| script-orphan-assignment | btnHelpLongTermAssignedFPANumber_onClick | — | Script assignment references non-existent control ID: 30e4473c-3499-c2d7-e223-455b1818b1a1 |
+| script-orphan-assignment | Timber_Owner_Same_As_Landowner_onChange | — | Script assignment references non-existent control ID: 00172000-5d24-2a33-6ed1-b4c60e208206 |
+| script-orphan-assignment | Timber_Owner_Business_Signer_Name_onBlur | — | Script assignment references non-existent control ID: 3909b7a6-7d95-715c-f5b3-3ef8ddbccd97 |
+| script-orphan-assignment | btnHelpTest_onClick | — | Script assignment references non-existent control ID: 390ce127-a0ca-c955-9496-8c63eaa3fcec |
+| script-orphan-assignment | Land_Owner_Address_Line_1_onBlur | — | Script assignment references non-existent control ID: b90589d1-9eac-c2db-2884-927257d4616b |
+| script-orphan-assignment | btnBackNextSubmitBackButton_onClick | — | Script assignment references non-existent control ID: 4710f506-6fe9-09c6-edb4-894f9f5ebcb4 |
+| script-orphan-assignment | Operator_Same_As_Landowner_onChange | — | Script assignment references non-existent control ID: e346d6d6-8a63-fffe-d1da-022a34d09220 |
+| script-orphan-assignment | Operator_Address_Line_1_onBlur | — | Script assignment references non-existent control ID: 16ee5fcb-1a3d-8ea6-af94-63497287ee11 |
+| script-orphan-assignment | Land_Owner_First_Name_onBlur | — | Script assignment references non-existent control ID: 9d1e1cb2-dbc1-b859-3143-77cbc3766b46 |
+| script-orphan-assignment | Timber_Owner_First_Name_onBlur | — | Script assignment references non-existent control ID: 5ce40096-d4e6-5fc1-f3b8-ad096fb39209 |
+| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
+| script-orphan-assignment | btnAddContact_onClick | — | Script assignment references non-existent control ID: 81a65aaa-c529-fb7f-471e-d91f3e906dee |
+| script-orphan-assignment | btnTabShoppingCart_onClick | — | Script assignment references non-existent control ID: 9788e640-9f3d-aa48-2c48-9e423ad06325 |
+| script-orphan-assignment | Operator_Province_State_onBlur | — | Script assignment references non-existent control ID: 6b87a112-b274-b21b-a623-d4123198b041 |
+| script-orphan-assignment | MYP_Length_Requested_4_Years_onFocus | — | Script assignment references non-existent control ID: ba798cd4-095f-ad36-267a-091052a6022d |
+| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
+| script-orphan-assignment | btnHelpLandownerBusinessName_onClick | — | Script assignment references non-existent control ID: 2a55af13-af15-499d-f0c0-3375d8cddb45 |
+| script-orphan-assignment | Operator_City_onBlur | — | Script assignment references non-existent control ID: a808e949-3781-41b7-a515-17b2a21eeb8e |
+| script-orphan-assignment | Contact_Person_Same_As_Landowner_onChange | — | Script assignment references non-existent control ID: fd976213-6694-0e3c-f123-fa89e15991fa |
+| script-orphan-assignment | btnHelpTimberOwner_onClick | — | Script assignment references non-existent control ID: baabae08-866e-922e-5341-56f0d5194500 |
+| script-orphan-assignment | btnNext_onClick | — | Script assignment references non-existent control ID: 5bf96aa3-d9f1-fa9d-f92c-662b011cf8b0 |
+| script-orphan-assignment | btnAddTimberOwner_onClick | — | Script assignment references non-existent control ID: e46916ff-8997-e57c-04cf-17967ed868e8 |
 | script-orphan-assignment | btnSaveDraftBackNext_onClick | — | Script assignment references non-existent control ID: 0ee43941-d905-c887-03dd-f2792ec89a16 |
 | script-orphan-assignment | Land_Owner_Business_Signer_Last_Name_onBlur | — | Script assignment references non-existent control ID: 0216d6f3-aeea-7639-7d76-463f584c884a |
-| script-orphan-assignment | btnSaveDraftSubmit_onClick | — | Script assignment references non-existent control ID: 9111f372-08f6-bcf9-1694-71592c1bb190 |
-| script-orphan-assignment | MYP_Length_Requested_4_Years_onFocus | — | Script assignment references non-existent control ID: ba798cd4-095f-ad36-267a-091052a6022d |
-| script-orphan-assignment | Land_Owner_County_onBlur | — | Script assignment references non-existent control ID: d97e05d3-0583-5234-7b66-33a93fc5b2c8 |
-| script-orphan-assignment | Operator_Business_Signer_Last_Name_onBlur | — | Script assignment references non-existent control ID: 3acf6e78-f20b-a397-2db3-e5ff1302dcb7 |
-| script-orphan-assignment | btnAddContactPerson_onClick | — | Script assignment references non-existent control ID: e191e5a7-667d-1d3d-1782-8c26f4c4f463 |
-| script-orphan-assignment | btnHelpLongTermAssignedFPANumber_onClick | — | Script assignment references non-existent control ID: 30e4473c-3499-c2d7-e223-455b1818b1a1 |
-| script-orphan-assignment | Timber_Owner_Business_Signer_Email_onBlur | — | Script assignment references non-existent control ID: 90cd560a-1076-bf0f-ec2b-b2508dd05441 |
-| script-orphan-assignment | Timber_Owner_Address_Line_1_onBlur | — | Script assignment references non-existent control ID: 958d052c-1224-4fd1-9373-03c25f78b33a |
-| script-orphan-assignment | btnHelpLandowner_onClick | — | Script assignment references non-existent control ID: d4fe891f-0812-d983-f25e-39cae9879dfd |
-| script-orphan-assignment | Operator_City_onBlur | — | Script assignment references non-existent control ID: b0980d9e-c74d-d56a-d569-eca9b4eaf33c |
-| script-orphan-assignment | Timber_Owner_First_Name_onBlur | — | Script assignment references non-existent control ID: 5ce40096-d4e6-5fc1-f3b8-ad096fb39209 |
 | script-orphan-assignment | btnHelpTimberOwnerBusinessName_onClick | — | Script assignment references non-existent control ID: a1613d95-36c3-0911-83f7-8fedad21facf |
-| script-orphan-assignment | Land_Owner_City_onBlur | — | Script assignment references non-existent control ID: f4c2ca2f-86e9-5526-c4e9-f58dd0c8f127 |
-| script-orphan-assignment | btnAddContact_onClick | — | Script assignment references non-existent control ID: 81a65aaa-c529-fb7f-471e-d91f3e906dee |
-| script-orphan-assignment | Land_Owner_First_Name_onBlur | — | Script assignment references non-existent control ID: 9d1e1cb2-dbc1-b859-3143-77cbc3766b46 |
-| script-orphan-assignment | Northeast_Region_onBlur | — | Script assignment references non-existent control ID: 1d9f8cb8-1b9b-af80-f5db-180d16886bd0 |
-| script-orphan-assignment | Operator_Province_State_onBlur | — | Script assignment references non-existent control ID: 6b87a112-b274-b21b-a623-d4123198b041 |
-| script-orphan-assignment | Operator_Phone_onBlur | — | Script assignment references non-existent control ID: de9054a2-5a1c-a8a9-4737-d1060de1788d |
-| script-orphan-assignment | Operator_Business_Signer_Name_onBlur | — | Script assignment references non-existent control ID: a97a647a-cbaf-68f1-52d8-5976d8a3e4a6 |
-| script-orphan-assignment | Land_Owner_Business_Signer_Email_onBlur | — | Script assignment references non-existent control ID: da02342a-fb21-ca7a-e34b-8f82f320b787 |
-| script-orphan-assignment | btnTabShoppingCart_onClick | — | Script assignment references non-existent control ID: 9788e640-9f3d-aa48-2c48-9e423ad06325 |
-| script-orphan-assignment | Timber_Owner_Province_State_onBlur | — | Script assignment references non-existent control ID: db79b8d6-4d73-69ed-8d8f-c6394e484093 |
-| script-orphan-assignment | btnHelpLandownerBusinessName_onClick | — | Script assignment references non-existent control ID: 2a55af13-af15-499d-f0c0-3375d8cddb45 |
-| script-orphan-assignment | Land_Owner_Business_Signer_Name_onBlur | — | Script assignment references non-existent control ID: cca04453-adb7-4bd5-7f61-ae30f83728de |
-| script-orphan-assignment | Land_Owner_Zip_Code_onBlur | — | Script assignment references non-existent control ID: 8870073b-a149-c9ad-c336-b9218ecb4e18 |
 | script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
-| script-orphan-assignment | Land_Owner_State_onBlur | — | Script assignment references non-existent control ID: 3531a224-3da3-ed9f-45e7-baee924d399a |
-| script-orphan-assignment | Timber_Owner_County_onBlur | — | Script assignment references non-existent control ID: 2cd5645a-51b5-c2c6-3f00-04811e059aea |
-| script-orphan-assignment | Land_Owner_Address_Line_1_onBlur | — | Script assignment references non-existent control ID: b90589d1-9eac-c2db-2884-927257d4616b |
-| script-orphan-assignment | Operator_First_Name_onBlur | — | Script assignment references non-existent control ID: ef07e4e8-81ce-e891-43ee-ddc695d14ced |
-| script-orphan-assignment | Land_Owner_Country_onBlur | — | Script assignment references non-existent control ID: c1273cd8-31e5-1d5c-9a4c-a7a96b9ad570 |
-| script-orphan-assignment | btnHelpActivitiesTypedWater_onClick | — | Script assignment references non-existent control ID: d1b804b4-abf8-76dd-0adf-23a1c8b02b45 |
-| script-orphan-assignment | Land_Owner_Province_State_onBlur | — | Script assignment references non-existent control ID: 7b257fd9-4280-3b19-4904-0138e160e643 |
-| script-orphan-assignment | Land_Owner_Email_onBlur | — | Script assignment references non-existent control ID: 0fb013a3-9000-7578-89ea-14d92bdade53 |
-| script-orphan-assignment | Operator_Same_As_Landowner_onChange | — | Script assignment references non-existent control ID: e346d6d6-8a63-fffe-d1da-022a34d09220 |
+| script-orphan-assignment | btnBackNextSubmitNextButton_onClick | — | Script assignment references non-existent control ID: 10f9c0a4-afc6-b7fa-a769-ad45ade57d4e |
+| script-orphan-assignment | Timber_Owner_Province_State_onBlur | — | Script assignment references non-existent control ID: db79b8d6-4d73-69ed-8d8f-c6394e484093 |
+| script-orphan-assignment | Land_Owner_Zip_Code_onBlur | — | Script assignment references non-existent control ID: 8870073b-a149-c9ad-c336-b9218ecb4e18 |
 | script-orphan-assignment | Operator_County_onBlur | — | Script assignment references non-existent control ID: 61419a21-d6bd-9d64-eb46-aef7763e975f |
-| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
-| script-orphan-assignment | Timber_Owner_Email_onBlur | — | Script assignment references non-existent control ID: 6a588f5e-4e31-12ac-e558-412fb4cefb46 |
-| script-orphan-assignment | btnSaveDraftNext_onClick | — | Script assignment references non-existent control ID: 7bd046c8-f30e-b42d-571c-2295b559e772 |
-| script-orphan-assignment | btnHelpContactPersonInformation_onClick | — | Script assignment references non-existent control ID: c712c45b-8dc2-87fe-72df-559e3295b317 |
+| script-orphan-assignment | Timber_Owner_Business_Signer_Email_onBlur | — | Script assignment references non-existent control ID: 90cd560a-1076-bf0f-ec2b-b2508dd05441 |
+| script-orphan-assignment | btnSaveDraftBack_onClick | — | Script assignment references non-existent control ID: 29fa1ffa-a583-da97-06c3-8e068eedbd92 |
+| script-orphan-assignment | Operator_Business_Signer_Email_onBlur | — | Script assignment references non-existent control ID: af769e00-5a4f-e3ae-4f70-f0703cc0ef98 |
+| script-orphan-assignment | MYP_Length_Requested_5_Years_onFocus | — | Script assignment references non-existent control ID: 958fb8f6-e5ff-171b-a64a-59da4f6779c2 |
+| script-orphan-assignment | Land_Owner_Email_onBlur | — | Script assignment references non-existent control ID: 0fb013a3-9000-7578-89ea-14d92bdade53 |
+| script-orphan-assignment | 09aa7ed7-7012-39f0-3024-50f5e4ffdb75 | — | Script assignment references non-existent control ID: f113a46c-18c4-5ece-02f9-cb98615afc34 |
+| script-orphan-assignment | Timber_Owner_City_onBlur | — | Script assignment references non-existent control ID: c787d0da-5860-54ef-28fd-189b5917c577 |
 | script-orphan-assignment | 6c2613f9-551f-488c-ae72-221234ab4f4c | — | Script assignment references non-existent control ID: 6e90cd09-418c-db6a-4314-d874825b531e |
-| script-orphan-assignment | btnAddTimberOwner_onClick | — | Script assignment references non-existent control ID: e46916ff-8997-e57c-04cf-17967ed868e8 |
-| script-orphan-assignment | Timber_Owner_Last_Name_onBlur | — | Script assignment references non-existent control ID: 7173f53f-d76c-3c72-7890-35ecc50f57fa |
+| script-orphan-assignment | Land_Owner_Business_Signer_Name_onBlur | — | Script assignment references non-existent control ID: cca04453-adb7-4bd5-7f61-ae30f83728de |
+| script-orphan-assignment | Operator_Business_Signer_Name_onBlur | — | Script assignment references non-existent control ID: a97a647a-cbaf-68f1-52d8-5976d8a3e4a6 |
+| script-orphan-assignment | Operator_Last_Name_onBlur | — | Script assignment references non-existent control ID: c6fef813-e0bf-e4df-6bd7-a2a458dc574c |
+| script-orphan-assignment | btnHelpOperator_onClick | — | Script assignment references non-existent control ID: 02ad8992-2dcf-d18c-1f75-9e7182344e61 |
 | script-unused-template | LandownerSearch | — | Template helper "LandownerSearch" is never referenced from any other script |
 | script-unused-template | ValidateQuestion28 | — | Template helper "ValidateQuestion28" is never referenced from any other script |
 | script-unused-template | TimberOwnerSearch | — | Template helper "TimberOwnerSearch" is never referenced from any other script |
@@ -231,7 +232,6 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 886 (0 errors, 643 warnings, 243 i
 | field-multiple-groups | Con_ActivitiesInorOverTypedWaterDG | — | Field appears in 2 groups: Activities in or over Typed Water Visibility DG, All Form Read Only |
 | field-multiple-groups | Con_AdditionalInformation | — | Field appears in 2 groups: Additional Information, All Form Read Only |
 | field-multiple-groups | Con_AdditionalInfoValidateBtn | — | Field appears in 2 groups: Additional Information, All Form Read Only |
-| field-multiple-groups | Con_Print | — | Field appears in 2 groups: All Form Read Only, Show Print Button |
 | field-multiple-groups | Con_Details | — | Field appears in 2 groups: All Form Read Only, Header Section |
 | field-multiple-groups | Con_DocumentUploads | — | Field appears in 2 groups: All Form Read Only, Documentation Visibility |
 | field-multiple-groups | Con_LandownerBusinessOrIndividual | — | Field appears in 2 groups: All Form Read Only, Landowner Visibility |
@@ -263,7 +263,6 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 886 (0 errors, 643 warnings, 243 i
 | field-multiple-groups | Con_SubstitutingPrescriptionsAnswers | — | Field appears in 2 groups: All Form Read Only, Substituting Prescriptions Answer Visibility |
 | field-multiple-groups | Con_UnstableSlopes | — | Field appears in 2 groups: All Form Read Only, Unstable Slopes Visibility |
 | field-multiple-groups | DataField73 | — | Field appears in 2 groups: All Form Read Only, Unstable Slopes Answer Visibility |
-| field-multiple-groups | Con_AppendixDInQ10OnlyView | — | Field appears in 2 groups: All Form Read Only, Unstable Slopes Answer Visibility Only View |
 | field-multiple-groups | Con_ForestPracticesAp | — | Field appears in 2 groups: All Form Read Only, Forest Practices AP Visibility |
 | field-multiple-groups | Con_ForestPracticesFFFPP | — | Field appears in 2 groups: All Form Read Only, Forest Practices FFFPP Visibility |
 | field-multiple-groups | Con_YesQ11c | — | Field appears in 3 groups: All Form Read Only, Forest Practices UGA Visibility, Show Yes Q11c |
@@ -274,13 +273,10 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 886 (0 errors, 643 warnings, 243 i
 | field-multiple-groups | Con_ParkName11f | — | Field appears in 4 groups: All Form Read Only, Forest Practices 500 Feet Public Park Visibility, Forest Practices Park Name Visibility, Show Park Name 11f |
 | field-multiple-groups | Con_ForestPracticesHarvestingSalvagingConstructing | — | Field appears in 2 groups: All Form Read Only, Forest Practices Harvesting Salvaging Visibility |
 | field-multiple-groups | Con_ForestPracticesHarvestingSalvagingConstructingDG | — | Field appears in 2 groups: All Form Read Only, Forest Practices Harvesting Salvaging DG Visibility |
-| field-multiple-groups | Con_ForestPracticesHarvestingSalvagingConstructingOnlyViewDG | — | Field appears in 2 groups: All Form Read Only, Forest Practices Harvesting Salvaging DG Visibility Only View |
 | field-multiple-groups | Con_ForestPracticesCMZ | — | Field appears in 2 groups: All Form Read Only, Forest Practices CMZ Visibility |
 | field-multiple-groups | Con_ForestPractices200Feet | — | Field appears in 2 groups: All Form Read Only, Forest Practices 200 Feet Visibility |
 | field-multiple-groups | Con_ForestPractices200FeetAttachAppendixA_DG | — | Field appears in 2 groups: All Form Read Only, Forest Practices 200 Feet Attach Appendix A WTMF Visibility |
-| field-multiple-groups | Con_ForestPractices200FeetAttachAppendixA_DGView | — | Field appears in 2 groups: All Form Read Only, Forest Practices 200 Feet Attach Appendix A WTMF Visibility View Column |
 | field-multiple-groups | Con_ForestPractices200FeetAttachWTMF_DG | — | Field appears in 2 groups: All Form Read Only, Forest Practices 200 Feet Attach Appendix A WTMF Visibility |
-| field-multiple-groups | Con_ForestPractices200FeetAttachWTMF_DGView | — | Field appears in 2 groups: All Form Read Only, Forest Practices 200 Feet Attach Appendix A WTMF Visibility View Column |
 | field-multiple-groups | Con_ProposedProjectsNotPermitted | — | Field appears in 2 groups: All Form Read Only, Proposed Projects Not Permitted Visibility |
 | field-multiple-groups | Con_ProposedProjectsNotPermittedQ1 | — | Field appears in 2 groups: All Form Read Only, Proposed Projects Not Permitted Answers |
 | field-multiple-groups | Con_ProposedProjectsNotPermittedQ2 | — | Field appears in 2 groups: All Form Read Only, Proposed Projects Not Permitted Answers |
@@ -304,7 +300,6 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 886 (0 errors, 643 warnings, 243 i
 | field-multiple-groups | Con_ReforestationTreeSpecies | — | Field appears in 2 groups: All Form Read Only, Reforestation Tree Species Visibility |
 | field-multiple-groups | Con_ReforestationNatural | — | Field appears in 2 groups: All Form Read Only, Reforestation Natural Visibility |
 | field-multiple-groups | Con_ReforestationNaturalContent | — | Field appears in 2 groups: All Form Read Only, Reforestation Natural Visibility |
-| field-multiple-groups | Con_ReforestationNaturalContentOnlyView | — | Field appears in 2 groups: All Form Read Only, Reforestation Natural Visibility Only View |
 | field-multiple-groups | Con_ReforestationNotRequired | — | Field appears in 2 groups: All Form Read Only, Con_ReforestationNotRequired |
 | field-multiple-groups | Con_ReforestationNotRequiredContent | — | Field appears in 2 groups: All Form Read Only, Reforestation Not Required Visibility |
 | field-multiple-groups | Con_ForestLandOwnMoreThan80Acres | — | Field appears in 2 groups: All Form Read Only, Forest Land Own More Than 80 Acres Visibility |
@@ -336,16 +331,15 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 886 (0 errors, 643 warnings, 243 i
 | field-multiple-groups | Con_AdditionalInfoNoReqPayList | — | Field appears in 2 groups: All Form Read Only, Show Q32 Not Req Pay Reason |
 | field-multiple-groups | Con_Fees | — | Field appears in 2 groups: All Form Read Only, Show Fee Tab Content |
 | field-multiple-groups | Con_Signatures | — | Field appears in 2 groups: All Form Read Only, Show Signature Tab Content |
-| field-multiple-groups | Con_ManageWhiteSpace | — | Field appears in 2 groups: All Form Read Only, Show Manage Tab Content |
-| field-multiple-groups | Con_SaveDraft | — | Field appears in 2 groups: All Form Read Only, Save Draft Office Staff Button Visibility |
 | field-multiple-groups | Con_ForestPracticesUrbanGrowthArea | — | Field appears in 2 groups: All Form Read Only, Forest Practices UGA Visibility |
+| field-multiple-groups | Con_ManageWhiteSpace | — | Field appears in 2 groups: Buttons Readonly DNR Users, Show Manage Tab Content |
+| field-multiple-groups | Con_SaveDraft | — | Field appears in 2 groups: Buttons Readonly DNR Users, Save Draft Office Staff Button Visibility |
 | field-multiple-groups | Con_YesQ11a | — | Field appears in 2 groups: Forest Practices AP Visibility, Show Yes Q11a |
 | field-multiple-groups | Con_YesQ11d | — | Field appears in 2 groups: Forest Practices Approved COHP Visibility, Show Yes Q11d |
 | field-multiple-groups | Con_YesQ11h | — | Field appears in 2 groups: Forest Practices CMZ Visibility, Show Yes Q11h |
 | field-multiple-groups | Con_YesQ11g | — | Field appears in 2 groups: Forest Practices Harvesting Salvaging DG Visibility, Forest Practices Harvesting Salvaging DG Visibility Only View |
 | field-multiple-groups | Con_YesQ11e | — | Field appears in 2 groups: Forest Practices In Public Park Visibility, Show Park Name 11e |
 | field-multiple-groups | Con_NoQ11c | — | Field appears in 2 groups: Forest Practices UGA Visibility, Show No Q11c |
-| field-multiple-groups | btnWithdrawalRequest | — | Field appears in 2 groups: Manage Tab Buttons Read Only, Withdrawal Request read only |
 | field-multiple-groups | Label392 | — | Field appears in 2 groups: Select Question Visibility, Show Questions Selector |
 | field-multiple-groups | List Of Questions | — | Field appears in 2 groups: Select Question Visibility, Show Questions Selector |
 | field-multiple-groups | ProgressLabel | — | Field appears in 2 groups: Select Question Visibility, Show Progress Label |
@@ -366,6 +360,7 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 886 (0 errors, 643 warnings, 243 i
 | label-overlap | Landowner Business Search Business Name | Page 1 | Label "Label509" overlaps field by 40px |
 | label-overlap | Timber Owner Business Search Business ID Number | Page 1 | Label "Label545" overlaps field by 12px |
 | label-overlap | Operator Business Search Business ID Number | Page 1 | Label "Label592" overlaps field by 12px |
+| label-overlap | Multiyear Permit Length Requested | Page 1 | Label "DataField12" overlaps field by 52px |
 | label-overlap | Tab Control | Page 1 | Label "Label49" overlaps field by 50px |
 | label-overlap | Visible Section | Page 1 | Label "DataField14" overlaps field by 50px |
 | button-min-size | btnHelpRegion | Page 1 | Button is 20x20px — minimum is 24x24px (508 compliance) |
@@ -524,10 +519,8 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 886 (0 errors, 643 warnings, 243 i
 | accessibility-label-match | btnHelpLongTermApplication | Page 1 | AccessibilityLabel "Long Term Application Help Button" does not match expected "?" |
 | accessibility-label-match | Long Term FPA Valid | Page 1 | AccessibilityLabel "Long Term Valid FPA field Required" does not match expected "For how many years do you want this Long-term FPA to be valid?" |
 | accessibility-label-match | btnHelpMultiYearPermit | Page 1 | AccessibilityLabel "Multiyear Permit Help Button" does not match expected "?" |
-| accessibility-label-match | Multiyear Permit Length Requested | Page 1 | AccessibilityLabel "Multiyear Permit Length Requested" does not match expected "Select the length requested" |
 | accessibility-label-match | Land Conversion Three Years Of Harvest | Page 1 | AccessibilityLabel "Land Conversion Three Years Of Harvest" does not match expected "Are you converting any portion of the land to non-forestry use within three (3) years of harvest?" |
 | accessibility-label-match | btnHelpLandConversion | Page 1 | AccessibilityLabel "Land Conversion Help Button" does not match expected "?" |
-| accessibility-label-match | Small Forest Landowner | Page 1 | AccessibilityLabel "Small Forest Landowner" does not match expected "Are you a small forest landowner per RCW 76.09.450?" |
 | accessibility-label-match | btnHelpRCW | Page 1 | AccessibilityLabel "RCW Help Button" does not match expected "?" |
 | accessibility-label-match | btnHelpChecklistRMAP | Page 1 | AccessibilityLabel "Checklist RMAP Help Button" does not match expected "?" |
 | accessibility-label-match | Historic Sites | Page 1 | AccessibilityLabel "Historic Sites" does not match expected "Have you reviewed this forest practices activity area to determine whether it may involve historic sites and/or Native American cultural resources?" |
@@ -651,6 +644,9 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 886 (0 errors, 643 warnings, 243 i
 | accessibility-label-match | Signatures Completed | Page 1 | AccessibilityLabel "Fees Paid" does not match expected "Signatures Completed" |
 | accessibility-label-match | IsCopying | Page 1 | AccessibilityLabel "Copy Application" does not match expected "IsCopying" |
 | accessibility-label-match | Received Notification Sent | Page 1 | AccessibilityLabel "Copy Application" does not match expected "Received Notification Sent" |
+| accessibility-label-match | isFPGISEditor | Page 1 | AccessibilityLabel "isFPGISEditor flag" does not match expected "Is FPGISEditor" |
+| accessibility-label-match | isSignatory | Page 1 | AccessibilityLabel "isSignatory flag" does not match expected "Is Signatory" |
+| accessibility-label-match | isOtherInternalPersonnel | Page 1 | AccessibilityLabel "isOtherInternalPersonnel flag" does not match expected "Is OtherInternalPersonnel" |
 | button-label-camelcase | fpOnlineTitle | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | button-label-camelcase | lbDateOfReceipt | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | button-label-camelcase | ProgressLabel | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
@@ -664,7 +660,6 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 886 (0 errors, 643 warnings, 243 i
 | :--- | :---- | :--- | :------ |
 | calendar-name-match | Date of Receipt | Page 1 | Name suggests date-only but enableTime is ON (Config D: DateTime + IgnoreTZ) — verify time component is needed |
 | group-override-condition | All Form Read Only | — | Group does not reference an override field in its conditions |
-| group-override-condition | Documentation Visibility | — | Group does not reference an override field in its conditions |
 | group-override-condition | Send for Signatures Readonly | — | Group does not reference an override field in its conditions |
 | group-override-condition | Show Form Tabs | — | Group does not reference an override field in its conditions |
 | group-override-condition | Show Print Button | — | Group does not reference an override field in its conditions |
@@ -707,7 +702,6 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 886 (0 errors, 643 warnings, 243 i
 | group-override-condition | Show Q7 Not Mandatory Label | — | Group does not reference an override field in its conditions |
 | group-override-condition | Show Q8 Mandatory Label | — | Group does not reference an override field in its conditions |
 | group-override-condition | Show Q8 Not Mandatory Label | — | Group does not reference an override field in its conditions |
-| group-override-condition | Withdrawal Request read only | — | Group does not reference an override field in its conditions |
 | label-unnamed-in-group | fpOnlineTitle | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
 | label-unnamed-in-group | DataField2 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
 | label-unnamed-in-group | DataField41 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
@@ -867,7 +861,10 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 886 (0 errors, 643 warnings, 243 i
 | spelling | AutoSubmissionNeeded | Page 1 | Possible misspelling: "AutoSubmissionNeeded" (suggestions: no suggestions) |
 | spelling | isViewOnly | Page 1 | Possible misspelling: "isViewOnly" (suggestions: no suggestions) |
 | spelling | AutoResubmitNeeded | Page 1 | Possible misspelling: "AutoResubmitNeeded" (suggestions: no suggestions) |
+| spelling | isFPGISEditor | Page 1 | Possible misspelling: "isFPGISEditor" (suggestions: no suggestions) |
+| spelling | isSignatory | Page 1 | Possible misspelling: "isSignatory" (suggestions: no suggestions) |
 | spelling | ActivityMapViewSubFormCreated | Page 1 | Possible misspelling: "ActivityMapViewSubFormCreated" (suggestions: no suggestions) |
+| spelling | isOtherInternalPersonnel | Page 1 | Possible misspelling: "isOtherInternalPersonnel" (suggestions: no suggestions) |
 | spelling | sectionsMap | Page 1 | Possible misspelling: "sectionsMap" (suggestions: no suggestions) |
 | spelling | questionsMap | Page 1 | Possible misspelling: "questionsMap" (suggestions: no suggestions) |
 | spelling | Q8Text | Page 1 | Possible misspelling: "Q8Text" (suggestions: Q88Thext, QQ88Thext, Q88Theext) |

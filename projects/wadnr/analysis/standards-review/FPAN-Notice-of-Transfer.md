@@ -1,13 +1,13 @@
 # Standards Review: FPAN-Notice-of-Transfer
 
-Generated: 2026-04-15 | Rules: 40 | Findings: 329 (0 errors, 269 warnings, 60 info)
+Generated: 2026-04-16 | Rules: 40 | Findings: 331 (0 errors, 271 warnings, 60 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
 | Error    | 0 |
-| Warning  | 269 |
+| Warning  | 271 |
 | Info     | 60 |
 
 ## Warnings
@@ -39,17 +39,17 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 329 (0 errors, 269 warnings, 60 in
 | accessibility-required | FPAN Number | Page 1 | Required field AccessibilityLabel "FPAN Number Required field" should end with "field Required" |
 | accessibility-required | New Timber Owner Business or Individual | Page 1 | Required field AccessibilityLabel "New Timber Owner Business or Individual" should end with "field Required" |
 | accessibility-required | New Timber Owner Forest Tax Number | Page 1 | Required field AccessibilityLabel "New Timber Owner Forest Tax reporting account Number" should end with "field Required" |
-| script-orphan-assignment | btnNewLandownerBusinessSignerSearch_onClick | — | Script assignment references non-existent control ID: 91bb0528-16ce-87f3-0d0c-cfecedbe17cf |
-| script-orphan-assignment | btn_HelpNewTimberOwner_onClick | — | Script assignment references non-existent control ID: b2272856-ecfe-43de-7b57-d17ff73a287f |
-| script-orphan-assignment | btn_HelpBusinessNameTimberOwner_onClick | — | Script assignment references non-existent control ID: 8e76a54f-3a17-ad4b-3fdd-d1b3510441c7 |
-| script-orphan-assignment | btnHelpNewLandownerBusinessSignerSearch_onClick | — | Script assignment references non-existent control ID: aacbafd6-b502-2078-4447-25867fc958d4 |
-| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
-| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
 | script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
-| script-orphan-assignment | btn_HelpOriginalLandowner_onClick | — | Script assignment references non-existent control ID: 6135d43b-1fd0-b492-bec1-8e0418536168 |
+| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
+| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
+| script-orphan-assignment | btn_HelpNewTimberOwner_onClick | — | Script assignment references non-existent control ID: b2272856-ecfe-43de-7b57-d17ff73a287f |
+| script-orphan-assignment | btnHelpNewLandownerBusinessSignerSearch_onClick | — | Script assignment references non-existent control ID: aacbafd6-b502-2078-4447-25867fc958d4 |
 | script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
 | script-orphan-assignment | btn_HelpChangingAdding_onClick | — | Script assignment references non-existent control ID: 7a7e59b4-10b2-288a-438a-b5e89990d50e |
+| script-orphan-assignment | btnNewLandownerBusinessSignerSearch_onClick | — | Script assignment references non-existent control ID: 91bb0528-16ce-87f3-0d0c-cfecedbe17cf |
 | script-orphan-assignment | btn_HelpSmallForestLandowner_onClick | — | Script assignment references non-existent control ID: cd92a615-2d43-5009-3bce-26f6c0281069 |
+| script-orphan-assignment | btn_HelpBusinessNameTimberOwner_onClick | — | Script assignment references non-existent control ID: 8e76a54f-3a17-ad4b-3fdd-d1b3510441c7 |
+| script-orphan-assignment | btn_HelpOriginalLandowner_onClick | — | Script assignment references non-existent control ID: 6135d43b-1fd0-b492-bec1-8e0418536168 |
 | script-unused-template | ValidateSearchNewTimberOwner | — | Template helper "ValidateSearchNewTimberOwner" is never referenced from any other script |
 | script-unused-template | NewTimberOwnerSearch | — | Template helper "NewTimberOwnerSearch" is never referenced from any other script |
 | script-unused-template | Submit5DayLTA | — | Template helper "Submit5DayLTA" is never referenced from any other script |
@@ -147,6 +147,7 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 329 (0 errors, 269 warnings, 60 in
 | simple-upload | btnUploadDocumentation | Page 1 | DisplayUploadedFiles is not set — should be false (simple upload mode) |
 | distance-to-border | Top Form ID | Page 1 | Field is 10px from the right border (minimum: 30px) |
 | distance-to-border | btnPrint | Page 1 | Field is 24px from the right border (minimum: 30px) |
+| distance-to-border | btnRemoveSelectedLegalDescription | Page 1 | Field is 20px from the right border (minimum: 30px) |
 | label-overlap | Documentation Type | Page 1 | Label "Label158" overlaps field by 20px |
 | button-min-size | btnOriginalLandownerBusinessOrIndividualHelp | Page 1 | Button is 20x20px — minimum is 24x24px (508 compliance) |
 | button-min-size | btnHelpNewLandownerBusinesOrIndividual | Page 1 | Button is 20x20px — minimum is 24x24px (508 compliance) |
@@ -168,6 +169,7 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 329 (0 errors, 269 warnings, 60 in
 | accessibility-label-match | btnTabManage | Page 1 | AccessibilityLabel "Button Manage Tab" does not match expected "Manage" |
 | accessibility-label-match | btnUploadDocumentation | Page 1 | AccessibilityLabel "Upload Documentation Button" does not match expected "Upload" |
 | accessibility-label-match | btnViewDocumentation | Page 1 | AccessibilityLabel "View Documentation Button" does not match expected "View Documentation" |
+| accessibility-label-match | btnRemoveSelectedLegalDescription | Page 1 | AccessibilityLabel "Remove Selected Legal Description" does not match expected "Remove Selected" |
 | accessibility-label-match | btnRemoveSelectedOriginalLandownerBusinessSigner | Page 1 | AccessibilityLabel "Remove Selected Original Landowner Busines Signer button" does not match expected "Remove Selected" |
 | accessibility-label-match | btnOriginalLandownerBusinessOrIndividualHelp | Page 1 | AccessibilityLabel "Quick Help: Landowner business or individual" does not match expected "?" |
 | accessibility-label-match | Original Landowner First Name | Page 1 | AccessibilityLabel "Original Landowner First Name" does not match expected "First Name" |

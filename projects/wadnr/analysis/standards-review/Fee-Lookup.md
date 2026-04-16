@@ -1,6 +1,6 @@
 # Standards Review: Fee-Lookup
 
-Generated: 2026-04-15 | Rules: 40 | Findings: 84 (0 errors, 75 warnings, 9 info)
+Generated: 2026-04-16 | Rules: 40 | Findings: 84 (0 errors, 75 warnings, 9 info)
 
 ## Summary
 

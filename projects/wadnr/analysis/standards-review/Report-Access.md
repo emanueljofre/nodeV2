@@ -1,6 +1,6 @@
 # Standards Review: Report-Access
 
-Generated: 2026-04-15 | Rules: 40 | Findings: 40 (0 errors, 38 warnings, 2 info)
+Generated: 2026-04-16 | Rules: 40 | Findings: 40 (0 errors, 38 warnings, 2 info)
 
 ## Summary
 

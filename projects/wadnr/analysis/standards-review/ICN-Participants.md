@@ -1,6 +1,6 @@
 # Standards Review: ICN-Participants
 
-Generated: 2026-04-15 | Rules: 40 | Findings: 20 (0 errors, 12 warnings, 8 info)
+Generated: 2026-04-16 | Rules: 40 | Findings: 20 (0 errors, 12 warnings, 8 info)
 
 ## Summary
 

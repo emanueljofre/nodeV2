@@ -1,6 +1,6 @@
 # Standards Review: Typed-Water
 
-Generated: 2026-04-15 | Rules: 40 | Findings: 33 (0 errors, 25 warnings, 8 info)
+Generated: 2026-04-16 | Rules: 40 | Findings: 33 (0 errors, 25 warnings, 8 info)
 
 ## Summary
 

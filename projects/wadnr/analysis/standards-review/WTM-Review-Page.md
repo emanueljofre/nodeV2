@@ -1,14 +1,14 @@
 # Standards Review: WTM-Review-Page
 
-Generated: 2026-04-15 | Rules: 40 | Findings: 140 (0 errors, 98 warnings, 42 info)
+Generated: 2026-04-16 | Rules: 40 | Findings: 137 (0 errors, 97 warnings, 40 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
 | Error    | 0 |
-| Warning  | 98 |
-| Info     | 42 |
+| Warning  | 97 |
+| Info     | 40 |
 
 ## Warnings
 
@@ -22,26 +22,27 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 140 (0 errors, 98 warnings, 42 inf
 | title-case | Date DNR Decision | Page 1 | Field name "Date DNR Decision" is not in Title Case |
 | title-case | Segment Filter DD | Page 1 | Field name "Segment Filter DD" is not in Title Case |
 | title-case | Reviewer Filter DD | Page 1 | Field name "Reviewer Filter DD" is not in Title Case |
+| title-case | isVaultAccess | Page 1 | Field name "isVaultAccess" is not in Title Case |
 | title-case | isFPGisEditor | Page 1 | Field name "isFPGisEditor" is not in Title Case |
 | title-case | isFieldStaff | Page 1 | Field name "isFieldStaff" is not in Title Case |
 | title-case | isRequiredReviewersExternal | Page 1 | Field name "isRequiredReviewersExternal" is not in Title Case |
 | title-case | isOfficeStaff | Page 1 | Field name "isOfficeStaff" is not in Title Case |
 | title-case | isViewOnly | Page 1 | Field name "isViewOnly" is not in Title Case |
-| title-case | isAssignedReviewer | Page 1 | Field name "isAssignedReviewer" is not in Title Case |
 | title-case | Legacy PDF URL | Page 1 | Field name "Legacy PDF URL" is not in Title Case |
+| title-case | isAssignedReviewer | Page 1 | Field name "isAssignedReviewer" is not in Title Case |
+| title-case | UserRoles | Page 1 | Field name "UserRoles" is not in Title Case |
 | title-case | isManagement | Page 1 | Field name "isManagement" is not in Title Case |
 | title-case | isOtherInternal | Page 1 | Field name "isOtherInternal" is not in Title Case |
-| title-case | UserRoles | Page 1 | Field name "UserRoles" is not in Title Case |
 | title-case | PDF GUID | Page 1 | Field name "PDF GUID" is not in Title Case |
 | title-case | DD Filter Field | Page 1 | Field name "DD Filter Field" is not in Title Case |
 | title-case | PDF Package Generation In Queue | Page 1 | Field name "PDF Package Generation In Queue" is not in Title Case |
 | default-name | Image57 | Page 1 | Default field name "Image57" — use a descriptive name |
 | accessibility-label | isManagement | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | isOtherInternal | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Need Notification | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | DD Filter Field | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | PDF Package Generation In Queue | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Need Notification | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | Associated Docs Filter | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | PDF Package Generation In Queue | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | Position Management Form ID | Page 1 | Missing AccessibilityLabel |
 | script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
 | script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
@@ -51,17 +52,15 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 140 (0 errors, 98 warnings, 42 inf
 | field-multiple-groups | Con_CreateDocumentBody | — | Field appears in 3 groups: All form Read only, FpGisEdit/Mgmt/OtherInt Read Only, Show Create Document |
 | field-multiple-groups | Con_NotesBody | — | Field appears in 2 groups: All form Read only, Show Notes |
 | field-multiple-groups | Con_RevisionRequestBody | — | Field appears in 3 groups: All form Read only, FpGisEdit/Mgmt/OtherInt Read Only, Show Revision Request |
-| field-multiple-groups | Con_DocumentationBody | — | Field appears in 3 groups: All form Read only, Field Staff Read Only, Show Documentation |
+| field-multiple-groups | Con_DocumentationBody | — | Field appears in 2 groups: All form Read only, Show Documentation |
 | field-multiple-groups | Con_DNRDecisionBody | — | Field appears in 3 groups: All form Read only, FpGisEdit/Mgmt/OtherInt Read Only, Show DNR Decision |
 | field-multiple-groups | Con_AssignedReviewersBody | — | Field appears in 4 groups: All form Read only, Field Staff Read Only, FpGisEdit/Mgmt/OtherInt Read Only, Show Assigned Reviewers |
-| field-multiple-groups | Con_DatesBodyGIS | — | Field appears in 3 groups: All form Read only, Field Staff Read Only, Show Dates |
+| field-multiple-groups | Con_DatesBodyGIS | — | Field appears in 3 groups: All form Read only, GIS Edits Read Only, Show Dates |
 | field-multiple-groups | Con_DatesBody | — | Field appears in 4 groups: All form Read only, Field Staff Read Only, FpGisEdit/Mgmt/OtherInt Read Only, Show Dates |
 | field-multiple-groups | Con_WriaBody | — | Field appears in 4 groups: All form Read only, Field Staff Read Only, FpGisEdit/Mgmt/OtherInt Read Only, Show Wria |
 | field-multiple-groups | Con_BasicInformationBody | — | Field appears in 4 groups: All form Read only, Field Staff Read Only, FpGisEdit/Mgmt/OtherInt Read Only, Show Basic Information |
 | field-multiple-groups | Con_GeographicLocationBody | — | Field appears in 4 groups: Field Staff Read Only, FpGisEdit/Mgmt/OtherInt Read Only, Show Geographic Location, Show Legal Description DG |
 | field-multiple-groups | Con_ExternalReviewerStatusBody | — | Field appears in 3 groups: Field Staff Read Only, FpGisEdit/Mgmt/OtherInt Read Only, Show External Reviewer Status |
-| field-multiple-groups | Con_ReviewerRecommendationsBody | — | Field appears in 2 groups: FpGisEdit/Mgmt/OtherInt Read Only, Show Reviewer Recommendations |
-| field-multiple-groups | Con_NoteHistoryBody | — | Field appears in 2 groups: FpGisEdit/Mgmt/OtherInt Read Only, Show Note History |
 | container-responsive-flow | Con_BasicInformationBody | Page 1 | Container has 6 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
 | container-responsive-flow | Con_DatesBody | Page 1 | Container has 7 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
 | container-responsive-flow | Con_DatesBodyGIS | Page 1 | Container has 4 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
@@ -117,10 +116,7 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 140 (0 errors, 98 warnings, 42 inf
 
 | Rule | Field | Page | Message |
 | :--- | :---- | :--- | :------ |
-| group-override-condition | All form Read only | — | Group does not reference an override field in its conditions |
-| group-override-condition | Field Staff Read Only | — | Group does not reference an override field in its conditions |
 | group-override-condition | FPAN Button Disabled | — | Group does not reference an override field in its conditions |
-| group-override-condition | Read Only - Legacy PDF Button | — | Group does not reference an override field in its conditions |
 | group-override-condition | Show Form Tabs | — | Group does not reference an override field in its conditions |
 | label-unnamed-in-group | DataField1 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
 | label-unnamed-in-group | DataField2 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
@@ -145,15 +141,16 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 140 (0 errors, 98 warnings, 42 inf
 | spelling | DG Associated Documents | Page 1 | Possible misspelling: "DG" (suggestions: CG, DB, DH) |
 | spelling | DG Revision Request | Page 1 | Possible misspelling: "DG" (suggestions: CG, DB, DH) |
 | spelling | DG Note History | Page 1 | Possible misspelling: "DG" (suggestions: CG, DB, DH) |
+| spelling | isVaultAccess | Page 1 | Possible misspelling: "isVaultAccess" (suggestions: no suggestions) |
 | spelling | isFPGisEditor | Page 1 | Possible misspelling: "isFPGisEditor" (suggestions: no suggestions) |
 | spelling | isFieldStaff | Page 1 | Possible misspelling: "isFieldStaff" (suggestions: no suggestions) |
 | spelling | isRequiredReviewersExternal | Page 1 | Possible misspelling: "isRequiredReviewersExternal" (suggestions: no suggestions) |
 | spelling | isOfficeStaff | Page 1 | Possible misspelling: "isOfficeStaff" (suggestions: no suggestions) |
 | spelling | isViewOnly | Page 1 | Possible misspelling: "isViewOnly" (suggestions: no suggestions) |
 | spelling | isAssignedReviewer | Page 1 | Possible misspelling: "isAssignedReviewer" (suggestions: no suggestions) |
+| spelling | UserRoles | Page 1 | Possible misspelling: "UserRoles" (suggestions: no suggestions) |
 | spelling | isManagement | Page 1 | Possible misspelling: "isManagement" (suggestions: misManagement) |
 | spelling | isOtherInternal | Page 1 | Possible misspelling: "isOtherInternal" (suggestions: no suggestions) |
-| spelling | UserRoles | Page 1 | Possible misspelling: "UserRoles" (suggestions: no suggestions) |
 | spelling | PDF GUID | Page 1 | Possible misspelling: "GUID" (suggestions: GRID, GUIDE, GUIDO) |
 | listener-disabled | Decision Made | Page 1 | EnableQListener is enabled — verify this field requires query string fill-in/relate capability |
 | listener-disabled | DD Filter Field | Page 1 | EnableQListener is enabled — verify this field requires query string fill-in/relate capability |

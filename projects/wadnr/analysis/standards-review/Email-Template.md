@@ -1,6 +1,6 @@
 # Standards Review: Email-Template
 
-Generated: 2026-04-15 | Rules: 40 | Findings: 34 (0 errors, 26 warnings, 8 info)
+Generated: 2026-04-16 | Rules: 40 | Findings: 34 (0 errors, 26 warnings, 8 info)
 
 ## Summary
 

@@ -1,13 +1,13 @@
 # Standards Review: S-or-F-Waters
 
-Generated: 2026-04-15 | Rules: 40 | Findings: 292 (0 errors, 204 warnings, 88 info)
+Generated: 2026-04-16 | Rules: 40 | Findings: 296 (0 errors, 208 warnings, 88 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
 | Error    | 0 |
-| Warning  | 204 |
+| Warning  | 208 |
 | Info     | 88 |
 
 ## Warnings
@@ -90,18 +90,22 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 292 (0 errors, 204 warnings, 88 in
 | accessibility-required | Field Verified Water Type | Page 1 | Required field AccessibilityLabel "Field Verified Water Type" should end with "field Required" |
 | accessibility-required | Harvesting Within Maximum Width | Page 1 | Required field AccessibilityLabel "Harvesting Within Maximum Width" should end with "field Required" |
 | script-orphan-assignment | Total_Width_RMZ_onBlur | — | Script assignment references non-existent control ID: 48019cc6-79a6-3da1-33a2-7ec212686b63 |
-| script-orphan-assignment | Region_onBlur | — | Script assignment references non-existent control ID: 89dfb930-7686-b7f4-e7a3-281b11ee3816 |
+| script-orphan-assignment | Total_Width_RMZ_onBlur | — | Script assignment references non-existent control ID: ac4e35fb-df1d-47b4-8dd9-63bc0d3cdecc |
+| script-orphan-assignment | Segment_Length_onBlur | — | Script assignment references non-existent control ID: 6bb1296f-c80b-887e-e6da-b3dbdf9990c5 |
+| script-orphan-assignment | Segment_Length_onBlur | — | Script assignment references non-existent control ID: a1850802-1157-2124-24a3-4ba259e3a0a1 |
+| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
+| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
 | script-orphan-assignment | Stream_Width_onBlur | — | Script assignment references non-existent control ID: ce64bc4b-b410-5874-b529-c0a2994dc26b |
 | script-orphan-assignment | RMZ_Maximum_Width_onBlur | — | Script assignment references non-existent control ID: f4aa1d8b-3adc-01ed-ac0c-60390b7d77f4 |
 | script-orphan-assignment | Bankfull_Width_onBlur | — | Script assignment references non-existent control ID: dd5795fd-6fcb-5d44-c168-43ca48d5acae |
-| script-orphan-assignment | Segment_Length_onBlur | — | Script assignment references non-existent control ID: 6bb1296f-c80b-887e-e6da-b3dbdf9990c5 |
 | script-orphan-assignment | 75f5eb92-384f-1d70-afb3-d0be9bc3aa1c | — | Script assignment references non-existent control ID: 89dfb930-7686-b7f4-e7a3-281b11ee3816 |
-| script-orphan-assignment | Total_Width_RMZ_onBlur | — | Script assignment references non-existent control ID: ac4e35fb-df1d-47b4-8dd9-63bc0d3cdecc |
-| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
-| script-orphan-assignment | Segment_Length_onBlur | — | Script assignment references non-existent control ID: a1850802-1157-2124-24a3-4ba259e3a0a1 |
-| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
-| script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
+| script-orphan-assignment | Region_onBlur | — | Script assignment references non-existent control ID: 89dfb930-7686-b7f4-e7a3-281b11ee3816 |
 | script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
+| script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
+| field-multiple-groups | Label_Bankfull_Width_Asterisk | — | Field appears in 2 groups: Hide Asterisk In Q6, Show Required Asterisks HCP |
+| field-multiple-groups | Label_Site_Class_LTA_Asterisk | — | Field appears in 2 groups: Hide Asterisk In Q6, Show Required Asterisks HCP |
+| field-multiple-groups | Label_Segment_Length_Asterisk | — | Field appears in 2 groups: Hide Asterisk In Q6, Show Required Asterisks HCP |
+| field-multiple-groups | Label_Is_There_A_CMZ_Asterisk | — | Field appears in 2 groups: Hide Asterisk In Q6, Show Required Asterisks HCP |
 | field-multiple-groups | Con_EW_Harvest_Codes_Inner_Outer_Options | — | Field appears in 2 groups: RMZ Harvest Codes EW Visibility, Show EW Alternate Plan Options |
 | field-multiple-groups | Con_EW_Harvest_Codes_Inner_Hardwood | — | Field appears in 2 groups: RMZ Harvest Codes EW Visibility, Show EW Hardwood Conversion Complete |
 | field-multiple-groups | Con_WW_Harvest_Codes_Inner_Outer_Options | — | Field appears in 2 groups: RMZ Harvest Codes WW Visibility, Show WW Alternate Plan Options |

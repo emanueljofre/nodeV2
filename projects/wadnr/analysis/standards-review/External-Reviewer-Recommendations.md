@@ -1,14 +1,14 @@
 # Standards Review: External-Reviewer-Recommendations
 
-Generated: 2026-04-15 | Rules: 40 | Findings: 25 (0 errors, 14 warnings, 11 info)
+Generated: 2026-04-16 | Rules: 40 | Findings: 27 (0 errors, 15 warnings, 12 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
 | Error    | 0 |
-| Warning  | 14 |
-| Info     | 11 |
+| Warning  | 15 |
+| Info     | 12 |
 
 ## Warnings
 
@@ -20,19 +20,21 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 25 (0 errors, 14 warnings, 11 info
 | accessibility-label | Comment Due Date or Date of Recommendation | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | Email Notification Flag | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | Temp Data Migration ID | Page 1 | Missing AccessibilityLabel |
-| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
 | script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
+| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
 | distance-to-border | Top Form ID | Page 1 | Field is 10px from the right border (minimum: 30px) |
 | accessibility-label-match | btnViewWTMF | Page 1 | AccessibilityLabel "View WTMF button" does not match expected "View WTMF" |
 | accessibility-label-match | btnViewAllRecommendations | Page 1 | AccessibilityLabel "View All Recommendations button" does not match expected "View All Recommendations" |
 | accessibility-label-match | btnSaveDraft | Page 1 | AccessibilityLabel "Save Draft button" does not match expected "Save Draft" |
 | accessibility-label-match | btnSubmitRecommendation | Page 1 | AccessibilityLabel "Submit Recommendation button" does not match expected "Submit Recommendation" |
 | accessibility-label-match | btnAdminSave | Page 1 | AccessibilityLabel "Admin Save Button" does not match expected "Admin Save" |
+| tab-control-visible | TabControl | — | TabControl is in group "Hide Form Tabs" — tab visibility should be controlled via Menu tab, not groups |
 
 ## Info
 
 | Rule | Field | Page | Message |
 | :--- | :---- | :--- | :------ |
+| group-override-condition | Hide Form Tabs | — | Group does not reference an override field in its conditions |
 | label-unnamed-in-group | DataField2 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
 | label-unnamed-in-group | DataField1 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
 | label-unnamed-in-group | DataField3 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |

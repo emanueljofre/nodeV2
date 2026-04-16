@@ -1,6 +1,6 @@
 # Standards Review: Multi-purpose
 
-Generated: 2026-04-15 | Rules: 40 | Findings: 145 (0 errors, 91 warnings, 54 info)
+Generated: 2026-04-16 | Rules: 40 | Findings: 145 (0 errors, 91 warnings, 54 info)
 
 ## Summary
 
@@ -26,12 +26,12 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 145 (0 errors, 91 warnings, 54 inf
 | title-case | Document GUID | Page 1 | Field name "Document GUID" is not in Title Case |
 | default-name | Image57 | Page 1 | Default field name "Image57" — use a descriptive name |
 | accessibility-label | isViewOnly | Page 1 | Missing AccessibilityLabel |
-| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
-| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
 | script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
+| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
+| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
 | script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
 | script-field-reference | GetCurrentRoles | — | Script references non-existent field "User Roles" via GetFieldValue() |
-| container-responsive-flow | Con_Details | Page 1 | Container has 16 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
+| container-responsive-flow | Con_Details | Page 1 | Container has 18 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
 | container-responsive-flow | Con_Legal_Description | Page 1 | Container has 3 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
 | container-responsive-flow | Con_LandownerBusinessOrIndividual | Page 1 | Container has 2 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
 | container-responsive-flow | Con_LandownerBusinessSearch | Page 1 | Container has 26 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
@@ -50,8 +50,8 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 145 (0 errors, 91 warnings, 54 inf
 | accessibility-label-match | btnLegacyPDF | Page 1 | AccessibilityLabel "Button: Legacy PDF" does not match expected "Legacy PDF" |
 | accessibility-label-match | btnUpload | Page 1 | AccessibilityLabel "Upload Documentation Button" does not match expected "Upload" |
 | accessibility-label-match | btnViewDocumentation | Page 1 | AccessibilityLabel "View Documentation Button" does not match expected "View Documentation" |
-| accessibility-label-match | Record Type | Page 1 | AccessibilityLabel "Record Type" does not match expected "Record/Document Type" |
 | accessibility-label-match | Sensitive Protected Content | Page 1 | AccessibilityLabel "Sensitive Protected Content" does not match expected "Sensitive/Protected Content" |
+| accessibility-label-match | Record Type | Page 1 | AccessibilityLabel "Record Type" does not match expected "Record/Document Type" |
 | accessibility-label-match | Date Requested Initiated | Page 1 | AccessibilityLabel "Date Requested or Initiated" does not match expected "Date Requested/Initiated" |
 | accessibility-label-match | btnAddLegalDescription | Page 1 | AccessibilityLabel "Add Legal Description button" does not match expected "Add Legal Description" |
 | accessibility-label-match | btnRemoveSelected | Page 1 | AccessibilityLabel "Remove Selected Button" does not match expected "Remove Selected" |

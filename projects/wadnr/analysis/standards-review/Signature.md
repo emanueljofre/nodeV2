@@ -1,14 +1,14 @@
 # Standards Review: Signature
 
-Generated: 2026-04-15 | Rules: 40 | Findings: 90 (0 errors, 50 warnings, 40 info)
+Generated: 2026-04-16 | Rules: 40 | Findings: 92 (0 errors, 51 warnings, 41 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
 | Error    | 0 |
-| Warning  | 50 |
-| Info     | 40 |
+| Warning  | 51 |
+| Info     | 41 |
 
 ## Warnings
 
@@ -41,10 +41,10 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 90 (0 errors, 50 warnings, 40 info
 | accessibility-label | Contact Information Relation ID | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | Redirected From | Page 1 | Missing AccessibilityLabel |
 | script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
-| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
+| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
 | script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
 | script-orphan-assignment | Acknowledge_One_Notice_Of_Transfer_onChange | — | Script assignment references non-existent control ID: 84d07035-fbb8-13d9-279b-cda7f040b209 |
-| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
+| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
 | script-unused-template | GetReportURLAndRedirect | — | Template helper "GetReportURLAndRedirect" is never referenced from any other script |
 | distance-to-border | Top Form ID | Page 1 | Field is 10px from the right border (minimum: 30px) |
 | distance-to-border | btnViewApplication | Page 1 | Field is 25px from the right border (minimum: 30px) |
@@ -64,12 +64,14 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 90 (0 errors, 50 warnings, 40 info
 | accessibility-label-match | ParentIsAmendment | Page 1 | AccessibilityLabel "ParentIsAmendment" does not match expected "Parent Is Amendment" |
 | accessibility-label-match | ParentIsRenewal | Page 1 | AccessibilityLabel "ParentIsRenewal" does not match expected "Parent Is Renewal" |
 | accessibility-label-match | ParentIsNoticeOfTransfer | Page 1 | AccessibilityLabel "ParentIsNoticeOfTransfer" does not match expected "Parent Is Notice Of Transfer" |
+| tab-control-visible | TabControl | — | TabControl is in group "Hide Form Tabs" — tab visibility should be controlled via Menu tab, not groups |
 
 ## Info
 
 | Rule | Field | Page | Message |
 | :--- | :---- | :--- | :------ |
 | group-override-condition | Already Submited Read Only | — | Group does not reference an override field in its conditions |
+| group-override-condition | Hide Form Tabs | — | Group does not reference an override field in its conditions |
 | group-override-condition | Submit Signature Read Only | — | Group does not reference an override field in its conditions |
 | label-unnamed-in-group | DataField2 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
 | label-unnamed-in-group | DataField12 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |

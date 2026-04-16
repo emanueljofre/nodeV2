@@ -1,6 +1,6 @@
 # Standards Review: Channel-Characteristics
 
-Generated: 2026-04-15 | Rules: 40 | Findings: 29 (0 errors, 20 warnings, 9 info)
+Generated: 2026-04-16 | Rules: 40 | Findings: 29 (0 errors, 20 warnings, 9 info)
 
 ## Summary
 

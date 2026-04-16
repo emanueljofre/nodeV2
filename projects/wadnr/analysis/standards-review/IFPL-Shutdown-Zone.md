@@ -1,6 +1,6 @@
 # Standards Review: IFPL-Shutdown-Zone
 
-Generated: 2026-04-15 | Rules: 40 | Findings: 12 (0 errors, 8 warnings, 4 info)
+Generated: 2026-04-16 | Rules: 40 | Findings: 12 (0 errors, 8 warnings, 4 info)
 
 ## Summary
 

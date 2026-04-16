@@ -1,0 +1,242 @@
+# Standards Review: Appendix-A-Water-Type-Classification
+
+Generated: 2026-04-16 | Rules: 40 | Findings: 221 (0 errors, 204 warnings, 17 info)
+
+## Summary
+
+| Severity | Count |
+| :------- | ----: |
+| Error    | 0 |
+| Warning  | 204 |
+| Info     | 17 |
+
+## Warnings
+
+| Rule | Field | Page | Message |
+| :--- | :---- | :--- | :------ |
+| title-case | FPAN Number | Page 1 | Field name "FPAN Number" is not in Title Case |
+| title-case | UserRoles | Page 1 | Field name "UserRoles" is not in Title Case |
+| default-name | Image57 | Page 1 | Default field name "Image57" — use a descriptive name |
+| accessibility-label | Add Stream Segment | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | UserRoles | Page 1 | Missing AccessibilityLabel |
+| script-orphan-assignment | Question_4_Yes_Stop_Type_F_water_onChange | — | Script assignment references non-existent control ID: e2a6760e-7d7c-bff8-a13a-6a0d2f864780 |
+| script-orphan-assignment | Question_4_No_Continue_to_5_onChange | — | Script assignment references non-existent control ID: 49bb56ff-57e0-3a75-1930-fdc0a91113af |
+| script-orphan-assignment | Question_5_No_Continue_to_6_onChange | — | Script assignment references non-existent control ID: 972d9d3b-34f9-1a01-35dc-79848183235c |
+| script-orphan-assignment | Question_5_Yes_Stop_Type_F_water_onChange | — | Script assignment references non-existent control ID: 1a33a506-d272-017b-9ccf-664e9f63f2ea |
+| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
+| script-orphan-assignment | Question_7_Yes_Type_Np_water_Skip_to_9_onChange | — | Script assignment references non-existent control ID: 6749ef8d-09c9-25bb-1d2f-73a75a17589e |
+| script-orphan-assignment | Question_8_No_Non_typed_water_onChange | — | Script assignment references non-existent control ID: 283c110a-1480-9875-71a1-9b085fc79b76 |
+| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
+| script-orphan-assignment | Question_7_No_Continue_to_8_onChange | — | Script assignment references non-existent control ID: 706ec94f-b118-52b0-f0f1-d4833ebf4b2d |
+| script-orphan-assignment | btnPrint_onClick | — | Script assignment references non-existent control ID: 99d1d4bd-db72-17a5-0438-b660e956d239 |
+| script-orphan-assignment | Question_2_Yes_Stop_Type_F_water_onChange | — | Script assignment references non-existent control ID: 4ae252a1-2442-54bf-c8ce-e03bf7aa612c |
+| script-orphan-assignment | Question_1_Fish_found_Stop_Type_F_water_onChange | — | Script assignment references non-existent control ID: fe25e009-163c-0562-4adb-0604f634df06 |
+| script-orphan-assignment | Question_1_Yes_Attach_documentation_or_provide_approved_WTMF_number_onChange | — | Script assignment references non-existent control ID: dd51b825-5378-2b38-c967-04590cfa9f6e |
+| script-orphan-assignment | Question_2_No_Continue_to_3_onChange | — | Script assignment references non-existent control ID: 15ffb9e4-7e5b-b99b-ccef-0c72e7cb74b8 |
+| script-orphan-assignment | Question_1_No_fish_Skip_to_6_onChange | — | Script assignment references non-existent control ID: f13ba98d-9e1c-c3a7-dd81-b2238cdef09d |
+| script-orphan-assignment | Question_3_Yes_Stop_Type_F_water_onChange | — | Script assignment references non-existent control ID: 345cc059-9407-574a-1334-0cbdba5573cc |
+| script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
+| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
+| script-orphan-assignment | Question_3_No_Continue_to_4_onChange | — | Script assignment references non-existent control ID: 539a9d65-2a8f-2176-6300-5de0a4d675ad |
+| script-orphan-assignment | Question_8_Yes_Type_Ns_water_onChange | — | Script assignment references non-existent control ID: 6738feaa-64ce-56ad-5ceb-32e4304407a3 |
+| script-orphan-assignment | Question_1_Yes_Meets_waiver_criteria_Skip_to_6_onChange | — | Script assignment references non-existent control ID: c348651b-eee5-0099-9360-b1a11b883c32 |
+| script-orphan-assignment | Question_1_No_Continue_to_2_onChange | — | Script assignment references non-existent control ID: 693983c9-9758-8d1d-2d2f-fdeea97582a8 |
+| script-empty-body | AddressCopySourceToDestination | — | Script "AddressCopySourceToDestination" has an empty body |
+| script-empty-body | GIS_GetModalGISMap | — | Script "GIS_GetModalGISMap" has an empty body |
+| script-empty-body | SaveBeforeUpload | — | Script "SaveBeforeUpload" has an empty body |
+| script-empty-body | GIS_SetupSearchAddress | — | Script "GIS_SetupSearchAddress" has an empty body |
+| script-empty-body | AssignPermissionsToAFolder | — | Script "AssignPermissionsToAFolder" has an empty body |
+| script-empty-body | ViewDocumentsModalDelete | — | Script "ViewDocumentsModalDelete" has an empty body |
+| script-empty-body | GIS_SetupUIWidgets | — | Script "GIS_SetupUIWidgets" has an empty body |
+| script-empty-body | CentralNameValidation | — | Script "CentralNameValidation" has an empty body |
+| script-empty-body | GetURLParamValue | — | Script "GetURLParamValue" has an empty body |
+| script-empty-body | ClearFields | — | Script "ClearFields" has an empty body |
+| script-empty-body | FormatDateFields | — | Script "FormatDateFields" has an empty body |
+| script-empty-body | StripHtmlTags | — | Script "StripHtmlTags" has an empty body |
+| script-empty-body | isNullEmptyUndefined | — | Script "isNullEmptyUndefined" has an empty body |
+| script-empty-body | SaveForm | — | Script "SaveForm" has an empty body |
+| script-empty-body | BlankFields | — | Script "BlankFields" has an empty body |
+| script-empty-body | GetDateUTC | — | Script "GetDateUTC" has an empty body |
+| script-empty-body | GIS_SetupUploadShapefile | — | Script "GIS_SetupUploadShapefile" has an empty body |
+| script-empty-body | CreateNewRecord | — | Script "CreateNewRecord" has an empty body |
+| script-empty-body | Debounce | — | Script "Debounce" has an empty body |
+| script-empty-body | PostPDFMapToDocLib | — | Script "PostPDFMapToDocLib" has an empty body |
+| script-empty-body | RedirectToSubmitted | — | Script "RedirectToSubmitted" has an empty body |
+| script-empty-body | FormatFEIN | — | Script "FormatFEIN" has an empty body |
+| script-empty-body | EnterValidFPANNumber | — | Script "EnterValidFPANNumber" has an empty body |
+| script-empty-body | RRCGetItemsGUID | — | Script "RRCGetItemsGUID" has an empty body |
+| script-empty-body | RRCGetSelectedItemsfromFormButton | — | Script "RRCGetSelectedItemsfromFormButton" has an empty body |
+| script-empty-body | DisplayModal | — | Script "DisplayModal" has an empty body |
+| script-empty-body | GIS_SetupEditorBtn | — | Script "GIS_SetupEditorBtn" has an empty body |
+| script-empty-body | getLicenseForProvider | — | Script "getLicenseForProvider" has an empty body |
+| script-empty-body | ReloadParentDataGridOrRRC | — | Script "ReloadParentDataGridOrRRC" has an empty body |
+| script-empty-body | ClearFieldValidationErrors | — | Script "ClearFieldValidationErrors" has an empty body |
+| script-empty-body | UpdateWindowLocationURL | — | Script "UpdateWindowLocationURL" has an empty body |
+| script-empty-body | LoadActivityMap | — | Script "LoadActivityMap" has an empty body |
+| script-empty-body | ValidationModalGoToField | — | Script "ValidationModalGoToField" has an empty body |
+| script-empty-body | CentralCheckboxValidation | — | Script "CentralCheckboxValidation" has an empty body |
+| script-empty-body | LoadBootstrapCSS | — | Script "LoadBootstrapCSS" has an empty body |
+| script-empty-body | GetIndividualIdByUserId | — | Script "GetIndividualIdByUserId" has an empty body |
+| script-empty-body | RRCGetSelectedItemGuids | — | Script "RRCGetSelectedItemGuids" has an empty body |
+| script-empty-body | SetLabelTokenValue | — | Script "SetLabelTokenValue" has an empty body |
+| script-empty-body | DisplayModalLoadSettings | — | Script "DisplayModalLoadSettings" has an empty body |
+| script-empty-body | CallLibStatusHistoryCreate | — | Script "CallLibStatusHistoryCreate" has an empty body |
+| script-empty-body | RemoveSelectedStreamSegment | — | Script "RemoveSelectedStreamSegment" has an empty body |
+| script-empty-body | CallLibAssociatedDocumentRelationUpdate | — | Script "CallLibAssociatedDocumentRelationUpdate" has an empty body |
+| script-empty-body | OpenURLFromGUID | — | Script "OpenURLFromGUID" has an empty body |
+| script-empty-body | FillAndRelateTransferRequest | — | Script "FillAndRelateTransferRequest" has an empty body |
+| script-empty-body | AdminSave | — | Script "AdminSave" has an empty body |
+| script-empty-body | ViewDocumentsModalAccept | — | Script "ViewDocumentsModalAccept" has an empty body |
+| script-empty-body | GetCurrentRoles | — | Script "GetCurrentRoles" has an empty body |
+| script-empty-body | IsMapLoaded | — | Script "IsMapLoaded" has an empty body |
+| script-empty-body | AddToTextboxList | — | Script "AddToTextboxList" has an empty body |
+| script-empty-body | GIS_onLoad | — | Script "GIS_onLoad" has an empty body |
+| script-empty-body | FormatTimeHHMM | — | Script "FormatTimeHHMM" has an empty body |
+| script-empty-body | CentralDOBValidation | — | Script "CentralDOBValidation" has an empty body |
+| script-empty-body | FillAndRelateAmendmentRequest | — | Script "FillAndRelateAmendmentRequest" has an empty body |
+| script-empty-body | ViewDocumentsModal | — | Script "ViewDocumentsModal" has an empty body |
+| script-empty-body | SignatoryDisableButtonByFieldName | — | Script "SignatoryDisableButtonByFieldName" has an empty body |
+| script-empty-body | ValidateFPANNumberOwnership | — | Script "ValidateFPANNumberOwnership" has an empty body |
+| script-empty-body | GIS_CancelActiveEditing | — | Script "GIS_CancelActiveEditing" has an empty body |
+| script-empty-body | CentralTimeValidation | — | Script "CentralTimeValidation" has an empty body |
+| script-empty-body | ValidateCheckboxFields | — | Script "ValidateCheckboxFields" has an empty body |
+| script-empty-body | GIS_SetupPreviousViewBtn | — | Script "GIS_SetupPreviousViewBtn" has an empty body |
+| script-empty-body | CallLibGetIndividual | — | Script "CallLibGetIndividual" has an empty body |
+| script-empty-body | DatagridFindSelectedRows | — | Script "DatagridFindSelectedRows" has an empty body |
+| script-empty-body | GIS_SetupPrintWidget | — | Script "GIS_SetupPrintWidget" has an empty body |
+| script-empty-body | LoadInFPANRelations | — | Script "LoadInFPANRelations" has an empty body |
+| script-empty-body | CentralEmailValidation | — | Script "CentralEmailValidation" has an empty body |
+| script-empty-body | GetFormPrefix | — | Script "GetFormPrefix" has an empty body |
+| script-empty-body | GIS_GetMapViewManager | — | Script "GIS_GetMapViewManager" has an empty body |
+| script-empty-body | AddStreamSegment | — | Script "AddStreamSegment" has an empty body |
+| script-empty-body | PopulateGuidtoParent | — | Script "PopulateGuidtoParent" has an empty body |
+| script-empty-body | CalculateFirstLetterRangeFolderName | — | Script "CalculateFirstLetterRangeFolderName" has an empty body |
+| script-empty-body | AddressVerificationOnBlur | — | Script "AddressVerificationOnBlur" has an empty body |
+| script-empty-body | SetProperCaseFieldValue | — | Script "SetProperCaseFieldValue" has an empty body |
+| script-empty-body | DisplayModalLoad | — | Script "DisplayModalLoad" has an empty body |
+| script-empty-body | GetFormData | — | Script "GetFormData" has an empty body |
+| script-empty-body | CalculateAge | — | Script "CalculateAge" has an empty body |
+| script-empty-body | injectPlaceholder | — | Script "injectPlaceholder" has an empty body |
+| script-empty-body | FormatSSN | — | Script "FormatSSN" has an empty body |
+| script-empty-body | CommentInsertwithName | — | Script "CommentInsertwithName" has an empty body |
+| script-empty-body | GetMapToken | — | Script "GetMapToken" has an empty body |
+| script-empty-body | SetLabelValue | — | Script "SetLabelValue" has an empty body |
+| script-empty-body | DisplayModalLoadSwal | — | Script "DisplayModalLoadSwal" has an empty body |
+| script-empty-body | AddRecordModal | — | Script "AddRecordModal" has an empty body |
+| script-empty-body | DatagridSelectLoad | — | Script "DatagridSelectLoad" has an empty body |
+| script-empty-body | GIS_BuildCalciteLayout | — | Script "GIS_BuildCalciteLayout" has an empty body |
+| script-empty-body | IsFillAndRelate | — | Script "IsFillAndRelate" has an empty body |
+| script-empty-body | DisplayConfirmMessaging | — | Script "DisplayConfirmMessaging" has an empty body |
+| script-empty-body | DatagridFindRows | — | Script "DatagridFindRows" has an empty body |
+| script-empty-body | FormatZipCode | — | Script "FormatZipCode" has an empty body |
+| script-empty-body | ViewDocumentsModalInvalid | — | Script "ViewDocumentsModalInvalid" has an empty body |
+| script-empty-body | GetInstructions | — | Script "GetInstructions" has an empty body |
+| script-empty-body | SetRadioCheckbox | — | Script "SetRadioCheckbox" has an empty body |
+| script-empty-body | UseCustomQuery | — | Script "UseCustomQuery" has an empty body |
+| script-empty-body | DisplayMapDynamically | — | Script "DisplayMapDynamically" has an empty body |
+| script-empty-body | FillAndRelateRenewal | — | Script "FillAndRelateRenewal" has an empty body |
+| script-empty-body | VerifySubFormRelationship | — | Script "VerifySubFormRelationship" has an empty body |
+| script-empty-body | ValidationModal | — | Script "ValidationModal" has an empty body |
+| script-empty-body | GIS_CreateMapView | — | Script "GIS_CreateMapView" has an empty body |
+| script-empty-body | CentralNumericValidation | — | Script "CentralNumericValidation" has an empty body |
+| script-empty-body | Uint8ArrayToBase64 | — | Script "Uint8ArrayToBase64" has an empty body |
+| script-empty-body | GIS_GetGISPortalID | — | Script "GIS_GetGISPortalID" has an empty body |
+| script-empty-body | GIS_SetupGISSearchTSR | — | Script "GIS_SetupGISSearchTSR" has an empty body |
+| script-empty-body | printPDF | — | Script "printPDF" has an empty body |
+| script-empty-body | DatagridClearSelected | — | Script "DatagridClearSelected" has an empty body |
+| script-empty-body | BuildUploadFolderPath | — | Script "BuildUploadFolderPath" has an empty body |
+| script-empty-body | GetCurrentIndividual | — | Script "GetCurrentIndividual" has an empty body |
+| script-empty-body | RefreshFormElements | — | Script "RefreshFormElements" has an empty body |
+| script-empty-body | SubmitApplicationUpdate | — | Script "SubmitApplicationUpdate" has an empty body |
+| script-empty-body | CustomCSS | — | Script "CustomCSS" has an empty body |
+| script-empty-body | FontAwesomeIconsLoad | — | Script "FontAwesomeIconsLoad" has an empty body |
+| script-empty-body | DisplayMessaging | — | Script "DisplayMessaging" has an empty body |
+| script-empty-body | GetLabelValue | — | Script "GetLabelValue" has an empty body |
+| script-empty-body | GetFolderPathFromFPANumber | — | Script "GetFolderPathFromFPANumber" has an empty body |
+| script-empty-body | FillinAndRelateForm | — | Script "FillinAndRelateForm" has an empty body |
+| script-empty-body | SetupReg | — | Script "SetupReg" has an empty body |
+| script-empty-body | SecurityQuestionsModal | — | Script "SecurityQuestionsModal" has an empty body |
+| script-empty-body | SyncARP | — | Script "SyncARP" has an empty body |
+| script-empty-body | FormValidation | — | Script "FormValidation" has an empty body |
+| script-empty-body | GetCurrentDate | — | Script "GetCurrentDate" has an empty body |
+| script-empty-body | CreateFeeRecord | — | Script "CreateFeeRecord" has an empty body |
+| script-empty-body | GIS_BuildFormElementsForLayer | — | Script "GIS_BuildFormElementsForLayer" has an empty body |
+| script-empty-body | AddRecordLogic | — | Script "AddRecordLogic" has an empty body |
+| script-empty-body | DatagridSelectObserve | — | Script "DatagridSelectObserve" has an empty body |
+| script-empty-body | GIS_DisplayDangerAlert | — | Script "GIS_DisplayDangerAlert" has an empty body |
+| script-empty-body | CentralDateValidation | — | Script "CentralDateValidation" has an empty body |
+| script-empty-body | DatagridCountRows | — | Script "DatagridCountRows" has an empty body |
+| script-empty-body | UpdateDocumentPath | — | Script "UpdateDocumentPath" has an empty body |
+| script-empty-body | AssessFee | — | Script "AssessFee" has an empty body |
+| script-empty-body | ToProperCase | — | Script "ToProperCase" has an empty body |
+| script-empty-body | FormatTime | — | Script "FormatTime" has an empty body |
+| script-empty-body | SetFieldValuesFromObj | — | Script "SetFieldValuesFromObj" has an empty body |
+| script-empty-body | GIS_CreateEditorDropDownListPane | — | Script "GIS_CreateEditorDropDownListPane" has an empty body |
+| script-empty-body | RRCGetSelectedRows | — | Script "RRCGetSelectedRows" has an empty body |
+| script-empty-body | DisplayModalRemoveHiddenSweetAlertElements | — | Script "DisplayModalRemoveHiddenSweetAlertElements" has an empty body |
+| script-empty-body | LoadModalSettings | — | Script "LoadModalSettings" has an empty body |
+| script-empty-body | AddressVerification | — | Script "AddressVerification" has an empty body |
+| script-empty-body | MeasureTaskComplete | — | Script "MeasureTaskComplete" has an empty body |
+| script-empty-body | DisplayModalLoadBootstrapCSS | — | Script "DisplayModalLoadBootstrapCSS" has an empty body |
+| script-empty-body | OpenGISModal | — | Script "OpenGISModal" has an empty body |
+| script-empty-body | CentralMessages | — | Script "CentralMessages" has an empty body |
+| script-empty-body | FormValidations | — | Script "FormValidations" has an empty body |
+| script-empty-body | CheckboxRadioButton | — | Script "CheckboxRadioButton" has an empty body |
+| script-empty-body | HyphenatedToProperCase | — | Script "HyphenatedToProperCase" has an empty body |
+| script-empty-body | OpenDatagridRowReadOnly | — | Script "OpenDatagridRowReadOnly" has an empty body |
+| script-empty-body | UncheckAdminOverrideAndSave | — | Script "UncheckAdminOverrideAndSave" has an empty body |
+| script-empty-body | MessageModal | — | Script "MessageModal" has an empty body |
+| script-empty-body | SSNValidation | — | Script "SSNValidation" has an empty body |
+| script-empty-body | GetPendingRelatedFees | — | Script "GetPendingRelatedFees" has an empty body |
+| script-empty-body | EvaluateGroupsandConditions | — | Script "EvaluateGroupsandConditions" has an empty body |
+| script-empty-body | FillAndRelateLTA5Day | — | Script "FillAndRelateLTA5Day" has an empty body |
+| script-empty-body | AddressCheckSameAddressMatch | — | Script "AddressCheckSameAddressMatch" has an empty body |
+| script-empty-body | CentralValidation | — | Script "CentralValidation" has an empty body |
+| script-empty-body | CopyFieldValues | — | Script "CopyFieldValues" has an empty body |
+| script-empty-body | DateMilestoneCalculateKPI | — | Script "DateMilestoneCalculateKPI" has an empty body |
+| script-empty-body | OpenShoppingCart | — | Script "OpenShoppingCart" has an empty body |
+| script-empty-body | CheckboxValidation | — | Script "CheckboxValidation" has an empty body |
+| script-empty-body | FormatCurrency | — | Script "FormatCurrency" has an empty body |
+| script-empty-body | RegisterDatagrids | — | Script "RegisterDatagrids" has an empty body |
+| script-empty-body | FormatDateTextField | — | Script "FormatDateTextField" has an empty body |
+| script-empty-body | FormatPhone | — | Script "FormatPhone" has an empty body |
+| script-empty-body | GIS_ShowDangerAlert | — | Script "GIS_ShowDangerAlert" has an empty body |
+| script-empty-body | DisplayModalLoadCSS | — | Script "DisplayModalLoadCSS" has an empty body |
+| script-empty-body | NormalizeNameCapitalization | — | Script "NormalizeNameCapitalization" has an empty body |
+| script-empty-body | getDatagridRows | — | Script "getDatagridRows" has an empty body |
+| script-empty-body | BuildAjaxFormSaveWithStaleCheck | — | Script "BuildAjaxFormSaveWithStaleCheck" has an empty body |
+| script-empty-body | BuildUrls | — | Script "BuildUrls" has an empty body |
+| simple-upload | btnUpload | Page 1 | DisplayUploadedFiles is not set — should be false (simple upload mode) |
+| distance-to-border | Top Form ID | Page 1 | Field is 10px from the right border (minimum: 30px) |
+| button-min-size | btnSave | Page 1 | Button is 0x28px — minimum is 24x24px (508 compliance) |
+| accessibility-label-match | btnActivityMap | Page 1 | AccessibilityLabel "Activity Map button" does not match expected "Activity Map" |
+| accessibility-label-match | btnPrint | Page 1 | AccessibilityLabel "Activity Map button" does not match expected "Print" |
+| accessibility-label-match | btnViewDocumentation | Page 1 | AccessibilityLabel "View Documentation button" does not match expected "View Documentation" |
+| accessibility-label-match | btnAddStreamSegment | Page 1 | AccessibilityLabel "Add Stream Segment button" does not match expected "Add Stream Segment" |
+| accessibility-label-match | btnRemoveSelectedStreamSegment | Page 1 | AccessibilityLabel "Remove Selected button" does not match expected "Remove Selected" |
+| accessibility-label-match | btnSave | Page 1 | AccessibilityLabel "Save Button" does not match expected "Save" |
+| accessibility-label-match | btnAdminSave | Page 1 | AccessibilityLabel "Admin Save Button" does not match expected "Admin Save" |
+| button-label-camelcase | fpOnlineTitle | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
+| tab-control-visible | TabControl | — | TabControl is in group "Hide Edit Button" — tab visibility should be controlled via Menu tab, not groups |
+
+## Info
+
+| Rule | Field | Page | Message |
+| :--- | :---- | :--- | :------ |
+| group-override-condition | Hidden Fields | — | Group does not reference an override field in its conditions |
+| group-override-condition | Hide Edit Button | — | Group does not reference an override field in its conditions |
+| group-override-condition | Hide Form Tabs | — | Group does not reference an override field in its conditions |
+| group-override-condition | HideFormControls | — | Group does not reference an override field in its conditions |
+| group-override-condition | Read Only Fields | — | Group does not reference an override field in its conditions |
+| label-unnamed-in-group | fpOnlineTitle | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
+| label-unnamed-in-group | DataField2 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
+| label-unnamed-in-group | DataField3 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
+| label-unnamed-in-group | DataField1 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
+| label-unnamed-in-group | DataField4 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
+| spelling | DG Stream Segment | Page 1 | Possible misspelling: "DG" (suggestions: CG, DB, DH) |
+| spelling | FPAN Number | Page 1 | Possible misspelling: "FPAN" (suggestions: FRAN, FAN, FLAN) |
+| spelling | UserRoles | Page 1 | Possible misspelling: "UserRoles" (suggestions: no suggestions) |
+| listener-disabled | Related Record ID | Page 1 | EnableQListener is enabled — verify this field requires query string fill-in/relate capability |
+| listener-disabled | Region Zone | Page 1 | EnableQListener is enabled — verify this field requires query string fill-in/relate capability |
+| listener-disabled | Region | Page 1 | EnableQListener is enabled — verify this field requires query string fill-in/relate capability |
+| listener-disabled | UserRoles | Page 1 | EnableQListener is enabled — verify this field requires query string fill-in/relate capability |

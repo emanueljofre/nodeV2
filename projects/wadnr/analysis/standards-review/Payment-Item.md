@@ -1,14 +1,14 @@
 # Standards Review: Payment-Item
 
-Generated: 2026-04-15 | Rules: 40 | Findings: 40 (0 errors, 29 warnings, 11 info)
+Generated: 2026-04-16 | Rules: 40 | Findings: 42 (0 errors, 30 warnings, 12 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
 | Error    | 0 |
-| Warning  | 29 |
-| Info     | 11 |
+| Warning  | 30 |
+| Info     | 12 |
 
 ## Warnings
 
@@ -19,10 +19,10 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 40 (0 errors, 29 warnings, 11 info
 | title-case | Refund GUID | Page 1 | Field name "Refund GUID" is not in Title Case |
 | default-name | Image78 | Page 1 | Default field name "Image78" — use a descriptive name |
 | accessibility-label | Refund Started | Page 1 | Missing AccessibilityLabel |
-| script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
-| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
 | script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
+| script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
 | script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
+| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
 | field-multiple-groups | Due Date | — | Field appears in 2 groups: Read Only Fields, Visible Transaction Type - Payment |
 | distance-to-border | Top Form ID | Page 1 | Field is 10px from the right border (minimum: 30px) |
 | label-overlap | Transaction Type | Page 1 | Label "Label73" overlaps field by 92px |
@@ -43,11 +43,13 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 40 (0 errors, 29 warnings, 11 info
 | accessibility-label-match | btnOpenRefund | Page 1 | AccessibilityLabel "Open Refund Button" does not match expected "Open Refund" |
 | button-label-camelcase | fpOnlineTitle | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | button-label-camelcase | LicenseID | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
+| tab-control-visible | TabControl | — | TabControl is in group "Hide Form Tabs" — tab visibility should be controlled via Menu tab, not groups |
 
 ## Info
 
 | Rule | Field | Page | Message |
 | :--- | :---- | :--- | :------ |
+| group-override-condition | Hide Form Tabs | — | Group does not reference an override field in its conditions |
 | label-unnamed-in-group | fpOnlineTitle | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
 | label-unnamed-in-group | DataField2 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
 | label-unnamed-in-group | DataField3 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |

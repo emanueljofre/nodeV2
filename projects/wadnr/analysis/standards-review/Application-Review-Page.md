@@ -1,14 +1,14 @@
 # Standards Review: Application-Review-Page
 
-Generated: 2026-04-15 | Rules: 40 | Findings: 543 (0 errors, 336 warnings, 207 info)
+Generated: 2026-04-16 | Rules: 40 | Findings: 554 (0 errors, 341 warnings, 213 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
 | Error    | 0 |
-| Warning  | 336 |
-| Info     | 207 |
+| Warning  | 341 |
+| Info     | 213 |
 
 ## Warnings
 
@@ -121,14 +121,17 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 543 (0 errors, 336 warnings, 207 i
 | title-case | Old FPAN Renewal Date of Receipt | Page 1 | Field name "Old FPAN Renewal Date of Receipt" is not in Title Case |
 | title-case | Old FPAN Status Flag | Page 1 | Field name "Old FPAN Status Flag" is not in Title Case |
 | title-case | Retrieved FPAN Data | Page 1 | Field name "Retrieved FPAN Data" is not in Title Case |
-| title-case | IsFieldStaff | Page 1 | Field name "IsFieldStaff" is not in Title Case |
 | title-case | WDFW Due Date Flag | Page 1 | Field name "WDFW Due Date Flag" is not in Title Case |
 | title-case | WDFW Response Date Flag | Page 1 | Field name "WDFW Response Date Flag" is not in Title Case |
 | title-case | No LTA Step 1 submitted form | Page 1 | Field name "No LTA Step 1 submitted form" is not in Title Case |
 | title-case | No Renewal submitted form | Page 1 | Field name "No Renewal submitted form" is not in Title Case |
 | title-case | IsOfficeStaff | Page 1 | Field name "IsOfficeStaff" is not in Title Case |
+| title-case | IsFieldStaff | Page 1 | Field name "IsFieldStaff" is not in Title Case |
 | title-case | PDF Package Exists Flag | Page 1 | Field name "PDF Package Exists Flag" is not in Title Case |
+| title-case | IsManagement | Page 1 | Field name "IsManagement" is not in Title Case |
 | title-case | PDF Package Generation In Queue | Page 1 | Field name "PDF Package Generation In Queue" is not in Title Case |
+| title-case | IsGISEditor | Page 1 | Field name "IsGISEditor" is not in Title Case |
+| title-case | IsInternalPersonnel | Page 1 | Field name "IsInternalPersonnel" is not in Title Case |
 | title-case | OnLoad Finished | Page 1 | Field name "OnLoad Finished" is not in Title Case |
 | default-name | Image57 | Page 1 | Default field name "Image57" — use a descriptive name |
 | valid-identifier | 40 PPM | Page 1 | Field name "40 PPM" contains invalid identifier characters |
@@ -166,15 +169,16 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 543 (0 errors, 336 warnings, 207 i
 | accessibility-label | PDF Package Generation In Queue | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | Process Documents on Expiration | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | OnLoad Finished | Page 1 | Missing AccessibilityLabel |
-| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
-| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
 | script-orphan-assignment | btnAddLTA5dayNotice_onClick | — | Script assignment references non-existent control ID: b4b3022b-7ed4-8a6a-5c5f-b68094deefbf |
+| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
+| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
 | script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
 | script-orphan-assignment | b7b62fc7-0cb3-db1f-60e9-a8e0c9b4c680 | — | Script assignment references non-existent control ID: 41cf6820-5c86-436d-36b6-75182a3c9393 |
 | script-unused-template | detectFormTemplateFromID | — | Template helper "detectFormTemplateFromID" is never referenced from any other script |
 | script-unused-template | DoStatusUpdate | — | Template helper "DoStatusUpdate" is never referenced from any other script |
 | script-unused-template | CreateNCFLOTracking | — | Template helper "CreateNCFLOTracking" is never referenced from any other script |
 | script-unused-template | createScienceTeamRecord | — | Template helper "createScienceTeamRecord" is never referenced from any other script |
+| field-multiple-groups | Con_FPANDecisionEditOrView | — | Field appears in 2 groups: Field Staff Create Document Buttons Read Only, Show FPA/N Decision Tab |
 | field-multiple-groups | Con_BodyName | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Main Content Tab |
 | field-multiple-groups | Con_LandownerContactOperatorName | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Main Content Tab |
 | field-multiple-groups | Con_LegalDescriptionBody | — | Field appears in 3 groups: Field Staff/Mgmt - ReadOnly Controls, Show Legal Description, Show Main Content Tab |
@@ -220,7 +224,6 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 543 (0 errors, 336 warnings, 207 i
 | field-multiple-groups | Con_LTADecisionDG | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show LTA Decision Information DG |
 | field-multiple-groups | Con_FPANRenewalContent | — | Field appears in 3 groups: Field Staff/Mgmt - ReadOnly Controls, No Renewal Submitted, Show FPA/N Renewal Content Tab |
 | field-multiple-groups | Con_FPANorAerialStatusHistoryDG | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show FPA/N or Aerial Status History DG |
-| field-multiple-groups | Con_FPANDecisionEditOrView | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show FPA/N Decision Tab |
 | field-multiple-groups | Con_ContactInormationBody | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Main Content Tab |
 | field-multiple-groups | Con_NotificationsCulturalResourcesDAHPDGHeader | — | Field appears in 2 groups: Show DAHP Section, Show Notifications Tab |
 | field-multiple-groups | Con_NotificationsHabitatUSFWSDGHeader | — | Field appears in 2 groups: Show Habitat USFWS, Show Notifications Tab |
@@ -249,7 +252,6 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 543 (0 errors, 336 warnings, 207 i
 | distance-to-border | FP Stream Temperature Class | Page 1 | Field is 24px from the right border (minimum: 30px) |
 | distance-to-border | Minimum Canopy Cover | Page 1 | Field is 24px from the right border (minimum: 30px) |
 | distance-to-border | Resource Review Comments | Page 1 | Field is 24px from the right border (minimum: 30px) |
-| distance-to-border | IsFieldStaff | Page 1 | Field is 10px from the right border (minimum: 30px) |
 | button-min-size | btnClearPDFPackageHelp | Page 1 | Button is 20x20px — minimum is 24x24px (508 compliance) |
 | accessibility-label-match | btnCreatePDF | Page 1 | AccessibilityLabel "Save Button" does not match expected "Create PDF" |
 | accessibility-label-match | btnSave | Page 1 | AccessibilityLabel "Save Button" does not match expected "Save" |
@@ -349,6 +351,9 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 543 (0 errors, 336 warnings, 207 i
 | accessibility-label-match | No LTA Step 1 submitted form | Page 1 | AccessibilityLabel "No LTA Step 1 submitted form flag" does not match expected "No LTA Step 1 submitted form" |
 | accessibility-label-match | No Renewal submitted form | Page 1 | AccessibilityLabel "No Renewal submitted form flag" does not match expected "No Renewal submitted form" |
 | accessibility-label-match | IsOfficeStaff | Page 1 | AccessibilityLabel "No Renewal submitted form flag" does not match expected "IsOfficeStaff" |
+| accessibility-label-match | IsManagement | Page 1 | AccessibilityLabel "IsManagement flag" does not match expected "IsManagement" |
+| accessibility-label-match | IsGISEditor | Page 1 | AccessibilityLabel "IsGISEditor flag" does not match expected "IsGISEditor" |
+| accessibility-label-match | IsInternalPersonnel | Page 1 | AccessibilityLabel "IsInternalPersonnel flag" does not match expected "IsInternalPersonnel" |
 | button-label-camelcase | Datafield1234 | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 
 ## Info
@@ -537,17 +542,23 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 543 (0 errors, 336 warnings, 207 i
 | spelling | Old FPAN Renewal Date of Receipt | Page 1 | Possible misspelling: "FPAN" (suggestions: FRAN, FAN, FLAN) |
 | spelling | Old FPAN Status Flag | Page 1 | Possible misspelling: "FPAN" (suggestions: FRAN, FAN, FLAN) |
 | spelling | Retrieved FPAN Data | Page 1 | Possible misspelling: "FPAN" (suggestions: FRAN, FAN, FLAN) |
-| spelling | IsFieldStaff | Page 1 | Possible misspelling: "IsFieldStaff" (suggestions: no suggestions) |
 | spelling | WDFW Due Date Flag | Page 1 | Possible misspelling: "WDFW" (suggestions: NSFW, VFW, WEFT) |
 | spelling | WDFW Response Date Flag | Page 1 | Possible misspelling: "WDFW" (suggestions: NSFW, VFW, WEFT) |
 | spelling | No LTA Step 1 submitted form | Page 1 | Possible misspelling: "LTA" (suggestions: LEA, ALTA, ETA) |
 | spelling | IsOfficeStaff | Page 1 | Possible misspelling: "IsOfficeStaff" (suggestions: no suggestions) |
+| spelling | IsFieldStaff | Page 1 | Possible misspelling: "IsFieldStaff" (suggestions: no suggestions) |
+| spelling | IsManagement | Page 1 | Possible misspelling: "IsManagement" (suggestions: mIsManagement) |
+| spelling | IsGISEditor | Page 1 | Possible misspelling: "IsGISEditor" (suggestions: no suggestions) |
+| spelling | IsInternalPersonnel | Page 1 | Possible misspelling: "IsInternalPersonnel" (suggestions: no suggestions) |
 | spelling | OnLoad Finished | Page 1 | Possible misspelling: "OnLoad" (suggestions: UnLoad) |
 | listener-disabled | UserID | Page 1 | EnableQListener is enabled — verify this field requires query string fill-in/relate capability |
-| listener-disabled | IsFieldStaff | Page 1 | EnableQListener is enabled — verify this field requires query string fill-in/relate capability |
 | listener-disabled | No LTA Step 1 submitted form | Page 1 | EnableQListener is enabled — verify this field requires query string fill-in/relate capability |
 | listener-disabled | No Renewal submitted form | Page 1 | EnableQListener is enabled — verify this field requires query string fill-in/relate capability |
 | listener-disabled | IsOfficeStaff | Page 1 | EnableQListener is enabled — verify this field requires query string fill-in/relate capability |
+| listener-disabled | IsFieldStaff | Page 1 | EnableQListener is enabled — verify this field requires query string fill-in/relate capability |
+| listener-disabled | IsManagement | Page 1 | EnableQListener is enabled — verify this field requires query string fill-in/relate capability |
+| listener-disabled | IsGISEditor | Page 1 | EnableQListener is enabled — verify this field requires query string fill-in/relate capability |
+| listener-disabled | IsInternalPersonnel | Page 1 | EnableQListener is enabled — verify this field requires query string fill-in/relate capability |
 | field-max-length | Project Name | Page 1 | MaxLength is 50 for name field — recommended minimum is 100 |
 | field-max-length | Contact Person First name | Page 1 | MaxLength is 50 for name field — recommended minimum is 100 |
 | field-max-length | Contact Person Last Name | Page 1 | MaxLength is 50 for name field — recommended minimum is 100 |

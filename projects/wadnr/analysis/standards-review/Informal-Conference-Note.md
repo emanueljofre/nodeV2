@@ -1,6 +1,6 @@
 # Standards Review: Informal-Conference-Note
 
-Generated: 2026-04-15 | Rules: 40 | Findings: 760 (0 errors, 468 warnings, 292 info)
+Generated: 2026-04-16 | Rules: 40 | Findings: 760 (0 errors, 468 warnings, 292 info)
 
 ## Summary
 
@@ -84,8 +84,8 @@ Generated: 2026-04-15 | Rules: 40 | Findings: 760 (0 errors, 468 warnings, 292 i
 | accessibility-label | Fixed Disabled Status Field | Page 1 | Missing AccessibilityLabel |
 | accessibility-required | Region | Page 1 | Required field AccessibilityLabel "Region" should end with "field Required" |
 | accessibility-required | Timber Owner Type | Page 1 | Required field AccessibilityLabel "Timber Owner Type required field" should end with "field Required" |
-| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
 | script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
+| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
 | script-field-reference | Form_onLoad | — | Script references non-existent field "Individual ID" via GetFieldValue() |
 | script-field-reference | Form_onLoad | — | Script references non-existent field "UserID" via GetFieldValue() |
 | field-multiple-groups | Con_Print | — | Field appears in 2 groups: All Form Read Only, Show Print Button |
