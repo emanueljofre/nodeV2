@@ -121,6 +121,34 @@ module.exports = [
                 });
             }
 
+            // Check that ONLY admin-related fields are in the admin group.
+            // Per standard: only the admin override container and admin save button
+            // container should be in this group.
+            const adminContainerId = adminContainer.id;
+            const childFieldIds = new Set();
+            for (const f of context.fields) {
+                if (f.containerId === adminContainerId) childFieldIds.add(f.id);
+            }
+
+            for (const member of containerInGroup.fieldMembers) {
+                const fid = member.fieldId;
+                if (!fid || fid === '00000000-0000-0000-0000-000000000000') continue;
+                if (fid.startsWith('00000001-')) continue;
+
+                // Allow the admin container itself and its direct children
+                if (fid === adminContainerId) continue;
+                if (childFieldIds.has(fid)) continue;
+
+                const fieldName = context.controlMap.get(fid)?.name || fid;
+                findings.push({
+                    ruleId: 'admin-override-security',
+                    severity: 'warning',
+                    field: fieldName,
+                    page: adminContainer.pageName,
+                    message: `Non-admin field "${fieldName}" is in admin group "${containerInGroup.name}" — only admin container and its children should be in this group`,
+                });
+            }
+
             return findings;
         },
     },

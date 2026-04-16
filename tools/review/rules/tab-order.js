@@ -13,6 +13,7 @@ const TAB_ORDER_FIELDS = [
     'CellField',
     'UploadButton',
     'FormButton',
+    'FieldSlider',
 ];
 
 module.exports = [

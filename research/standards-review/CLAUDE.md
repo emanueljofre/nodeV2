@@ -6,11 +6,11 @@ A rule-based review system that scans VV component artifacts to check standards 
 
 ## Scope
 
-| Component      | Status      | Notes                                              |
-| -------------- | ----------- | -------------------------------------------------- |
-| Form Templates | In Progress | 40 rules, report-only. Fix capability coming later |
-| Web Services   | Planned     | Extract infrastructure ready, rules TBD            |
-| Dashboards     | Planned     |                                                    |
+| Component      | Status      | Notes                                                 |
+| -------------- | ----------- | ----------------------------------------------------- |
+| Form Templates | In Progress | 49 rules, 371 unit tests. Fix capability coming later |
+| Web Services   | Planned     | Extract infrastructure ready, rules TBD               |
+| Dashboards     | Planned     |                                                       |
 
 ## Architecture
 

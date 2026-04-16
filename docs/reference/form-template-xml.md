@@ -44,19 +44,29 @@ Structure and contents of the VV form template XML export format. Templates can 
 
 Fields are `<BaseField xsi:type="...">` elements within the page's `<FieldList>`.
 
-| `xsi:type`           | `<FieldType>`      | Description                                                                                                                                                                   |
-| -------------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `FieldCalendar3`     | `Calendar`         | Date/DateTime field. Has `EnableTime`, `IgnoreTimezone`, `UseLegacy`, `EnableInitialValue`, `InitialValueMode`, `InitialDate`, `Mask`, `Placeholder`                          |
-| `FieldTextbox3`      | `TextBox`          | Single-line text. Has `Length`, `ReadOnly`, `InitialValue`, `EnableMasking`, `Formula`, `Placeholder`, `Borderless`, printing styles                                          |
-| `FieldTextArea3`     | `MultiLineTextbox` | Multi-line text. Has `Length`, `Rows`, `RenderAsHtmlEditor`                                                                                                                   |
-| `FieldDropDownList3` | `DropDownList`     | Dropdown with inline `<ItemList>` or query-driven options. Has `EnableQListener`, `EnableCascadedList`, cascade config, `ReportingProperty`, `WorkflowConditionsDataProperty` |
-| `FieldCheckbox`      | `Checkbox`         | Boolean field. Has `<Text>` (label), `<CheckBoxValue>`                                                                                                                        |
-| `FieldLabel`         | `Label`            | Static display text                                                                                                                                                           |
-| `FieldContainer`     | `Container`        | Layout container. Has `ResponsiveFlow`, `isCollapsible`, nested `FieldList` (optional)                                                                                        |
-| `FormButton`         | `FormButton`       | Action button. Has `FormSaveEnabled`, `OpenNewWindow`, `RedirectUrl`, `RelateForm`, `EnableFillinRelate`, `FillinRelateFieldList`, `OutsideValidationEnabled`                 |
-| `FormIDStamp`        | `FormIDStamp`      | Auto-generated form ID. Has `<Prefix>`, `<AutoNumber>`, `<IsReadOnly>`                                                                                                        |
-| `UploadButton`       | `UploadButton`     | File upload. Has `<MIMEFilter>`, `<UploadFolderPath>`, `<MaximumFileSize>`                                                                                                    |
-| `CellField`          | `CellField`        | Numeric/cell field                                                                                                                                                            |
+| `xsi:type`                  | `<FieldType>`               | Description                                                                                                                                                                                                                                                                                                              |
+| --------------------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `FieldCalendar3`            | `Calendar`                  | Date/DateTime field. Has `EnableTime`, `IgnoreTimezone`, `UseLegacy`, `EnableInitialValue`, `InitialValueMode`, `InitialDate`, `Mask`, `Placeholder`                                                                                                                                                                     |
+| `FieldTextbox3`             | `TextBox`                   | Single-line text. Has `Length`, `ReadOnly`, `InitialValue`, `EnableMasking`, `Formula`, `Placeholder`, `Borderless`, printing styles                                                                                                                                                                                     |
+| `FieldTextArea3`            | `MultiLineTextbox`          | Multi-line text. Has `Length`, `Rows`, `RenderAsHtmlEditor`                                                                                                                                                                                                                                                              |
+| `FieldDropDownList3`        | `DropDownList`              | Dropdown with inline `<ItemList>` or query-driven options. Has `EnableFormQuery`, `EnableCustomQuery`, `DropDownConnectionType`, `EnableCascadedList`, `CascadedParentListId`, `EnableLoadOnDemand`, `FillCacheEnabled`, `FillCacheTimeout`, `DataLookupProperty`, `ReportingProperty`, `WorkflowConditionsDataProperty` |
+| `FieldCheckbox`             | `Checkbox`                  | Boolean field. Has `<Text>` (label), `<CheckBoxValue>`                                                                                                                                                                                                                                                                   |
+| `FieldLabel`                | `Label`                     | Static display text. Has `Bold`, `FontSize`, `Align`, `LabelWrap`, `ForegroundColorString`, `AssociatedControlID`                                                                                                                                                                                                        |
+| `FieldContainer`            | `Container`                 | Layout container. Has `ResponsiveFlow`, `isCollapsible`, nested `FieldList` (optional)                                                                                                                                                                                                                                   |
+| `FormButton`                | `FormButton`                | Action button. Has `FormSaveEnabled`, `OpenNewWindow`, `RedirectUrl`, `RelateForm`, `EnableFillinRelate`, `FillinRelateFieldList`, `OutsideValidationEnabled`                                                                                                                                                            |
+| `FormIDStamp`               | `FormIDStamp`               | Auto-generated form ID. Has `<Prefix>`, `<AutoNumber>`, `<IsReadOnly>`                                                                                                                                                                                                                                                   |
+| `UploadButton`              | `UploadButton`              | File upload. Has `<MIMEFilter>`, `<UploadFolderPath>`, `<MaximumFileSize>`                                                                                                                                                                                                                                               |
+| `CellField`                 | `CellField`                 | Numeric/cell field                                                                                                                                                                                                                                                                                                       |
+| `ImageFormControl`          | `Image`                     | Static image display. Has `ImageURL`                                                                                                                                                                                                                                                                                     |
+| `UserIDStamp`               | `UserIDStamp`               | User signature stamp. Has `<Text>` (default: "Signature Stamp")                                                                                                                                                                                                                                                          |
+| `FieldDataGrid`             | `DataGrid`                  | Data grid control                                                                                                                                                                                                                                                                                                        |
+| `RepeatingRowControl`       | `RepeatingRowControl`       | Repeating row parent container. Related templates handle the actual RRC definition                                                                                                                                                                                                                                       |
+| `RepeatingRowControlColumn` | `RepeatingRowControlColumn` | Column within a repeating row. Has `ColumnWidth`, `ColumnType`, `ColumnTitle`, `Index`, `RepeatingRowControlId`, `IsNumeric`, `IsRequired`, `AggregateEnabled`, `IsFormulaColumn`                                                                                                                                        |
+| `FieldRectangle`            | `Rectangle`                 | Decorative rectangle/divider. Layout-only, no data                                                                                                                                                                                                                                                                       |
+| `FieldSlider`               | `Slider`                    | Slider input control. Interactive — supports accessibility, tab order, listeners                                                                                                                                                                                                                                         |
+| `BarCodeFormControl`        | `BarCode`                   | Barcode display/scan control                                                                                                                                                                                                                                                                                             |
+| `QuestionsControl`          | `QuestionsControl`          | Survey/questions control                                                                                                                                                                                                                                                                                                 |
+| `WizardStep`                | `WizardStep`                | Wizard step container for multi-step form flows                                                                                                                                                                                                                                                                          |
 
 ### Common Field Properties (all types)
 
@@ -82,6 +92,25 @@ Every `BaseField` shares these base properties:
 <EnableQListener>       <!-- URL parameter listener -->
 <AccessibilityLabel>    <!-- 508 accessibility label -->
 ```
+
+### Styling Properties
+
+Available on labels and some other field types. No `FontFamily` property exists — the platform uses a built-in default.
+
+```xml
+<Bold>true</Bold>                               <!-- Boolean: bold text -->
+<FontSize>10</FontSize>                         <!-- Numeric: font size in points -->
+<Align>Left</Align>                             <!-- Left | Right | Center -->
+<ForeColor>0</ForeColor>                        <!-- Numeric color value (0 = default) -->
+<ForegroundColorString>#FF000000</ForegroundColorString>  <!-- Hex ARGB color -->
+<BackgroundColor>0</BackgroundColor>            <!-- Numeric background color -->
+<BackgroundColorString>#00FFFFFF</BackgroundColorString>  <!-- Hex ARGB background -->
+<LabelWrap>true</LabelWrap>                     <!-- FieldLabel only: text wrapping -->
+```
+
+### Form ID Format
+
+The Form ID display format (prefix + sequence number pattern) is configured in VV Admin at the template level, **not stored in the template XML**. The `FormIDStamp` field in the XML has `Bold`, `FontSize`, `Align`, and `Width` for rendering, but the actual ID format (e.g., "WQ-0001") is a server-side setting.
 
 ---
 

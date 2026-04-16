@@ -93,8 +93,10 @@ node lib/VVRestApi/VVRestApiNodeJs/app.js
 # Test a scheduled script locally
 curl http://localhost:3000/TestScripts/Scheduled/ScriptName
 
-# Run tests
-npm test
+# Unit tests (Jest)
+npm test                  # Run all unit tests
+npm run test:watch        # Watch mode (re-run on save)
+npm run test:coverage     # Run with coverage report
 
 # Lint / Format
 npm run lint              # Check for issues
@@ -143,7 +145,7 @@ Environment profiles consolidate platform version, service configuration, and fr
 
 ## Standards Review
 
-Deterministic rule-based review of VV component artifacts against codified standards. Component-aware architecture — each rule declares its target component and field type applicability. See `research/standards-review/` for task status and `docs/standards/form-template-standard.md` for the 40 atomic standards.
+Deterministic rule-based review of VV component artifacts against codified standards. Component-aware architecture — each rule declares its target component and field type applicability. See `research/standards-review/` for task status and `docs/standards/form-template-standard.md` for the 49 atomic standards.
 
 ```bash
 npm run review -- --project wadnr              # Unified CLI (defaults to form-templates)
@@ -163,9 +165,9 @@ See `research/` folder. Each investigation gets its own subfolder with analysis,
 | [date-handling](research/date-handling/)                   | In Progress | Cross-platform date handling bug investigation across Forms, Web Services, Dashboards, Document Library |
 | [form-templates](research/form-templates/)                 | Active      | VV form template XML analysis, format documentation, and improved template generation                   |
 | [extract-optimization](research/extract-optimization/)     | Active      | Extract pipeline speed: parallel extraction, revision tracking, API-first                               |
-| [ws-naming](research/ws-naming/)                           | Active      | Web service naming — valid character investigation                                                      |
+| [ws-naming](research/ws-naming/)                           | Complete    | Web service naming — valid character investigation                                                      |
 | [scheduled-process-logs](research/scheduled-process-logs/) | Complete    | SP execution mechanics: response.json vs postCompletion, platform timeout, log behavior                 |
-| [standards-review](research/standards-review/)             | In Progress | Deterministic standards compliance tool for VV components (form templates first)                        |
+| [standards-review](research/standards-review/)             | In Progress | Deterministic standards compliance tool — 49 rules, 371 unit tests (form templates first)               |
 | [unrelate-forms](research/unrelate-forms/)                 | Complete    | Client-side UnrelateForm script — API verification and reusable global function                         |
 | [wadnr](projects/wadnr/)                                   | In Progress | WADNR client project: impact analysis, exported artifacts                                               |
 

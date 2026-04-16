@@ -21,13 +21,14 @@ docs/
 ### Standards
 
 - [bug-report-standard.md](standards/bug-report-standard.md) — Bug report structure, writing principles, severity levels, companion doc format, field configuration appendix pattern
-- [form-template-standard.md](standards/form-template-standard.md) — 40 atomic form template standards (naming, accessibility, layout, calendar config, script hygiene, groups, admin override, form controls) with pass/fail definitions
+- [form-template-standard.md](standards/form-template-standard.md) — 49 atomic form template standards (naming, accessibility, layout, calendar config, script hygiene, groups, admin override, form controls, dropdown config, label layout, visual consistency, field width) with pass/fail definitions
 
 ### Guides
 
 - [dev-setup.md](guides/dev-setup.md) — **Canonical setup guide** — environment setup, Playwright, credentials, code quality, troubleshooting
 - [playwright-testing.md](guides/playwright-testing.md) — Playwright patterns, architecture, extension guide
 - [scripting.md](guides/scripting.md) — Node.js server data flow, script contracts, API field casing, date passthrough behavior, FormsAPI access, `response.json()` vs `postCompletion()` execution flow
+- [unit-testing.md](guides/unit-testing.md) — Jest unit testing conventions, helpers API, custom matchers, fixture patterns, writing tests for new review rules
 
 ### Reference
 
@@ -35,4 +36,4 @@ docs/
 - [form-fields.md](reference/form-fields.md) — Calendar field config properties, popup modal behavior, V1/V2 code path, VV.Form console API, known bugs summary
 - [vv-form-api.md](reference/vv-form-api.md) — Full VV.Form object structure: properties, methods, sub-objects, field definitions, automation patterns
 - [api-date-patterns.md](reference/api-date-patterns.md) — Correct datetime handling for web services: CSV imports, TZ offsets, safe patterns, common pitfalls
-- [form-template-xml.md](reference/form-template-xml.md) — Form template XML export format: field types, groups/conditions, script library, built-in control GUIDs
+- [form-template-xml.md](reference/form-template-xml.md) — Form template XML export format: 21 field types, styling properties, groups/conditions, script library, built-in control GUIDs, Form ID format note

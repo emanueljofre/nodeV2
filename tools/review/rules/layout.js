@@ -16,6 +16,9 @@ const DISTANCE_CHECK_TYPES = [
     'FieldTextbox3',
     'FieldTextArea3',
     'UploadButton',
+    'FieldSlider',
+    'BarCodeFormControl',
+    'QuestionsControl',
 ];
 
 module.exports = [

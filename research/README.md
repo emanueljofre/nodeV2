@@ -21,6 +21,8 @@ research/
 | [date-handling](date-handling/)                   | In Progress | Cross-platform date handling bug investigation — Forms, Web Services, Dashboards         |
 | [form-templates](form-templates/)                 | Active      | VV form template XML analysis, format documentation, and improved template generation    |
 | [extract-optimization](extract-optimization/)     | Active      | Extract pipeline speed + reliability — parallel extraction, revision tracking, API-first |
+| [standards-review](standards-review/)             | In Progress | Deterministic standards compliance tool — 49 rules for form templates, unit tested       |
+| [unrelate-forms](unrelate-forms/)                 | Complete    | Client-side UnrelateForm script — API verification and reusable global function          |
 | [ws-naming](ws-naming/)                           | Complete    | Web service naming — valid character investigation (`_`, `-` confirmed safe)             |
 | [scheduled-process-logs](scheduled-process-logs/) | Complete    | SP execution mechanics: response.json vs postCompletion, platform timeout, log behavior  |
 

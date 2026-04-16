@@ -22,6 +22,11 @@ const ruleGroups = [
     require('./field-config'), // 2 rules
     require('./admin-override'), // 2 rules
     require('./form-controls'), // 2 rules
+    require('./standard-groups'), // 2 rules
+    require('./label-layout'), // 2 rules
+    require('./visual-consistency'), // 1 rule
+    require('./dropdown-config'), // 3 rules
+    require('./field-width'), // 1 rule
 ];
 
 const allRules = ruleGroups.flat();

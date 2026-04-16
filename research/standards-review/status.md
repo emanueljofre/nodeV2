@@ -59,9 +59,19 @@ Each standard goes through: **Draft** → **Under Review** → **Approved**
 | 39  | `group-consolidate-conditions` | Groups with identical conditions should be consolidated |   info   |    0     |    [script](../../tools/review/rules/group-checks.js)     | Clean for WADNR — no duplicate condition sets               | Draft  |
 | 40  | `tab-reference-by-name`        | Scripts should reference tabs by name, not number       | warning  |    0     |   [script](../../tools/review/rules/script-hygiene.js)    | Clean for WADNR — no numeric tab references                 | Draft  |
 
+| 41 | `standard-hidden-group` | Template must have Hidden Fields group | warning | — | [script](../../tools/review/rules/standard-groups.js) | Run against WADNR to get finding count | Draft |
+| 42 | `standard-readonly-group` | Template must have Read-Only Fields group | warning | — | [script](../../tools/review/rules/standard-groups.js) | Run against WADNR to get finding count | Draft |
+| 43 | `label-truncation` | Labels should not be truncated | warning | — | [script](../../tools/review/rules/label-layout.js) | Calibrate char width heuristic against real data | Draft |
+| 44 | `label-wrap-textbox` | Labels should not wrap next to single-line inputs | warning | — | [script](../../tools/review/rules/label-layout.js) | Calibrate detection — may need tolerance tuning | Draft |
+| 45 | `font-consistency` | Label fonts and styles must be consistent | info | — | [script](../../tools/review/rules/visual-consistency.js) | Run against WADNR — allows 2 styles (regular+heading) | Draft |
+| 46 | `dropdown-width` | Drop-down fields must have appropriate width | warning | — | [script](../../tools/review/rules/dropdown-config.js) | Run against WADNR — min 100px | Draft |
+| 47 | `query-not-default` | Drop-downs must not use auto-generated form query | warning | — | [script](../../tools/review/rules/dropdown-config.js) | Run against WADNR — check EnableFormQuery | Draft |
+| 48 | `data-lookup-in-properties` | Data lookups should use properties, not event scripts | info | — | [script](../../tools/review/rules/dropdown-config.js) | Run against WADNR — detect API calls in dd scripts | Draft |
+| 49 | `field-width-standard` | Field width appropriate for content type | info | — | [script](../../tools/review/rules/field-width.js) | Run against WADNR — calibrate width heuristics | Draft |
+
 ### Planned Standards (not yet implemented)
 
-_(All standards from xml-fixer and VV Form Template standards have been implemented. No planned standards remaining.)_
+_(All implementable standards have been implemented. Remaining standards from the form configuration checklist require runtime/preview or external system access — not implementable from template XML alone.)_
 
 ### Calibration Notes (existing rules — field type coverage gaps)
 
@@ -122,6 +132,12 @@ Entry format:
 - [x] Extended parser: group security members, FormControl members, raw group data
 - [x] New rule files: naming-conventions.js, field-config.js, admin-override.js, form-controls.js
 - [x] Full WADNR run — 77 templates, 8,751 findings across 40 rules
+- [x] Unit testing infrastructure (Jest 30, helpers, fixtures, custom matchers, 371 tests)
+- [x] Field type matrix expansion: 15 → 21 types (FieldRectangle, FieldSlider, RepeatingRowControlColumn, WizardStep, QuestionsControl, BarCodeFormControl)
+- [x] Implemented 9 new standards (#41-49) from form configuration checklist — 49 total rules
+- [x] New rule files: standard-groups.js, label-layout.js, visual-consistency.js, dropdown-config.js, field-width.js
+- [x] Updated admin-override-security: flags non-admin fields in admin group
+- [x] Unit test guide: `docs/guides/unit-testing.md`
 
 ## Blocked
 

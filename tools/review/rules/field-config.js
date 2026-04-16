@@ -11,6 +11,7 @@ const LISTENER_FIELD_TYPES = [
     'FieldDropDownList3',
     'FieldCheckbox',
     'CellField',
+    'FieldSlider',
 ];
 
 const MAX_LENGTH_FIELD_TYPES = ['FieldTextbox3', 'FieldTextArea3'];
