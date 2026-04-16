@@ -99,11 +99,11 @@ module.exports = {
                     if (idx >= total) break;
                     const item = itemsToExtract[idx];
 
-                    process.stdout.write(`  [W${workerId}] [${idx + 1}/${total}] ${item.name}...`);
+                    const prefix = `  [W${workerId}] [${idx + 1}/${total}] ${item.name}...`;
 
                     if (!item.revisionId) {
                         skipped.push({ name: item.name, error: 'missing revisionId' });
-                        process.stdout.write(` SKIP (no revisionId)\n`);
+                        process.stdout.write(`${prefix} SKIP (no revisionId)\n`);
                         continue;
                     }
 
@@ -112,14 +112,14 @@ module.exports = {
                         if (xml) {
                             const hash = crypto.createHash('sha256').update(xml).digest('hex');
                             results.set(item.name, { source: xml, contentHash: hash, format: 'xml' });
-                            process.stdout.write(` OK (${(xml.length / 1024).toFixed(1)} KB)\n`);
+                            process.stdout.write(`${prefix} OK (${(xml.length / 1024).toFixed(1)} KB)\n`);
                         } else {
                             jsonFallbacks.push(item);
-                            process.stdout.write(` EMPTY (queued for JSON fallback)\n`);
+                            process.stdout.write(`${prefix} EMPTY (queued for JSON fallback)\n`);
                         }
                     } catch (err) {
                         jsonFallbacks.push(item);
-                        process.stdout.write(` ${err.message} (queued for JSON fallback)\n`);
+                        process.stdout.write(`${prefix} ${err.message} (queued for JSON fallback)\n`);
                     }
                 }
             } catch (err) {
@@ -145,10 +145,10 @@ module.exports = {
                 const jwt = await vvFormsApi.getJwt(fallbackPage, baseApi);
 
                 for (const item of jsonFallbacks) {
-                    process.stdout.write(`    ${item.name}...`);
+                    const fbPrefix = `    ${item.name}...`;
                     if (!item.revisionId) {
                         skipped.push({ name: item.name, error: 'no revisionId for JSON fallback' });
-                        process.stdout.write(` SKIP (no revisionId)\n`);
+                        process.stdout.write(`${fbPrefix} SKIP (no revisionId)\n`);
                         continue;
                     }
 
@@ -162,10 +162,10 @@ module.exports = {
                         const source = JSON.stringify(json, null, 2);
                         const hash = crypto.createHash('sha256').update(source).digest('hex');
                         results.set(item.name, { source, contentHash: hash, format: 'json' });
-                        process.stdout.write(` OK (JSON, ${(source.length / 1024).toFixed(1)} KB)\n`);
+                        process.stdout.write(`${fbPrefix} OK (JSON, ${(source.length / 1024).toFixed(1)} KB)\n`);
                     } catch (err) {
                         skipped.push({ name: item.name, error: err.message });
-                        process.stdout.write(` JSON ERROR: ${err.message}\n`);
+                        process.stdout.write(`${fbPrefix} JSON ERROR: ${err.message}\n`);
                     }
                 }
 
