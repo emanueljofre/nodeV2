@@ -32,7 +32,11 @@ Last full extraction: 2026-04-08.
 - `analysis/field-inventory.md` — 137 calendar fields across 35 templates, mapped to date bug exposure (Config A-H)
 - `analysis/script-inventory.md` — Script-level date field interactions, WS calls, global function usage
 - `analysis/bug-analysis/case-study-124697.md` — Freshdesk #124697 (Jira WADNR-10407): postForms time mutation confirms FORM-BUG-5 cross-layer. Near-production constraint — no changes to DNR environment.
-- `analysis/date-handling-current-state.md` — WADNR-scoped current-state report: 11-layer catalogue, per-config scenario walkthroughs (B/C/D × 11 scenarios × PST/EST/UTC), XLAYER matrix, risk register.
+- `analysis/date-handling-current-state.md` — WADNR-scoped current-state report: 11-layer catalogue, per-config scenario walkthroughs (B/C/D × 11 scenarios × PST/EST/UTC), XLAYER matrix, PST-weighted risk register, assumptions section.
+- `analysis/date-handling-briefing.md` — Manager-facing briefing derived from the current-state report. Plain-language framing, three defect classes, mitigation + escalation asks.
+- `analysis/fillin-and-relate-form-audit.md` — A1: code audit of the site-level `FillinAndRelateForm` global and its callers. Verdict: no live FORM-BUG-5 exposure via this chain on WADNR today.
+- `analysis/document-library-date-exposure.md` — A2: enumeration of WADNR's library index fields. Verdict: 0 date-type fields in use; DOC-BUG-1/2 have zero exposure.
+- `analysis/config-d-field-usage.md` — A3: production sampling of the 12 Business DateTime fields. Verdict: 7 of 8 "misconfigured" fields carry real user-entered time; only 1 is safely reclassifiable.
 
 ## Commands
 
