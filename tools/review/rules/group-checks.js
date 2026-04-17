@@ -29,7 +29,7 @@ module.exports = [
         name: 'Fields Must Not Appear in Multiple Groups',
         component: 'form-templates',
         appliesTo: 'template',
-        severity: 'warning',
+        severity: 'error',
 
         check(context) {
             const findings = [];
@@ -52,7 +52,7 @@ module.exports = [
                 const fieldName = context.controlMap.get(fid)?.name || fid;
                 findings.push({
                     ruleId: 'field-multiple-groups',
-                    severity: 'warning',
+                    severity: 'error',
                     field: fieldName,
                     page: '—',
                     message: `Field appears in ${groupNames.length} groups: ${groupNames.join(', ')}`,

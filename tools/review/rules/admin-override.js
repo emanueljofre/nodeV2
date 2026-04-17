@@ -81,7 +81,7 @@ module.exports = [
         name: 'Admin Override Container Must Have Security Visibility',
         component: 'form-templates',
         appliesTo: 'template',
-        severity: 'warning',
+        severity: 'error',
 
         check(context) {
             const findings = [];
@@ -102,7 +102,7 @@ module.exports = [
             if (!containerInGroup) {
                 findings.push({
                     ruleId: 'admin-override-security',
-                    severity: 'warning',
+                    severity: 'error',
                     field: adminContainer.name,
                     page: adminContainer.pageName,
                     message: 'Admin Override container is not in any group — must have VaultAccess-only visibility',
@@ -114,7 +114,7 @@ module.exports = [
             if (!containerInGroup.securityMembers) {
                 findings.push({
                     ruleId: 'admin-override-security',
-                    severity: 'warning',
+                    severity: 'error',
                     field: adminContainer.name,
                     page: adminContainer.pageName,
                     message: `Group "${containerInGroup.name}" has no security visibility — Admin Override must be restricted to VaultAccess users`,
@@ -142,7 +142,7 @@ module.exports = [
                 const fieldName = context.controlMap.get(fid)?.name || fid;
                 findings.push({
                     ruleId: 'admin-override-security',
-                    severity: 'warning',
+                    severity: 'error',
                     field: fieldName,
                     page: adminContainer.pageName,
                     message: `Non-admin field "${fieldName}" is in admin group "${containerInGroup.name}" — only admin container and its children should be in this group`,

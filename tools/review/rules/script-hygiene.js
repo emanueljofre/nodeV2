@@ -24,7 +24,7 @@ module.exports = [
         name: 'Script Assignments Reference Valid Controls',
         component: 'form-templates',
         appliesTo: 'template',
-        severity: 'warning',
+        severity: 'error',
 
         check(context) {
             const findings = [];
@@ -42,7 +42,7 @@ module.exports = [
                 if (!isFormLevel && !isBuiltIn && !controlMap.has(assign.controlId)) {
                     findings.push({
                         ruleId: 'script-orphan-assignment',
-                        severity: 'warning',
+                        severity: 'error',
                         field: scriptName,
                         page: '—',
                         message: `Script assignment references non-existent control ID: ${assign.controlId}`,
@@ -159,7 +159,7 @@ module.exports = [
         name: 'Script Field References Exist',
         component: 'form-templates',
         appliesTo: 'template',
-        severity: 'warning',
+        severity: 'error',
 
         check(context) {
             const findings = [];
@@ -184,7 +184,7 @@ module.exports = [
                     if (!fieldNames.has(refName.toLowerCase())) {
                         findings.push({
                             ruleId: 'script-field-reference',
-                            severity: 'warning',
+                            severity: 'error',
                             field: script.name,
                             page: '—',
                             message: `Script references non-existent field "${refName}" via ${match[0].split('(')[0]}()`,

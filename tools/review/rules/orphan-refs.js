@@ -43,7 +43,7 @@ module.exports = [
         name: 'Group Members Reference Valid Fields',
         component: 'form-templates',
         appliesTo: 'template',
-        severity: 'warning',
+        severity: 'error',
 
         check(context) {
             const findings = [];
@@ -55,7 +55,7 @@ module.exports = [
                     if (!context.controlMap.has(fid)) {
                         findings.push({
                             ruleId: 'orphan-group-member',
-                            severity: 'warning',
+                            severity: 'error',
                             field: group.name,
                             page: '—',
                             message: `Group member references non-existent field ID: ${fid}`,
