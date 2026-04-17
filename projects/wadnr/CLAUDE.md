@@ -32,6 +32,7 @@ Last full extraction: 2026-04-08.
 - `analysis/field-inventory.md` — 137 calendar fields across 35 templates, mapped to date bug exposure (Config A-H)
 - `analysis/script-inventory.md` — Script-level date field interactions, WS calls, global function usage
 - `analysis/bug-analysis/case-study-124697.md` — Freshdesk #124697 (Jira WADNR-10407): postForms time mutation confirms FORM-BUG-5 cross-layer. Near-production constraint — no changes to DNR environment.
+- `analysis/date-handling-current-state.md` — WADNR-scoped current-state report: 11-layer catalogue, per-config scenario walkthroughs (B/C/D × 11 scenarios × PST/EST/UTC), XLAYER matrix, risk register.
 
 ## Commands
 
