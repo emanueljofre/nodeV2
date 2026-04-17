@@ -1,5 +1,7 @@
 # FORM-BUG-1: Timezone Marker Stripped From Dates During Form Load
 
+> **See also**: [`bug-1-sequence.md`](bug-1-sequence.md) — swimlane walkthrough of the open-and-save cycle, with worked PST examples (midnight and 8 pm) showing the value at each step.
+
 ## What Happens
 
 When a calendar field loads a date value that ends with a `Z` suffix (meaning "this time is in UTC"), the form's date parsing code silently removes the `Z` before interpreting the value. This changes the meaning of the date: what was midnight UTC becomes midnight in the user's local timezone, shifting the actual moment in time by the user's timezone offset.

@@ -138,6 +138,20 @@ Available on labels and some other field types. No `FontFamily` property exists 
 
 The Form ID display format (prefix + sequence number pattern) is configured in VV Admin at the template level, **not stored in the template XML**. The `FormIDStamp` field in the XML has `Bold`, `FontSize`, `Align`, and `Width` for rendering, but the actual ID format (e.g., "WQ-0001") is a server-side setting.
 
+### Calendar Field Initial Value
+
+`FieldCalendar3` fields carry three XML attributes that together control default-value behavior on new form instances:
+
+| Attribute              | Role                                                                                                                                                                                                                                          |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `<EnableInitialValue>` | **Gate flag.** The preset fires only when `true`. When `false`, the other two attributes are still serialized in the template but have no runtime effect.                                                                                     |
+| `<InitialValueMode>`   | `CurrentDate` (populate with the current moment at form open) or `FixedDate` (use `InitialDate` literally).                                                                                                                                   |
+| `<InitialDate>`        | ISO datetime used as the preset value when `InitialValueMode=FixedDate`. In `CurrentDate` mode the attribute still carries a timestamp (the moment the designer saved the template) but it is a serialization artifact — not read at runtime. |
+
+A template can carry a fully-populated preset configuration that is silently gated off by `EnableInitialValue=false`. Toggling the flag in Form Designer activates the preset immediately on the next form open with no other configuration changes required.
+
+**Interaction with FORM-BUG-1**: for `InitialValueMode=CurrentDate` on a Business DateTime field (`EnableTime=true` + `IgnoreTimezone=true`), the runtime produces the preset via `new Date().toISOString()`, which emits an ISO string ending in `Z`. That `Z` then triggers the FORM-BUG-1 Z-stripping sequence on each new form instance. See `research/date-handling/forms-calendar/analysis/bug-1-sequence.md` for the full flow.
+
 ---
 
 ## Groups and Conditions
