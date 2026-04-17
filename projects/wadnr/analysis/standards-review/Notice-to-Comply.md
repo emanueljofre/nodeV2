@@ -1,47 +1,19 @@
 # Standards Review: Notice-to-Comply
 
-Generated: 2026-04-16 | Rules: 40 | Findings: 390 (0 errors, 245 warnings, 145 info)
+Generated: 2026-04-16 | Rules: 49 | Findings: 443 (91 errors, 190 warnings, 162 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
-| Error    | 0 |
-| Warning  | 245 |
-| Info     | 145 |
+| Error    | 91 |
+| Warning  | 190 |
+| Info     | 162 |
 
-## Warnings
+## Errors
 
 | Rule | Field | Page | Message |
 | :--- | :---- | :--- | :------ |
-| title-case | NTC Number | Page 1 | Field name "NTC Number" is not in Title Case |
-| title-case | FPAN Number | Page 1 | Field name "FPAN Number" is not in Title Case |
-| title-case | Deviation from approved FPAN | Page 1 | Field name "Deviation from approved FPAN" is not in Title Case |
-| title-case | ViolationDateAndTime | Page 1 | Field name "ViolationDateAndTime" is not in Title Case |
-| title-case | Name of DNR Compliance Officer | Page 1 | Field name "Name of DNR Compliance Officer" is not in Title Case |
-| title-case | ReviewDateOne | Page 1 | Field name "ReviewDateOne" is not in Title Case |
-| title-case | ReviewDatetwo | Page 1 | Field name "ReviewDatetwo" is not in Title Case |
-| title-case | Legacy ENF ID | Page 1 | Field name "Legacy ENF ID" is not in Title Case |
-| title-case | UserID | Page 1 | Field name "UserID" is not in Title Case |
-| title-case | PDF Report GUID | Page 1 | Field name "PDF Report GUID" is not in Title Case |
-| title-case | Legacy PDF URL | Page 1 | Field name "Legacy PDF URL" is not in Title Case |
-| title-case | Full Name of DNR Compliance Officer | Page 1 | Field name "Full Name of DNR Compliance Officer" is not in Title Case |
-| title-case | isFieldStaff | Page 1 | Field name "isFieldStaff" is not in Title Case |
-| title-case | IsOfficeStaff | Page 1 | Field name "IsOfficeStaff" is not in Title Case |
-| title-case | Was AutoPopulated | Page 1 | Field name "Was AutoPopulated" is not in Title Case |
-| valid-identifier | Violation of WAC(s) | Page 1 | Field name "Violation of WAC(s)" contains invalid identifier characters |
-| valid-identifier | Violation? | Page 1 | Field name "Violation?" contains invalid identifier characters |
-| accessibility-label | Offline Owner Operator Entry | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Violations | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Submitted Date | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Tab Control | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Legacy ENF ID | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | PDF Report GUID | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Legacy PDF URL | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Relations Loaded In | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Fixed Boolean True Field | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Fixed Blank Field | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Fixed Disabled Status Field | Page 1 | Missing AccessibilityLabel |
 | script-orphan-assignment | Operator_County_onBlur | — | Script assignment references non-existent control ID: 61419a21-d6bd-9d64-eb46-aef7763e975f |
 | script-orphan-assignment | btnAddContact_onClick | — | Script assignment references non-existent control ID: 81a65aaa-c529-fb7f-471e-d91f3e906dee |
 | script-orphan-assignment | btnSaveDraftSubmit_onClick | — | Script assignment references non-existent control ID: 9111f372-08f6-bcf9-1694-71592c1bb190 |
@@ -133,6 +105,39 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 390 (0 errors, 245 warnings, 145 i
 | field-multiple-groups | btnLegacyPDF | — | Field appears in 2 groups: Offline Mode Hide Buttons, Read Only - Legacy PDF Button |
 | field-multiple-groups | btnCreatePDF | — | Field appears in 2 groups: Offline Mode Hide Buttons, Show Create PDF Button |
 | field-multiple-groups | btnPrint | — | Field appears in 2 groups: Offline Mode Hide Buttons, Show Print Button |
+
+## Warnings
+
+| Rule | Field | Page | Message |
+| :--- | :---- | :--- | :------ |
+| title-case | NTC Number | Page 1 | Field name "NTC Number" is not in Title Case |
+| title-case | FPAN Number | Page 1 | Field name "FPAN Number" is not in Title Case |
+| title-case | Deviation from approved FPAN | Page 1 | Field name "Deviation from approved FPAN" is not in Title Case |
+| title-case | ViolationDateAndTime | Page 1 | Field name "ViolationDateAndTime" is not in Title Case |
+| title-case | Name of DNR Compliance Officer | Page 1 | Field name "Name of DNR Compliance Officer" is not in Title Case |
+| title-case | ReviewDateOne | Page 1 | Field name "ReviewDateOne" is not in Title Case |
+| title-case | ReviewDatetwo | Page 1 | Field name "ReviewDatetwo" is not in Title Case |
+| title-case | Legacy ENF ID | Page 1 | Field name "Legacy ENF ID" is not in Title Case |
+| title-case | UserID | Page 1 | Field name "UserID" is not in Title Case |
+| title-case | PDF Report GUID | Page 1 | Field name "PDF Report GUID" is not in Title Case |
+| title-case | Legacy PDF URL | Page 1 | Field name "Legacy PDF URL" is not in Title Case |
+| title-case | Full Name of DNR Compliance Officer | Page 1 | Field name "Full Name of DNR Compliance Officer" is not in Title Case |
+| title-case | isFieldStaff | Page 1 | Field name "isFieldStaff" is not in Title Case |
+| title-case | IsOfficeStaff | Page 1 | Field name "IsOfficeStaff" is not in Title Case |
+| title-case | Was AutoPopulated | Page 1 | Field name "Was AutoPopulated" is not in Title Case |
+| valid-identifier | Violation of WAC(s) | Page 1 | Field name "Violation of WAC(s)" contains invalid identifier characters |
+| valid-identifier | Violation? | Page 1 | Field name "Violation?" contains invalid identifier characters |
+| accessibility-label | Offline Owner Operator Entry | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Violations | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Submitted Date | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Tab Control | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Legacy ENF ID | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | PDF Report GUID | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Legacy PDF URL | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Relations Loaded In | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Fixed Boolean True Field | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Fixed Blank Field | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Fixed Disabled Status Field | Page 1 | Missing AccessibilityLabel |
 | container-responsive-flow | Con_LandownerIndividualSearch | Page 1 | Container has 26 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
 | container-responsive-flow | Con_TimberBusionessOwnersDG | Page 1 | Container has 3 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
 | container-responsive-flow | Con_OperatorsBusinessDG | Page 1 | Container has 3 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
@@ -259,6 +264,43 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 390 (0 errors, 245 warnings, 145 i
 | button-label-camelcase | Lbl_OfflineOwnerOperatorEntry | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | button-label-camelcase | LabelDataGridsFields | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | tab-control-visible | TabControl | — | TabControl is in group "Hide Form Tabs" — tab visibility should be controlled via Menu tab, not groups |
+| label-truncation | Label716 | Page 1 | Label text "Notice to Comply" (~222px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | DataField2 | Page 1 | Label text "<b style="color:#9E0000;">*</b> Indicates required field" (~392px) may be truncated in 132px width — increase width or enable wrapping |
+| label-truncation | Label195 | Page 1 | Label text "Region: <b style="color:#9E0000;">*</b>" (~273px) may be truncated in 72px width — increase width or enable wrapping |
+| label-truncation | Label192 | Page 1 | Label text "Class of Forest Practice:" (~175px) may be truncated in 102px width — increase width or enable wrapping |
+| label-truncation | Label379 | Page 1 | Label text "Legal Description" (~131px) may be truncated in 72px width — increase width or enable wrapping |
+| label-truncation | Label407 | Page 1 | Label text "Select the Landowner type you want to add? <b style="color:#9E0000;">*</b>" (~518px) may be truncated in 272px width — increase width or enable wrapping |
+| label-truncation | Label508 | Page 1 | Label text "Landowner (Business Search)" (~208px) may be truncated in 122px width — increase width or enable wrapping |
+| label-truncation | Label510 | Page 1 | Label text "Business ID:" (~84px) may be truncated in 72px width — increase width or enable wrapping |
+| label-truncation | lblLandownerBusinessSignerHeader | Page 1 | Label text "Landowner (Individual Search)" (~224px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | lblLandownerInstructionsIndividual | Page 1 | Label text "Instructions: Search for a contact below to add as a Landowner to your application." (~640px) may be truncated in 562px width — increase width or enable wrapping |
+| label-truncation | Label533 | Page 1 | Label text "Select the Timber Owner type you want to add? <b style="color:#9E0000;">*</b>" (~593px) may be truncated in 292px width — increase width or enable wrapping |
+| label-truncation | Label594 | Page 1 | Label text "Timber Owner (Business Search)" (~232px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label595 | Page 1 | Label text "Instructions: Search for a business below to add as a Timber Owner to your application." (~670px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label292 | Page 1 | Label text "Timber Owner (Individual Search)" (~247px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | lblTimberOwnersInstructions | Page 1 | Label text "Instructions: Search for a contact below to add as a Timber Owner to your application." (~663px) may be truncated in 532px width — increase width or enable wrapping |
+| label-truncation | Label596 | Page 1 | Label text "Timber Owner (Business)" (~178px) may be truncated in 102px width — increase width or enable wrapping |
+| label-truncation | Label564 | Page 1 | Label text "Select the Operator type you want to add? <b style="color:#9E0000;">*</b>" (~511px) may be truncated in 252px width — increase width or enable wrapping |
+| label-truncation | DataField13 | Page 1 | Label text "Operator (Business Search)" (~201px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label597 | Page 1 | Label text "Instructions: Search for a business below to add as an Operator to your application." (~647px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label293 | Page 1 | Label text "Operator (Individual Search)" (~216px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | lblOperatorInstructions | Page 1 | Label text "Instructions: Search for a contact below to add as an Operator to your application." (~640px) may be truncated in 532px width — increase width or enable wrapping |
+| label-truncation | DataField24 | Page 1 | Label text "Operator(s) Business:" (~162px) may be truncated in 102px width — increase width or enable wrapping |
+| label-truncation | lblBusinessSignersOperatorDG | Page 1 | Label text "Operator(s) Individuals:" (~185px) may be truncated in 162px width — increase width or enable wrapping |
+| label-truncation | Label370 | Page 1 | Label text "Offline Owner/Operator Entry:" (~224px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | DataField78 | Page 1 | Label text "Under authority of Ch. 76.09 RCW, Title 222 WAC" (~329px) may be truncated in 200px width — increase width or enable wrapping |
+| label-truncation | Label161 | Page 1 | Label text "Description of violation(s), deviation(s), damage(s), or potential damage(s):" (~593px) may be truncated in 452px width — increase width or enable wrapping |
+| label-truncation | Label711 | Page 1 | Label text "<a href="https://apps.leg.wa.gov/wac/default.aspx?cite=222"_blank" style="color: blue;; text-decoration: underline;">https://apps.leg.wa.gov/wac/default.aspx?cite=222</a>" (~1190px) may be truncated in 350px width — increase width or enable wrapping |
+| label-truncation | Label294 | Page 1 | Label text "Send request to:<br>
+Department Of Natural Resources&#xA0;" (~447px) may be truncated in 300px width — increase width or enable wrapping |
+| label-truncation | Label297 | Page 1 | Label text "With a Copy Sent to the:" (~185px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label296 | Page 1 | Label text "that matches the selected Region<br>displays here" (~343px) may be truncated in 300px width — increase width or enable wrapping |
+| label-truncation | Label323 | Page 1 | Label text "Title of Compliance Officer:" (~196px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label320 | Page 1 | Label text "Name of DNR Compliance Officer:" (~217px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label321 | Page 1 | Label text "Signature of Compliance Officer:" (~224px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label317 | Page 1 | Label text "Obligations Completed Date:" (~189px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label358 | Page 1 | Label text "Offline Initial Form ID:" (~168px) may be truncated in 100px width — increase width or enable wrapping |
+| label-wrap-textbox | DataField10 | Page 1 | Label text "Violation Observed Date & Time:" wraps at 230px width next to "ViolationDateAndTime" — widen label or shorten text |
 
 ## Info
 
@@ -319,6 +361,8 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 390 (0 errors, 245 warnings, 145 i
 | label-unnamed-in-group | DataField6 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
 | label-unnamed-in-group | DataField14 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
 | label-unnamed-in-group | LabelDataGridsFields | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
+| spelling | Violation of WAC(s) | Page 1 | Possible misspelling: "WAC(s)" (suggestions: WACks) |
+| spelling | Violation? | Page 1 | Possible misspelling: "Violation?" (suggestions: Violation, Violations) |
 | spelling | NTC Number | Page 1 | Possible misspelling: "NTC" (suggestions: NFC, NRC, ETC) |
 | spelling | FPAN Number | Page 1 | Possible misspelling: "FPAN" (suggestions: FRAN, FAN, FLAN) |
 | spelling | RRC Legal Description | Page 1 | Possible misspelling: "RRC" (suggestions: RC, ORC, PRC) |
@@ -409,3 +453,18 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 390 (0 errors, 245 warnings, 145 i
 | field-max-length | Follow Up | Page 1 | TextArea MaxLength is 2000 — recommended minimum is 3000 for notes/text fields |
 | field-max-length | Name Of Person | Page 1 | MaxLength is 50 for name field — recommended minimum is 100 |
 | field-max-length | Full Name of DNR Compliance Officer | Page 1 | MaxLength is 50 for name field — recommended minimum is 100 |
+| font-consistency | Label716 | Page 1 | Label style differs from form pattern: fontSize=18 (expected 10), bold=true (expected false), color=#ffffffff (expected #FF000000) |
+| font-consistency | DataField2 | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | Label216 | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label681 | Page 1 | Label style differs from form pattern: fontSize=18 (expected 10), bold=true (expected false), color=#ffffffff (expected #FF000000) |
+| font-consistency | DataField78 | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | Label284 | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | Label285 | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | Label711 | Page 1 | Label style differs from form pattern: color=#ff0000ff (expected #FF000000) |
+| font-consistency | Label33 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff9e0000 (expected #FF000000) |
+| font-consistency | Label34 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10) |
+| font-consistency | DataField3 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10) |
+| font-consistency | Label350 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10) |
+| font-consistency | Label38 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label43 | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10), color=#ff000000 (expected #FF000000) |
+| data-lookup-in-properties | Region | — | Script "Region_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |

@@ -1,14 +1,79 @@
 # Standards Review: Application-Review-Page
 
-Generated: 2026-04-16 | Rules: 40 | Findings: 554 (0 errors, 341 warnings, 213 info)
+Generated: 2026-04-16 | Rules: 49 | Findings: 614 (60 errors, 303 warnings, 251 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
-| Error    | 0 |
-| Warning  | 341 |
-| Info     | 213 |
+| Error    | 60 |
+| Warning  | 303 |
+| Info     | 251 |
+
+## Errors
+
+| Rule | Field | Page | Message |
+| :--- | :---- | :--- | :------ |
+| script-orphan-assignment | btnAddLTA5dayNotice_onClick | — | Script assignment references non-existent control ID: b4b3022b-7ed4-8a6a-5c5f-b68094deefbf |
+| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
+| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
+| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
+| script-orphan-assignment | b7b62fc7-0cb3-db1f-60e9-a8e0c9b4c680 | — | Script assignment references non-existent control ID: 41cf6820-5c86-436d-36b6-75182a3c9393 |
+| field-multiple-groups | Con_FPANDecisionEditOrView | — | Field appears in 2 groups: Field Staff Create Document Buttons Read Only, Show FPA/N Decision Tab |
+| field-multiple-groups | Con_BodyName | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Main Content Tab |
+| field-multiple-groups | Con_LandownerContactOperatorName | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Main Content Tab |
+| field-multiple-groups | Con_LegalDescriptionBody | — | Field appears in 3 groups: Field Staff/Mgmt - ReadOnly Controls, Show Legal Description, Show Main Content Tab |
+| field-multiple-groups | Con_WRIA_WAU | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Main Content Tab |
+| field-multiple-groups | Con_IFPLShutdownZone | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Main Content Tab |
+| field-multiple-groups | Con_ForestPractices | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Main Content Tab |
+| field-multiple-groups | Con_FeeInformation | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Main Content Tab |
+| field-multiple-groups | Con_NotificationsHabitatWDFW | — | Field appears in 3 groups: Field Staff/Mgmt - ReadOnly Controls, Show Habitat WDFW, Show Notifications Tab |
+| field-multiple-groups | Con_NotificationsHabitatWNHP | — | Field appears in 3 groups: Field Staff/Mgmt - ReadOnly Controls, Show Habitat WNHP, Show Notifications Tab |
+| field-multiple-groups | Con_NotificationsHabitatUSFWS | — | Field appears in 3 groups: Field Staff/Mgmt - ReadOnly Controls, Show Habitat USFWS, Show Notifications Tab |
+| field-multiple-groups | Con_NotificationsHabitatWDFWDG | — | Field appears in 3 groups: Field Staff/Mgmt - ReadOnly Controls, Show Habitat WDFW, Show Notifications Tab |
+| field-multiple-groups | Con_NotificationsHabitatWNHPDG | — | Field appears in 3 groups: Field Staff/Mgmt - ReadOnly Controls, Show Habitat WNHP, Show Notifications Tab |
+| field-multiple-groups | Con_NotificationsHabitatUSFWSDG | — | Field appears in 3 groups: Field Staff/Mgmt - ReadOnly Controls, Show Habitat USFWS, Show Notifications Tab |
+| field-multiple-groups | Con_NotificationsScienceTeam | — | Field appears in 3 groups: Field Staff/Mgmt - ReadOnly Controls, Show Notifications Tab, Show Science Team Container |
+| field-multiple-groups | Con_NotificationsScienceTeamDG | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Notifications Tab |
+| field-multiple-groups | Con_NotificationsCulturalResourcesDAHP | — | Field appears in 3 groups: Field Staff/Mgmt - ReadOnly Controls, Show DAHP Section, Show Notifications Tab |
+| field-multiple-groups | Con_NotificationsCulturalResourcesTRIBAL | — | Field appears in 3 groups: Field Staff/Mgmt - ReadOnly Controls, Show Notifications Tab, Show Tribal Section |
+| field-multiple-groups | Con_NotificationsCulturalResourcesDAHPDG | — | Field appears in 3 groups: Field Staff/Mgmt - ReadOnly Controls, Show DAHP Section, Show Notifications Tab |
+| field-multiple-groups | Con_NotificationsCulturalResourcesTRIBALDG | — | Field appears in 3 groups: Field Staff/Mgmt - ReadOnly Controls, Show Notifications Tab, Show Tribal Section |
+| field-multiple-groups | Con_NotificationsOther | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Notifications Tab |
+| field-multiple-groups | Con_ResourceReviewSensitiveContent | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Resource Review Sensitive Tab |
+| field-multiple-groups | Con_ResourceReviewContent | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Resource Review Tab |
+| field-multiple-groups | Con_ResourceReviewCommentsContent | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Resource Review Tab |
+| field-multiple-groups | Con_ResourceReviewSensitiveCommentsContent | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Resource Review Sensitive Tab |
+| field-multiple-groups | Con_FPANContent | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show FPA/N Content Tab |
+| field-multiple-groups | Con_WDFWContent | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show WDFW Content Tab |
+| field-multiple-groups | Con_FPANDecisionContent | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show FPA/N Decision Tab |
+| field-multiple-groups | Con_FPANRenewalStatusHistoryDG | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show FPA/N Renewal Status History DG |
+| field-multiple-groups | Con_LTAContent | — | Field appears in 4 groups: Field Staff/Mgmt - ReadOnly Controls, No LTA Step 1 Submitted, Show LTA Content Tab, Show LTA Tab |
+| field-multiple-groups | Con_5-DayNoticeDG | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show 5-Day Notice DG |
+| field-multiple-groups | Con_SEPAContent | — | Field appears in 3 groups: Field Staff/Mgmt - ReadOnly Controls, Show SEPA Content Tab, Show SEPA Tab |
+| field-multiple-groups | Con_SEPAAddendumsDG | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show SEPA Addendums(s) DG |
+| field-multiple-groups | Con_ADMENDMENTSContent | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show AMENDMENTS Tab |
+| field-multiple-groups | Con_NoticeofTransferDG | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Notice of Transfer DG |
+| field-multiple-groups | Con_ColumbiaRiverGorge | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Main Content Tab |
+| field-multiple-groups | Con_ColumbiaRiverGorgeOptions | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Columbia River Gorge Options |
+| field-multiple-groups | Con_SmelterPlumeArea | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Main Content Tab |
+| field-multiple-groups | Con_SmelterPlumeAreaOptions | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Smelter Plume Area Options |
+| field-multiple-groups | Con_SaltwaterIsland | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Main Content Tab |
+| field-multiple-groups | Con_AmendmentStatusHistoryDG | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Amendment Status History DG |
+| field-multiple-groups | Con_AmendmentNODDG | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Amendment NOD DG |
+| field-multiple-groups | Con_LTAStatusHistoryDG | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show LTA Step 1 Status History DG |
+| field-multiple-groups | Con_LTADecisionDG | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show LTA Decision Information DG |
+| field-multiple-groups | Con_FPANRenewalContent | — | Field appears in 3 groups: Field Staff/Mgmt - ReadOnly Controls, No Renewal Submitted, Show FPA/N Renewal Content Tab |
+| field-multiple-groups | Con_FPANorAerialStatusHistoryDG | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show FPA/N or Aerial Status History DG |
+| field-multiple-groups | Con_ContactInormationBody | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Main Content Tab |
+| field-multiple-groups | Con_NotificationsCulturalResourcesDAHPDGHeader | — | Field appears in 2 groups: Show DAHP Section, Show Notifications Tab |
+| field-multiple-groups | Con_NotificationsHabitatUSFWSDGHeader | — | Field appears in 2 groups: Show Habitat USFWS, Show Notifications Tab |
+| field-multiple-groups | Con_NotificationsHabitatWDFWDGHeader | — | Field appears in 2 groups: Show Habitat WDFW, Show Notifications Tab |
+| field-multiple-groups | Con_NotificationsHabitatWNHPDGHeader | — | Field appears in 2 groups: Show Habitat WNHP, Show Notifications Tab |
+| field-multiple-groups | Con_LegalDescriptionHeader | — | Field appears in 2 groups: Show Legal Description, Show Main Content Tab |
+| field-multiple-groups | Con_NotificationsCulturalResourcesTRIBALDGHeader | — | Field appears in 2 groups: Show Notifications Tab, Show Tribal Section |
+| field-multiple-groups | Con_NotificationsScienceTeamHeader | — | Field appears in 2 groups: Show Notifications Tab, Show Science Team Tab |
+| field-multiple-groups | Con_NotificationsScienceTeamHeaderSeparator | — | Field appears in 2 groups: Show Notifications Tab, Show Science Team Tab |
 
 ## Warnings
 
@@ -169,70 +234,10 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 554 (0 errors, 341 warnings, 213 i
 | accessibility-label | PDF Package Generation In Queue | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | Process Documents on Expiration | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | OnLoad Finished | Page 1 | Missing AccessibilityLabel |
-| script-orphan-assignment | btnAddLTA5dayNotice_onClick | — | Script assignment references non-existent control ID: b4b3022b-7ed4-8a6a-5c5f-b68094deefbf |
-| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
-| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
-| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
-| script-orphan-assignment | b7b62fc7-0cb3-db1f-60e9-a8e0c9b4c680 | — | Script assignment references non-existent control ID: 41cf6820-5c86-436d-36b6-75182a3c9393 |
 | script-unused-template | detectFormTemplateFromID | — | Template helper "detectFormTemplateFromID" is never referenced from any other script |
 | script-unused-template | DoStatusUpdate | — | Template helper "DoStatusUpdate" is never referenced from any other script |
 | script-unused-template | CreateNCFLOTracking | — | Template helper "CreateNCFLOTracking" is never referenced from any other script |
 | script-unused-template | createScienceTeamRecord | — | Template helper "createScienceTeamRecord" is never referenced from any other script |
-| field-multiple-groups | Con_FPANDecisionEditOrView | — | Field appears in 2 groups: Field Staff Create Document Buttons Read Only, Show FPA/N Decision Tab |
-| field-multiple-groups | Con_BodyName | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Main Content Tab |
-| field-multiple-groups | Con_LandownerContactOperatorName | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Main Content Tab |
-| field-multiple-groups | Con_LegalDescriptionBody | — | Field appears in 3 groups: Field Staff/Mgmt - ReadOnly Controls, Show Legal Description, Show Main Content Tab |
-| field-multiple-groups | Con_WRIA_WAU | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Main Content Tab |
-| field-multiple-groups | Con_IFPLShutdownZone | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Main Content Tab |
-| field-multiple-groups | Con_ForestPractices | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Main Content Tab |
-| field-multiple-groups | Con_FeeInformation | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Main Content Tab |
-| field-multiple-groups | Con_NotificationsHabitatWDFW | — | Field appears in 3 groups: Field Staff/Mgmt - ReadOnly Controls, Show Habitat WDFW, Show Notifications Tab |
-| field-multiple-groups | Con_NotificationsHabitatWNHP | — | Field appears in 3 groups: Field Staff/Mgmt - ReadOnly Controls, Show Habitat WNHP, Show Notifications Tab |
-| field-multiple-groups | Con_NotificationsHabitatUSFWS | — | Field appears in 3 groups: Field Staff/Mgmt - ReadOnly Controls, Show Habitat USFWS, Show Notifications Tab |
-| field-multiple-groups | Con_NotificationsHabitatWDFWDG | — | Field appears in 3 groups: Field Staff/Mgmt - ReadOnly Controls, Show Habitat WDFW, Show Notifications Tab |
-| field-multiple-groups | Con_NotificationsHabitatWNHPDG | — | Field appears in 3 groups: Field Staff/Mgmt - ReadOnly Controls, Show Habitat WNHP, Show Notifications Tab |
-| field-multiple-groups | Con_NotificationsHabitatUSFWSDG | — | Field appears in 3 groups: Field Staff/Mgmt - ReadOnly Controls, Show Habitat USFWS, Show Notifications Tab |
-| field-multiple-groups | Con_NotificationsScienceTeam | — | Field appears in 3 groups: Field Staff/Mgmt - ReadOnly Controls, Show Notifications Tab, Show Science Team Container |
-| field-multiple-groups | Con_NotificationsScienceTeamDG | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Notifications Tab |
-| field-multiple-groups | Con_NotificationsCulturalResourcesDAHP | — | Field appears in 3 groups: Field Staff/Mgmt - ReadOnly Controls, Show DAHP Section, Show Notifications Tab |
-| field-multiple-groups | Con_NotificationsCulturalResourcesTRIBAL | — | Field appears in 3 groups: Field Staff/Mgmt - ReadOnly Controls, Show Notifications Tab, Show Tribal Section |
-| field-multiple-groups | Con_NotificationsCulturalResourcesDAHPDG | — | Field appears in 3 groups: Field Staff/Mgmt - ReadOnly Controls, Show DAHP Section, Show Notifications Tab |
-| field-multiple-groups | Con_NotificationsCulturalResourcesTRIBALDG | — | Field appears in 3 groups: Field Staff/Mgmt - ReadOnly Controls, Show Notifications Tab, Show Tribal Section |
-| field-multiple-groups | Con_NotificationsOther | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Notifications Tab |
-| field-multiple-groups | Con_ResourceReviewSensitiveContent | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Resource Review Sensitive Tab |
-| field-multiple-groups | Con_ResourceReviewContent | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Resource Review Tab |
-| field-multiple-groups | Con_ResourceReviewCommentsContent | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Resource Review Tab |
-| field-multiple-groups | Con_ResourceReviewSensitiveCommentsContent | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Resource Review Sensitive Tab |
-| field-multiple-groups | Con_FPANContent | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show FPA/N Content Tab |
-| field-multiple-groups | Con_WDFWContent | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show WDFW Content Tab |
-| field-multiple-groups | Con_FPANDecisionContent | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show FPA/N Decision Tab |
-| field-multiple-groups | Con_FPANRenewalStatusHistoryDG | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show FPA/N Renewal Status History DG |
-| field-multiple-groups | Con_LTAContent | — | Field appears in 4 groups: Field Staff/Mgmt - ReadOnly Controls, No LTA Step 1 Submitted, Show LTA Content Tab, Show LTA Tab |
-| field-multiple-groups | Con_5-DayNoticeDG | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show 5-Day Notice DG |
-| field-multiple-groups | Con_SEPAContent | — | Field appears in 3 groups: Field Staff/Mgmt - ReadOnly Controls, Show SEPA Content Tab, Show SEPA Tab |
-| field-multiple-groups | Con_SEPAAddendumsDG | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show SEPA Addendums(s) DG |
-| field-multiple-groups | Con_ADMENDMENTSContent | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show AMENDMENTS Tab |
-| field-multiple-groups | Con_NoticeofTransferDG | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Notice of Transfer DG |
-| field-multiple-groups | Con_ColumbiaRiverGorge | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Main Content Tab |
-| field-multiple-groups | Con_ColumbiaRiverGorgeOptions | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Columbia River Gorge Options |
-| field-multiple-groups | Con_SmelterPlumeArea | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Main Content Tab |
-| field-multiple-groups | Con_SmelterPlumeAreaOptions | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Smelter Plume Area Options |
-| field-multiple-groups | Con_SaltwaterIsland | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Main Content Tab |
-| field-multiple-groups | Con_AmendmentStatusHistoryDG | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Amendment Status History DG |
-| field-multiple-groups | Con_AmendmentNODDG | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Amendment NOD DG |
-| field-multiple-groups | Con_LTAStatusHistoryDG | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show LTA Step 1 Status History DG |
-| field-multiple-groups | Con_LTADecisionDG | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show LTA Decision Information DG |
-| field-multiple-groups | Con_FPANRenewalContent | — | Field appears in 3 groups: Field Staff/Mgmt - ReadOnly Controls, No Renewal Submitted, Show FPA/N Renewal Content Tab |
-| field-multiple-groups | Con_FPANorAerialStatusHistoryDG | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show FPA/N or Aerial Status History DG |
-| field-multiple-groups | Con_ContactInormationBody | — | Field appears in 2 groups: Field Staff/Mgmt - ReadOnly Controls, Show Main Content Tab |
-| field-multiple-groups | Con_NotificationsCulturalResourcesDAHPDGHeader | — | Field appears in 2 groups: Show DAHP Section, Show Notifications Tab |
-| field-multiple-groups | Con_NotificationsHabitatUSFWSDGHeader | — | Field appears in 2 groups: Show Habitat USFWS, Show Notifications Tab |
-| field-multiple-groups | Con_NotificationsHabitatWDFWDGHeader | — | Field appears in 2 groups: Show Habitat WDFW, Show Notifications Tab |
-| field-multiple-groups | Con_NotificationsHabitatWNHPDGHeader | — | Field appears in 2 groups: Show Habitat WNHP, Show Notifications Tab |
-| field-multiple-groups | Con_LegalDescriptionHeader | — | Field appears in 2 groups: Show Legal Description, Show Main Content Tab |
-| field-multiple-groups | Con_NotificationsCulturalResourcesTRIBALDGHeader | — | Field appears in 2 groups: Show Notifications Tab, Show Tribal Section |
-| field-multiple-groups | Con_NotificationsScienceTeamHeader | — | Field appears in 2 groups: Show Notifications Tab, Show Science Team Tab |
-| field-multiple-groups | Con_NotificationsScienceTeamHeaderSeparator | — | Field appears in 2 groups: Show Notifications Tab, Show Science Team Tab |
 | container-responsive-flow | Con_ContactInormationBody | Page 1 | Container has 8 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
 | container-responsive-flow | Con_ColumbiaRiverGorgeOptions | Page 1 | Container has 2 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
 | container-responsive-flow | Con_SmelterPlumeAreaOptions | Page 1 | Container has 2 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
@@ -355,6 +360,28 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 554 (0 errors, 341 warnings, 213 i
 | accessibility-label-match | IsGISEditor | Page 1 | AccessibilityLabel "IsGISEditor flag" does not match expected "IsGISEditor" |
 | accessibility-label-match | IsInternalPersonnel | Page 1 | AccessibilityLabel "IsInternalPersonnel flag" does not match expected "IsInternalPersonnel" |
 | button-label-camelcase | Datafield1234 | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
+| label-truncation | lblAlertNotice | Page 1 | Label text "Alert Notice" (~84px) may be truncated in 5px width — increase width or enable wrapping |
+| label-truncation | Label288 | Page 1 | Label text "fpOnline Fee Information" (~185px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label132 | Page 1 | Label text "Fee Transferred to FPA/N No." (~196px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label134 | Page 1 | Label text "Fee Transferred from FPA/N No." (~210px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label115 | Page 1 | Label text "REVISION REQUEST" (~124px) may be truncated in 52px width — increase width or enable wrapping |
+| label-truncation | Label176 | Page 1 | Label text "CULTURAL RESOURCES (DAHP):" (~182px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label177 | Page 1 | Label text "DAHP Conflict Inquiry Sent" (~182px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label185 | Page 1 | Label text "CULTURAL RESOURCES (TRIBAL):" (~196px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label186 | Page 1 | Label text "Tribal Notification Sent To" (~189px) may be truncated in 112px width — increase width or enable wrapping |
+| label-truncation | Label188 | Page 1 | Label text "Date Tribal Notification Sent" (~203px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label190 | Page 1 | Label text "Tribal Meeting Request Received" (~217px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label194 | Page 1 | Label text "Tribal Notification Comments" (~196px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label197 | Page 1 | Label text "Cultural Resources: DAHP" (~185px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label198 | Page 1 | Label text "Cultural Resources: Tribal" (~201px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label459 | Page 1 | Label text "FPA/N or Aerial Status History" (~232px) may be truncated in 112px width — increase width or enable wrapping |
+| label-truncation | Label463 | Page 1 | Label text "Renewal Status History" (~170px) may be truncated in 112px width — increase width or enable wrapping |
+| label-truncation | Label470 | Page 1 | Label text "LTA Step 1 Status History" (~193px) may be truncated in 92px width — increase width or enable wrapping |
+| label-truncation | Label242 | Page 1 | Label text "Notice of Transfer" (~139px) may be truncated in 122px width — increase width or enable wrapping |
+| label-truncation | Label341 | Page 1 | Label text "Fish Hatchery Name" (~126px) may be truncated in 52px width — increase width or enable wrapping |
+| label-truncation | Label440 | Page 1 | Label text "Aerial Chemical Status Updated At:" (~238px) may be truncated in 172px width — increase width or enable wrapping |
+| label-truncation | DataField3 | Page 1 | Label text "Status:" (~49px) may be truncated in 42px width — increase width or enable wrapping |
+| label-wrap-textbox | Label495 | Page 1 | Label text "Forest Practice Notification Needed:" wraps at 172px width next to "Forest Practice Notification Needed" — widen label or shorten text |
 
 ## Info
 
@@ -378,6 +405,9 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 554 (0 errors, 341 warnings, 213 i
 | label-unnamed-in-group | DataField5 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
 | label-unnamed-in-group | DataField3 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
 | label-unnamed-in-group | DataField7 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
+| spelling | IFPL | Page 1 | Possible misspelling: "IFPL" (suggestions: CPL, IDOL, FOL) |
+| spelling | WRIA | Page 1 | Possible misspelling: "WRIA" (suggestions: ARIA, WRIT) |
+| spelling | WAU | Page 1 | Possible misspelling: "WAU" (suggestions: TAU, WAR, AU) |
 | spelling | FPAN Number | Page 1 | Possible misspelling: "FPAN" (suggestions: FRAN, FAN, FLAN) |
 | spelling | FPAN Status | Page 1 | Possible misspelling: "FPAN" (suggestions: FRAN, FAN, FLAN) |
 | spelling | FPAN Classification | Page 1 | Possible misspelling: "FPAN" (suggestions: FRAN, FAN, FLAN) |
@@ -573,3 +603,38 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 554 (0 errors, 341 warnings, 213 i
 | field-max-length | SEPA Number of Comments Received | Page 1 | MaxLength is 50 for notes field — recommended minimum is 3000 |
 | field-max-length | Fish Hatchery Name | Page 1 | MaxLength is 50 for name field — recommended minimum is 100 |
 | field-max-length | Resorce Review Sensitive Comments | Page 1 | TextArea MaxLength is 1000 — recommended minimum is 3000 for notes/text fields |
+| font-consistency | Label71 | Page 1 | Label style differs from form pattern: fontSize=18 (expected 10), bold=true (expected false), color=#ffffffff (expected #FF000000) |
+| font-consistency | Label56 | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label22 | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label506 | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label55 | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label72 | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label74 | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label76 | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label81 | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label94 | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label111 | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label487 | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | Label488 | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | Label33 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff9e0000 (expected #FF000000) |
+| font-consistency | Label34 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10) |
+| font-consistency | Label38 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label43 | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label41 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label435 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label113 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label523 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false) |
+| font-consistency | Label286 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label527 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| data-lookup-in-properties | FPAN Status | — | Script "FPAN_Status_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | FPAN Renewal Status | — | Script "FPAN_Renewal_Status_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Notes Type | — | Script "Notes_Type_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | LTA Step 1 Status | — | Script "LTA_Step_1_Status_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Notes Type | — | Script "Notes_Type_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| field-width-standard | WDFW Comments | Page 1 | notes field width is 246px — recommended minimum is 300px |
+| field-width-standard | WNHP Comments | Page 1 | notes field width is 246px — recommended minimum is 300px |
+| field-width-standard | USFWS Comments | Page 1 | notes field width is 246px — recommended minimum is 300px |
+| field-width-standard | LEG Name | Page 1 | name field width is 140px — recommended minimum is 150px |
+| field-width-standard | DAHP Comments | Page 1 | notes field width is 246px — recommended minimum is 300px |
+| field-width-standard | Notes Type | Page 1 | notes field width is 140px — recommended minimum is 300px |
+| field-width-standard | SEPA Number of Comments Received | Page 1 | notes field width is 162px — recommended minimum is 300px |

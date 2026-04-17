@@ -1,20 +1,19 @@
 # Standards Review: Note
 
-Generated: 2026-04-16 | Rules: 40 | Findings: 186 (0 errors, 179 warnings, 7 info)
+Generated: 2026-04-16 | Rules: 49 | Findings: 189 (9 errors, 173 warnings, 7 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
-| Error    | 0 |
-| Warning  | 179 |
+| Error    | 9 |
+| Warning  | 173 |
 | Info     | 7 |
 
-## Warnings
+## Errors
 
 | Rule | Field | Page | Message |
 | :--- | :---- | :--- | :------ |
-| default-name | Image46 | Page 1 | Default field name "Image46" — use a descriptive name |
 | script-orphan-assignment | btnSearchWithModal_onClick | — | Script assignment references non-existent control ID: a571d7e8-2ebb-6332-6975-9e58d8c1711a |
 | script-orphan-assignment | btn_SearchContact_onClick | — | Script assignment references non-existent control ID: 4258ef57-bda6-2d29-6b19-0669a2e27d16 |
 | script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
@@ -24,6 +23,12 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 186 (0 errors, 179 warnings, 7 inf
 | script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
 | script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
 | script-orphan-assignment | btnTestCalculateBusinessDate_onClick | — | Script assignment references non-existent control ID: 75b1aebd-00a5-e5d5-2e27-f700a78e78a1 |
+
+## Warnings
+
+| Rule | Field | Page | Message |
+| :--- | :---- | :--- | :------ |
+| default-name | Image46 | Page 1 | Default field name "Image46" — use a descriptive name |
 | script-empty-body | AddressCopySourceToDestination | — | Script "AddressCopySourceToDestination" has an empty body |
 | script-empty-body | GIS_GetModalGISMap | — | Script "GIS_GetModalGISMap" has an empty body |
 | script-empty-body | SaveBeforeUpload | — | Script "SaveBeforeUpload" has an empty body |
@@ -193,6 +198,9 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 186 (0 errors, 179 warnings, 7 inf
 | accessibility-label-match | btnAdminSave | Page 1 | AccessibilityLabel "Admin Save Button" does not match expected "Admin Save" |
 | accessibility-label-match | Date Time | Page 1 | AccessibilityLabel "Date Time" does not match expected "Date/Time" |
 | tab-control-visible | TabControl | — | TabControl is in group "Hide Form Controls" — tab visibility should be controlled via Menu tab, not groups |
+| standard-hidden-group | — | — | Template does not have a Hidden Fields group — expected a group with visibility condition referencing Admin Override |
+| standard-readonly-group | — | — | Template does not have a Read-Only Fields group — expected a group with read-only condition referencing Admin Override |
+| label-truncation | Label43 | Page 1 | Label text "<b>Instructions:</b>  This section is only visible to VaultAccess users.  Check Administrator Override to remove read-only configurations and show all fields.  Select Admin Save to save any changes without applying business rules.  Remember to uncheck override and save before closing." (~1995px) may be truncated in 722px width — increase width or enable wrapping |
 
 ## Info
 

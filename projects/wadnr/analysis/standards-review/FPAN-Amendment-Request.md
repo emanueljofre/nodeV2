@@ -1,14 +1,38 @@
 # Standards Review: FPAN-Amendment-Request
 
-Generated: 2026-04-16 | Rules: 40 | Findings: 294 (0 errors, 223 warnings, 71 info)
+Generated: 2026-04-16 | Rules: 49 | Findings: 345 (19 errors, 228 warnings, 98 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
-| Error    | 0 |
-| Warning  | 223 |
-| Info     | 71 |
+| Error    | 19 |
+| Warning  | 228 |
+| Info     | 98 |
+
+## Errors
+
+| Rule | Field | Page | Message |
+| :--- | :---- | :--- | :------ |
+| script-orphan-assignment | btn_HelpSmallForestLandowner_onClick | — | Script assignment references non-existent control ID: cd92a615-2d43-5009-3bce-26f6c0281069 |
+| script-orphan-assignment | btnTabFees_onClick | — | Script assignment references non-existent control ID: a3460bb7-0e78-43a4-767e-dbd192dc7969 |
+| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
+| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
+| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
+| script-orphan-assignment | e46392e9-619f-7532-d7a9-22b99b57d32c | — | Script assignment references non-existent control ID: b157df97-e2ca-cf14-1c7d-e4f3a1a36a61 |
+| script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
+| script-field-reference | AddTimber | — | Script references non-existent field "Region Zone" via GetFieldValue() |
+| field-multiple-groups | Con_LandownerBusinessSearch | — | Field appears in 2 groups: Hide Search Fields, Show Landowner Business |
+| field-multiple-groups | Con_LandownerIndividualSearch | — | Field appears in 2 groups: Hide Search Fields, Show Landowner Individual/Business Signer |
+| field-multiple-groups | Con_TimberOwnerBusinessSearch | — | Field appears in 2 groups: Hide Search Fields, Show TimberOwner Business |
+| field-multiple-groups | Con_TimberOwnerIndividualSearch | — | Field appears in 2 groups: Hide Search Fields, Show TimberOwner Individual/Business Signer |
+| field-multiple-groups | Con_OperatorIndividualSearch | — | Field appears in 2 groups: Hide Search Fields, Show Operator Individual/Business Signer |
+| field-multiple-groups | Con_OperatorBusinessSearch | — | Field appears in 2 groups: Hide Search Fields, Show Operator Business |
+| field-multiple-groups | Con_LandownersHeader | — | Field appears in 2 groups: Show Landowner DGs Section, Show Main Tab Content |
+| field-multiple-groups | Con_LandownerIndividualHeader | — | Field appears in 2 groups: Show Landowner Individual/Business Signer, Show Main Tab Content |
+| field-multiple-groups | Con_TimberOwnersHeader | — | Field appears in 2 groups: Show Main Tab Content, Show Timber Owner DGs Section |
+| field-multiple-groups | Con_TimberOwnerIndividualHeader | — | Field appears in 2 groups: Show Main Tab Content, Show TimberOwner Individual/Business Signer |
+| field-multiple-groups | Con_OperatorIndividualHeader | — | Field appears in 2 groups: Show Main Tab Content, Show Operator Individual/Business Signer |
 
 ## Warnings
 
@@ -44,13 +68,6 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 294 (0 errors, 223 warnings, 71 in
 | accessibility-label | Forest Practice Notification Needed | Page 1 | Missing AccessibilityLabel |
 | accessibility-required | First Name Contact Person | Page 1 | Required field AccessibilityLabel "First Name Contact Person Required Field" should end with "field Required" |
 | accessibility-required | Last Name Contact Person | Page 1 | Required field AccessibilityLabel "Last Name Contact Person Required field" should end with "field Required" |
-| script-orphan-assignment | btn_HelpSmallForestLandowner_onClick | — | Script assignment references non-existent control ID: cd92a615-2d43-5009-3bce-26f6c0281069 |
-| script-orphan-assignment | btnTabFees_onClick | — | Script assignment references non-existent control ID: a3460bb7-0e78-43a4-767e-dbd192dc7969 |
-| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
-| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
-| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
-| script-orphan-assignment | e46392e9-619f-7532-d7a9-22b99b57d32c | — | Script assignment references non-existent control ID: b157df97-e2ca-cf14-1c7d-e4f3a1a36a61 |
-| script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
 | script-unused-template | RemoveSelectedTimberOwnersBusiness | — | Template helper "RemoveSelectedTimberOwnersBusiness" is never referenced from any other script |
 | script-unused-template | RemoveSelectedOperatorsBusiness | — | Template helper "RemoveSelectedOperatorsBusiness" is never referenced from any other script |
 | script-unused-template | RemoveSelectedLandowners | — | Template helper "RemoveSelectedLandowners" is never referenced from any other script |
@@ -62,18 +79,6 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 294 (0 errors, 223 warnings, 71 in
 | script-unused-template | LandownerSearch | — | Template helper "LandownerSearch" is never referenced from any other script |
 | script-unused-template | TimberOwnerSearch | — | Template helper "TimberOwnerSearch" is never referenced from any other script |
 | script-unused-template | ValidateContactSearchCriteria | — | Template helper "ValidateContactSearchCriteria" is never referenced from any other script |
-| script-field-reference | AddTimber | — | Script references non-existent field "Region Zone" via GetFieldValue() |
-| field-multiple-groups | Con_LandownerBusinessSearch | — | Field appears in 2 groups: Hide Search Fields, Show Landowner Business |
-| field-multiple-groups | Con_LandownerIndividualSearch | — | Field appears in 2 groups: Hide Search Fields, Show Landowner Individual/Business Signer |
-| field-multiple-groups | Con_TimberOwnerBusinessSearch | — | Field appears in 2 groups: Hide Search Fields, Show TimberOwner Business |
-| field-multiple-groups | Con_TimberOwnerIndividualSearch | — | Field appears in 2 groups: Hide Search Fields, Show TimberOwner Individual/Business Signer |
-| field-multiple-groups | Con_OperatorIndividualSearch | — | Field appears in 2 groups: Hide Search Fields, Show Operator Individual/Business Signer |
-| field-multiple-groups | Con_OperatorBusinessSearch | — | Field appears in 2 groups: Hide Search Fields, Show Operator Business |
-| field-multiple-groups | Con_LandownersHeader | — | Field appears in 2 groups: Show Landowner DGs Section, Show Main Tab Content |
-| field-multiple-groups | Con_LandownerIndividualHeader | — | Field appears in 2 groups: Show Landowner Individual/Business Signer, Show Main Tab Content |
-| field-multiple-groups | Con_TimberOwnersHeader | — | Field appears in 2 groups: Show Main Tab Content, Show Timber Owner DGs Section |
-| field-multiple-groups | Con_TimberOwnerIndividualHeader | — | Field appears in 2 groups: Show Main Tab Content, Show TimberOwner Individual/Business Signer |
-| field-multiple-groups | Con_OperatorIndividualHeader | — | Field appears in 2 groups: Show Main Tab Content, Show Operator Individual/Business Signer |
 | container-responsive-flow | Con_LandownerDGs | Page 1 | Container has 9 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
 | container-responsive-flow | Con_TimberOwnerDGs | Page 1 | Container has 9 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
 | container-responsive-flow | Con_OperatorDGs | Page 1 | Container has 9 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
@@ -237,6 +242,31 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 294 (0 errors, 223 warnings, 71 in
 | button-label-camelcase | label567 | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | button-label-camelcase | Amendment Status Updated At: | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | tab-control-visible | TabControl | — | TabControl is in group "Hide Form Tabs" — tab visibility should be controlled via Menu tab, not groups |
+| label-truncation | DataField2 | Page 1 | Label text "<strong style="color:#9E0000;">*</strong> Indicates required field" (~462px) may be truncated in 132px width — increase width or enable wrapping |
+| label-truncation | Label51 | Page 1 | Label text "Region:<strong style="color:#9E0000;">*</strong>" (~336px) may be truncated in 102px width — increase width or enable wrapping |
+| label-truncation | Label39 | Page 1 | Label text "Visit the <a href='https://www.dnr.wa.gov/programs-and-services/forest-practices/review-applications-fpars/forest-practices-forms-and' target="_blank" rel="noopener noreferrer"><strong><u>Forest Practices Forms and Applications page</u></strong></a> for more information on forest practices applications and forms." (~2198px) may be truncated in 862px width — increase width or enable wrapping |
+| label-truncation | Label182 | Page 1 | Label text "Documentation Type:" (~133px) may be truncated in 102px width — increase width or enable wrapping |
+| label-truncation | Label55 | Page 1 | Label text "Select the Landowner type you want to add.<strong style="color:#9E0000;">*</strong>" (~640px) may be truncated in 282px width — increase width or enable wrapping |
+| label-truncation | Label88 | Page 1 | Label text "Province/State:" (~105px) may be truncated in 62px width — increase width or enable wrapping |
+| label-truncation | Label234 | Page 1 | Label text "Province/State:" (~105px) may be truncated in 62px width — increase width or enable wrapping |
+| label-truncation | Label193 | Page 1 | Label text "Select the Timber Owner type you want to add.<strong style="color:#9E0000;">*</strong>" (~663px) may be truncated in 282px width — increase width or enable wrapping |
+| label-truncation | Label272 | Page 1 | Label text "Province/State:" (~105px) may be truncated in 62px width — increase width or enable wrapping |
+| label-truncation | Label302 | Page 1 | Label text "Province/State:" (~105px) may be truncated in 62px width — increase width or enable wrapping |
+| label-truncation | Timber Owner Individual DG lbl | Page 1 | Label text "Timber Owner(s) Individuals:" (~216px) may be truncated in 192px width — increase width or enable wrapping |
+| label-truncation | Label281 | Page 1 | Label text "Timber Owner(s) Business:" (~193px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label195 | Page 1 | Label text "Select the Operator type you want to add.<strong style="color:#9E0000;">*</strong>" (~632px) may be truncated in 292px width — increase width or enable wrapping |
+| label-truncation | Label392 | Page 1 | Label text "Province/State:" (~105px) may be truncated in 62px width — increase width or enable wrapping |
+| label-truncation | Label419 | Page 1 | Label text "Province/State:" (~105px) may be truncated in 62px width — increase width or enable wrapping |
+| label-truncation | Operator Individual DG lbl | Page 1 | Label text "Operator(s) Individuals:" (~185px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label197 | Page 1 | Label text "First Name:<strong style="color:#9E0000;">*</strong>" (~364px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label199 | Page 1 | Label text "Last Name:<strong style="color:#9E0000;">*</strong>" (~357px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label441 | Page 1 | Label text "<lu><li>The information on this application/notification amendment is true.</li></lu>" (~595px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label442 | Page 1 | Label text "<lu><li>We understand this proposed forest practice is subject to: </li></lu>" (~539px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label215 | Page 1 | Label text "<lu><li>All other federal, state or local regulations.</li></lu>" (~448px) may be truncated in 367px width — increase width or enable wrapping |
+| label-truncation | Label287 | Page 1 | Label text "You can manage your submitted application by selecting one of the following actions." (~588px) may be truncated in 512px width — increase width or enable wrapping |
+| label-truncation | Label288 | Page 1 | Label text "&#x2022; <b>Withdrawal Request:</b> Request to withdraw or close your application." (~574px) may be truncated in 462px width — increase width or enable wrapping |
+| label-truncation | Label321 | Page 1 | Label text "Forest 
+Practice Notification Needed:" (~259px) may be truncated in 202px width — increase width or enable wrapping |
 
 ## Info
 
@@ -313,3 +343,30 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 294 (0 errors, 223 warnings, 71 in
 | field-max-length | Last Name Contact Person | Page 1 | MaxLength is 50 for name field — recommended minimum is 100 |
 | field-max-length | Describe the proposed amendment to the approved FPAN | Page 1 | TextArea MaxLength is 50 — recommended minimum is 3000 for notes/text fields |
 | field-max-length | Redacted Content | Page 1 | TextArea MaxLength is 50 — recommended minimum is 3000 for notes/text fields |
+| font-consistency | Label71 | Page 1 | Label style differs from form pattern: fontSize=18 (expected 10), bold=true (expected false), color=#ffffffff (expected #FF000000) |
+| font-consistency | DataField2 | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | Label285 | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | Label55 | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | Label101 | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | Landowner Business DG lbl | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | Label193 | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | Timber Owner Individual DG lbl | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | Label281 | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | Timber Owner Business DG lbl | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | Label195 | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | Operator Individual DG lbl | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | Label401 | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | Operator Business DG lbl | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | Label290 | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | DataField6 | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | Label286 | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | Label33 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff9e0000 (expected #FF000000) |
+| font-consistency | Label34 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10) |
+| font-consistency | DataField3 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10) |
+| font-consistency | Label38 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label43 | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label41 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label275 | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | Label340 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false) |
+| data-lookup-in-properties | Region | — | Script "Region_Project_Information_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Amendment Status | — | Script "Amendment_Status_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |

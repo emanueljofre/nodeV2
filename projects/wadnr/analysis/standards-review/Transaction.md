@@ -1,14 +1,24 @@
 # Standards Review: Transaction
 
-Generated: 2026-04-16 | Rules: 40 | Findings: 190 (0 errors, 172 warnings, 18 info)
+Generated: 2026-04-16 | Rules: 49 | Findings: 202 (5 errors, 179 warnings, 18 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
-| Error    | 0 |
-| Warning  | 172 |
+| Error    | 5 |
+| Warning  | 179 |
 | Info     | 18 |
+
+## Errors
+
+| Rule | Field | Page | Message |
+| :--- | :---- | :--- | :------ |
+| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
+| script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
+| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
+| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
+| field-multiple-groups | Con_TransInfo_HideFromProvider | — | Field appears in 2 groups: HideFromProviders, Read Only Fields |
 
 ## Warnings
 
@@ -16,10 +26,6 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 190 (0 errors, 172 warnings, 18 in
 | :--- | :---- | :--- | :------ |
 | title-case | GL Account | Page 1 | Field name "GL Account" is not in Title Case |
 | default-name | Image47 | Page 1 | Default field name "Image47" — use a descriptive name |
-| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
-| script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
-| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
-| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
 | script-empty-body | AddressCopySourceToDestination | — | Script "AddressCopySourceToDestination" has an empty body |
 | script-empty-body | GIS_GetModalGISMap | — | Script "GIS_GetModalGISMap" has an empty body |
 | script-empty-body | SaveBeforeUpload | — | Script "SaveBeforeUpload" has an empty body |
@@ -178,7 +184,6 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 190 (0 errors, 172 warnings, 18 in
 | script-empty-body | getDatagridRows | — | Script "getDatagridRows" has an empty body |
 | script-empty-body | BuildAjaxFormSaveWithStaleCheck | — | Script "BuildAjaxFormSaveWithStaleCheck" has an empty body |
 | script-empty-body | BuildUrls | — | Script "BuildUrls" has an empty body |
-| field-multiple-groups | Con_TransInfo_HideFromProvider | — | Field appears in 2 groups: HideFromProviders, Read Only Fields |
 | distance-to-border | Top Form ID | Page 1 | Field is 10px from the right border (minimum: 30px) |
 | button-min-size | btnSave | Page 1 | Button is 0x28px — minimum is 24x24px (508 compliance) |
 | accessibility-label-match | btnSave | Page 1 | AccessibilityLabel "Save Button" does not match expected "Save" |
@@ -186,6 +191,18 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 190 (0 errors, 172 warnings, 18 in
 | button-label-camelcase | fpOnlineTitle | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | button-label-camelcase | LicenseID | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | tab-control-visible | TabControl | — | TabControl is in group "Hide Edit Button" — tab visibility should be controlled via Menu tab, not groups |
+| standard-hidden-group | — | — | Template does not have a Hidden Fields group — expected a group with visibility condition referencing Admin Override |
+| standard-readonly-group | — | — | Template does not have a Read-Only Fields group — expected a group with read-only condition referencing Admin Override |
+| label-truncation | DataField2 | Page 1 | Label text "<b style="color:#9E0000;">*</b> Indicates required field" (~392px) may be truncated in 112px width — increase width or enable wrapping |
+| label-truncation | Label7 | Page 1 | Label text "Transaction Category: <b style="color:#9E0000;">*</b> " (~378px) may be truncated in 112px width — increase width or enable wrapping |
+| label-truncation | Label30 | Page 1 | Label text "Balance Change: <b style="color:#9E0000;">*</b> " (~336px) may be truncated in 122px width — increase width or enable wrapping |
+| label-truncation | Label32 | Page 1 | Label text "Transaction Description: <b style="color:#9E0000;">*</b> " (~399px) may be truncated in 142px width — increase width or enable wrapping |
+| label-truncation | Label34 | Page 1 | Label text "Transaction Amount: <b style="color:#9E0000;">*</b> " (~364px) may be truncated in 132px width — increase width or enable wrapping |
+| label-truncation | Label36 | Page 1 | Label text "Transaction Date: <b style="color:#9E0000;">*</b> " (~350px) may be truncated in 132px width — increase width or enable wrapping |
+| label-truncation | Label43 | Page 1 | Label text "<b>Instructions:</b>  This section is only visible to VaultAccess users.  Check Administrator Override to remove read-only configurations and show all fields.  Select Admin Save to save any changes without applying business rules.  Remember to uncheck override and save before closing." (~1995px) may be truncated in 722px width — increase width or enable wrapping |
+| label-truncation | Label40 | Page 1 | Label text "Fund: <b style="color:#9E0000;">*</b> " (~266px) may be truncated in 52px width — increase width or enable wrapping |
+| label-truncation | Label42 | Page 1 | Label text "Cost Center: <b style="color:#9E0000;">*</b> " (~315px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label44 | Page 1 | Label text "GL Account: <b style="color:#9E0000;">*</b> " (~308px) may be truncated in 82px width — increase width or enable wrapping |
 
 ## Info
 

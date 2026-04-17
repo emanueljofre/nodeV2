@@ -1,14 +1,24 @@
 # Standards Review: Appendix-H-Eastern-Washington-Natural-Regeneration-Plan
 
-Generated: 2026-04-16 | Rules: 40 | Findings: 234 (0 errors, 204 warnings, 30 info)
+Generated: 2026-04-16 | Rules: 49 | Findings: 252 (5 errors, 217 warnings, 30 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
-| Error    | 0 |
-| Warning  | 204 |
+| Error    | 5 |
+| Warning  | 217 |
 | Info     | 30 |
+
+## Errors
+
+| Rule | Field | Page | Message |
+| :--- | :---- | :--- | :------ |
+| script-orphan-assignment | Seed_Source_Harvest_Date_onBlur | — | Script assignment references non-existent control ID: e10c8795-726d-592b-6b8d-3c0b49e4124e |
+| script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
+| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
+| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
+| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
 
 ## Warnings
 
@@ -26,11 +36,6 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 234 (0 errors, 204 warnings, 30 in
 | accessibility-label | Related Record ID | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | Document Uploaded | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | ActivityMapViewSubFormCreated | Page 1 | Missing AccessibilityLabel |
-| script-orphan-assignment | Seed_Source_Harvest_Date_onBlur | — | Script assignment references non-existent control ID: e10c8795-726d-592b-6b8d-3c0b49e4124e |
-| script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
-| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
-| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
-| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
 | script-empty-body | AddressCopySourceToDestination | — | Script "AddressCopySourceToDestination" has an empty body |
 | script-empty-body | GIS_GetModalGISMap | — | Script "GIS_GetModalGISMap" has an empty body |
 | script-empty-body | SaveBeforeUpload | — | Script "SaveBeforeUpload" has an empty body |
@@ -218,6 +223,25 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 234 (0 errors, 204 warnings, 30 in
 | button-label-camelcase | fpOnlineTitle | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | button-label-camelcase | Region: | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | tab-control-visible | TabControl | — | TabControl is in group "Hide Edit Button" — tab visibility should be controlled via Menu tab, not groups |
+| standard-hidden-group | — | — | Template does not have a Hidden Fields group — expected a group with visibility condition referencing Admin Override |
+| standard-readonly-group | — | — | Template does not have a Read-Only Fields group — expected a group with read-only condition referencing Admin Override |
+| label-truncation | DataField2 | Page 1 | Label text "<strong style="color:#9E0000;">*</strong> Indicates required field" (~462px) may be truncated in 132px width — increase width or enable wrapping |
+| label-truncation | Label58 | Page 1 | Label text "The landowner is responsible for meeting Forest Practices reforestation requirements per <a href="https://app.leg.wa.gov/WAC/default.aspx?cite=222-34-010" target="_blank">WAC 222-34-010 </a> (Western Washington) or <a href="https://app.leg.wa.gov/WAC/default.aspx?cite=222-34-020" target="_blank">WAC 222-34-020</a> (Eastern Washington)
+" (~2359px) may be truncated in 812px width — increase width or enable wrapping |
+| label-truncation | Label23 | Page 1 | Label text "<b>Instructions:</b> To upload documentation, select the document type and then select the upload button below. View documentation by selecting the View Documentation button." (~1218px) may be truncated in 840px width — increase width or enable wrapping |
+| label-truncation | Label76 | Page 1 | Label text "Enter the Date the Harvest is scheduled to occur (MM/YYYY):" (~413px) may be truncated in 302px width — increase width or enable wrapping |
+| label-truncation | Label64 | Page 1 | Label text "4. Does the landowner agree not to harvest the seed source until issuance of a satisfactory reforestation inspection report or no sooner than the Year shown below? <b style="color:#9E0000;">*</b>" (~1365px) may be truncated in 842px width — increase width or enable wrapping |
+| label-truncation | Label50 | Page 1 | Label text "a. How many acres of the seed block will be retained?" (~371px) may be truncated in 332px width — increase width or enable wrapping |
+| label-truncation | Label52 | Page 1 | Label text "b. What is the average number of seed trees per acre that will remain after harvest?" (~588px) may be truncated in 502px width — increase width or enable wrapping |
+| label-truncation | Label53 | Page 1 | Label text "i. What is the species of the seed trees?" (~287px) may be truncated in 252px width — increase width or enable wrapping |
+| label-truncation | Label54 | Page 1 | Label text "ii. What is the average age of the seed trees?" (~322px) may be truncated in 282px width — increase width or enable wrapping |
+| label-truncation | DataField1 | Page 1 | Label text "iii. What is the average height of the seed trees?" (~350px) may be truncated in 302px width — increase width or enable wrapping |
+| label-truncation | Label69 | Page 1 | Label text "5. Is the seed source shown on an attached map, marked on the ground, contains at least an average of eight (8) seed trees per acre, and is located within 400 feet of areas requiring reforestation? <b style="color:#9E0000;">*</b>" (~1603px) may be truncated in 852px width — increase width or enable wrapping |
+| label-truncation | DataField5 | Page 1 | Label text "6. Does the landowner agree that competing vegetation will be controlled to the extent necessary to allow establishment, survival, and growth by commercial species and that the regeneration will be protected from competing vegetation and allowed to establish, grow, and survive? <b style="color:#9E0000;">*</b>" (~2170px) may be truncated in 832px width — increase width or enable wrapping |
+| label-truncation | Label34 | Page 1 | Label text "Record ID:" (~70px) may be truncated in 62px width — increase width or enable wrapping |
+| label-truncation | DataField3 | Page 1 | Label text "Status:" (~49px) may be truncated in 42px width — increase width or enable wrapping |
+| label-truncation | Label43 | Page 1 | Label text "<strong>Instructions:</strong>  This section is only visible to VaultAccess users.  Check Administrator Override to remove read-only configurations and show all fields.  Select Admin Save to save any changes without applying business rules.  Remember to uncheck override and save before closing." (~2065px) may be truncated in 642px width — increase width or enable wrapping |
+| label-truncation | DataField14 | Page 1 | Label text "Sensitive Upload Metadata:" (~182px) may be truncated in 160px width — increase width or enable wrapping |
 
 ## Info
 

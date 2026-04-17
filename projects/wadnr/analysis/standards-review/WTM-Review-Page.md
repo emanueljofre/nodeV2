@@ -1,14 +1,34 @@
 # Standards Review: WTM-Review-Page
 
-Generated: 2026-04-16 | Rules: 40 | Findings: 137 (0 errors, 97 warnings, 40 info)
+Generated: 2026-04-16 | Rules: 49 | Findings: 159 (15 errors, 90 warnings, 54 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
-| Error    | 0 |
-| Warning  | 97 |
-| Info     | 40 |
+| Error    | 15 |
+| Warning  | 90 |
+| Info     | 54 |
+
+## Errors
+
+| Rule | Field | Page | Message |
+| :--- | :---- | :--- | :------ |
+| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
+| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
+| script-field-reference | PopulateWTMFData | — | Script references non-existent field "FPAN Number WTMF Number" via GetFieldValue() |
+| field-multiple-groups | Con_CreateDocumentBody | — | Field appears in 3 groups: All form Read only, FpGisEdit/Mgmt/OtherInt Read Only, Show Create Document |
+| field-multiple-groups | Con_NotesBody | — | Field appears in 2 groups: All form Read only, Show Notes |
+| field-multiple-groups | Con_RevisionRequestBody | — | Field appears in 3 groups: All form Read only, FpGisEdit/Mgmt/OtherInt Read Only, Show Revision Request |
+| field-multiple-groups | Con_DocumentationBody | — | Field appears in 2 groups: All form Read only, Show Documentation |
+| field-multiple-groups | Con_DNRDecisionBody | — | Field appears in 3 groups: All form Read only, FpGisEdit/Mgmt/OtherInt Read Only, Show DNR Decision |
+| field-multiple-groups | Con_AssignedReviewersBody | — | Field appears in 4 groups: All form Read only, Field Staff Read Only, FpGisEdit/Mgmt/OtherInt Read Only, Show Assigned Reviewers |
+| field-multiple-groups | Con_DatesBodyGIS | — | Field appears in 3 groups: All form Read only, GIS Edits Read Only, Show Dates |
+| field-multiple-groups | Con_DatesBody | — | Field appears in 4 groups: All form Read only, Field Staff Read Only, FpGisEdit/Mgmt/OtherInt Read Only, Show Dates |
+| field-multiple-groups | Con_WriaBody | — | Field appears in 4 groups: All form Read only, Field Staff Read Only, FpGisEdit/Mgmt/OtherInt Read Only, Show Wria |
+| field-multiple-groups | Con_BasicInformationBody | — | Field appears in 4 groups: All form Read only, Field Staff Read Only, FpGisEdit/Mgmt/OtherInt Read Only, Show Basic Information |
+| field-multiple-groups | Con_GeographicLocationBody | — | Field appears in 4 groups: Field Staff Read Only, FpGisEdit/Mgmt/OtherInt Read Only, Show Geographic Location, Show Legal Description DG |
+| field-multiple-groups | Con_ExternalReviewerStatusBody | — | Field appears in 3 groups: Field Staff Read Only, FpGisEdit/Mgmt/OtherInt Read Only, Show External Reviewer Status |
 
 ## Warnings
 
@@ -44,23 +64,8 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 137 (0 errors, 97 warnings, 40 inf
 | accessibility-label | Associated Docs Filter | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | PDF Package Generation In Queue | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | Position Management Form ID | Page 1 | Missing AccessibilityLabel |
-| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
-| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
 | script-unused-template | LoadDataFromTheWTMRP | — | Template helper "LoadDataFromTheWTMRP" is never referenced from any other script |
 | script-unused-template | DatagridFindSelectedRowsCIRID | — | Template helper "DatagridFindSelectedRowsCIRID" is never referenced from any other script |
-| script-field-reference | PopulateWTMFData | — | Script references non-existent field "FPAN Number WTMF Number" via GetFieldValue() |
-| field-multiple-groups | Con_CreateDocumentBody | — | Field appears in 3 groups: All form Read only, FpGisEdit/Mgmt/OtherInt Read Only, Show Create Document |
-| field-multiple-groups | Con_NotesBody | — | Field appears in 2 groups: All form Read only, Show Notes |
-| field-multiple-groups | Con_RevisionRequestBody | — | Field appears in 3 groups: All form Read only, FpGisEdit/Mgmt/OtherInt Read Only, Show Revision Request |
-| field-multiple-groups | Con_DocumentationBody | — | Field appears in 2 groups: All form Read only, Show Documentation |
-| field-multiple-groups | Con_DNRDecisionBody | — | Field appears in 3 groups: All form Read only, FpGisEdit/Mgmt/OtherInt Read Only, Show DNR Decision |
-| field-multiple-groups | Con_AssignedReviewersBody | — | Field appears in 4 groups: All form Read only, Field Staff Read Only, FpGisEdit/Mgmt/OtherInt Read Only, Show Assigned Reviewers |
-| field-multiple-groups | Con_DatesBodyGIS | — | Field appears in 3 groups: All form Read only, GIS Edits Read Only, Show Dates |
-| field-multiple-groups | Con_DatesBody | — | Field appears in 4 groups: All form Read only, Field Staff Read Only, FpGisEdit/Mgmt/OtherInt Read Only, Show Dates |
-| field-multiple-groups | Con_WriaBody | — | Field appears in 4 groups: All form Read only, Field Staff Read Only, FpGisEdit/Mgmt/OtherInt Read Only, Show Wria |
-| field-multiple-groups | Con_BasicInformationBody | — | Field appears in 4 groups: All form Read only, Field Staff Read Only, FpGisEdit/Mgmt/OtherInt Read Only, Show Basic Information |
-| field-multiple-groups | Con_GeographicLocationBody | — | Field appears in 4 groups: Field Staff Read Only, FpGisEdit/Mgmt/OtherInt Read Only, Show Geographic Location, Show Legal Description DG |
-| field-multiple-groups | Con_ExternalReviewerStatusBody | — | Field appears in 3 groups: Field Staff Read Only, FpGisEdit/Mgmt/OtherInt Read Only, Show External Reviewer Status |
 | container-responsive-flow | Con_BasicInformationBody | Page 1 | Container has 6 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
 | container-responsive-flow | Con_DatesBody | Page 1 | Container has 7 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
 | container-responsive-flow | Con_DatesBodyGIS | Page 1 | Container has 4 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
@@ -111,6 +116,14 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 137 (0 errors, 97 warnings, 40 inf
 | button-label-camelcase | btDNRDecisionSubmit | Page 1 | Button name should start with "btn" prefix (camelCase convention) |
 | button-label-camelcase | btDNRDecisionSaveDraft | Page 1 | Button name should start with "btn" prefix (camelCase convention) |
 | tab-control-visible | TabControl | — | TabControl is in group "Show Form Tabs" — tab visibility should be controlled via Menu tab, not groups |
+| label-truncation | Label47 | Page 1 | Label text "Date of Receipt" (~105px) may be truncated in 62px width — increase width or enable wrapping |
+| label-truncation | Label55 | Page 1 | Label text "Decision Date" (~91px) may be truncated in 62px width — increase width or enable wrapping |
+| label-truncation | DataField1 | Page 1 | Label text "GIS Edits Complete Date" (~161px) may be truncated in 62px width — increase width or enable wrapping |
+| label-truncation | Label81 | Page 1 | Label text "Documentation Type:" (~133px) may be truncated in 102px width — increase width or enable wrapping |
+| label-truncation | Label103 | Page 1 | Label text "Document Upload Path:" (~147px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label123 | Page 1 | Label text "Legacy PDF URL:" (~105px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label107 | Page 1 | Label text "Related Record ID:" (~126px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label129 | Page 1 | Label text "Rev. Rec. DD Filter Field:" (~182px) may be truncated in 160px width — increase width or enable wrapping |
 
 ## Info
 
@@ -124,6 +137,7 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 137 (0 errors, 97 warnings, 40 inf
 | label-unnamed-in-group | DataField4 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
 | label-unnamed-in-group | DataField5 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
 | label-unnamed-in-group | DataField6 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
+| spelling | WRIA | Page 1 | Possible misspelling: "WRIA" (suggestions: ARIA, WRIT) |
 | spelling | WTMF No | Page 1 | Possible misspelling: "WTMF" (suggestions: EMF, IMF, BUMF) |
 | spelling | Related FPAN ID | Page 1 | Possible misspelling: "FPAN" (suggestions: FRAN, FAN, FLAN) |
 | spelling | WTMF Status | Page 1 | Possible misspelling: "WTMF" (suggestions: EMF, IMF, BUMF) |
@@ -156,3 +170,16 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 137 (0 errors, 97 warnings, 40 inf
 | listener-disabled | DD Filter Field | Page 1 | EnableQListener is enabled — verify this field requires query string fill-in/relate capability |
 | listener-disabled | Associated Docs Filter | Page 1 | EnableQListener is enabled — verify this field requires query string fill-in/relate capability |
 | field-max-length | Notes Text | Page 1 | TextArea MaxLength is 2000 — recommended minimum is 3000 for notes/text fields |
+| font-consistency | Label71 | Page 1 | Label style differs from form pattern: fontSize=18 (expected 10), bold=true (expected false), color=#ffffffff (expected #FF000000) |
+| font-consistency | DataField2 | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10), color=#ff000000 (expected #FF000000) |
+| font-consistency | DataField7 | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label98 | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label33 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff9e0000 (expected #FF000000) |
+| font-consistency | DataField4 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10) |
+| font-consistency | Label38 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label43 | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10), color=#ff000000 (expected #FF000000) |
+| font-consistency | DataField5 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| data-lookup-in-properties | Segment Filter DD | — | Script "Reviewer_Recommendations_Segment_Filter_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Reviewer Filter DD | — | Script "Reviewer_Filter_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | WTMF Status | — | Script "WTMF_Status_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| field-width-standard | Notes Type | Page 1 | notes field width is 162px — recommended minimum is 300px |

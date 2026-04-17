@@ -1,14 +1,30 @@
 # Standards Review: Contact-Information
 
-Generated: 2026-04-16 | Rules: 40 | Findings: 262 (0 errors, 217 warnings, 45 info)
+Generated: 2026-04-16 | Rules: 49 | Findings: 278 (11 errors, 222 warnings, 45 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
-| Error    | 0 |
-| Warning  | 217 |
+| Error    | 11 |
+| Warning  | 222 |
 | Info     | 45 |
+
+## Errors
+
+| Rule | Field | Page | Message |
+| :--- | :---- | :--- | :------ |
+| script-orphan-assignment | Street_1_onBlur | — | Script assignment references non-existent control ID: 17afac3b-ed43-8721-ae33-83b06dbe3f52 |
+| script-orphan-assignment | Country_onBlur | — | Script assignment references non-existent control ID: c1760889-0d1c-ba95-a378-f0c085bd1023 |
+| script-orphan-assignment | Zip_Code_onBlur | — | Script assignment references non-existent control ID: 0b4745c1-03cb-3666-1341-5e4120596cf4 |
+| script-orphan-assignment | County_onBlur | — | Script assignment references non-existent control ID: fb61253d-3a94-0229-3027-362c6fa32e3e |
+| script-orphan-assignment | Province_onBlur | — | Script assignment references non-existent control ID: 773b5ebe-90e7-e924-eeee-9ac98164205d |
+| script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
+| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
+| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
+| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
+| script-orphan-assignment | State_onBlur | — | Script assignment references non-existent control ID: ecc99fc0-5626-be4c-bc70-98cdd5ef2f16 |
+| script-orphan-assignment | City_onBlur | — | Script assignment references non-existent control ID: 0ed9e8e3-e9f2-734b-e5d8-7c7cc69a9f1b |
 
 ## Warnings
 
@@ -35,17 +51,6 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 262 (0 errors, 217 warnings, 45 in
 | accessibility-required | Last Name | Page 1 | Required field AccessibilityLabel "Last Name required" should end with "field Required" |
 | accessibility-required | Phone | Page 1 | Required field AccessibilityLabel "Phone required" should end with "field Required" |
 | accessibility-required | Email | Page 1 | Required field AccessibilityLabel "Email required" should end with "field Required" |
-| script-orphan-assignment | Street_1_onBlur | — | Script assignment references non-existent control ID: 17afac3b-ed43-8721-ae33-83b06dbe3f52 |
-| script-orphan-assignment | Country_onBlur | — | Script assignment references non-existent control ID: c1760889-0d1c-ba95-a378-f0c085bd1023 |
-| script-orphan-assignment | Zip_Code_onBlur | — | Script assignment references non-existent control ID: 0b4745c1-03cb-3666-1341-5e4120596cf4 |
-| script-orphan-assignment | County_onBlur | — | Script assignment references non-existent control ID: fb61253d-3a94-0229-3027-362c6fa32e3e |
-| script-orphan-assignment | Province_onBlur | — | Script assignment references non-existent control ID: 773b5ebe-90e7-e924-eeee-9ac98164205d |
-| script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
-| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
-| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
-| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
-| script-orphan-assignment | State_onBlur | — | Script assignment references non-existent control ID: ecc99fc0-5626-be4c-bc70-98cdd5ef2f16 |
-| script-orphan-assignment | City_onBlur | — | Script assignment references non-existent control ID: 0ed9e8e3-e9f2-734b-e5d8-7c7cc69a9f1b |
 | script-empty-body | AddressCopySourceToDestination | — | Script "AddressCopySourceToDestination" has an empty body |
 | script-empty-body | GIS_GetModalGISMap | — | Script "GIS_GetModalGISMap" has an empty body |
 | script-empty-body | SaveBeforeUpload | — | Script "SaveBeforeUpload" has an empty body |
@@ -231,6 +236,22 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 262 (0 errors, 217 warnings, 45 in
 | button-label-camelcase | fpOnlineTitle | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | button-label-camelcase | bntDisabled | Page 1 | Button name should start with "btn" prefix (camelCase convention) |
 | tab-control-visible | TabControl | — | TabControl is in group "Hide Edit Button" — tab visibility should be controlled via Menu tab, not groups |
+| standard-hidden-group | — | — | Template does not have a Hidden Fields group — expected a group with visibility condition referencing Admin Override |
+| standard-readonly-group | — | — | Template does not have a Read-Only Fields group — expected a group with read-only condition referencing Admin Override |
+| label-truncation | DataField2 | Page 1 | Label text "<strong style="color:#9E0000;">*</strong> Indicates required field" (~462px) may be truncated in 132px width — increase width or enable wrapping |
+| label-truncation | DataField1 | Page 1 | Label text "First Name: <strong style="color:#9E0000;">*</strong>" (~371px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label58 | Page 1 | Label text "Last Name: <strong style="color:#9E0000;">*</strong>" (~364px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | DataField5 | Page 1 | Label text "Phone:<strong style="color:#9E0000;">*</strong>" (~329px) may be truncated in 62px width — increase width or enable wrapping |
+| label-truncation | Label60 | Page 1 | Label text "Email: <strong style="color:#9E0000;">*</strong>" (~336px) may be truncated in 62px width — increase width or enable wrapping |
+| label-truncation | Label50 | Page 1 | Label text "Country:<b style="color:#9E0000;">*</b>" (~273px) may be truncated in 122px width — increase width or enable wrapping |
+| label-truncation | Label66 | Page 1 | Label text "Postal Code/Zip Code:<b style="color:#9E0000;">*</b>" (~364px) may be truncated in 162px width — increase width or enable wrapping |
+| label-truncation | Label52 | Page 1 | Label text "Address Line 1:<b style="color:#9E0000;">*</b>" (~322px) may be truncated in 122px width — increase width or enable wrapping |
+| label-truncation | Label55 | Page 1 | Label text "City:<b style="color:#9E0000;">*</b>" (~252px) may be truncated in 122px width — increase width or enable wrapping |
+| label-truncation | DataField7 | Page 1 | Label text "Province/State:<b style="color:#9E0000;">*</b>" (~322px) may be truncated in 102px width — increase width or enable wrapping |
+| label-truncation | Label57 | Page 1 | Label text "County:<b style="color:#9E0000;">*</b>" (~266px) may be truncated in 62px width — increase width or enable wrapping |
+| label-truncation | DataField4 | Page 1 | Label text "Record ID:" (~70px) may be truncated in 62px width — increase width or enable wrapping |
+| label-truncation | DataField9 | Page 1 | Label text "<strong>Instructions:</strong>  This section is only visible to VaultAccess users.  Check Administrator Override to remove read-only configurations and show all fields.  Select Admin Save to save any changes without applying business rules.  Remember to uncheck override and save before closing." (~2065px) may be truncated in 722px width — increase width or enable wrapping |
+| label-truncation | Label51 | Page 1 | Label text "Temp Data Migration ID:" (~161px) may be truncated in 132px width — increase width or enable wrapping |
 
 ## Info
 

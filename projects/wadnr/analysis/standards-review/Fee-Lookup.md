@@ -1,23 +1,19 @@
 # Standards Review: Fee-Lookup
 
-Generated: 2026-04-16 | Rules: 40 | Findings: 84 (0 errors, 75 warnings, 9 info)
+Generated: 2026-04-16 | Rules: 49 | Findings: 104 (64 errors, 22 warnings, 18 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
-| Error    | 0 |
-| Warning  | 75 |
-| Info     | 9 |
+| Error    | 64 |
+| Warning  | 22 |
+| Info     | 18 |
 
-## Warnings
+## Errors
 
 | Rule | Field | Page | Message |
 | :--- | :---- | :--- | :------ |
-| title-case | GL Account | Page 1 | Field name "GL Account" is not in Title Case |
-| default-name | Image49 | Page 1 | Default field name "Image49" — use a descriptive name |
-| tab-order-zero | btnAdminSave | Page 1 | TabOrder is 136 — should be 0 (auto-calculated) |
-| tab-order-zero | Admin Override | Page 1 | TabOrder is 137 — should be 0 (auto-calculated) |
 | script-orphan-assignment | Physical_Zip_Code_onBlur | — | Script assignment references non-existent control ID: 2d26402c-34b6-f54b-453b-e22f5e64bdbc |
 | script-orphan-assignment | Last_Name_onBlur | — | Script assignment references non-existent control ID: 6a00c2df-91f3-aa1b-2007-16841b01a5f6 |
 | script-orphan-assignment | TabOwners_onClick | — | Script assignment references non-existent control ID: bd8604b6-db22-3188-b667-7888df214130 |
@@ -82,6 +78,15 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 84 (0 errors, 75 warnings, 9 info)
 | script-orphan-assignment | TabComplaintsIncidents_onClick | — | Script assignment references non-existent control ID: c38eb918-5e09-47bf-b39f-66224779a2b4 |
 | script-orphan-assignment | Preferred_Method_Of_Contact_onBlur | — | Script assignment references non-existent control ID: ee46db83-4310-7ad5-6c6c-cb0d04a992e8 |
 | script-field-reference | Physical_Same_As_Mailing_Address_onChange | — | Script references non-existent field "Has Approved License" via GetFieldValue() |
+
+## Warnings
+
+| Rule | Field | Page | Message |
+| :--- | :---- | :--- | :------ |
+| title-case | GL Account | Page 1 | Field name "GL Account" is not in Title Case |
+| default-name | Image49 | Page 1 | Default field name "Image49" — use a descriptive name |
+| tab-order-zero | btnAdminSave | Page 1 | TabOrder is 136 — should be 0 (auto-calculated) |
+| tab-order-zero | Admin Override | Page 1 | TabOrder is 137 — should be 0 (auto-calculated) |
 | distance-to-border | Form ID | Page 1 | Field is 10px from the right border (minimum: 30px) |
 | accessibility-label-match | Process Type | Page 1 | AccessibilityLabel "Fee Type field Required" does not match expected "Process Type" |
 | accessibility-label-match | Fee Amount Can Change | Page 1 | AccessibilityLabel "Fee Amount can Change" does not match expected "Fee Amount can be changed on Fee?" |
@@ -89,6 +94,17 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 84 (0 errors, 75 warnings, 9 info)
 | accessibility-label-match | btnSave | Page 1 | AccessibilityLabel "Save Button" does not match expected "Save" |
 | accessibility-label-match | btnAdminSave | Page 1 | AccessibilityLabel "Admin Save Button" does not match expected "Admin Save" |
 | accessibility-label-match | Admin Override | Page 1 | AccessibilityLabel "Admin Override" does not match expected "Administrator Override" |
+| label-truncation | DataField2 | Page 1 | Label text "<b style="color:#9E0000;">*</b> Indicates required field" (~392px) may be truncated in 112px width — increase width or enable wrapping |
+| label-truncation | Label40 | Page 1 | Label text "Process Type: <b style="color:#9E0000;">*</b>" (~315px) may be truncated in 132px width — increase width or enable wrapping |
+| label-truncation | Label42 | Page 1 | Label text "Fee Type: <b style="color:#9E0000;">*</b>" (~287px) may be truncated in 142px width — increase width or enable wrapping |
+| label-truncation | Label25 | Page 1 | Label text "Fee Name: <b style="color:#9E0000;">*</b>" (~287px) may be truncated in 132px width — increase width or enable wrapping |
+| label-truncation | Label27 | Page 1 | Label text "Fee Description: <b style="color:#9E0000;">*</b>" (~336px) may be truncated in 142px width — increase width or enable wrapping |
+| label-truncation | Label29 | Page 1 | Label text "Fee Amount: <b style="color:#9E0000;">*</b>" (~301px) may be truncated in 142px width — increase width or enable wrapping |
+| label-truncation | Label31 | Page 1 | Label text "Unit Type: <b style="color:#9E0000;">*</b>" (~294px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label33 | Page 1 | Label text "Fund: <b style="color:#9E0000;">*</b>" (~259px) may be truncated in 72px width — increase width or enable wrapping |
+| label-truncation | DataField3 | Page 1 | Label text "Cost Center: <b style="color:#9E0000;">*</b>" (~308px) may be truncated in 100px width — increase width or enable wrapping |
+| label-truncation | Label37 | Page 1 | Label text "GL Account: <b style="color:#9E0000;">*</b>" (~301px) may be truncated in 100px width — increase width or enable wrapping |
+| label-truncation | Label39 | Page 1 | Label text "Effective Date: <b style="color:#9E0000;">*</b>" (~329px) may be truncated in 132px width — increase width or enable wrapping |
 
 ## Info
 
@@ -103,3 +119,12 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 84 (0 errors, 75 warnings, 9 info)
 | label-unnamed-in-group | DataField7 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
 | spelling | GL Account | Page 1 | Possible misspelling: "GL" (suggestions: BL, FL, GK) |
 | field-max-length | Fee Description | Page 1 | MaxLength is 100 for notes field — recommended minimum is 3000 |
+| font-consistency | Label71 | Page 1 | Label style differs from form pattern: fontSize=18 (expected 10), bold=true (expected false), color=#ffffffff (expected #FF000000) |
+| font-consistency | DataField2 | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | Label48 | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | DataField6 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff9e0000 (expected #FF000000) |
+| font-consistency | DataField5 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10) |
+| font-consistency | DataField9 | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10), color=#ff000000 (expected #FF000000) |
+| data-lookup-in-properties | Process Type | — | Script "Process_Type_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Unit Type | — | Script "Unit_Type_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Fee Type | — | Script "Fee_Type_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |

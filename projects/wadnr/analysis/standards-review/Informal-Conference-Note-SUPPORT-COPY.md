@@ -1,14 +1,23 @@
 # Standards Review: Informal-Conference-Note-SUPPORT-COPY
 
-Generated: 2026-04-16 | Rules: 40 | Findings: 671 (0 errors, 384 warnings, 287 info)
+Generated: 2026-04-16 | Rules: 49 | Findings: 721 (4 errors, 389 warnings, 328 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
-| Error    | 0 |
-| Warning  | 384 |
-| Info     | 287 |
+| Error    | 4 |
+| Warning  | 389 |
+| Info     | 328 |
+
+## Errors
+
+| Rule | Field | Page | Message |
+| :--- | :---- | :--- | :------ |
+| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
+| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
+| script-field-reference | Form_onLoad | — | Script references non-existent field "Individual ID" via GetFieldValue() |
+| script-field-reference | Form_onLoad | — | Script references non-existent field "UserID" via GetFieldValue() |
 
 ## Warnings
 
@@ -82,10 +91,6 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 671 (0 errors, 384 warnings, 287 i
 | accessibility-label | Fixed Disabled Status Field | Page 1 | Missing AccessibilityLabel |
 | accessibility-required | Region | Page 1 | Required field AccessibilityLabel "Region" should end with "field Required" |
 | accessibility-required | Timber Owner Type | Page 1 | Required field AccessibilityLabel "Timber Owner Type required field" should end with "field Required" |
-| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
-| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
-| script-field-reference | Form_onLoad | — | Script references non-existent field "Individual ID" via GetFieldValue() |
-| script-field-reference | Form_onLoad | — | Script references non-existent field "UserID" via GetFieldValue() |
 | container-responsive-flow | Con_Logos | Page 1 | Container has 18 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: 2) |
 | container-responsive-flow | Con_Print | Page 1 | Container has 2 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
 | container-responsive-flow | Con_Details_GrayBar | Page 1 | Container has 2 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: 1) |
@@ -398,6 +403,15 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 671 (0 errors, 384 warnings, 287 i
 | button-label-camelcase | LabelDocumentUploadsHiddenTitle | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | button-label-camelcase | LabelDataGridsFields | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | button-label-camelcase | LabelDocumentUploadPath | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
+| label-truncation | LabelRequiredField | Page 1 | Label text "<strong style="color:#9E0000;">*</strong> Indicates required field" (~462px) may be truncated in 132px width — increase width or enable wrapping |
+| label-truncation | LabelIcnNumber | Page 1 | Label text "<b>ICN No.</b>" (~98px) may be truncated in 70px width — increase width or enable wrapping |
+| label-truncation | LabelRegion | Page 1 | Label text "Region: <b style="color:#9E0000;">*</b>" (~273px) may be truncated in 70px width — increase width or enable wrapping |
+| label-truncation | LabelClassOfForestPractice | Page 1 | Label text "Class of Forest Practice:" (~175px) may be truncated in 150px width — increase width or enable wrapping |
+| label-truncation | LabelLandownerType | Page 1 | Label text "Select the Landowner type you want to add?<b style="color:#9E0000;"> *</b>" (~518px) may be truncated in 282px width — increase width or enable wrapping |
+| label-truncation | LabelTimberOwnerType | Page 1 | Label text "Select the Timber Owner type you want to add?<b style="color:#9E0000;"> *</b>" (~539px) may be truncated in 292px width — increase width or enable wrapping |
+| label-truncation | LabelOperatorType | Page 1 | Label text "Select the Operator type you want to add?<b style="color:#9E0000;"> *</b>" (~511px) may be truncated in 292px width — increase width or enable wrapping |
+| label-truncation | LabelUserRolesHidden | Page 1 | Label text "User Role(s):" (~91px) may be truncated in 80px width — increase width or enable wrapping |
+| label-truncation | Label415 | Page 1 | Label text "Offline Initial Form ID:" (~168px) may be truncated in 140px width — increase width or enable wrapping |
 
 ## Info
 
@@ -690,3 +704,44 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 671 (0 errors, 384 warnings, 287 i
 | field-max-length | Subjects Discussed | Page 1 | TextArea MaxLength is 2000 — recommended minimum is 3000 for notes/text fields |
 | field-max-length | Decisions Made | Page 1 | TextArea MaxLength is 2000 — recommended minimum is 3000 for notes/text fields |
 | field-max-length | DNR Rep Full Name | Page 1 | MaxLength is 50 for name field — recommended minimum is 100 |
+| font-consistency | LabelInformalConferenceNoteTitle | Page 1 | Label style differs from form pattern: fontSize=18 (expected 10), bold=true (expected false), color=#ffffffff (expected #FF000000) |
+| font-consistency | LabelRequiredField | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelIcnNumber | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelFpanNoOrWtmfNo | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelRegion | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelClassOfForestPractice | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelDocumentationType | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelLandownerType | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelLandownerBusinessSearchInstructions | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelLandownerIndividualSearchInstructions | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelLandownersBusinesses | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | LabelLandownersIndividuals | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | LabelTimberOwnerType | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelTimberOwnerBusinessInstructions | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelTimberOwnerIndividualInstructions | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelTimberOwnersBusinesses | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | LabelTimberOwnersIndividuals | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | LabelOperatorType | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelOperatorBusinessInstructions | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelOperatorIndividualInstructions | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelOperatorsBusinesses | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | LabelOperatorsIndividuals | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | Label408 | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelParticipantSignatureReference | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10) |
+| font-consistency | LabelDnrRepresentative | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | LabelDnrSignature | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | LabelDnrTitle | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | LabelDnrPositionNo | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | LabelDnrDate | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | LabelReadOnlySectionTitle | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff9e0000 (expected #FF000000) |
+| font-consistency | LabelRecordId | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10) |
+| font-consistency | LabelStatus | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10) |
+| font-consistency | LabelSubmittedDate | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10) |
+| font-consistency | LabelAdministrativeSectionTitle | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelAdministrativeSectionInstructions | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10), color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelHiddenFieldsSectionTitle | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelOfflineOnlineHiddenTitle | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelNavigationHiddenTitle | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelDocumentUploadsHiddenTitle | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelDataGridsFields | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| data-lookup-in-properties | Region | — | Script "Region_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |

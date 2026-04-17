@@ -1,61 +1,19 @@
 # Standards Review: Long-Term-Application-5-Day-Notice
 
-Generated: 2026-04-16 | Rules: 40 | Findings: 329 (0 errors, 238 warnings, 91 info)
+Generated: 2026-04-16 | Rules: 49 | Findings: 424 (60 errors, 236 warnings, 128 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
-| Error    | 0 |
-| Warning  | 238 |
-| Info     | 91 |
+| Error    | 60 |
+| Warning  | 236 |
+| Info     | 128 |
 
-## Warnings
+## Errors
 
 | Rule | Field | Page | Message |
 | :--- | :---- | :--- | :------ |
-| title-case | FPAN Number | Page 1 | Field name "FPAN Number" is not in Title Case |
-| title-case | Not required | Page 1 | Field name "Not required" is not in Title Case |
-| title-case | UserRoles | Page 1 | Field name "UserRoles" is not in Title Case |
-| title-case | old Status Change | Page 1 | Field name "old Status Change" is not in Title Case |
-| title-case | StatusManuallySetToRecorded | Page 1 | Field name "StatusManuallySetToRecorded" is not in Title Case |
-| title-case | UserID | Page 1 | Field name "UserID" is not in Title Case |
-| title-case | LTA 5-Day Status Flag | Page 1 | Field name "LTA 5-Day Status Flag" is not in Title Case |
-| title-case | LTA 5-Day Status Updated At | Page 1 | Field name "LTA 5-Day Status Updated At" is not in Title Case |
-| title-case | ActivityMapViewSubFormCreated | Page 1 | Field name "ActivityMapViewSubFormCreated" is not in Title Case |
-| title-case | FPAN Number Not Provided | Page 1 | Field name "FPAN Number Not Provided" is not in Title Case |
-| title-case | IsOfficeStaff | Page 1 | Field name "IsOfficeStaff" is not in Title Case |
-| title-case | IsProponent | Page 1 | Field name "IsProponent" is not in Title Case |
-| title-case | IsFieldStaff | Page 1 | Field name "IsFieldStaff" is not in Title Case |
-| title-case | IsGISEditor | Page 1 | Field name "IsGISEditor" is not in Title Case |
-| title-case | IsManagement | Page 1 | Field name "IsManagement" is not in Title Case |
-| title-case | IsOtherInternal | Page 1 | Field name "IsOtherInternal" is not in Title Case |
-| default-name | Image208 | Page 1 | Default field name "Image208" — use a descriptive name |
-| valid-identifier | LTA 5-Day Status Flag | Page 1 | Field name "LTA 5-Day Status Flag" contains invalid identifier characters |
-| valid-identifier | LTA 5-Day Status Updated At | Page 1 | Field name "LTA 5-Day Status Updated At" contains invalid identifier characters |
-| accessibility-label | Appendix H Record | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Relations Loaded In | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Form Saved | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Document Upload Path | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | UserRoles | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Related Record ID | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Region Zone | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | old Status Change | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Individual ID | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Effective Date | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | LTA 5-Day Status Updated At | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Form Submitted | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | ActivityMapViewSubFormCreated | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Forest Practice Notification Needed | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | IsOfficeStaff | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | IsProponent | Page 1 | Missing AccessibilityLabel |
-| accessibility-required | FPAN Number | Page 1 | Required field AccessibilityLabel "FPAN Number" should end with "field Required" |
-| accessibility-required | Region Project Information | Page 1 | Required field AccessibilityLabel "Region Project Information" should end with "field Required" |
-| accessibility-required | Operator Business Or Individual | Page 1 | Required field AccessibilityLabel "Operator Business Or Individual" should end with "field Required" |
-| accessibility-required | First Name Contact Person | Page 1 | Required field AccessibilityLabel "First Name Contact Person Required Field" should end with "field Required" |
-| accessibility-required | Last Name Contact Person | Page 1 | Required field AccessibilityLabel "Last Name Contact Person Required field" should end with "field Required" |
-| accessibility-required | Start Date Operation | Page 1 | Required field AccessibilityLabel "Start Date Operation" should end with "field Required" |
-| accessibility-required | End Date Operation | Page 1 | Required field AccessibilityLabel "End Date Operation" should end with "field Required" |
 | script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
 | script-orphan-assignment | btn_HelpNewTimberOwner_onClick | — | Script assignment references non-existent control ID: b2272856-ecfe-43de-7b57-d17ff73a287f |
 | script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
@@ -64,12 +22,6 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 329 (0 errors, 238 warnings, 91 in
 | script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
 | script-orphan-assignment | btn_HelpBusinessNameTimberOwner_onClick | — | Script assignment references non-existent control ID: 8e76a54f-3a17-ad4b-3fdd-d1b3510441c7 |
 | script-orphan-assignment | btn_HelpForestTaxNumberTimberOwner_onClick | — | Script assignment references non-existent control ID: 9a2f4a7d-30b1-a7ab-f753-14f113038968 |
-| script-unused-template | LandownerSearch | — | Template helper "LandownerSearch" is never referenced from any other script |
-| script-unused-template | OperatorSearch | — | Template helper "OperatorSearch" is never referenced from any other script |
-| script-unused-template | TimberOwnerSearch | — | Template helper "TimberOwnerSearch" is never referenced from any other script |
-| script-unused-template | RemoveSelectedTimber | — | Template helper "RemoveSelectedTimber" is never referenced from any other script |
-| script-unused-template | ValidateContactSearchCriteria | — | Template helper "ValidateContactSearchCriteria" is never referenced from any other script |
-| script-unused-template | SubmitForm | — | Template helper "SubmitForm" is never referenced from any other script |
 | script-field-reference | AddAppendixH | — | Script references non-existent field "Region" via GetFieldValue() |
 | field-multiple-groups | Con_LandownerBusinessSearch | — | Field appears in 2 groups: Landowner Business Search Visibility, Main Tab Read Only |
 | field-multiple-groups | lblBusinessSignerLandownerInstructions | — | Field appears in 2 groups: Landowner Business Signer Labels Visibility, Show Labels For Landowners Signers |
@@ -122,6 +74,59 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 329 (0 errors, 238 warnings, 91 in
 | field-multiple-groups | lblTimberOwnerIndividualInstructions | — | Field appears in 2 groups: Show Labels For TimberOwner Individuals, Timber Owner Labels Visibility |
 | field-multiple-groups | lblTimberOwnerBusinessSignerHeader | — | Field appears in 2 groups: Show Labels For TimberOwner Signers, Timber Owner Business Signer Labels Visibility |
 | field-multiple-groups | lblTimberOwnerBusinessSignerInstructions | — | Field appears in 2 groups: Show Labels For TimberOwner Signers, Timber Owner Business Signer Labels Visibility |
+
+## Warnings
+
+| Rule | Field | Page | Message |
+| :--- | :---- | :--- | :------ |
+| title-case | FPAN Number | Page 1 | Field name "FPAN Number" is not in Title Case |
+| title-case | Not required | Page 1 | Field name "Not required" is not in Title Case |
+| title-case | UserRoles | Page 1 | Field name "UserRoles" is not in Title Case |
+| title-case | old Status Change | Page 1 | Field name "old Status Change" is not in Title Case |
+| title-case | StatusManuallySetToRecorded | Page 1 | Field name "StatusManuallySetToRecorded" is not in Title Case |
+| title-case | UserID | Page 1 | Field name "UserID" is not in Title Case |
+| title-case | LTA 5-Day Status Flag | Page 1 | Field name "LTA 5-Day Status Flag" is not in Title Case |
+| title-case | LTA 5-Day Status Updated At | Page 1 | Field name "LTA 5-Day Status Updated At" is not in Title Case |
+| title-case | ActivityMapViewSubFormCreated | Page 1 | Field name "ActivityMapViewSubFormCreated" is not in Title Case |
+| title-case | FPAN Number Not Provided | Page 1 | Field name "FPAN Number Not Provided" is not in Title Case |
+| title-case | IsOfficeStaff | Page 1 | Field name "IsOfficeStaff" is not in Title Case |
+| title-case | IsProponent | Page 1 | Field name "IsProponent" is not in Title Case |
+| title-case | IsFieldStaff | Page 1 | Field name "IsFieldStaff" is not in Title Case |
+| title-case | IsGISEditor | Page 1 | Field name "IsGISEditor" is not in Title Case |
+| title-case | IsManagement | Page 1 | Field name "IsManagement" is not in Title Case |
+| title-case | IsOtherInternal | Page 1 | Field name "IsOtherInternal" is not in Title Case |
+| default-name | Image208 | Page 1 | Default field name "Image208" — use a descriptive name |
+| valid-identifier | LTA 5-Day Status Flag | Page 1 | Field name "LTA 5-Day Status Flag" contains invalid identifier characters |
+| valid-identifier | LTA 5-Day Status Updated At | Page 1 | Field name "LTA 5-Day Status Updated At" contains invalid identifier characters |
+| accessibility-label | Appendix H Record | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Relations Loaded In | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Form Saved | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Document Upload Path | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | UserRoles | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Related Record ID | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Region Zone | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | old Status Change | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Individual ID | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Effective Date | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | LTA 5-Day Status Updated At | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Form Submitted | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | ActivityMapViewSubFormCreated | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Forest Practice Notification Needed | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | IsOfficeStaff | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | IsProponent | Page 1 | Missing AccessibilityLabel |
+| accessibility-required | FPAN Number | Page 1 | Required field AccessibilityLabel "FPAN Number" should end with "field Required" |
+| accessibility-required | Region Project Information | Page 1 | Required field AccessibilityLabel "Region Project Information" should end with "field Required" |
+| accessibility-required | Operator Business Or Individual | Page 1 | Required field AccessibilityLabel "Operator Business Or Individual" should end with "field Required" |
+| accessibility-required | First Name Contact Person | Page 1 | Required field AccessibilityLabel "First Name Contact Person Required Field" should end with "field Required" |
+| accessibility-required | Last Name Contact Person | Page 1 | Required field AccessibilityLabel "Last Name Contact Person Required field" should end with "field Required" |
+| accessibility-required | Start Date Operation | Page 1 | Required field AccessibilityLabel "Start Date Operation" should end with "field Required" |
+| accessibility-required | End Date Operation | Page 1 | Required field AccessibilityLabel "End Date Operation" should end with "field Required" |
+| script-unused-template | LandownerSearch | — | Template helper "LandownerSearch" is never referenced from any other script |
+| script-unused-template | OperatorSearch | — | Template helper "OperatorSearch" is never referenced from any other script |
+| script-unused-template | TimberOwnerSearch | — | Template helper "TimberOwnerSearch" is never referenced from any other script |
+| script-unused-template | RemoveSelectedTimber | — | Template helper "RemoveSelectedTimber" is never referenced from any other script |
+| script-unused-template | ValidateContactSearchCriteria | — | Template helper "ValidateContactSearchCriteria" is never referenced from any other script |
+| script-unused-template | SubmitForm | — | Template helper "SubmitForm" is never referenced from any other script |
 | container-responsive-flow | Con_LandownerDGs | Page 1 | Container has 9 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
 | container-responsive-flow | Con_TimberOwnerDGs | Page 1 | Container has 9 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
 | container-responsive-flow | Con_OperatorDGs | Page 1 | Container has 9 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
@@ -252,6 +257,65 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 329 (0 errors, 238 warnings, 91 in
 | accessibility-label-match | btnAdminSave | Page 1 | AccessibilityLabel "Admin Save Button" does not match expected "Admin Save" |
 | accessibility-label-match | FPAN Number Not Provided | Page 1 | AccessibilityLabel "FPAN Number Not Provided flag" does not match expected "FPAN Number Not Provided" |
 | tab-control-visible | TabControl | — | TabControl is in group "Hide Form Tabs" — tab visibility should be controlled via Menu tab, not groups |
+| label-truncation | DataField2 | Page 1 | Label text "<strong style="color:#9E0000;">*</strong> Indicates required field" (~462px) may be truncated in 132px width — increase width or enable wrapping |
+| label-truncation | Label29 | Page 1 | Label text "FPA/N Number:<strong style="color:#9E0000;">*</strong>" (~378px) may be truncated in 102px width — increase width or enable wrapping |
+| label-truncation | Label51 | Page 1 | Label text "Region:<strong style="color:#9E0000;">*</strong>" (~336px) may be truncated in 102px width — increase width or enable wrapping |
+| label-truncation | Label39 | Page 1 | Label text "Visit the <a href="https://www.dnr.wa.gov/programs-and-services/forest-practices/review-applications-fpars/forest-practices-forms-and" target="_blank" style="color: forestgreen; font-weight: bold; text-decoration: underline;">Forest Practices Forms and Applications page</a> for more information on forest practices applications and forms." (~2848px) may be truncated in 814px width — increase width or enable wrapping |
+| label-truncation | Label212 | Page 1 | Label text "Documentation Type:" (~133px) may be truncated in 102px width — increase width or enable wrapping |
+| label-truncation | Label217 | Page 1 | Label text "Select the Landowner type you want to add.<strong style="color:#9E0000;">*</strong>" (~581px) may be truncated in 362px width — increase width or enable wrapping |
+| label-truncation | Label220 | Page 1 | Label text "<strong>Instructions:</strong> Search for a contact below to add a Landowner to your application." (~679px) may be truncated in 282px width — increase width or enable wrapping |
+| label-truncation | lblLandownerHeader | Page 1 | Label text "Landowner (Individual Search)" (~224px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | lblLandownerBusinessSigners | Page 1 | Label text "Landowner (Business Signer Search)" (~262px) may be truncated in 132px width — increase width or enable wrapping |
+| label-truncation | lblLandownerInstructions | Page 1 | Label text "<b>Instructions:</b> Search for a contact below to add a Landowner to your application." (~609px) may be truncated in 532px width — increase width or enable wrapping |
+| label-truncation | Label249 | Page 1 | Label text "Postal Code/Zip Code:" (~147px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label88 | Page 1 | Label text "Province/State:" (~105px) may be truncated in 62px width — increase width or enable wrapping |
+| label-truncation | lblLandownerDG | Page 1 | Label text "Landowner(s) Individuals:" (~193px) may be truncated in 102px width — increase width or enable wrapping |
+| label-truncation | Label248 | Page 1 | Label text "Landowner(s) Business:" (~170px) may be truncated in 102px width — increase width or enable wrapping |
+| label-truncation | Label214 | Page 1 | Label text "Select the Timber Owner type you want to add.<strong style="color:#9E0000;">*</strong>" (~602px) may be truncated in 362px width — increase width or enable wrapping |
+| label-truncation | DataField7 | Page 1 | Label text "<strong>Instructions:</strong> Search for a contact below to add a Timber Owner to your application." (~700px) may be truncated in 282px width — increase width or enable wrapping |
+| label-truncation | lblTimberOwnerHeader | Page 1 | Label text "Timber Owner (Individual Search)" (~247px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | lblTimberOwnerBusinessSignerHeader | Page 1 | Label text "Timber Owner (Business Signer Search)" (~285px) may be truncated in 132px width — increase width or enable wrapping |
+| label-truncation | lblTimberOwnerIndividualInstructions | Page 1 | Label text "<b>Instructions:</b> Search for a contact below to add a Timber Owner to your application." (~630px) may be truncated in 532px width — increase width or enable wrapping |
+| label-truncation | Label257 | Page 1 | Label text "Postal Code/Zip Code:" (~147px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label267 | Page 1 | Label text "Province/State:" (~105px) may be truncated in 62px width — increase width or enable wrapping |
+| label-truncation | Label383 | Page 1 | Label text "Timber Owner(s)" (~116px) may be truncated in 102px width — increase width or enable wrapping |
+| label-truncation | DataField8 | Page 1 | Label text "1c. Operator Information<strong style="color:#9E0000;">*</strong>" (~501px) may be truncated in 212px width — increase width or enable wrapping |
+| label-truncation | Label281 | Page 1 | Label text "Select the Operator type you want to add.<strong style="color:#9E0000;">*</strong>" (~574px) may be truncated in 272px width — increase width or enable wrapping |
+| label-truncation | Label285 | Page 1 | Label text "<strong>Instructions:</strong> Search for a contact below to add a Operator to your application." (~672px) may be truncated in 282px width — increase width or enable wrapping |
+| label-truncation | lblOperatorsHeader | Page 1 | Label text "Operator (Individual Search)" (~216px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | lblOperatorsBusinessSignerHeader | Page 1 | Label text "Operator (Business Signer Search)" (~255px) may be truncated in 132px width — increase width or enable wrapping |
+| label-truncation | lblOperatorInstructions | Page 1 | Label text "<b>Instructions:</b> Search for a contact below to add an Operator to your application." (~609px) may be truncated in 532px width — increase width or enable wrapping |
+| label-truncation | Label330 | Page 1 | Label text "Postal Code/Zip Code:" (~147px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label340 | Page 1 | Label text "Province/State:" (~105px) may be truncated in 62px width — increase width or enable wrapping |
+| label-truncation | lblOperatorsDG | Page 1 | Label text "Operator(s) Individuals:" (~185px) may be truncated in 102px width — increase width or enable wrapping |
+| label-truncation | Label316 | Page 1 | Label text "Operator(s) Business:" (~162px) may be truncated in 102px width — increase width or enable wrapping |
+| label-truncation | Label384 | Page 1 | Label text "Business Signers:" (~131px) may be truncated in 102px width — increase width or enable wrapping |
+| label-truncation | Label353 | Page 1 | Label text "1d. Contact Person Information<strong style="color:#9E0000;">*</strong>" (~547px) may be truncated in 212px width — increase width or enable wrapping |
+| label-truncation | Label197 | Page 1 | Label text "First Name:<strong style="color:#9E0000;">*</strong>" (~364px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label199 | Page 1 | Label text "Last Name:<strong style="color:#9E0000;">*</strong>" (~357px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label175 | Page 1 | Label text "2. Expected start and end dates of operation<strong style="color:#9E0000;">*</strong>" (~655px) may be truncated in 292px width — increase width or enable wrapping |
+| label-truncation | DataField20 | Page 1 | Label text "Expected start date of operation:<strong style="color:#9E0000;">*</strong>" (~518px) may be truncated in 212px width — increase width or enable wrapping |
+| label-truncation | Label314 | Page 1 | Label text "Expected end date of operation:<strong style="color:#9E0000;">*</strong>" (~504px) may be truncated in 212px width — increase width or enable wrapping |
+| label-truncation | DataField22 | Page 1 | Label text "3. Describe the forest practices activities that you will be starting and include an activity map." (~755px) may be truncated in 612px width — increase width or enable wrapping |
+| label-truncation | Label179 | Page 1 | Label text "Please upload any additional documents or upload changes to the Activity Map." (~593px) may be truncated in 502px width — increase width or enable wrapping |
+| label-truncation | Label319 | Page 1 | Label text "4. Are you harvesting or salvaging timber as part of this Notice?<strong style="color:#9E0000;">*</strong>" (~817px) may be truncated in 682px width — increase width or enable wrapping |
+| label-truncation | Label368 | Page 1 | Label text "No. If no, skip to Question 6" (~203px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label313 | Page 1 | Label text "<i>Contact the Department of Revenue at 360-534-1324 to obtain a forest tax number or further information.</i>" (~770px) may be truncated in 462px width — increase width or enable wrapping |
+| label-truncation | DataField26 | Page 1 | Label text "Tree Species:<strong style="color:#9E0000;">*</strong>" (~378px) may be truncated in 92px width — increase width or enable wrapping |
+| label-truncation | Label317 | Page 1 | Label text "Complete the Appendix H. Natural Regeneration Plan" (~350px) may be truncated in 272px width — increase width or enable wrapping |
+| label-truncation | Label364 | Page 1 | Label text "Individual dead, dying, down, or wind-thrown trees will be salvaged." (~476px) may be truncated in 412px width — increase width or enable wrapping |
+| label-truncation | Label363 | Page 1 | Label text "Trees are removed under a thinning program reasonably expected to maximize the long-term productivity of commercial timber." (~861px) may be truncated in 762px width — increase width or enable wrapping |
+| label-truncation | Label365 | Page 1 | Label text "I am leaving at least 100 vigorous, undamaged, and well distributed saplings or merchantable tress per acre." (~756px) may be truncated in 652px width — increase width or enable wrapping |
+| label-truncation | Label366 | Page 1 | Label text "There is an established plantation, and my harvest will not damage it." (~490px) may be truncated in 432px width — increase width or enable wrapping |
+| label-truncation | Label367 | Page 1 | Label text "Road right-of-way or rock pit development harvest only" (~378px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label196 | Page 1 | Label text "6. How are the following currently marked on the ground? (Flagging color, paint color, road, fence, etc.)" (~809px) may be truncated in 672px width — increase width or enable wrapping |
+| label-truncation | DataField29 | Page 1 | Label text "Clumped Wildlife Reserve Trees | Green Recruitment Trees:" (~399px) may be truncated in 362px width — increase width or enable wrapping |
+| label-truncation | Label327 | Page 1 | Label text "<b style="color:#9E0000;">*</b>The information on this application/notification is true." (~616px) may be truncated in 382px width — increase width or enable wrapping |
+| label-truncation | DataField18 | Page 1 | Label text "<strong>LTA 5-Day Status Change:</strong>" (~287px) may be truncated in 172px width — increase width or enable wrapping |
+| label-truncation | DataField35 | Page 1 | Label text "<strong>Notice No.:</strong>" (~196px) may be truncated in 172px width — increase width or enable wrapping |
+| label-truncation | DataField36 | Page 1 | Label text "LTA 5-Day Status Updated At:" (~196px) may be truncated in 152px width — increase width or enable wrapping |
+| label-truncation | Label372 | Page 1 | Label text "Forest Practice Notification 
+Needed:" (~259px) may be truncated in 142px width — increase width or enable wrapping |
 
 ## Info
 
@@ -348,3 +412,40 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 329 (0 errors, 238 warnings, 91 in
 | field-max-length | Operator Business Search Address Line 2 | Page 1 | MaxLength is 225 for address field — recommended minimum is 300 |
 | field-max-length | Operator Business Search Address Line 3 | Page 1 | MaxLength is 225 for address field — recommended minimum is 300 |
 | field-max-length | Notice Number | Page 1 | MaxLength is 2 — recommended minimum is 50 |
+| font-consistency | Label243 | Page 1 | Label style differs from form pattern: fontSize=12 (expected 10), bold=true (expected false), color=#ffffffff (expected #FF000000) |
+| font-consistency | Label71 | Page 1 | Label style differs from form pattern: fontSize=18 (expected 10), bold=true (expected false), color=#ffffffff (expected #FF000000) |
+| font-consistency | DataField2 | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | Label39 | Page 1 | Label style differs from form pattern: fontSize=12 (expected 10) |
+| font-consistency | lblLandownerHeader | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | lblLandownerBusinessSigners | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | Label248 | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | lblBusinessSignersLandownerDG | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | lblTimberOwnerHeader | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | lblTimberOwnerBusinessSignerHeader | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | DataField16 | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | lblOperatorsHeader | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | lblOperatorsBusinessSignerHeader | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | Label316 | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | Label179 | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | DataField24 | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | DataField23 | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | DataField17 | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | Label343 | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | Label33 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff9e0000 (expected #FF000000) |
+| font-consistency | Label34 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10) |
+| font-consistency | DataField3 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10) |
+| font-consistency | Label38 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label43 | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label41 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label386 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| data-lookup-in-properties | Timber Owner Business Or Individual | — | Script "Timber_Owner_Business_Or_Individual_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Operator Business Or Individual | — | Script "Operator_Business_Or_Individual_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Landowner Business Or Individual | — | Script "Landowner_Business_Or_Individual_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Operator Business Or Individual | — | Script "Operator_Business_Or_Individual_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Region Project Information | — | Script "Region_Project_Information_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Timber Owner Business Or Individual | — | Script "Timber_Owner_Business_Or_Individual_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Status Change | — | Script "Status_Change_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Landowner Business Or Individual | — | Script "Landowner_Business_Or_Individual_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Region Project Information | — | Script "Region_Project_Information_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| field-width-standard | Email Contact Person | Page 1 | email field width is 160px — recommended minimum is 200px |
+| field-width-standard | Appendix H Record | Page 1 | FieldTextbox3 width is 10px — recommended minimum is 80px |

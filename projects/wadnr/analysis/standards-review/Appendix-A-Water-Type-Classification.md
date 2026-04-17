@@ -1,24 +1,19 @@
 # Standards Review: Appendix-A-Water-Type-Classification
 
-Generated: 2026-04-16 | Rules: 40 | Findings: 221 (0 errors, 204 warnings, 17 info)
+Generated: 2026-04-16 | Rules: 49 | Findings: 233 (22 errors, 194 warnings, 17 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
-| Error    | 0 |
-| Warning  | 204 |
+| Error    | 22 |
+| Warning  | 194 |
 | Info     | 17 |
 
-## Warnings
+## Errors
 
 | Rule | Field | Page | Message |
 | :--- | :---- | :--- | :------ |
-| title-case | FPAN Number | Page 1 | Field name "FPAN Number" is not in Title Case |
-| title-case | UserRoles | Page 1 | Field name "UserRoles" is not in Title Case |
-| default-name | Image57 | Page 1 | Default field name "Image57" — use a descriptive name |
-| accessibility-label | Add Stream Segment | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | UserRoles | Page 1 | Missing AccessibilityLabel |
 | script-orphan-assignment | Question_4_Yes_Stop_Type_F_water_onChange | — | Script assignment references non-existent control ID: e2a6760e-7d7c-bff8-a13a-6a0d2f864780 |
 | script-orphan-assignment | Question_4_No_Continue_to_5_onChange | — | Script assignment references non-existent control ID: 49bb56ff-57e0-3a75-1930-fdc0a91113af |
 | script-orphan-assignment | Question_5_No_Continue_to_6_onChange | — | Script assignment references non-existent control ID: 972d9d3b-34f9-1a01-35dc-79848183235c |
@@ -41,6 +36,16 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 221 (0 errors, 204 warnings, 17 in
 | script-orphan-assignment | Question_8_Yes_Type_Ns_water_onChange | — | Script assignment references non-existent control ID: 6738feaa-64ce-56ad-5ceb-32e4304407a3 |
 | script-orphan-assignment | Question_1_Yes_Meets_waiver_criteria_Skip_to_6_onChange | — | Script assignment references non-existent control ID: c348651b-eee5-0099-9360-b1a11b883c32 |
 | script-orphan-assignment | Question_1_No_Continue_to_2_onChange | — | Script assignment references non-existent control ID: 693983c9-9758-8d1d-2d2f-fdeea97582a8 |
+
+## Warnings
+
+| Rule | Field | Page | Message |
+| :--- | :---- | :--- | :------ |
+| title-case | FPAN Number | Page 1 | Field name "FPAN Number" is not in Title Case |
+| title-case | UserRoles | Page 1 | Field name "UserRoles" is not in Title Case |
+| default-name | Image57 | Page 1 | Default field name "Image57" — use a descriptive name |
+| accessibility-label | Add Stream Segment | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | UserRoles | Page 1 | Missing AccessibilityLabel |
 | script-empty-body | AddressCopySourceToDestination | — | Script "AddressCopySourceToDestination" has an empty body |
 | script-empty-body | GIS_GetModalGISMap | — | Script "GIS_GetModalGISMap" has an empty body |
 | script-empty-body | SaveBeforeUpload | — | Script "SaveBeforeUpload" has an empty body |
@@ -218,6 +223,18 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 221 (0 errors, 204 warnings, 17 in
 | accessibility-label-match | btnAdminSave | Page 1 | AccessibilityLabel "Admin Save Button" does not match expected "Admin Save" |
 | button-label-camelcase | fpOnlineTitle | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | tab-control-visible | TabControl | — | TabControl is in group "Hide Edit Button" — tab visibility should be controlled via Menu tab, not groups |
+| standard-hidden-group | — | — | Template does not have a Hidden Fields group — expected a group with visibility condition referencing Admin Override |
+| standard-readonly-group | — | — | Template does not have a Read-Only Fields group — expected a group with read-only condition referencing Admin Override |
+| label-truncation | DataField2 | Page 1 | Label text "<strong style="color:#9E0000;">*</strong> Indicates required field" (~462px) may be truncated in 132px width — increase width or enable wrapping |
+| label-truncation | Label23 | Page 1 | Label text "<b>Instructions:</b>  To upload documentation, select the document type and then select the upload button below. View documentation by selecting the View Documentation button." (~1225px) may be truncated in 840px width — increase width or enable wrapping |
+| label-truncation | Label76 | Page 1 | Label text "To begin entering water type details, click 'Add Stream Segment'." (~455px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label34 | Page 1 | Label text "Record ID:" (~70px) may be truncated in 62px width — increase width or enable wrapping |
+| label-truncation | DataField3 | Page 1 | Label text "Status:" (~49px) may be truncated in 42px width — increase width or enable wrapping |
+| label-truncation | Label43 | Page 1 | Label text "<strong>Instructions:</strong>  This section is only visible to VaultAccess users.  Check Administrator Override to remove read-only configurations and show all fields.  Select Admin Save to save any changes without applying business rules.  Remember to uncheck override and save before closing." (~2065px) may be truncated in 642px width — increase width or enable wrapping |
+| label-truncation | Label49 | Page 1 | Label text "Related Record ID: " (~133px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label72 | Page 1 | Label text "Region Zone: " (~91px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | DataField1 | Page 1 | Label text "FPAN Number: " (~91px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | DataField4 | Page 1 | Label text "Document Upload Path: " (~154px) may be truncated in 82px width — increase width or enable wrapping |
 
 ## Info
 

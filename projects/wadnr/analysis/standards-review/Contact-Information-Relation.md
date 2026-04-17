@@ -1,14 +1,30 @@
 # Standards Review: Contact-Information-Relation
 
-Generated: 2026-04-16 | Rules: 40 | Findings: 218 (0 errors, 189 warnings, 29 info)
+Generated: 2026-04-16 | Rules: 49 | Findings: 226 (11 errors, 186 warnings, 29 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
-| Error    | 0 |
-| Warning  | 189 |
+| Error    | 11 |
+| Warning  | 186 |
 | Info     | 29 |
+
+## Errors
+
+| Rule | Field | Page | Message |
+| :--- | :---- | :--- | :------ |
+| script-orphan-assignment | Business_Address_Line_1_onBlur | — | Script assignment references non-existent control ID: d572dffd-fd62-e2d8-e8ed-ce4afbda051f |
+| script-orphan-assignment | Road_Identifier_onBlur | — | Script assignment references non-existent control ID: 6e0865a1-75b5-9573-19a5-3b9b3de9f283 |
+| script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
+| script-orphan-assignment | Steepest_Side_Slope_onBlur | — | Script assignment references non-existent control ID: 04badf75-456f-27fc-0a08-da5bbbd9f0de |
+| script-orphan-assignment | Business_Zip_Code_onBlur | — | Script assignment references non-existent control ID: 8a80442c-7f93-715b-43d5-eb5a891fe072 |
+| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
+| script-orphan-assignment | Road_Construction_Length_onBlur | — | Script assignment references non-existent control ID: 6fa43c3a-8778-482f-5952-0b099450ad4f |
+| script-orphan-assignment | Abandonment_Date_onBlur | — | Script assignment references non-existent control ID: 660a4ea4-cea8-2f34-2197-bc567ed1321b |
+| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
+| script-orphan-assignment | Road_Abandonment_Length_onBlur | — | Script assignment references non-existent control ID: 3461ae07-90f4-77bb-6fe3-1e40476db090 |
+| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
 
 ## Warnings
 
@@ -27,17 +43,6 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 218 (0 errors, 189 warnings, 29 in
 | accessibility-label | Contact Information ID | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | Original Contact Checkbox | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | Temp Data Migration ID | Page 1 | Missing AccessibilityLabel |
-| script-orphan-assignment | Business_Address_Line_1_onBlur | — | Script assignment references non-existent control ID: d572dffd-fd62-e2d8-e8ed-ce4afbda051f |
-| script-orphan-assignment | Road_Identifier_onBlur | — | Script assignment references non-existent control ID: 6e0865a1-75b5-9573-19a5-3b9b3de9f283 |
-| script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
-| script-orphan-assignment | Steepest_Side_Slope_onBlur | — | Script assignment references non-existent control ID: 04badf75-456f-27fc-0a08-da5bbbd9f0de |
-| script-orphan-assignment | Business_Zip_Code_onBlur | — | Script assignment references non-existent control ID: 8a80442c-7f93-715b-43d5-eb5a891fe072 |
-| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
-| script-orphan-assignment | Road_Construction_Length_onBlur | — | Script assignment references non-existent control ID: 6fa43c3a-8778-482f-5952-0b099450ad4f |
-| script-orphan-assignment | Abandonment_Date_onBlur | — | Script assignment references non-existent control ID: 660a4ea4-cea8-2f34-2197-bc567ed1321b |
-| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
-| script-orphan-assignment | Road_Abandonment_Length_onBlur | — | Script assignment references non-existent control ID: 3461ae07-90f4-77bb-6fe3-1e40476db090 |
-| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
 | script-empty-body | AddressCopySourceToDestination | — | Script "AddressCopySourceToDestination" has an empty body |
 | script-empty-body | GIS_GetModalGISMap | — | Script "GIS_GetModalGISMap" has an empty body |
 | script-empty-body | SaveBeforeUpload | — | Script "SaveBeforeUpload" has an empty body |
@@ -203,6 +208,14 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 218 (0 errors, 189 warnings, 29 in
 | accessibility-label-match | Original Related Contact Form ID | Page 1 | AccessibilityLabel "Title" does not match expected "Original Related Contact Form ID" |
 | accessibility-label-match | Original Contact Information Relation ID | Page 1 | AccessibilityLabel "Title" does not match expected "Original Contact Information Relation ID" |
 | tab-control-visible | TabControl | — | TabControl is in group "HideFormControls" — tab visibility should be controlled via Menu tab, not groups |
+| standard-hidden-group | — | — | Template does not have a Hidden Fields group — expected a group with visibility condition referencing Admin Override |
+| standard-readonly-group | — | — | Template does not have a Read-Only Fields group — expected a group with read-only condition referencing Admin Override |
+| label-truncation | DataField2 | Page 1 | Label text "<strong style="color:#9E0000;">*</strong> Indicates required field" (~462px) may be truncated in 132px width — increase width or enable wrapping |
+| label-truncation | Label45 | Page 1 | Label text "Landowner Type:" (~105px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | DataField4 | Page 1 | Label text "Record ID:" (~70px) may be truncated in 62px width — increase width or enable wrapping |
+| label-truncation | DataField3 | Page 1 | Label text "Status:" (~49px) may be truncated in 42px width — increase width or enable wrapping |
+| label-truncation | DataField7 | Page 1 | Label text "<strong>Instructions:</strong>  This section is only visible to VaultAccess users.  Check Administrator Override to remove read-only configurations and show all fields.  Select Admin Save to save any changes without applying business rules.  Remember to uncheck override and save before closing." (~2065px) may be truncated in 722px width — increase width or enable wrapping |
+| label-truncation | Label39 | Page 1 | Label text "Original Contact Information Relation ID:" (~287px) may be truncated in 252px width — increase width or enable wrapping |
 
 ## Info
 

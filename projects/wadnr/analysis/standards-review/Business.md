@@ -1,14 +1,28 @@
 # Standards Review: Business
 
-Generated: 2026-04-16 | Rules: 40 | Findings: 239 (0 errors, 199 warnings, 40 info)
+Generated: 2026-04-16 | Rules: 49 | Findings: 255 (9 errors, 206 warnings, 40 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
-| Error    | 0 |
-| Warning  | 199 |
+| Error    | 9 |
+| Warning  | 206 |
 | Info     | 40 |
+
+## Errors
+
+| Rule | Field | Page | Message |
+| :--- | :---- | :--- | :------ |
+| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
+| script-orphan-assignment | Road_Identifier_onBlur | — | Script assignment references non-existent control ID: 6e0865a1-75b5-9573-19a5-3b9b3de9f283 |
+| script-orphan-assignment | Steepest_Side_Slope_onBlur | — | Script assignment references non-existent control ID: 04badf75-456f-27fc-0a08-da5bbbd9f0de |
+| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
+| script-orphan-assignment | Abandonment_Date_onBlur | — | Script assignment references non-existent control ID: 660a4ea4-cea8-2f34-2197-bc567ed1321b |
+| script-orphan-assignment | Road_Abandonment_Length_onBlur | — | Script assignment references non-existent control ID: 3461ae07-90f4-77bb-6fe3-1e40476db090 |
+| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
+| script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
+| script-orphan-assignment | Road_Construction_Length_onBlur | — | Script assignment references non-existent control ID: 6fa43c3a-8778-482f-5952-0b099450ad4f |
 
 ## Warnings
 
@@ -29,15 +43,6 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 239 (0 errors, 199 warnings, 40 in
 | accessibility-label | Business Email | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | Related Record ID | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | Temp Data Migration ID | Page 1 | Missing AccessibilityLabel |
-| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
-| script-orphan-assignment | Road_Identifier_onBlur | — | Script assignment references non-existent control ID: 6e0865a1-75b5-9573-19a5-3b9b3de9f283 |
-| script-orphan-assignment | Steepest_Side_Slope_onBlur | — | Script assignment references non-existent control ID: 04badf75-456f-27fc-0a08-da5bbbd9f0de |
-| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
-| script-orphan-assignment | Abandonment_Date_onBlur | — | Script assignment references non-existent control ID: 660a4ea4-cea8-2f34-2197-bc567ed1321b |
-| script-orphan-assignment | Road_Abandonment_Length_onBlur | — | Script assignment references non-existent control ID: 3461ae07-90f4-77bb-6fe3-1e40476db090 |
-| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
-| script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
-| script-orphan-assignment | Road_Construction_Length_onBlur | — | Script assignment references non-existent control ID: 6fa43c3a-8778-482f-5952-0b099450ad4f |
 | script-empty-body | AddressCopySourceToDestination | — | Script "AddressCopySourceToDestination" has an empty body |
 | script-empty-body | GIS_GetModalGISMap | — | Script "GIS_GetModalGISMap" has an empty body |
 | script-empty-body | SaveBeforeUpload | — | Script "SaveBeforeUpload" has an empty body |
@@ -213,6 +218,22 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 239 (0 errors, 199 warnings, 40 in
 | button-label-camelcase | fpOnlineTitle | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | button-label-camelcase | bntDisabled | Page 1 | Button name should start with "btn" prefix (camelCase convention) |
 | tab-control-visible | TabControl | — | TabControl is in group "Hide Edit Button" — tab visibility should be controlled via Menu tab, not groups |
+| standard-hidden-group | — | — | Template does not have a Hidden Fields group — expected a group with visibility condition referencing Admin Override |
+| standard-readonly-group | — | — | Template does not have a Read-Only Fields group — expected a group with read-only condition referencing Admin Override |
+| label-truncation | DataField2 | Page 1 | Label text "<strong style="color:#9E0000;">*</strong> Indicates required field" (~462px) may be truncated in 132px width — increase width or enable wrapping |
+| label-truncation | Label32 | Page 1 | Label text "Business Name: <strong style="color:#9E0000;">*</strong> " (~399px) may be truncated in 102px width — increase width or enable wrapping |
+| label-truncation | Label36 | Page 1 | Label text "Country: <strong style="color:#9E0000;">*</strong> " (~357px) may be truncated in 62px width — increase width or enable wrapping |
+| label-truncation | Label43 | Page 1 | Label text "Postal Code/Zip Code: <strong style="color:#9E0000;">*</strong> " (~448px) may be truncated in 142px width — increase width or enable wrapping |
+| label-truncation | Label38 | Page 1 | Label text "Address Line 1: <strong style="color:#9E0000;">*</strong> " (~406px) may be truncated in 102px width — increase width or enable wrapping |
+| label-truncation | Label41 | Page 1 | Label text "City: <strong style="color:#9E0000;">*</strong> " (~336px) may be truncated in 42px width — increase width or enable wrapping |
+| label-truncation | Label42 | Page 1 | Label text "Province/State: <strong style="color:#9E0000;">*</strong> " (~406px) may be truncated in 102px width — increase width or enable wrapping |
+| label-truncation | Label44 | Page 1 | Label text "County: <strong style="color:#9E0000;">*</strong> " (~350px) may be truncated in 62px width — increase width or enable wrapping |
+| label-truncation | DataField4 | Page 1 | Label text "Record ID:" (~70px) may be truncated in 62px width — increase width or enable wrapping |
+| label-truncation | DataField3 | Page 1 | Label text "Status:" (~49px) may be truncated in 42px width — increase width or enable wrapping |
+| label-truncation | DataField7 | Page 1 | Label text "<strong>Instructions:</strong>  This section is only visible to VaultAccess users.  Check Administrator Override to remove read-only configurations and show all fields.  Select Admin Save to save any changes without applying business rules.  Remember to uncheck override and save before closing." (~2065px) may be truncated in 722px width — increase width or enable wrapping |
+| label-truncation | Label49 | Page 1 | Label text "Tab Control: " (~91px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label51 | Page 1 | Label text "Business Province State:" (~168px) may be truncated in 122px width — increase width or enable wrapping |
+| label-truncation | Label52 | Page 1 | Label text "Temp Data Migration ID:" (~161px) may be truncated in 82px width — increase width or enable wrapping |
 
 ## Info
 

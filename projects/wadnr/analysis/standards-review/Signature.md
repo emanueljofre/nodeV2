@@ -1,14 +1,24 @@
 # Standards Review: Signature
 
-Generated: 2026-04-16 | Rules: 40 | Findings: 92 (0 errors, 51 warnings, 41 info)
+Generated: 2026-04-16 | Rules: 49 | Findings: 116 (5 errors, 60 warnings, 51 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
-| Error    | 0 |
-| Warning  | 51 |
-| Info     | 41 |
+| Error    | 5 |
+| Warning  | 60 |
+| Info     | 51 |
+
+## Errors
+
+| Rule | Field | Page | Message |
+| :--- | :---- | :--- | :------ |
+| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
+| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
+| script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
+| script-orphan-assignment | Acknowledge_One_Notice_Of_Transfer_onChange | — | Script assignment references non-existent control ID: 84d07035-fbb8-13d9-279b-cda7f040b209 |
+| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
 
 ## Warnings
 
@@ -40,11 +50,6 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 92 (0 errors, 51 warnings, 41 info
 | accessibility-label | Decline Reason | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | Contact Information Relation ID | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | Redirected From | Page 1 | Missing AccessibilityLabel |
-| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
-| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
-| script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
-| script-orphan-assignment | Acknowledge_One_Notice_Of_Transfer_onChange | — | Script assignment references non-existent control ID: 84d07035-fbb8-13d9-279b-cda7f040b209 |
-| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
 | script-unused-template | GetReportURLAndRedirect | — | Template helper "GetReportURLAndRedirect" is never referenced from any other script |
 | distance-to-border | Top Form ID | Page 1 | Field is 10px from the right border (minimum: 30px) |
 | distance-to-border | btnViewApplication | Page 1 | Field is 25px from the right border (minimum: 30px) |
@@ -65,6 +70,20 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 92 (0 errors, 51 warnings, 41 info
 | accessibility-label-match | ParentIsRenewal | Page 1 | AccessibilityLabel "ParentIsRenewal" does not match expected "Parent Is Renewal" |
 | accessibility-label-match | ParentIsNoticeOfTransfer | Page 1 | AccessibilityLabel "ParentIsNoticeOfTransfer" does not match expected "Parent Is Notice Of Transfer" |
 | tab-control-visible | TabControl | — | TabControl is in group "Hide Form Tabs" — tab visibility should be controlled via Menu tab, not groups |
+| label-truncation | DataField2 | Page 1 | Label text "<b style="color:#9E0000;">*</b> Indicates required field" (~392px) may be truncated in 132px width — increase width or enable wrapping |
+| label-truncation | Label57 | Page 1 | Label text "I acknowledge the following:" (~216px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label30 | Page 1 | Label text "<b style="color:#9E0000;">*</b>The information on this application/notification is true." (~616px) may be truncated in 392px width — increase width or enable wrapping |
+| label-truncation | Label61 | Page 1 | Label text "I/We acknowledge the following:" (~239px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label63 | Page 1 | Label text "<b style="color:#9E0000;">*</b>The information on this application/notification is true." (~616px) may be truncated in 392px width — increase width or enable wrapping |
+| label-truncation | Label74 | Page 1 | Label text "I/We acknowledge the following:" (~239px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label76 | Page 1 | Label text "<b style="color:#9E0000;">*</b>The information on this application/notification is true." (~616px) may be truncated in 392px width — increase width or enable wrapping |
+| label-truncation | Label89 | Page 1 | Label text "I/We acknowledge the following:" (~239px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label91 | Page 1 | Label text "<b style="color:#9E0000;">*</b>The information on this application/notification is true." (~616px) may be truncated in 392px width — increase width or enable wrapping |
+| label-truncation | Label104 | Page 1 | Label text "I/We acknowledge the following:" (~239px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label106 | Page 1 | Label text "<b style="color:#9E0000;">*</b>The information on this application/notification is true." (~616px) may be truncated in 392px width — increase width or enable wrapping |
+| label-truncation | Label118 | Page 1 | Label text "I/We acknowledge the following:" (~239px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label60 | Page 1 | Label text "Type Name: <b style="color:red;">*</b>" (~266px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | DataField11 | Page 1 | Label text "Contact Information Relation ID:" (~224px) may be truncated in 132px width — increase width or enable wrapping |
 
 ## Info
 
@@ -111,3 +130,13 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 92 (0 errors, 51 warnings, 41 info
 | listener-disabled | Zip Code | Page 1 | EnableQListener is enabled — verify this field requires query string fill-in/relate capability |
 | field-max-length | Type Name | Page 1 | MaxLength is 50 for name field — recommended minimum is 100 |
 | field-max-length | Decline Reason | Page 1 | TextArea MaxLength is 50 — recommended minimum is 3000 for notes/text fields |
+| font-consistency | Label71 | Page 1 | Label style differs from form pattern: fontSize=18 (expected 10), bold=true (expected false), color=#ffffffff (expected #FF000000) |
+| font-consistency | DataField2 | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | Label56 | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | DataField1 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff9e0000 (expected #FF000000) |
+| font-consistency | DataField4 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10) |
+| font-consistency | DataField3 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10) |
+| font-consistency | Label38 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label43 | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10), color=#ff000000 (expected #FF000000) |
+| font-consistency | DataField5 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label54 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |

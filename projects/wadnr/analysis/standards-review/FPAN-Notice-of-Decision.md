@@ -1,14 +1,24 @@
 # Standards Review: FPAN-Notice-of-Decision
 
-Generated: 2026-04-16 | Rules: 40 | Findings: 67 (0 errors, 39 warnings, 28 info)
+Generated: 2026-04-16 | Rules: 49 | Findings: 90 (5 errors, 43 warnings, 42 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
-| Error    | 0 |
-| Warning  | 39 |
-| Info     | 28 |
+| Error    | 5 |
+| Warning  | 43 |
+| Info     | 42 |
+
+## Errors
+
+| Rule | Field | Page | Message |
+| :--- | :---- | :--- | :------ |
+| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
+| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
+| script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
+| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
+| field-multiple-groups | Decision Description | — | Field appears in 2 groups: Read Only Completed Record, Read Only Decision Description |
 
 ## Warnings
 
@@ -40,11 +50,6 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 67 (0 errors, 39 warnings, 28 info
 | accessibility-label | Application Type | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | Decision Control | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | Was AutoPopulated | Page 1 | Missing AccessibilityLabel |
-| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
-| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
-| script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
-| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
-| field-multiple-groups | Decision Description | — | Field appears in 2 groups: Read Only Completed Record, Read Only Decision Description |
 | container-responsive-flow | Con_DeliveredBy | Page 1 | Container has 2 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
 | container-responsive-flow | Con_DateDelivered | Page 1 | Container has 2 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
 | distance-to-border | Top Form ID | Page 1 | Field is 10px from the right border (minimum: 30px) |
@@ -53,6 +58,15 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 67 (0 errors, 39 warnings, 28 info
 | accessibility-label-match | btnAdminSave | Page 1 | AccessibilityLabel "Admin Save Button" does not match expected "Admin Save" |
 | accessibility-label-match | Related Record ID | Page 1 | AccessibilityLabel "Tab Control" does not match expected "Related Record ID" |
 | tab-control-visible | TabControl | — | TabControl is in group "Hide Form Tabs" — tab visibility should be controlled via Menu tab, not groups |
+| label-truncation | lblHeaderLTA | Page 1 | Label text "Long-term Forest Practices Application Step 1 | Resource and Road Assessment" (~878px) may be truncated in 772px width — increase width or enable wrapping |
+| label-truncation | lblHeaderAmendment | Page 1 | Label text "Forest Practices Application/Notification Request To Amend" (~804px) may be truncated in 712px width — increase width or enable wrapping |
+| label-truncation | lblReasonsForDisapproval | Page 1 | Label text "Conditions on Approval/Reasons for Disapproval" (~355px) may be truncated in 322px width — increase width or enable wrapping |
+| label-truncation | lblReasonsForRejection | Page 1 | Label text "Reason(s) for Rejection" (~178px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label85 | Page 1 | Label text "<b>Note</b>: Validation of Step 1 if not an approved application fo forest practices activities. You must obtain an approved Step 2 and submit a 5-Day Notice of" (~1008px) may be truncated in 822px width — increase width or enable wrapping |
+| label-truncation | Label86 | Page 1 | Label text "Operation prior to starting any forest practices activities associated with this project per WAC <a href="https://app.leg.wa.gov/WAC/default.aspx?cite=222-20-016" target="_blank">222-20-016</a>." (~1223px) may be truncated in 822px width — increase width or enable wrapping |
+| label-truncation | Label96 | Page 1 | Label text "<b>Issued in Person</b>: <i>(check all that apply)</i>" (~378px) may be truncated in 292px width — increase width or enable wrapping |
+| label-truncation | DataField2 | Page 1 | Label text "<b>Copies Mailed To</b>: <i>(check all that apply)</i>" (~378px) may be truncated in 292px width — increase width or enable wrapping |
+| label-truncation | DataField4 | Page 1 | Label text "City & State Where Mailed:" (~182px) may be truncated in 160px width — increase width or enable wrapping |
 
 ## Info
 
@@ -86,3 +100,17 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 67 (0 errors, 39 warnings, 28 info
 | field-max-length | Reference Or Project Name | Page 1 | MaxLength is 50 for name field — recommended minimum is 100 |
 | field-max-length | Decision Description | Page 1 | MaxLength is 50 for notes field — recommended minimum is 3000 |
 | field-max-length | Reasons | Page 1 | TextArea MaxLength is 1000 — recommended minimum is 3000 for notes/text fields |
+| font-consistency | lblHeaderLTA | Page 1 | Label style differs from form pattern: fontSize=15 (expected 10), bold=true (expected false), color=#ffffffff (expected #FF000000) |
+| font-consistency | Label56 | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | lblReasonsForDisapproval | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | lblReasonsForRejection | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | Label85 | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10) |
+| font-consistency | Label86 | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10) |
+| font-consistency | Label22 | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label33 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff9e0000 (expected #FF000000) |
+| font-consistency | Label34 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10) |
+| font-consistency | DataField3 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10) |
+| font-consistency | Label38 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label43 | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label41 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| data-lookup-in-properties | Decision | — | Script "Decision_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |

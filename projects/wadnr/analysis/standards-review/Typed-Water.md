@@ -1,22 +1,19 @@
 # Standards Review: Typed-Water
 
-Generated: 2026-04-16 | Rules: 40 | Findings: 33 (0 errors, 25 warnings, 8 info)
+Generated: 2026-04-16 | Rules: 49 | Findings: 46 (14 errors, 15 warnings, 17 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
-| Error    | 0 |
-| Warning  | 25 |
-| Info     | 8 |
+| Error    | 14 |
+| Warning  | 15 |
+| Info     | 17 |
 
-## Warnings
+## Errors
 
 | Rule | Field | Page | Message |
 | :--- | :---- | :--- | :------ |
-| default-name | Image31 | Page 1 | Default field name "Image31" — use a descriptive name |
-| accessibility-label | Temp Data Migration ID | Page 1 | Missing AccessibilityLabel |
-| accessibility-required | Activity | Page 1 | Required field AccessibilityLabel "Activity - required field" should end with "field Required" |
 | script-orphan-assignment | Water_Type_onBlur | — | Script assignment references non-existent control ID: 1fe5ff5f-69e0-d0e5-0c0c-a39abf5399b8 |
 | script-orphan-assignment | Felling_And_Bucking_onBlur | — | Script assignment references non-existent control ID: a518f050-be3b-103a-e0f5-1fb45237e903 |
 | script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
@@ -31,6 +28,14 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 33 (0 errors, 25 warnings, 8 info)
 | script-orphan-assignment | Equipment_Crossing_onBlur | — | Script assignment references non-existent control ID: e1f29508-288a-e2ee-aae4-8daf35360c01 |
 | script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
 | script-orphan-assignment | Cable_Yarding_onBlur | — | Script assignment references non-existent control ID: 26c57421-a996-60d4-b8f7-6e55d805d90d |
+
+## Warnings
+
+| Rule | Field | Page | Message |
+| :--- | :---- | :--- | :------ |
+| default-name | Image31 | Page 1 | Default field name "Image31" — use a descriptive name |
+| accessibility-label | Temp Data Migration ID | Page 1 | Missing AccessibilityLabel |
+| accessibility-required | Activity | Page 1 | Required field AccessibilityLabel "Activity - required field" should end with "field Required" |
 | distance-to-border | Top Form ID | Page 1 | Field is 10px from the right border (minimum: 30px) |
 | button-min-size | btnHelpActivity | Page 1 | Button is 20x20px — minimum is 24x24px (508 compliance) |
 | accessibility-label-match | Activity | Page 1 | AccessibilityLabel "Activity - required field" does not match expected "Activity" |
@@ -39,6 +44,10 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 33 (0 errors, 25 warnings, 8 info)
 | accessibility-label-match | btnAdminSave | Page 1 | AccessibilityLabel "Admin Save Button" does not match expected "Admin Save" |
 | button-label-camelcase | fpOnlineTitle | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | tab-control-visible | TabControl | — | TabControl is in group "Hide Form Tabs" — tab visibility should be controlled via Menu tab, not groups |
+| label-truncation | DataField2 | Page 1 | Label text "<strong style="color:#9E0000;">*</strong> Indicates required field" (~462px) may be truncated in 132px width — increase width or enable wrapping |
+| label-truncation | DataField1 | Page 1 | Label text "Activity:<strong style="color:#9E0000;">*</strong>" (~350px) may be truncated in 102px width — increase width or enable wrapping |
+| label-truncation | Label58 | Page 1 | Label text "Water Types:<strong style="color:#9E0000;">*</strong>" (~371px) may be truncated in 92px width — increase width or enable wrapping |
+| label-truncation | Label28 | Page 1 | Label text "Temp Data Migration ID:" (~161px) may be truncated in 122px width — increase width or enable wrapping |
 
 ## Info
 
@@ -52,3 +61,12 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 33 (0 errors, 25 warnings, 8 info)
 | spelling | Type Ns Water | Page 1 | Possible misspelling: "Ns" (suggestions: Na, Nd, Ne) |
 | listener-disabled | Related Record ID | Page 1 | EnableQListener is enabled — verify this field requires query string fill-in/relate capability |
 | listener-disabled | Temp Data Migration ID | Page 1 | EnableQListener is enabled — verify this field requires query string fill-in/relate capability |
+| font-consistency | fpOnlineTitle | Page 1 | Label style differs from form pattern: fontSize=18 (expected 10), bold=true (expected false), color=#ffffffff (expected #FF000000) |
+| font-consistency | DataField2 | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | Label56 | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label33 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff9e0000 (expected #FF000000) |
+| font-consistency | Label38 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label43 | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label41 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| data-lookup-in-properties | Activity | — | Script "Activity_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Activity | — | Script "Activity_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |

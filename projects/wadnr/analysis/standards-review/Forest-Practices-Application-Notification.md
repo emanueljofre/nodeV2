@@ -1,97 +1,19 @@
 # Standards Review: Forest-Practices-Application-Notification
 
-Generated: 2026-04-16 | Rules: 40 | Findings: 883 (0 errors, 639 warnings, 244 info)
+Generated: 2026-04-16 | Rules: 49 | Findings: 1039 (210 errors, 519 warnings, 310 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
-| Error    | 0 |
-| Warning  | 639 |
-| Info     | 244 |
+| Error    | 210 |
+| Warning  | 519 |
+| Info     | 310 |
 
-## Warnings
+## Errors
 
 | Rule | Field | Page | Message |
 | :--- | :---- | :--- | :------ |
-| title-case | FPAN Number | Page 1 | Field name "FPAN Number" is not in Title Case |
-| title-case | Long Term FPA Number | Page 1 | Field name "Long Term FPA Number" is not in Title Case |
-| title-case | Long Term FPA Valid | Page 1 | Field name "Long Term FPA Valid" is not in Title Case |
-| title-case | Small Forest Checklist RMAP | Page 1 | Field name "Small Forest Checklist RMAP" is not in Title Case |
-| title-case | FFFPP | Page 1 | Field name "FFFPP" is not in Title Case |
-| title-case | Own 20 Contiguous Acres Within UGA | Page 1 | Field name "Own 20 Contiguous Acres Within UGA" is not in Title Case |
-| title-case | COHP | Page 1 | Field name "COHP" is not in Title Case |
-| title-case | WA Miles | Page 1 | Field name "WA Miles" is not in Title Case |
-| title-case | CMZ | Page 1 | Field name "CMZ" is not in Title Case |
-| title-case | EARR | Page 1 | Field name "EARR" is not in Title Case |
-| title-case | Seedlings Western WA | Page 1 | Field name "Seedlings Western WA" is not in Title Case |
-| title-case | Seedlings Eastern WA | Page 1 | Field name "Seedlings Eastern WA" is not in Title Case |
-| title-case | Exempt 20 Acre RMZ Rule | Page 1 | Field name "Exempt 20 Acre RMZ Rule" is not in Title Case |
-| title-case | Situation Description ALL | Page 1 | Field name "Situation Description ALL" is not in Title Case |
-| title-case | Situation Description ONE OR MORE | Page 1 | Field name "Situation Description ONE OR MORE" is not in Title Case |
-| title-case | Harvesting Type SF Wetlands | Page 1 | Field name "Harvesting Type SF Wetlands" is not in Title Case |
-| title-case | UpdateSubformsToSubmitted | Page 1 | Field name "UpdateSubformsToSubmitted" is not in Title Case |
-| title-case | UpdateSubformsToDraft | Page 1 | Field name "UpdateSubformsToDraft" is not in Title Case |
-| title-case | UserRoles | Page 1 | Field name "UserRoles" is not in Title Case |
-| title-case | Was AutoPopulated | Page 1 | Field name "Was AutoPopulated" is not in Title Case |
-| title-case | UserID | Page 1 | Field name "UserID" is not in Title Case |
-| title-case | FPAN Status Updated At | Page 1 | Field name "FPAN Status Updated At" is not in Title Case |
-| title-case | ARP ID | Page 1 | Field name "ARP ID" is not in Title Case |
-| title-case | IsOfficeStaff | Page 1 | Field name "IsOfficeStaff" is not in Title Case |
-| title-case | isProponent | Page 1 | Field name "isProponent" is not in Title Case |
-| title-case | Contact Person section read only | Page 1 | Field name "Contact Person section read only" is not in Title Case |
-| title-case | isFieldStaff | Page 1 | Field name "isFieldStaff" is not in Title Case |
-| title-case | Question32Validated | Page 1 | Field name "Question32Validated" is not in Title Case |
-| title-case | isManagement | Page 1 | Field name "isManagement" is not in Title Case |
-| title-case | IsLTAStep2 | Page 1 | Field name "IsLTAStep2" is not in Title Case |
-| title-case | IsCopying | Page 1 | Field name "IsCopying" is not in Title Case |
-| title-case | AutoSubmissionNeeded | Page 1 | Field name "AutoSubmissionNeeded" is not in Title Case |
-| title-case | isViewOnly | Page 1 | Field name "isViewOnly" is not in Title Case |
-| title-case | AutoResubmitNeeded | Page 1 | Field name "AutoResubmitNeeded" is not in Title Case |
-| title-case | Application does not require payment | Page 1 | Field name "Application does not require payment" is not in Title Case |
-| title-case | isFPGISEditor | Page 1 | Field name "isFPGISEditor" is not in Title Case |
-| title-case | isSignatory | Page 1 | Field name "isSignatory" is not in Title Case |
-| title-case | ActivityMapViewSubFormCreated | Page 1 | Field name "ActivityMapViewSubFormCreated" is not in Title Case |
-| title-case | isOtherInternalPersonnel | Page 1 | Field name "isOtherInternalPersonnel" is not in Title Case |
-| title-case | sectionsMap | Page 1 | Field name "sectionsMap" is not in Title Case |
-| title-case | questionsMap | Page 1 | Field name "questionsMap" is not in Title Case |
-| title-case | Q8Text | Page 1 | Field name "Q8Text" is not in Title Case |
-| title-case | Q32Text | Page 1 | Field name "Q32Text" is not in Title Case |
-| accessibility-label | Show All Questions | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Harvesting 50 Feet Np | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | All Questions | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Multiple Landowners | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | UpdateSubformsToSubmitted | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Multiple Timber Owners | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | UpdateSubformsToDraft | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Visible Section | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Multiple Operators | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Withdrawal Request Flag | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Multiple Contacts | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Notification Flag | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Was AutoPopulated | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Expiration Date | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | UserID | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Submitted Date | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | FPAN Status Updated At | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Created Date | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | ARP ID | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Show Back Button | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Show Review Button | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Contact Person section read only | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Show Submit Button | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Question32Validated | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Show Next Button | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Show Resubmit Button | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Application does not require payment | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | ActivityMapViewSubFormCreated | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Document Upload Path | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | sectionsMap | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | questionsMap | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Q8Text | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Q32Text | Page 1 | Missing AccessibilityLabel |
-| accessibility-required | First Name Contact Person | Page 1 | Required field AccessibilityLabel "Contact Person First Name" should end with "field Required" |
-| accessibility-required | Last Name Contact Person | Page 1 | Required field AccessibilityLabel "Contact Person Last Name" should end with "field Required" |
 | script-orphan-assignment | Operator_Phone_onBlur | — | Script assignment references non-existent control ID: de9054a2-5a1c-a8a9-4737-d1060de1788d |
 | script-orphan-assignment | Timber_Owner_County_onBlur | — | Script assignment references non-existent control ID: 2cd5645a-51b5-c2c6-3f00-04811e059aea |
 | script-orphan-assignment | Land_Owner_County_onBlur | — | Script assignment references non-existent control ID: d97e05d3-0583-5234-7b66-33a93fc5b2c8 |
@@ -176,48 +98,6 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 883 (0 errors, 639 warnings, 244 i
 | script-orphan-assignment | Operator_Business_Signer_Name_onBlur | — | Script assignment references non-existent control ID: a97a647a-cbaf-68f1-52d8-5976d8a3e4a6 |
 | script-orphan-assignment | Operator_Last_Name_onBlur | — | Script assignment references non-existent control ID: c6fef813-e0bf-e4df-6bd7-a2a458dc574c |
 | script-orphan-assignment | btnHelpOperator_onClick | — | Script assignment references non-existent control ID: 02ad8992-2dcf-d18c-1f75-9e7182344e61 |
-| script-unused-template | LandownerSearch | — | Template helper "LandownerSearch" is never referenced from any other script |
-| script-unused-template | ValidateQuestion28 | — | Template helper "ValidateQuestion28" is never referenced from any other script |
-| script-unused-template | TimberOwnerSearch | — | Template helper "TimberOwnerSearch" is never referenced from any other script |
-| script-unused-template | ValidateQuestion13 | — | Template helper "ValidateQuestion13" is never referenced from any other script |
-| script-unused-template | SetFPANNumber | — | Template helper "SetFPANNumber" is never referenced from any other script |
-| script-unused-template | ValidateQuestion14 | — | Template helper "ValidateQuestion14" is never referenced from any other script |
-| script-unused-template | ValidateQuestion10 | — | Template helper "ValidateQuestion10" is never referenced from any other script |
-| script-unused-template | ValidateQuestion11 | — | Template helper "ValidateQuestion11" is never referenced from any other script |
-| script-unused-template | ValidateQuestion26 | — | Template helper "ValidateQuestion26" is never referenced from any other script |
-| script-unused-template | ValidateQuestion15 | — | Template helper "ValidateQuestion15" is never referenced from any other script |
-| script-unused-template | AddMap | — | Template helper "AddMap" is never referenced from any other script |
-| script-unused-template | ValidateQuestion17 | — | Template helper "ValidateQuestion17" is never referenced from any other script |
-| script-unused-template | ValidateQuestion12 | — | Template helper "ValidateQuestion12" is never referenced from any other script |
-| script-unused-template | ValidateQuestion21 | — | Template helper "ValidateQuestion21" is never referenced from any other script |
-| script-unused-template | ValidateQuestions1d | — | Template helper "ValidateQuestions1d" is never referenced from any other script |
-| script-unused-template | ValidateQuestion9 | — | Template helper "ValidateQuestion9" is never referenced from any other script |
-| script-unused-template | ValidateQuestions1c | — | Template helper "ValidateQuestions1c" is never referenced from any other script |
-| script-unused-template | ValidateQuestion23 | — | Template helper "ValidateQuestion23" is never referenced from any other script |
-| script-unused-template | ValidateQuestions1b | — | Template helper "ValidateQuestions1b" is never referenced from any other script |
-| script-unused-template | ValidateQuestion7 | — | Template helper "ValidateQuestion7" is never referenced from any other script |
-| script-unused-template | ValidateQuestion30 | — | Template helper "ValidateQuestion30" is never referenced from any other script |
-| script-unused-template | ValidateQuestion24 | — | Template helper "ValidateQuestion24" is never referenced from any other script |
-| script-unused-template | ValidateContactSearchCriteria | — | Template helper "ValidateContactSearchCriteria" is never referenced from any other script |
-| script-unused-template | ValidateQuestion6 | — | Template helper "ValidateQuestion6" is never referenced from any other script |
-| script-unused-template | ValidateQuestion27 | — | Template helper "ValidateQuestion27" is never referenced from any other script |
-| script-unused-template | ValidateQuestion16 | — | Template helper "ValidateQuestion16" is never referenced from any other script |
-| script-unused-template | OperatorSearch | — | Template helper "OperatorSearch" is never referenced from any other script |
-| script-unused-template | ValidateQuestion20 | — | Template helper "ValidateQuestion20" is never referenced from any other script |
-| script-unused-template | ValidateQuestions1a | — | Template helper "ValidateQuestions1a" is never referenced from any other script |
-| script-unused-template | ValidateQuestion18 | — | Template helper "ValidateQuestion18" is never referenced from any other script |
-| script-unused-template | ValidateQuestion4 | — | Template helper "ValidateQuestion4" is never referenced from any other script |
-| script-unused-template | ValidateQuestion25 | — | Template helper "ValidateQuestion25" is never referenced from any other script |
-| script-unused-template | ValidateQuestion5 | — | Template helper "ValidateQuestion5" is never referenced from any other script |
-| script-unused-template | ValidateQuestion2 | — | Template helper "ValidateQuestion2" is never referenced from any other script |
-| script-unused-template | PostPDFMapToDocLib | — | Template helper "PostPDFMapToDocLib" is never referenced from any other script |
-| script-unused-template | ValidateQuestion8 | — | Template helper "ValidateQuestion8" is never referenced from any other script |
-| script-unused-template | ValidateQuestion29 | — | Template helper "ValidateQuestion29" is never referenced from any other script |
-| script-unused-template | ValidateQuestion22 | — | Template helper "ValidateQuestion22" is never referenced from any other script |
-| script-unused-template | ValidateQuestion3 | — | Template helper "ValidateQuestion3" is never referenced from any other script |
-| script-unused-template | ValidateQuestion19 | — | Template helper "ValidateQuestion19" is never referenced from any other script |
-| script-unused-template | AddressFieldNamesMap | — | Template helper "AddressFieldNamesMap" is never referenced from any other script |
-| script-unused-template | CleanAllFieldIconErros | — | Template helper "CleanAllFieldIconErros" is never referenced from any other script |
 | script-field-reference | LoadDataFromTheWTMRP | — | Script references non-existent field "WTMF No" via GetFieldValue() |
 | script-field-reference | GetCurrentRoles | — | Script references non-existent field "User Roles" via GetFieldValue() |
 | script-field-reference | PopulateWTMFData | — | Script references non-existent field "FPAN Number WTMF Number" via GetFieldValue() |
@@ -344,6 +224,131 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 883 (0 errors, 639 warnings, 244 i
 | field-multiple-groups | List Of Questions | — | Field appears in 2 groups: Select Question Visibility, Show Questions Selector |
 | field-multiple-groups | ProgressLabel | — | Field appears in 2 groups: Select Question Visibility, Show Progress Label |
 | field-multiple-groups | Con_UnstableSlopesAttach | — | Field appears in 2 groups: Unstable Slopes Answer Visibility, Unstable Slopes Answer Visibility Only View |
+
+## Warnings
+
+| Rule | Field | Page | Message |
+| :--- | :---- | :--- | :------ |
+| title-case | FPAN Number | Page 1 | Field name "FPAN Number" is not in Title Case |
+| title-case | Long Term FPA Number | Page 1 | Field name "Long Term FPA Number" is not in Title Case |
+| title-case | Long Term FPA Valid | Page 1 | Field name "Long Term FPA Valid" is not in Title Case |
+| title-case | Small Forest Checklist RMAP | Page 1 | Field name "Small Forest Checklist RMAP" is not in Title Case |
+| title-case | FFFPP | Page 1 | Field name "FFFPP" is not in Title Case |
+| title-case | Own 20 Contiguous Acres Within UGA | Page 1 | Field name "Own 20 Contiguous Acres Within UGA" is not in Title Case |
+| title-case | COHP | Page 1 | Field name "COHP" is not in Title Case |
+| title-case | WA Miles | Page 1 | Field name "WA Miles" is not in Title Case |
+| title-case | CMZ | Page 1 | Field name "CMZ" is not in Title Case |
+| title-case | EARR | Page 1 | Field name "EARR" is not in Title Case |
+| title-case | Seedlings Western WA | Page 1 | Field name "Seedlings Western WA" is not in Title Case |
+| title-case | Seedlings Eastern WA | Page 1 | Field name "Seedlings Eastern WA" is not in Title Case |
+| title-case | Exempt 20 Acre RMZ Rule | Page 1 | Field name "Exempt 20 Acre RMZ Rule" is not in Title Case |
+| title-case | Situation Description ALL | Page 1 | Field name "Situation Description ALL" is not in Title Case |
+| title-case | Situation Description ONE OR MORE | Page 1 | Field name "Situation Description ONE OR MORE" is not in Title Case |
+| title-case | Harvesting Type SF Wetlands | Page 1 | Field name "Harvesting Type SF Wetlands" is not in Title Case |
+| title-case | UpdateSubformsToSubmitted | Page 1 | Field name "UpdateSubformsToSubmitted" is not in Title Case |
+| title-case | UpdateSubformsToDraft | Page 1 | Field name "UpdateSubformsToDraft" is not in Title Case |
+| title-case | UserRoles | Page 1 | Field name "UserRoles" is not in Title Case |
+| title-case | Was AutoPopulated | Page 1 | Field name "Was AutoPopulated" is not in Title Case |
+| title-case | UserID | Page 1 | Field name "UserID" is not in Title Case |
+| title-case | FPAN Status Updated At | Page 1 | Field name "FPAN Status Updated At" is not in Title Case |
+| title-case | ARP ID | Page 1 | Field name "ARP ID" is not in Title Case |
+| title-case | IsOfficeStaff | Page 1 | Field name "IsOfficeStaff" is not in Title Case |
+| title-case | isProponent | Page 1 | Field name "isProponent" is not in Title Case |
+| title-case | Contact Person section read only | Page 1 | Field name "Contact Person section read only" is not in Title Case |
+| title-case | isFieldStaff | Page 1 | Field name "isFieldStaff" is not in Title Case |
+| title-case | Question32Validated | Page 1 | Field name "Question32Validated" is not in Title Case |
+| title-case | isManagement | Page 1 | Field name "isManagement" is not in Title Case |
+| title-case | IsLTAStep2 | Page 1 | Field name "IsLTAStep2" is not in Title Case |
+| title-case | IsCopying | Page 1 | Field name "IsCopying" is not in Title Case |
+| title-case | AutoSubmissionNeeded | Page 1 | Field name "AutoSubmissionNeeded" is not in Title Case |
+| title-case | isViewOnly | Page 1 | Field name "isViewOnly" is not in Title Case |
+| title-case | AutoResubmitNeeded | Page 1 | Field name "AutoResubmitNeeded" is not in Title Case |
+| title-case | Application does not require payment | Page 1 | Field name "Application does not require payment" is not in Title Case |
+| title-case | isFPGISEditor | Page 1 | Field name "isFPGISEditor" is not in Title Case |
+| title-case | isSignatory | Page 1 | Field name "isSignatory" is not in Title Case |
+| title-case | ActivityMapViewSubFormCreated | Page 1 | Field name "ActivityMapViewSubFormCreated" is not in Title Case |
+| title-case | isOtherInternalPersonnel | Page 1 | Field name "isOtherInternalPersonnel" is not in Title Case |
+| title-case | sectionsMap | Page 1 | Field name "sectionsMap" is not in Title Case |
+| title-case | questionsMap | Page 1 | Field name "questionsMap" is not in Title Case |
+| title-case | Q8Text | Page 1 | Field name "Q8Text" is not in Title Case |
+| title-case | Q32Text | Page 1 | Field name "Q32Text" is not in Title Case |
+| accessibility-label | Show All Questions | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Harvesting 50 Feet Np | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | All Questions | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Multiple Landowners | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | UpdateSubformsToSubmitted | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Multiple Timber Owners | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | UpdateSubformsToDraft | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Visible Section | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Multiple Operators | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Withdrawal Request Flag | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Multiple Contacts | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Notification Flag | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Was AutoPopulated | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Expiration Date | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | UserID | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Submitted Date | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | FPAN Status Updated At | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Created Date | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | ARP ID | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Show Back Button | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Show Review Button | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Contact Person section read only | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Show Submit Button | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Question32Validated | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Show Next Button | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Show Resubmit Button | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Application does not require payment | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | ActivityMapViewSubFormCreated | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Document Upload Path | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | sectionsMap | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | questionsMap | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Q8Text | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Q32Text | Page 1 | Missing AccessibilityLabel |
+| accessibility-required | First Name Contact Person | Page 1 | Required field AccessibilityLabel "Contact Person First Name" should end with "field Required" |
+| accessibility-required | Last Name Contact Person | Page 1 | Required field AccessibilityLabel "Contact Person Last Name" should end with "field Required" |
+| script-unused-template | LandownerSearch | — | Template helper "LandownerSearch" is never referenced from any other script |
+| script-unused-template | ValidateQuestion28 | — | Template helper "ValidateQuestion28" is never referenced from any other script |
+| script-unused-template | TimberOwnerSearch | — | Template helper "TimberOwnerSearch" is never referenced from any other script |
+| script-unused-template | ValidateQuestion13 | — | Template helper "ValidateQuestion13" is never referenced from any other script |
+| script-unused-template | SetFPANNumber | — | Template helper "SetFPANNumber" is never referenced from any other script |
+| script-unused-template | ValidateQuestion14 | — | Template helper "ValidateQuestion14" is never referenced from any other script |
+| script-unused-template | ValidateQuestion10 | — | Template helper "ValidateQuestion10" is never referenced from any other script |
+| script-unused-template | ValidateQuestion11 | — | Template helper "ValidateQuestion11" is never referenced from any other script |
+| script-unused-template | ValidateQuestion26 | — | Template helper "ValidateQuestion26" is never referenced from any other script |
+| script-unused-template | ValidateQuestion15 | — | Template helper "ValidateQuestion15" is never referenced from any other script |
+| script-unused-template | AddMap | — | Template helper "AddMap" is never referenced from any other script |
+| script-unused-template | ValidateQuestion17 | — | Template helper "ValidateQuestion17" is never referenced from any other script |
+| script-unused-template | ValidateQuestion12 | — | Template helper "ValidateQuestion12" is never referenced from any other script |
+| script-unused-template | ValidateQuestion21 | — | Template helper "ValidateQuestion21" is never referenced from any other script |
+| script-unused-template | ValidateQuestions1d | — | Template helper "ValidateQuestions1d" is never referenced from any other script |
+| script-unused-template | ValidateQuestion9 | — | Template helper "ValidateQuestion9" is never referenced from any other script |
+| script-unused-template | ValidateQuestions1c | — | Template helper "ValidateQuestions1c" is never referenced from any other script |
+| script-unused-template | ValidateQuestion23 | — | Template helper "ValidateQuestion23" is never referenced from any other script |
+| script-unused-template | ValidateQuestions1b | — | Template helper "ValidateQuestions1b" is never referenced from any other script |
+| script-unused-template | ValidateQuestion7 | — | Template helper "ValidateQuestion7" is never referenced from any other script |
+| script-unused-template | ValidateQuestion30 | — | Template helper "ValidateQuestion30" is never referenced from any other script |
+| script-unused-template | ValidateQuestion24 | — | Template helper "ValidateQuestion24" is never referenced from any other script |
+| script-unused-template | ValidateContactSearchCriteria | — | Template helper "ValidateContactSearchCriteria" is never referenced from any other script |
+| script-unused-template | ValidateQuestion6 | — | Template helper "ValidateQuestion6" is never referenced from any other script |
+| script-unused-template | ValidateQuestion27 | — | Template helper "ValidateQuestion27" is never referenced from any other script |
+| script-unused-template | ValidateQuestion16 | — | Template helper "ValidateQuestion16" is never referenced from any other script |
+| script-unused-template | OperatorSearch | — | Template helper "OperatorSearch" is never referenced from any other script |
+| script-unused-template | ValidateQuestion20 | — | Template helper "ValidateQuestion20" is never referenced from any other script |
+| script-unused-template | ValidateQuestions1a | — | Template helper "ValidateQuestions1a" is never referenced from any other script |
+| script-unused-template | ValidateQuestion18 | — | Template helper "ValidateQuestion18" is never referenced from any other script |
+| script-unused-template | ValidateQuestion4 | — | Template helper "ValidateQuestion4" is never referenced from any other script |
+| script-unused-template | ValidateQuestion25 | — | Template helper "ValidateQuestion25" is never referenced from any other script |
+| script-unused-template | ValidateQuestion5 | — | Template helper "ValidateQuestion5" is never referenced from any other script |
+| script-unused-template | ValidateQuestion2 | — | Template helper "ValidateQuestion2" is never referenced from any other script |
+| script-unused-template | PostPDFMapToDocLib | — | Template helper "PostPDFMapToDocLib" is never referenced from any other script |
+| script-unused-template | ValidateQuestion8 | — | Template helper "ValidateQuestion8" is never referenced from any other script |
+| script-unused-template | ValidateQuestion29 | — | Template helper "ValidateQuestion29" is never referenced from any other script |
+| script-unused-template | ValidateQuestion22 | — | Template helper "ValidateQuestion22" is never referenced from any other script |
+| script-unused-template | ValidateQuestion3 | — | Template helper "ValidateQuestion3" is never referenced from any other script |
+| script-unused-template | ValidateQuestion19 | — | Template helper "ValidateQuestion19" is never referenced from any other script |
+| script-unused-template | AddressFieldNamesMap | — | Template helper "AddressFieldNamesMap" is never referenced from any other script |
+| script-unused-template | CleanAllFieldIconErros | — | Template helper "CleanAllFieldIconErros" is never referenced from any other script |
 | default-text | btnNext | Page 1 | Field text "Next" is a default value |
 | simple-upload | btnUpload | Page 1 | DisplayUploadedFiles is not set — should be false (simple upload mode) |
 | distance-to-border | Top Form ID | Page 1 | Field is 10px from the right border (minimum: 30px) |
@@ -653,6 +658,97 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 883 (0 errors, 639 warnings, 244 i
 | button-label-camelcase | Con_AttestationWrittenEvidenceInformation | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | button-label-camelcase | oldlbDateOfReceipt | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | tab-control-visible | TabControl | — | TabControl is in group "Show Form Tabs" — tab visibility should be controlled via Menu tab, not groups |
+| label-truncation | fpOnlineTitle | Page 1 | Label text "Forest Practices Application/Notification" (~569px) may be truncated in 472px width — increase width or enable wrapping |
+| label-truncation | DataField2 | Page 1 | Label text "<b style="color:#9E0000;">*</b> Indicates required field" (~392px) may be truncated in 162px width — increase width or enable wrapping |
+| label-truncation | Label195 | Page 1 | Label text "Region: <b style="color:#9E0000;">*</b>" (~273px) may be truncated in 72px width — increase width or enable wrapping |
+| label-truncation | Label407 | Page 1 | Label text "Select the Landowner type you want to add? <b style="color:#9E0000;">*</b>" (~518px) may be truncated in 272px width — increase width or enable wrapping |
+| label-truncation | Label510 | Page 1 | Label text "Business ID:" (~84px) may be truncated in 72px width — increase width or enable wrapping |
+| label-truncation | lblBusinessSignerLandownerInstructions | Page 1 | Label text "<b>Instructions:</b> Search for a contact below to add a business signer to your application." (~651px) may be truncated in 562px width — increase width or enable wrapping |
+| label-truncation | lblLandownerInstructions | Page 1 | Label text "<b>Instructions:</b> Search for a contact below to add a landowner to your application." (~609px) may be truncated in 532px width — increase width or enable wrapping |
+| label-truncation | Label533 | Page 1 | Label text "Select the Timber Owner type you want to add? <b style="color:#9E0000;">*</b>" (~539px) may be truncated in 292px width — increase width or enable wrapping |
+| label-truncation | lblTimberOwnerSignerInstructions | Page 1 | Label text "<b>Instructions:</b> Search for a contact below to add a business signer to your application." (~651px) may be truncated in 562px width — increase width or enable wrapping |
+| label-truncation | lblTimberOwnersInstructions | Page 1 | Label text "<b>Instructions:</b> Search for a contact below to add a timber owner to your application." (~630px) may be truncated in 532px width — increase width or enable wrapping |
+| label-truncation | Label773 | Page 1 | Label text "Timber Owner(s) Individuals:" (~216px) may be truncated in 192px width — increase width or enable wrapping |
+| label-truncation | Label564 | Page 1 | Label text "Select the Operator type you want to add? <b style="color:#9E0000;">*</b>" (~511px) may be truncated in 252px width — increase width or enable wrapping |
+| label-truncation | lblOperatorIndividual | Page 1 | Label text "Operator (Individual Search)" (~216px) may be truncated in 194px width — increase width or enable wrapping |
+| label-truncation | lblOperatorSignerInstructions | Page 1 | Label text "<b>Instructions:</b> Search for a contact below to add a business signer to your application." (~651px) may be truncated in 562px width — increase width or enable wrapping |
+| label-truncation | lblOperatorInstructions | Page 1 | Label text "<b>Instructions:</b> Search for a contact below to add a operator to your application." (~602px) may be truncated in 532px width — increase width or enable wrapping |
+| label-truncation | lblOperatorsDG | Page 1 | Label text "Operator(s) Individuals:" (~185px) may be truncated in 152px width — increase width or enable wrapping |
+| label-truncation | DataField24 | Page 1 | Label text "Operator(s) Business:" (~162px) may be truncated in 142px width — increase width or enable wrapping |
+| label-truncation | DataField78 | Page 1 | Label text "First Name: <b style="color:#9E0000;">*</b>" (~301px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label420 | Page 1 | Label text "Last Name: <b style="color:#9E0000;">*</b>" (~294px) may be truncated in 92px width — increase width or enable wrapping |
+| label-truncation | Label735 | Page 1 | Label text "2. What is the legal description of your forest practices?<b style="color:#9E0000;">*</b>" (~686px) may be truncated in 594px width — increase width or enable wrapping |
+| label-truncation | Label177 | Page 1 | Label text "Add a Legal Description of your forest practices:<b style="color:#9E0000;">*</b>" (~560px) may be truncated in 502px width — increase width or enable wrapping |
+| label-truncation | Label179 | Page 1 | Label text "Is this forest practices part of a validated Step 1 Long-term FPA/N?<b style="color:#9E0000;">*</b>" (~693px) may be truncated in 602px width — increase width or enable wrapping |
+| label-truncation | Label395 | Page 1 | Label text "Enter the assigned Long-term FPA Number: <b style="color:#9E0000;">*</b>" (~504px) may be truncated in 274px width — increase width or enable wrapping |
+| label-truncation | DataField12 | Page 1 | Label text "Select the length requested:<b style="color:#9E0000;">*</b>" (~413px) may be truncated in 232px width — increase width or enable wrapping |
+| label-truncation | lblQ5Mandatory | Page 1 | Label text "5.	Are you converting any portion of the land to non-forestry use within three (3) years of harvest?<b style="color:#9E0000;">*</b>" (~1009px) may be truncated in 632px width — increase width or enable wrapping |
+| label-truncation | lblQ6Mandatory | Page 1 | Label text "6.	Are you a small forest landowner per RCW 76.09.450? See FPA/N instructions for details.<b style="color:#9E0000;">*</b>" (~932px) may be truncated in 582px width — increase width or enable wrapping |
+| label-truncation | lblQ7Mandatory | Page 1 | Label text "7.	Is a Small Forest Landowner Checklist RMAP required? See FPA/N instructions for details.<b style="color:#9E0000;">*</b>" (~940px) may be truncated in 652px width — increase width or enable wrapping |
+| label-truncation | DataField62 | Page 1 | Label text "If contacts were made, please provide information below:" (~392px) may be truncated in 342px width — increase width or enable wrapping |
+| label-truncation | Label590 | Page 1 | Label text "If yes, check all that apply." (~203px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label263 | Page 1 | Label text "Is this Forest Practices Application/Notification for:" (~378px) may be truncated in 312px width — increase width or enable wrapping |
+| label-truncation | Label273 | Page 1 | Label text "<b>11b</b> For a funded Forest Family Fish Passage Program (FFFPP) project?&#xA0;" (~567px) may be truncated in 422px width — increase width or enable wrapping |
+| label-truncation | DataField19 | Page 1 | Label text "<b>11h</b> In or directly adjacent to a potential Channel Migration Zone (CMZ)?" (~553px) may be truncated in 502px width — increase width or enable wrapping |
+| label-truncation | DataField21 | Page 1 | Label text "Are you conducting forest practices within 200 feet of any water?" (~455px) may be truncated in 412px width — increase width or enable wrapping |
+| label-truncation | lblQ13Mandatory | Page 1 | Label text "13. Are you proposing any of the following projects NOT permitted by current HPAs from WDFW?<b style="color:#9E0000;">*</b>" (~948px) may be truncated in 622px width — increase width or enable wrapping |
+| label-truncation | lblQ14Mandatory | Page 1 | Label text "14. Have you consulted with DNR and/or WDFW about the proposed hydraulic projects(s) in or over Type S or F Water?<b style="color:#9E0000;">*</b>" (~1117px) may be truncated in 762px width — increase width or enable wrapping |
+| label-truncation | lblQ15Mandatory | Page 1 | Label text "15. Are you installing, replacing, removing, or maintaining structures in or over any typed water?<b style="color:#9E0000;">*</b>" (~994px) may be truncated in 632px width — increase width or enable wrapping |
+| label-truncation | lblQ16Mandatory | Page 1 | Label text "16. Are you conducting any of the following activities in or over typed water?<b style="color:#9E0000;">*</b>" (~840px) may be truncated in 502px width — increase width or enable wrapping |
+| label-truncation | Label176 | Page 1 | Label text "17. Will you be constructing or abandoning forest roads?<b style="color:#9E0000;">*</b>" (~670px) may be truncated in 592px width — increase width or enable wrapping |
+| label-truncation | Label327 | Page 1 | Label text "Will you be constructing or abandoning forest roads?" (~364px) may be truncated in 322px width — increase width or enable wrapping |
+| label-truncation | DataField6 | Page 1 | Label text "20. Are you harvesting or salvaging timber?<b style="color:#9E0000;">*</b>" (~570px) may be truncated in 502px width — increase width or enable wrapping |
+| label-truncation | lblQ21Mandatory | Page 1 | Label text "21. Enter the Forest Tax Number of the Timber Owner<b style="color:#9E0000;">*</b>" (~632px) may be truncated in 352px width — increase width or enable wrapping |
+| label-truncation | lblQ23Mandatory | Page 1 | Label text "23. Reforestation<b style="color:#9E0000;">*</b>" (~370px) may be truncated in 122px width — increase width or enable wrapping |
+| label-truncation | Label366 | Page 1 | Label text "Tree Species: <b style="color:#9E0000;">*</b>" (~315px) may be truncated in 92px width — increase width or enable wrapping |
+| label-truncation | lblQ24Mandatory | Page 1 | Label text "24. Do you own more than 80 acres of forestland in Washington State?<b style="color:#9E0000;">*</b>" (~763px) may be truncated in 482px width — increase width or enable wrapping |
+| label-truncation | lblQ26Mandatory | Page 1 | Label text "26. Choose the answer below that best fits your situation. Show all RMZs on the Activity Map.<b style="color:#9E0000;">*</b>" (~955px) may be truncated in 602px width — increase width or enable wrapping |
+| label-truncation | Label374 | Page 1 | Label text "Choose the answer below that best fits your situation." (~378px) may be truncated in 332px width — increase width or enable wrapping |
+| label-truncation | lblQ28Mandatory | Page 1 | Label text "28. Are you harvesting within 29 feet of a Type Np Water on an exempt 20-acre parcel?<b style="color:#9E0000;">*</b>" (~894px) may be truncated in 552px width — increase width or enable wrapping |
+| label-truncation | lblQ30Mandatory | Page 1 | Label text "30. Are you harvesting within 50 feet of Type Np Water?<b style="color:#9E0000;">*</b>" (~663px) may be truncated in 362px width — increase width or enable wrapping |
+| label-truncation | Label405 | Page 1 | Label text "Are you harvesting within 50 feet of Type Np Water?" (~357px) may be truncated in 322px width — increase width or enable wrapping |
+| label-truncation | DataField77 | Page 1 | Label text "Harvest/Salvage Boundaries:" (~208px) may be truncated in 182px width — increase width or enable wrapping |
+| label-truncation | Label432 | Page 1 | Label text "Clumped Wildlife Reserve Trees | Green Recruitment Trees:" (~439px) may be truncated in 362px width — increase width or enable wrapping |
+| label-truncation | DataField32 | Page 1 | Label text "Right-of-Way Limits | Road Centerlines:" (~301px) may be truncated in 242px width — increase width or enable wrapping |
+| label-truncation | Label413 | Page 1 | Label text "Riparian Management Zone Boundaries and Leave/Take Trees:" (~439px) may be truncated in 382px width — increase width or enable wrapping |
+| label-truncation | DataField1 | Page 1 | Label text "Channel Migration Zone:" (~178px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label415 | Page 1 | Label text "Wetland Management Zone Boundaries and Leave/Take Trees:" (~432px) may be truncated in 392px width — increase width or enable wrapping |
+| label-truncation | Label223 | Page 1 | Label text "32. Additional information (attach additional pages if necessary): <b style="color:#9E0000;">*</b>" (~755px) may be truncated in 642px width — increase width or enable wrapping |
+| label-truncation | Label644 | Page 1 | Label text "<ul><li>45-Day Resubmital of a Withdrawn or Disapproved FPA/N:</li></ul>" (~504px) may be truncated in 422px width — increase width or enable wrapping |
+| label-truncation | Label144 | Page 1 | Label text "<b style="color:#9E0000;">*</b>The information on this application/notification is true." (~616px) may be truncated in 532px width — increase width or enable wrapping |
+| label-truncation | DataField74 | Page 1 | Label text "You can manage your submitted application by selecting one of the following actions." (~588px) may be truncated in 512px width — increase width or enable wrapping |
+| label-truncation | DataField76 | Page 1 | Label text "<li><b>Withdrawal Request:</b> Request to withdraw or close your application.</li>" (~574px) may be truncated in 502px width — increase width or enable wrapping |
+| label-truncation | Label691 | Page 1 | Label text "Related Record ID:" (~126px) may be truncated in 92px width — increase width or enable wrapping |
+| label-truncation | Label674 | Page 1 | Label text "FPAN Status Updated At:" (~161px) may be truncated in 64px width — increase width or enable wrapping |
+| label-truncation | DataField60 | Page 1 | Label text "Control Validation Q2:" (~154px) may be truncated in 102px width — increase width or enable wrapping |
+| label-wrap-textbox | DataField10 | Page 1 | Label text "Is this Forest Practices Application/Notification a request for a multiyear permit?" wraps at 492px width next to "Multiyear Permit" — widen label or shorten text |
+| label-wrap-textbox | DataField15 | Page 1 | Label text "Are you converting any portion of the land to non-forestry use within three (3) years of harvest?" wraps at 602px width next to "Land Conversion Three Years Of Harvest" — widen label or shorten text |
+| label-wrap-textbox | Label313 | Page 1 | Label text "My entire proposed harvest area is on a single contiguous ownership consisting of one or more parcels." wraps at 502px width next to "Small Forest One Or More Parcels" — widen label or shorten text |
+| label-wrap-textbox | Label232 | Page 1 | Label text "I received technical assistance from a DNR small forest landowner Regulation Assistance Forester in preparing this FPA/N." wraps at 492px width next to "Small Forest Landowner Technical Assistance" — widen label or shorten text |
+| label-wrap-textbox | Label235 | Page 1 | Label text "Have you reviewed this forest practices activity area to determine whether it may involve historic sites and/or Native American cultural resources?" wraps at 612px width next to "Historic Sites" — widen label or shorten text |
+| label-wrap-textbox | Label237 | Page 1 | Label text "Are you substituting prescriptions from an approved state or federal conservation agreement or Watershed Analysis?" wraps at 582px width next to "Substituting Prescriptions" — widen label or shorten text |
+| label-wrap-textbox | Label245 | Page 1 | Label text "Are there potential unstable slopes or landforms in or around the area of your forest practices activity?" wraps at 622px width next to "Unstable Slopes" — widen label or shorten text |
+| label-wrap-textbox | Label278 | Page 1 | Label text "<b>11c</b> Within an urban growth area (UGA)? Additional documents may be required if activities are occurring within a UGA, see FPA/N instructions for details." wraps at 592px width next to "Growth Area" — widen label or shorten text |
+| label-wrap-textbox | Label586 | Page 1 | Label text "If yes, does the landowner own 20 contiguous acres or more of the forestland within the UGA?" wraps at 622px width next to "Own 20 Contiguous Acres Within UGA" — widen label or shorten text |
+| label-wrap-textbox | Label283 | Page 1 | Label text "<b>11d</b> Part of an approved Conversion Option Harvest Plan (COHP) prepared by a local government entity?" wraps at 622px width next to "COHP" — widen label or shorten text |
+| label-wrap-textbox | Label306 | Page 1 | Label text "<b>11g</b> Are you harvesting/salvaging timber, or constructing roads within 50 miles of saltwater AND you own more than 500 acres of forestland in Washington state?" wraps at 624px width next to "WA Miles" — widen label or shorten text |
+| label-wrap-textbox | Label301 | Page 1 | Label text "Installing, replacing, or repairing a culvert at or below the bankfull width of Type S or F water that exceeds a five percent gradient?" wraps at 582px width next to "Culvert Installation Or Repair" — widen label or shorten text |
+| label-wrap-textbox | DataField31 | Page 1 | Label text "Constructing, replacing, or repairing a bridge at or below the bankfull width of unconfined streams in Type S or F water?" wraps at 572px width next to "Bridge Construction Or Repair" — widen label or shorten text |
+| label-wrap-textbox | DataField33 | Page 1 | Label text "Placing fill material within the 100-year flood level of unconfined streams in Type S or F water?" wraps at 572px width next to "Fill Placement In Floodplain" — widen label or shorten text |
+| label-wrap-textbox | Label317 | Page 1 | Label text "Have you consulted with DNR and/or WDFW about the proposed hydraulic projects(s) in or over Type S or F Water?" wraps at 574px width next to "Hydraulic Projects Consultation" — widen label or shorten text |
+| label-wrap-textbox | Label319 | Page 1 | Label text "Are you installing, replacing, removing, or maintaining structures in or over any typed water?" wraps at 562px width next to "Structures Typed Water" — widen label or shorten text |
+| label-wrap-textbox | Label332 | Page 1 | Label text "Are you conducting any of the following activities in or over typed water? Equipment crossings, suspending cables, cable yarding, large woody debris placement/removal, beaver dam removal, felling and bucking or any other activities." wraps at 592px width next to "Activities Typed Water" — widen label or shorten text |
+| label-wrap-textbox | DataField61 | Page 1 | Label text "Will you be depositing spoils and/or expanding or developing a rock pit for forestry use?" wraps at 532px width next to "Depositing Spoils Rock Pit" — widen label or shorten text |
+| label-wrap-textbox | Label338 | Page 1 | Label text "Are you operating within 200 feet of a wetland that is not associated with Type S or F Water?" wraps at 552px width next to "Operating Near Wetland" — widen label or shorten text |
+| label-wrap-textbox | DataField18 | Page 1 | Label text "Are you eligible for the Enhanced Aquatic Resources Requirements (EARR) Tax Credit?" wraps at 532px width next to "EARR" — widen label or shorten text |
+| label-wrap-textbox | Label372 | Page 1 | Label text "Are you using the exempt 20-acre parcel riparian management zone (RMZ) rule on Type S, F, or Np Waters?" wraps at 602px width next to "Exempt 20 Acre RMZ Rule" — widen label or shorten text |
+| label-wrap-textbox | DataField40 | Page 1 | Label text "Between June 5, 2006 and today&#x2019;s date I have owned more than 80 acres of forestland in Washington." wraps at 522px width next to "Owned 80 Acres" — widen label or shorten text |
+| label-wrap-textbox | Label385 | Page 1 | Label text "Between June 5, 2006 and today&#x2019;s date this parcel has been a part of more than 20 acres of contiguous ownership." wraps at 522px width next to "Acres Contiguous" — widen label or shorten text |
+| label-wrap-textbox | Label387 | Page 1 | Label text "Between June 5, 2006 and today&#x2019;s date this parcel has been owned by someone that has owned more than 80 forested acres in Washington." wraps at 522px width next to "Owned By 80 Acre Owner" — widen label or shorten text |
+| label-wrap-textbox | DataField71 | Page 1 | Label text "Are you harvesting on an exempt 20-acre parcel and are within 115 feet <b>(Western Washington)</b> or 345 feet <b>(Eastern Washington)</b> of a Type S or F Water or periodically inundated areas of their associated wetlands?" wraps at 594px width next to "Exempt Parcel Harvesting" — widen label or shorten text |
+| label-wrap-textbox | Label400 | Page 1 | Label text "Are you harvesting within 29 feet of a Type Np Water on an exempt 20-acre parcel?" wraps at 502px width next to "Exempt Parcel Type Np Harvesting" — widen label or shorten text |
+| label-wrap-textbox | DataField48 | Page 1 | Label text "Are you harvesting within 200 feet <b>(Western Washington)</b> or 130 feet <b>(Eastern Washington)</b> of any 
+Type S or F Water or periodically inundated areas of their associated wetlands?" wraps at 612px width next to "Harvesting Type SF Wetlands" — widen label or shorten text |
 
 ## Info
 
@@ -783,6 +879,7 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 883 (0 errors, 639 warnings, 244 i
 | label-unnamed-in-group | DataField44 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
 | label-unnamed-in-group | DataField57 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
 | label-unnamed-in-group | oldlbDateOfReceipt | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
+| spelling | Rockpit Identifier | Page 1 | Possible misspelling: "Rockpit" (suggestions: Cockpit) |
 | spelling | FPAN Number | Page 1 | Possible misspelling: "FPAN" (suggestions: FRAN, FAN, FLAN) |
 | spelling | DG Landowners | Page 1 | Possible misspelling: "DG" (suggestions: CG, DB, DH) |
 | spelling | DG Landowner Businesses | Page 1 | Possible misspelling: "DG" (suggestions: CG, DB, DH) |
@@ -902,3 +999,68 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 883 (0 errors, 639 warnings, 244 i
 | field-max-length | Last Name Contact Person | Page 1 | MaxLength is 50 for name field — recommended minimum is 100 |
 | field-max-length | Day Resubmittal | Page 1 | MaxLength is 25 — recommended minimum is 50 |
 | field-max-length | Add Legal Description | Page 1 | MaxLength is 50 for notes field — recommended minimum is 3000 |
+| font-consistency | fpOnlineTitle | Page 1 | Label style differs from form pattern: fontSize=18 (expected 10), bold=true (expected false), color=#ffffffff (expected #FF000000) |
+| font-consistency | DataField2 | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | Label216 | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label56 | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label138 | Page 1 | Label style differs from form pattern: fontSize=12 (expected 10), color=#ff000000 (expected #FF000000) |
+| font-consistency | ProgressLabel | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ffffffff (expected #FF000000) |
+| font-consistency | DataField78 | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | Label420 | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | Label366 | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | Label33 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff9e0000 (expected #FF000000) |
+| font-consistency | Label34 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10) |
+| font-consistency | DataField3 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10) |
+| font-consistency | Label38 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label43 | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label41 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | DataField16 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | DataField35 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label721 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | DataField75 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| data-lookup-in-properties | Acres Contiguous | — | Script "Acres_Contiguous_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | CMZ | — | Script "CMZ_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Culvert Installation Or Repair | — | Script "Culvert_Installation_Or_Repair_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Owned By 80 Acre Owner | — | Script "Owned_By_80_Acre_Owner_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Owned 80 Acres | — | Script "Owned_80_Acres_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | List Of Questions | — | Script "List_Of_Questions_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Harvesting Type SF Wetlands | — | Script "Harvesting_Type_SF_Wetlands_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | COHP | — | Script "COHP_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Harvesting 50 Feet Np | — | Script "Harvesting_50_Feet_Np_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Long Term Application | — | Script "Long_Term_Application_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | EARR | — | Script "EARR_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Water Typing Requirements | — | Script "Water_Typing_Requirements_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Substituting Prescriptions | — | Script "Substituting_Prescriptions_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Exempt Parcel Type Np Harvesting | — | Script "Exempt_Parcel_Type_Np_Harvesting_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Bridge Construction Or Repair | — | Script "Bridge_Construction_Or_Repair_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Landowner Business Or Individual | — | Script "Landowner_Business_Or_Individual_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Exempt Parcel Harvesting | — | Script "Exempt_Parcel_Harvesting_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Fill Placement In Floodplain | — | Script "Fill_Placement_In_Floodplain_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Alternative Plan | — | Script "Alternative_Plan_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Over 80 Acres Ownership | — | Script "Over_80_Acres_Ownership_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Long Term FPA Valid | — | Script "Long_Term_FPA_Valid_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Long Term Application | — | Script "Long_Term_Application_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Multiyear Permit Length Requested | — | Script "Multiyear_Permit_Length_Requested_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Growth Area | — | Script "Growth_Area_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Small Forest Landowner | — | Script "Small_Forest_Landowner_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | WA Miles | — | Script "WA_Miles_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Historic Sites | — | Script "Historic_Sites_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Timber Owner Business Or Individual | — | Script "Timber_Owner_Business_Or_Individual_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Region | — | Script "Region_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Harvesting Salvaging Timber | — | Script "Harvesting_Salvaging_Timber_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Small Forest Checklist RMAP | — | Script "Small_Forest_Checklist_RMAP_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Operator Business Or Individual | — | Script "Operator_Business_Or_Individual_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Operating Near Wetland | — | Script "Operating_Near_Wetland_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Feet Public Park | — | Script "Feet_Public_Park_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Unstable Slopes | — | Script "Unstable_Slopes_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Structures Typed Water | — | Script "Structures_Typed_Water_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Depositing Spoils Rock Pit | — | Script "Depositing_Spoils_Rock_Pit_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Land Conversion Three Years Of Harvest | — | Script "Land_Conversion_Three_Years_Of_Harvest_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Hydraulic Projects Consultation | — | Script "Hydraulic_Projects_Consultation_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Multiyear Permit | — | Script "Multiyear_Permit_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Constructing Abandoning Forest Roads | — | Script "Constructing_Abandoning_Forest_Roads_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Activities Typed Water | — | Script "Activities_Typed_Water_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Public Park | — | Script "Public_Park_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Exempt 20 Acre RMZ Rule | — | Script "Exempt_20_Acre_RMZ_Rule_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| field-width-standard | Add Forest Tax Number | Page 1 | FieldTextbox3 width is 10px — recommended minimum is 80px |
+| field-width-standard | Add Legal Description | Page 1 | notes field width is 236px — recommended minimum is 300px |

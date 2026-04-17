@@ -1,21 +1,19 @@
 # Standards Review: Forest-Tax-Number
 
-Generated: 2026-04-16 | Rules: 40 | Findings: 26 (0 errors, 19 warnings, 7 info)
+Generated: 2026-04-16 | Rules: 49 | Findings: 33 (10 errors, 10 warnings, 13 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
-| Error    | 0 |
-| Warning  | 19 |
-| Info     | 7 |
+| Error    | 10 |
+| Warning  | 10 |
+| Info     | 13 |
 
-## Warnings
+## Errors
 
 | Rule | Field | Page | Message |
 | :--- | :---- | :--- | :------ |
-| default-name | Image46 | Page 1 | Default field name "Image46" — use a descriptive name |
-| accessibility-label | Temp Data Migration ID | Page 1 | Missing AccessibilityLabel |
 | script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
 | script-orphan-assignment | btn_AddContact_onClick | — | Script assignment references non-existent control ID: 7bd046c8-f30e-b42d-571c-2295b559e772 |
 | script-orphan-assignment | btn_SearchContact_onClick | — | Script assignment references non-existent control ID: 4258ef57-bda6-2d29-6b19-0669a2e27d16 |
@@ -25,14 +23,22 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 26 (0 errors, 19 warnings, 7 info)
 | script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
 | script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
 | script-orphan-assignment | btnTestCalculateBusinessDate_onClick | — | Script assignment references non-existent control ID: 75b1aebd-00a5-e5d5-2e27-f700a78e78a1 |
+| admin-override-security | Con_AdminSection | Page 1 | Admin Override container is not in any group — must have VaultAccess-only visibility |
+
+## Warnings
+
+| Rule | Field | Page | Message |
+| :--- | :---- | :--- | :------ |
+| default-name | Image46 | Page 1 | Default field name "Image46" — use a descriptive name |
+| accessibility-label | Temp Data Migration ID | Page 1 | Missing AccessibilityLabel |
 | distance-to-border | Top Form ID | Page 1 | Field is 10px from the right border (minimum: 30px) |
 | label-overlap | Status | Page 1 | Label "DataField3" overlaps field by 12px |
 | accessibility-label-match | btnSave | Page 1 | AccessibilityLabel "Save Button" does not match expected "Save" |
 | accessibility-label-match | btnAdminSave | Page 1 | AccessibilityLabel "Admin Save Button" does not match expected "Admin Save" |
 | button-label-camelcase | fpOnlineTitle | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
-| admin-override-security | Con_AdminSection | Page 1 | Admin Override container is not in any group — must have VaultAccess-only visibility |
 | save-button-hidden | SaveButton | — | SaveButton FormControl is not in any group — it should always be hidden |
 | tab-control-visible | TabControl | — | TabControl is in group "Hide Form Tabs" — tab visibility should be controlled via Menu tab, not groups |
+| label-truncation | DataField2 | Page 1 | Label text "Temp Data Migration ID:" (~161px) may be truncated in 122px width — increase width or enable wrapping |
 
 ## Info
 
@@ -45,3 +51,9 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 26 (0 errors, 19 warnings, 7 info)
 | label-unnamed-in-group | DataField2 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
 | listener-disabled | Related Record ID | Page 1 | EnableQListener is enabled — verify this field requires query string fill-in/relate capability |
 | listener-disabled | Temp Data Migration ID | Page 1 | EnableQListener is enabled — verify this field requires query string fill-in/relate capability |
+| font-consistency | fpOnlineTitle | Page 1 | Label style differs from form pattern: fontSize=18 (expected 10), bold=true (expected false), color=#ffffffff (expected #FF000000) |
+| font-consistency | Label22 | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label28 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff9e0000 (expected #FF000000) |
+| font-consistency | DataField1 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label43 | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label41 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |

@@ -1,23 +1,19 @@
 # Standards Review: Communications-Log
 
-Generated: 2026-04-16 | Rules: 40 | Findings: 73 (0 errors, 42 warnings, 31 info)
+Generated: 2026-04-16 | Rules: 49 | Findings: 91 (12 errors, 39 warnings, 40 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
-| Error    | 0 |
-| Warning  | 42 |
-| Info     | 31 |
+| Error    | 12 |
+| Warning  | 39 |
+| Info     | 40 |
 
-## Warnings
+## Errors
 
 | Rule | Field | Page | Message |
 | :--- | :---- | :--- | :------ |
-| title-case | CC | Page 1 | Field name "CC" is not in Title Case |
-| title-case | Sent/Recorded By | Page 1 | Field name "Sent/Recorded By" is not in Title Case |
-| default-name | Image64 | Page 1 | Default field name "Image64" — use a descriptive name |
-| valid-identifier | Sent/Recorded By | Page 1 | Field name "Sent/Recorded By" contains invalid identifier characters |
 | script-orphan-assignment | Body_Text_onBlur | — | Script assignment references non-existent control ID: 7019e2f8-3c6c-8d28-8ba1-cf64139ff1e6 |
 | script-orphan-assignment | Region_Name_onBlur | — | Script assignment references non-existent control ID: 795af479-abe2-8bf1-c23b-a3cd43794a9c |
 | script-orphan-assignment | Send_CC_Selector_onBlur | — | Script assignment references non-existent control ID: 3e93d1ea-2a5f-cf45-7df3-5d5452183c3e |
@@ -30,6 +26,15 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 73 (0 errors, 42 warnings, 31 info
 | script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
 | script-orphan-assignment | Send_Select_onBlur | — | Script assignment references non-existent control ID: d5979a62-84ea-f539-eec9-29c977c72f4c |
 | script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
+
+## Warnings
+
+| Rule | Field | Page | Message |
+| :--- | :---- | :--- | :------ |
+| title-case | CC | Page 1 | Field name "CC" is not in Title Case |
+| title-case | Sent/Recorded By | Page 1 | Field name "Sent/Recorded By" is not in Title Case |
+| default-name | Image64 | Page 1 | Default field name "Image64" — use a descriptive name |
+| valid-identifier | Sent/Recorded By | Page 1 | Field name "Sent/Recorded By" contains invalid identifier characters |
 | container-responsive-flow | Con_CommunicationType | Page 1 | Container has 6 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
 | container-responsive-flow | Con_Region_Zone | Page 1 | Container has 2 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
 | container-responsive-flow | Con_SendToDetails | Page 1 | Container has 5 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
@@ -56,6 +61,15 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 73 (0 errors, 42 warnings, 31 info
 | button-label-camelcase | redMark1 | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | button-label-camelcase | redMark2 | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | button-label-camelcase | redMark3 | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
+| label-truncation | DataField2 | Page 1 | Label text "<strong style="color:#9E0000;">*</strong> Indicates required field" (~462px) may be truncated in 132px width — increase width or enable wrapping |
+| label-truncation | Label49 | Page 1 | Label text "Communication Type: <b style="color:#9E0000;">*</b>" (~357px) may be truncated in 152px width — increase width or enable wrapping |
+| label-truncation | lblEmailType | Page 1 | Label text "Email Type: <b style="color:#9E0000;">*</b>" (~301px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label67 | Page 1 | Label text "Email Template:" (~105px) may be truncated in 62px width — increase width or enable wrapping |
+| label-truncation | redMark1 | Page 1 | Label text "<b style="color:#9E0000;">*</b>" (~217px) may be truncated in 25px width — increase width or enable wrapping |
+| label-truncation | Label28 | Page 1 | Label text "Subject: <b style="color:#9E0000;">*</b>" (~280px) may be truncated in 72px width — increase width or enable wrapping |
+| label-truncation | redMark2 | Page 1 | Label text "<b style="color:#9E0000;">*</b>" (~217px) may be truncated in 25px width — increase width or enable wrapping |
+| label-truncation | redMark3 | Page 1 | Label text "<b style="color:#9E0000;">*</b>" (~217px) may be truncated in 25px width — increase width or enable wrapping |
+| label-truncation | Label83 | Page 1 | Label text "Communication Type Filter:" (~182px) may be truncated in 160px width — increase width or enable wrapping |
 
 ## Info
 
@@ -92,3 +106,12 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 73 (0 errors, 42 warnings, 31 info
 | listener-disabled | Document Type | Page 1 | EnableQListener is enabled — verify this field requires query string fill-in/relate capability |
 | listener-disabled | Communication Sent | Page 1 | EnableQListener is enabled — verify this field requires query string fill-in/relate capability |
 | listener-disabled | Mobile Phone Number | Page 1 | EnableQListener is enabled — verify this field requires query string fill-in/relate capability |
+| font-consistency | Label71 | Page 1 | Label style differs from form pattern: fontSize=18 (expected 10), bold=true (expected false), color=#ffffffff (expected #FF000000) |
+| font-consistency | DataField2 | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | Label56 | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | DataField4 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff9e0000 (expected #FF000000) |
+| font-consistency | DataField5 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label43 | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label41 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| data-lookup-in-properties | Communication Type | — | Script "Communication_Type_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Email Type | — | Script "Email_Type_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |

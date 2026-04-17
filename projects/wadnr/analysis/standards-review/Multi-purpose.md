@@ -1,14 +1,24 @@
 # Standards Review: Multi-purpose
 
-Generated: 2026-04-16 | Rules: 40 | Findings: 145 (0 errors, 91 warnings, 54 info)
+Generated: 2026-04-16 | Rules: 49 | Findings: 173 (5 errors, 102 warnings, 66 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
-| Error    | 0 |
-| Warning  | 91 |
-| Info     | 54 |
+| Error    | 5 |
+| Warning  | 102 |
+| Info     | 66 |
+
+## Errors
+
+| Rule | Field | Page | Message |
+| :--- | :---- | :--- | :------ |
+| script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
+| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
+| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
+| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
+| script-field-reference | GetCurrentRoles | — | Script references non-existent field "User Roles" via GetFieldValue() |
 
 ## Warnings
 
@@ -26,11 +36,6 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 145 (0 errors, 91 warnings, 54 inf
 | title-case | Document GUID | Page 1 | Field name "Document GUID" is not in Title Case |
 | default-name | Image57 | Page 1 | Default field name "Image57" — use a descriptive name |
 | accessibility-label | isViewOnly | Page 1 | Missing AccessibilityLabel |
-| script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
-| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
-| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
-| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
-| script-field-reference | GetCurrentRoles | — | Script references non-existent field "User Roles" via GetFieldValue() |
 | container-responsive-flow | Con_Details | Page 1 | Container has 18 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
 | container-responsive-flow | Con_Legal_Description | Page 1 | Container has 3 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
 | container-responsive-flow | Con_LandownerBusinessOrIndividual | Page 1 | Container has 2 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
@@ -105,6 +110,22 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 145 (0 errors, 91 warnings, 54 inf
 | accessibility-label-match | btnAdminSave | Page 1 | AccessibilityLabel "Admin Save Button" does not match expected "Admin Save" |
 | accessibility-label-match | Coming From Link | Page 1 | AccessibilityLabel "Business Operators associated" does not match expected "Coming From Link" |
 | tab-control-visible | TabControl | — | TabControl is in group "Show Form Tabs" — tab visibility should be controlled via Menu tab, not groups |
+| label-truncation | DataField2 | Page 1 | Label text "<strong style="color:#9E0000;">*</strong> Indicates required field" (~462px) may be truncated in 132px width — increase width or enable wrapping |
+| label-truncation | Label221 | Page 1 | Label text "Offline Document No." (~140px) may be truncated in 102px width — increase width or enable wrapping |
+| label-truncation | Label35 | Page 1 | Label text "Region:<strong style="color:#9E0000;">*</strong>" (~336px) may be truncated in 72px width — increase width or enable wrapping |
+| label-truncation | Label46 | Page 1 | Label text "Is the landowner a business or an individual?" (~315px) may be truncated in 272px width — increase width or enable wrapping |
+| label-truncation | DataField4 | Page 1 | Label text "<b>Instructions:</b> Search for a business below to add to your application." (~532px) may be truncated in 462px width — increase width or enable wrapping |
+| label-truncation | lblLandownerInstructions | Page 1 | Label text "<b>Instructions:</b> Search for a contact below to add a landowner to your application." (~609px) may be truncated in 532px width — increase width or enable wrapping |
+| label-truncation | Label90 | Page 1 | Label text "Address Line 1:" (~105px) may be truncated in 92px width — increase width or enable wrapping |
+| label-truncation | Label92 | Page 1 | Label text "Address Line 2:" (~105px) may be truncated in 92px width — increase width or enable wrapping |
+| label-truncation | Label111 | Page 1 | Label text "Is the operator a business or an individual?" (~308px) may be truncated in 272px width — increase width or enable wrapping |
+| label-truncation | Label114 | Page 1 | Label text "<b>Instructions:</b> Search for a business below to add to your application." (~532px) may be truncated in 462px width — increase width or enable wrapping |
+| label-truncation | Label131 | Page 1 | Label text "Province/State:" (~105px) may be truncated in 92px width — increase width or enable wrapping |
+| label-truncation | lblOperatorInstructions | Page 1 | Label text "<b>Instructions:</b> Search for a contact below to add a operator to your application." (~602px) may be truncated in 532px width — increase width or enable wrapping |
+| label-truncation | Label155 | Page 1 | Label text "Address Line 1:" (~105px) may be truncated in 92px width — increase width or enable wrapping |
+| label-truncation | Label157 | Page 1 | Label text "Address Line 2:" (~105px) may be truncated in 92px width — increase width or enable wrapping |
+| label-truncation | Label163 | Page 1 | Label text "Province/State:" (~105px) may be truncated in 92px width — increase width or enable wrapping |
+| label-truncation | Label192 | Page 1 | Label text "Date of Violation:" (~126px) may be truncated in 112px width — increase width or enable wrapping |
 
 ## Info
 
@@ -126,6 +147,7 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 145 (0 errors, 91 warnings, 54 inf
 | label-unnamed-in-group | DataField3 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
 | label-unnamed-in-group | DataField7 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
 | label-unnamed-in-group | DataField1 | Page 1 | Label has a custom name but is not referenced in any group — only rename labels used in groups/conditions |
+| spelling | WACs | Page 1 | Possible misspelling: "WACs" (suggestions: SACs, WADs, WAYs) |
 | spelling | Preapp Review | Page 1 | Possible misspelling: "Preapp" (suggestions: Prenup, Prep, Reap) |
 | spelling | DG Legal Description | Page 1 | Possible misspelling: "DG" (suggestions: CG, DB, DH) |
 | spelling | DG Landowner Businesses | Page 1 | Possible misspelling: "DG" (suggestions: CG, DB, DH) |
@@ -164,3 +186,14 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 145 (0 errors, 91 warnings, 54 inf
 | field-max-length | Violator First Name | Page 1 | MaxLength is 25 for name field — recommended minimum is 100 |
 | field-max-length | Violator Last Name | Page 1 | MaxLength is 25 for name field — recommended minimum is 100 |
 | field-max-length | Notes | Page 1 | TextArea MaxLength is 500 — recommended minimum is 3000 for notes/text fields |
+| font-consistency | Label71 | Page 1 | Label style differs from form pattern: fontSize=18 (expected 10), bold=true (expected false), color=#ffffffff (expected #FF000000) |
+| font-consistency | DataField2 | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | Label56 | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | DataField6 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff9e0000 (expected #FF000000) |
+| font-consistency | Label34 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10) |
+| font-consistency | DataField3 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10) |
+| font-consistency | Label38 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label43 | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10), color=#ff000000 (expected #FF000000) |
+| font-consistency | DataField7 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label204 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| data-lookup-in-properties | Region | — | Script "Region_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |

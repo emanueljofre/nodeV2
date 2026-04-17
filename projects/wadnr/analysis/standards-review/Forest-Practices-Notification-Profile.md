@@ -1,14 +1,29 @@
 # Standards Review: Forest-Practices-Notification-Profile
 
-Generated: 2026-04-16 | Rules: 40 | Findings: 112 (0 errors, 87 warnings, 25 info)
+Generated: 2026-04-16 | Rules: 49 | Findings: 149 (10 errors, 105 warnings, 34 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
-| Error    | 0 |
-| Warning  | 87 |
-| Info     | 25 |
+| Error    | 10 |
+| Warning  | 105 |
+| Info     | 34 |
+
+## Errors
+
+| Rule | Field | Page | Message |
+| :--- | :---- | :--- | :------ |
+| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
+| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
+| script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
+| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
+| field-multiple-groups | Con_County_Content_Actions | — | Field appears in 2 groups: County, Unsubscribed Action |
+| field-multiple-groups | Con_Submission_Content | — | Field appears in 2 groups: Show Submission Section, Unsubscribed Action |
+| field-multiple-groups | Con_Submission_Header | — | Field appears in 2 groups: Show Submission Section, Unsubscribed Action |
+| field-multiple-groups | Con_TownshipRange_Content_Actions | — | Field appears in 2 groups: Township & Range, Unsubscribed Action |
+| field-multiple-groups | Con_WRIA_Content_Actions | — | Field appears in 2 groups: Unsubscribed Action, WRIA |
+| field-multiple-groups | Con_Watershed_Content_Actions | — | Field appears in 2 groups: Unsubscribed Action, Watershed |
 
 ## Warnings
 
@@ -33,16 +48,6 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 112 (0 errors, 87 warnings, 25 inf
 | accessibility-required | First Name | Page 1 | Required field AccessibilityLabel "First Name Required" should end with "field Required" |
 | accessibility-required | Zip Code | Page 1 | Required field AccessibilityLabel "Last Name Required" should end with "field Required" |
 | accessibility-required | Email | Page 1 | Required field AccessibilityLabel "Email Required" should end with "field Required" |
-| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
-| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
-| script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
-| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
-| field-multiple-groups | Con_County_Content_Actions | — | Field appears in 2 groups: County, Unsubscribed Action |
-| field-multiple-groups | Con_Submission_Content | — | Field appears in 2 groups: Show Submission Section, Unsubscribed Action |
-| field-multiple-groups | Con_Submission_Header | — | Field appears in 2 groups: Show Submission Section, Unsubscribed Action |
-| field-multiple-groups | Con_TownshipRange_Content_Actions | — | Field appears in 2 groups: Township & Range, Unsubscribed Action |
-| field-multiple-groups | Con_WRIA_Content_Actions | — | Field appears in 2 groups: Unsubscribed Action, WRIA |
-| field-multiple-groups | Con_Watershed_Content_Actions | — | Field appears in 2 groups: Unsubscribed Action, Watershed |
 | container-responsive-flow | Con_EmailInput | Page 1 | Container has 4 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
 | container-responsive-flow | Con_InstructionsContent | Page 1 | Container has 4 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
 | container-responsive-flow | Con_County_Content_Actions | Page 1 | Container has 4 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
@@ -101,6 +106,34 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 112 (0 errors, 87 warnings, 25 inf
 | accessibility-label-match | Approver Role | Page 1 | AccessibilityLabel "Tab Control" does not match expected "Approver Role" |
 | accessibility-label-match | Form Saved | Page 1 | AccessibilityLabel "Is the first FPNP?" does not match expected "Form Saved" |
 | accessibility-label-match | Coming From Link | Page 1 | AccessibilityLabel "Is the first FPNP?" does not match expected "Coming From Link" |
+| label-truncation | DataField2 | Page 1 | Label text "<strong style="color:#9E0000;">*</strong> Indicates required field" (~462px) may be truncated in 132px width — increase width or enable wrapping |
+| label-truncation | DataField1 | Page 1 | Label text "Use this form to identify areas in which you would like to receive email notifications. You may receive notifications for:" (~854px) may be truncated in 702px width — increase width or enable wrapping |
+| label-truncation | Label57 | Page 1 | Label text "&#x2022; Forest practices activities that are either under review;" (~462px) may be truncated in 342px width — increase width or enable wrapping |
+| label-truncation | Label58 | Page 1 | Label text "&#x2022; Decisions have been made; or" (~259px) may be truncated in 222px width — increase width or enable wrapping |
+| label-truncation | Label59 | Page 1 | Label text "&#x2022; Changes have been made to an approved Forest Practices Application/Notification (FPA/N)" (~672px) may be truncated in 562px width — increase width or enable wrapping |
+| label-truncation | Label61 | Page 1 | Label text "Notification emails that match your preferences will begin the business day after you receive the confirmation email." (~819px) may be truncated in 702px width — increase width or enable wrapping |
+| label-truncation | Label55 | Page 1 | Label text "1. Select the contact type you are associated with:" (~357px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label65 | Page 1 | Label text "First Name:<strong style="color:#9E0000;">*</strong>" (~364px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label67 | Page 1 | Label text "Last Name:<strong style="color:#9E0000;">*</strong>" (~357px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | DataField7 | Page 1 | Label text "Postal Code/Zip Code:<strong style="color:#9E0000;">*</strong>" (~434px) may be truncated in 142px width — increase width or enable wrapping |
+| label-truncation | Label73 | Page 1 | Label text "Address Line 1:" (~105px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label75 | Page 1 | Label text "Address Line 2:" (~105px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label77 | Page 1 | Label text "Address Line 3:" (~105px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label88 | Page 1 | Label text "Email:<strong style="color:#9E0000;">*</strong>" (~329px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label91 | Page 1 | Label text "4. What forest practices do you want to receive notifications for?" (~462px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label94 | Page 1 | Label text "5. What forest practices activity type do you want to receive notifications for?" (~560px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label101 | Page 1 | Label text "6. Do you want to receive notifications for a certain geographical area?" (~504px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label104 | Page 1 | Label text "7. Select one of the following geographic area types you want to receive notifications for" (~630px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label123 | Page 1 | Label text "Watershed (Add one or more)" (~189px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label125 | Page 1 | Label text "Water Resource Inventory Area (WRIA) (Add one or more)" (~378px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label127 | Page 1 | Label text "Township and Range (Add one or more)" (~252px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label49 | Page 1 | Label text "Manual Notification Change:" (~189px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label142 | Page 1 | Label text "Received Date:" (~98px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label140 | Page 1 | Label text "Approver Role:" (~98px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label134 | Page 1 | Label text "Query Reference:" (~112px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | DataField9 | Page 1 | Label text "Reviewer Page:" (~98px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label138 | Page 1 | Label text "Notification Profile Number:" (~196px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label146 | Page 1 | Label text "Temp Data Migration ID:" (~161px) may be truncated in 82px width — increase width or enable wrapping |
 
 ## Info
 
@@ -131,3 +164,12 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 112 (0 errors, 87 warnings, 25 inf
 | field-max-length | Address Line 1 | Page 1 | MaxLength is 150 for address field — recommended minimum is 300 |
 | field-max-length | Address Line 2 | Page 1 | MaxLength is 150 for address field — recommended minimum is 300 |
 | field-max-length | Address Line 3 | Page 1 | MaxLength is 150 for address field — recommended minimum is 300 |
+| font-consistency | Label71 | Page 1 | Label style differs from form pattern: fontSize=18 (expected 10), bold=true (expected false), color=#ffffffff (expected #FF000000) |
+| font-consistency | DataField2 | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | Label143 | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | Label33 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff9e0000 (expected #FF000000) |
+| font-consistency | Label34 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10) |
+| font-consistency | DataField3 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10) |
+| font-consistency | Label38 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label43 | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label41 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |

@@ -1,14 +1,67 @@
 # Standards Review: Informal-Conference-Note
 
-Generated: 2026-04-16 | Rules: 40 | Findings: 760 (0 errors, 468 warnings, 292 info)
+Generated: 2026-04-16 | Rules: 49 | Findings: 816 (48 errors, 434 warnings, 334 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
-| Error    | 0 |
-| Warning  | 468 |
-| Info     | 292 |
+| Error    | 48 |
+| Warning  | 434 |
+| Info     | 334 |
+
+## Errors
+
+| Rule | Field | Page | Message |
+| :--- | :---- | :--- | :------ |
+| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
+| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
+| script-field-reference | Form_onLoad | — | Script references non-existent field "Individual ID" via GetFieldValue() |
+| script-field-reference | Form_onLoad | — | Script references non-existent field "UserID" via GetFieldValue() |
+| field-multiple-groups | Con_Print | — | Field appears in 2 groups: All Form Read Only, Show Print Button |
+| field-multiple-groups | Con_LegalDescriptionData | — | Field appears in 2 groups: All Form Read Only, Legal Description Section |
+| field-multiple-groups | Con_LandownerData | — | Field appears in 2 groups: All Form Read Only, Landowner Info Section |
+| field-multiple-groups | Con_LandownerBusinessSearchData | — | Field appears in 2 groups: All Form Read Only, Landowner Business Search Visibility |
+| field-multiple-groups | Con_LandownerIndividualSearchData | — | Field appears in 2 groups: All Form Read Only, Landowner Individual Search Visibility |
+| field-multiple-groups | Con_LandownerDatagridsData | — | Field appears in 2 groups: All Form Read Only, Landowner Datagrids Section |
+| field-multiple-groups | Con_TimberOwnerInfoData | — | Field appears in 2 groups: All Form Read Only, Timber Owner Info Section |
+| field-multiple-groups | Con_TimberOwnerBusinessSearchData | — | Field appears in 2 groups: All Form Read Only, Timber Owner Business Search Visibility |
+| field-multiple-groups | Con_TimberOwnerIndividualSearchData | — | Field appears in 2 groups: All Form Read Only, Timber Owner Individual Search Visibility |
+| field-multiple-groups | Con_TimberOwnerDatagridsData | — | Field appears in 2 groups: All Form Read Only, Timber Owner Datagrids Section |
+| field-multiple-groups | Con_OperatorInfoData | — | Field appears in 2 groups: All Form Read Only, Operator Info Section |
+| field-multiple-groups | Con_OperatorBusinessSearchData | — | Field appears in 2 groups: All Form Read Only, Operator Business Search Visibility |
+| field-multiple-groups | Con_OperatorIndividualSearchData | — | Field appears in 2 groups: All Form Read Only, Operator Individual Search Visibility |
+| field-multiple-groups | Con_OperatorDatagridsData | — | Field appears in 2 groups: All Form Read Only, Operator Datagrids Section |
+| field-multiple-groups | Con_OperatorOfflineEntryBody | — | Field appears in 2 groups: All Form Read Only, Operator Offline Entry |
+| field-multiple-groups | Con_ConferenceDetailsData | — | Field appears in 2 groups: All Form Read Only, Conference Details Section |
+| field-multiple-groups | Con_SubjectsDiscussedData | — | Field appears in 2 groups: All Form Read Only, Conference Details Section |
+| field-multiple-groups | Con_DecisionsMadeData | — | Field appears in 2 groups: All Form Read Only, Conference Details Section |
+| field-multiple-groups | Con_ParticipantInfoData | — | Field appears in 2 groups: All Form Read Only, Participant Info Section |
+| field-multiple-groups | Con_ParticipantAddBtn | — | Field appears in 2 groups: All Form Read Only, Select Participants Button |
+| field-multiple-groups | Con_ParticipantSignature01 | — | Field appears in 2 groups: All Form Read Only, Participant Signature 01 |
+| field-multiple-groups | Con_ParticipantSignature02 | — | Field appears in 2 groups: All Form Read Only, Participant Signature 02 |
+| field-multiple-groups | Con_ParticipantSignature3 | — | Field appears in 2 groups: All Form Read Only, Participant Signature 03 |
+| field-multiple-groups | Con_ParticipantSignature4 | — | Field appears in 2 groups: All Form Read Only, Participant Signature 04 |
+| field-multiple-groups | Con_ParticipantSignature5 | — | Field appears in 2 groups: All Form Read Only, Participant Signature 05 |
+| field-multiple-groups | Con_ParticipantSignature6 | — | Field appears in 2 groups: All Form Read Only, Participant Signature 06 |
+| field-multiple-groups | Con_ParticipantSignature7 | — | Field appears in 2 groups: All Form Read Only, Participant Signature 07 |
+| field-multiple-groups | Con_ParticipantSignature8 | — | Field appears in 2 groups: All Form Read Only, Participant Signature 08 |
+| field-multiple-groups | Con_ParticipantSignature9 | — | Field appears in 2 groups: All Form Read Only, Participant Signature 09 |
+| field-multiple-groups | Con_ParticipantSignature10 | — | Field appears in 2 groups: All Form Read Only, Participant Signature 10 |
+| field-multiple-groups | Con_ParticipantSignature11 | — | Field appears in 2 groups: All Form Read Only, Participant Signature 11 |
+| field-multiple-groups | Con_ParticipantSignature12 | — | Field appears in 2 groups: All Form Read Only, Participant Signature 12 |
+| field-multiple-groups | Con_ParticipantSignature13 | — | Field appears in 2 groups: All Form Read Only, Participant Signature 13 |
+| field-multiple-groups | Con_ParticipantSignature14 | — | Field appears in 2 groups: All Form Read Only, Participant Signature 14 |
+| field-multiple-groups | Con_ParticipantSignature15 | — | Field appears in 2 groups: All Form Read Only, Participant Signature 15 |
+| field-multiple-groups | Con_ParticipantSignature16 | — | Field appears in 2 groups: All Form Read Only, Participant Signature 16 |
+| field-multiple-groups | Con_ParticipantSignature17 | — | Field appears in 2 groups: All Form Read Only, Participant Signature 17 |
+| field-multiple-groups | Con_ParticipantSignature18 | — | Field appears in 2 groups: All Form Read Only, Participant Signature 18 |
+| field-multiple-groups | Con_ParticipantSignature19 | — | Field appears in 2 groups: All Form Read Only, Participant Signature 19 |
+| field-multiple-groups | Con_ParticipantSignature20 | — | Field appears in 2 groups: All Form Read Only, Participant Signature 20 |
+| field-multiple-groups | Con_DnrRepresentativeData | — | Field appears in 2 groups: All Form Read Only, DNR Rep Section |
+| field-multiple-groups | Con_ForRegionOfficeUseOnlyData | — | Field appears in 2 groups: All Form Read Only, Region Office Use Section |
+| field-multiple-groups | Con_StatusManageData | — | Field appears in 2 groups: All Form Read Only, Manage Section |
+| field-multiple-groups | btnLegacyPDF | — | Field appears in 2 groups: Offiline Mode Hide Buttons, Read Only - Legacy PDF Button |
 
 ## Warnings
 
@@ -84,54 +137,6 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 760 (0 errors, 468 warnings, 292 i
 | accessibility-label | Fixed Disabled Status Field | Page 1 | Missing AccessibilityLabel |
 | accessibility-required | Region | Page 1 | Required field AccessibilityLabel "Region" should end with "field Required" |
 | accessibility-required | Timber Owner Type | Page 1 | Required field AccessibilityLabel "Timber Owner Type required field" should end with "field Required" |
-| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
-| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
-| script-field-reference | Form_onLoad | — | Script references non-existent field "Individual ID" via GetFieldValue() |
-| script-field-reference | Form_onLoad | — | Script references non-existent field "UserID" via GetFieldValue() |
-| field-multiple-groups | Con_Print | — | Field appears in 2 groups: All Form Read Only, Show Print Button |
-| field-multiple-groups | Con_LegalDescriptionData | — | Field appears in 2 groups: All Form Read Only, Legal Description Section |
-| field-multiple-groups | Con_LandownerData | — | Field appears in 2 groups: All Form Read Only, Landowner Info Section |
-| field-multiple-groups | Con_LandownerBusinessSearchData | — | Field appears in 2 groups: All Form Read Only, Landowner Business Search Visibility |
-| field-multiple-groups | Con_LandownerIndividualSearchData | — | Field appears in 2 groups: All Form Read Only, Landowner Individual Search Visibility |
-| field-multiple-groups | Con_LandownerDatagridsData | — | Field appears in 2 groups: All Form Read Only, Landowner Datagrids Section |
-| field-multiple-groups | Con_TimberOwnerInfoData | — | Field appears in 2 groups: All Form Read Only, Timber Owner Info Section |
-| field-multiple-groups | Con_TimberOwnerBusinessSearchData | — | Field appears in 2 groups: All Form Read Only, Timber Owner Business Search Visibility |
-| field-multiple-groups | Con_TimberOwnerIndividualSearchData | — | Field appears in 2 groups: All Form Read Only, Timber Owner Individual Search Visibility |
-| field-multiple-groups | Con_TimberOwnerDatagridsData | — | Field appears in 2 groups: All Form Read Only, Timber Owner Datagrids Section |
-| field-multiple-groups | Con_OperatorInfoData | — | Field appears in 2 groups: All Form Read Only, Operator Info Section |
-| field-multiple-groups | Con_OperatorBusinessSearchData | — | Field appears in 2 groups: All Form Read Only, Operator Business Search Visibility |
-| field-multiple-groups | Con_OperatorIndividualSearchData | — | Field appears in 2 groups: All Form Read Only, Operator Individual Search Visibility |
-| field-multiple-groups | Con_OperatorDatagridsData | — | Field appears in 2 groups: All Form Read Only, Operator Datagrids Section |
-| field-multiple-groups | Con_OperatorOfflineEntryBody | — | Field appears in 2 groups: All Form Read Only, Operator Offline Entry |
-| field-multiple-groups | Con_ConferenceDetailsData | — | Field appears in 2 groups: All Form Read Only, Conference Details Section |
-| field-multiple-groups | Con_SubjectsDiscussedData | — | Field appears in 2 groups: All Form Read Only, Conference Details Section |
-| field-multiple-groups | Con_DecisionsMadeData | — | Field appears in 2 groups: All Form Read Only, Conference Details Section |
-| field-multiple-groups | Con_ParticipantInfoData | — | Field appears in 2 groups: All Form Read Only, Participant Info Section |
-| field-multiple-groups | Con_ParticipantAddBtn | — | Field appears in 2 groups: All Form Read Only, Select Participants Button |
-| field-multiple-groups | Con_ParticipantSignature01 | — | Field appears in 2 groups: All Form Read Only, Participant Signature 01 |
-| field-multiple-groups | Con_ParticipantSignature02 | — | Field appears in 2 groups: All Form Read Only, Participant Signature 02 |
-| field-multiple-groups | Con_ParticipantSignature3 | — | Field appears in 2 groups: All Form Read Only, Participant Signature 03 |
-| field-multiple-groups | Con_ParticipantSignature4 | — | Field appears in 2 groups: All Form Read Only, Participant Signature 04 |
-| field-multiple-groups | Con_ParticipantSignature5 | — | Field appears in 2 groups: All Form Read Only, Participant Signature 05 |
-| field-multiple-groups | Con_ParticipantSignature6 | — | Field appears in 2 groups: All Form Read Only, Participant Signature 06 |
-| field-multiple-groups | Con_ParticipantSignature7 | — | Field appears in 2 groups: All Form Read Only, Participant Signature 07 |
-| field-multiple-groups | Con_ParticipantSignature8 | — | Field appears in 2 groups: All Form Read Only, Participant Signature 08 |
-| field-multiple-groups | Con_ParticipantSignature9 | — | Field appears in 2 groups: All Form Read Only, Participant Signature 09 |
-| field-multiple-groups | Con_ParticipantSignature10 | — | Field appears in 2 groups: All Form Read Only, Participant Signature 10 |
-| field-multiple-groups | Con_ParticipantSignature11 | — | Field appears in 2 groups: All Form Read Only, Participant Signature 11 |
-| field-multiple-groups | Con_ParticipantSignature12 | — | Field appears in 2 groups: All Form Read Only, Participant Signature 12 |
-| field-multiple-groups | Con_ParticipantSignature13 | — | Field appears in 2 groups: All Form Read Only, Participant Signature 13 |
-| field-multiple-groups | Con_ParticipantSignature14 | — | Field appears in 2 groups: All Form Read Only, Participant Signature 14 |
-| field-multiple-groups | Con_ParticipantSignature15 | — | Field appears in 2 groups: All Form Read Only, Participant Signature 15 |
-| field-multiple-groups | Con_ParticipantSignature16 | — | Field appears in 2 groups: All Form Read Only, Participant Signature 16 |
-| field-multiple-groups | Con_ParticipantSignature17 | — | Field appears in 2 groups: All Form Read Only, Participant Signature 17 |
-| field-multiple-groups | Con_ParticipantSignature18 | — | Field appears in 2 groups: All Form Read Only, Participant Signature 18 |
-| field-multiple-groups | Con_ParticipantSignature19 | — | Field appears in 2 groups: All Form Read Only, Participant Signature 19 |
-| field-multiple-groups | Con_ParticipantSignature20 | — | Field appears in 2 groups: All Form Read Only, Participant Signature 20 |
-| field-multiple-groups | Con_DnrRepresentativeData | — | Field appears in 2 groups: All Form Read Only, DNR Rep Section |
-| field-multiple-groups | Con_ForRegionOfficeUseOnlyData | — | Field appears in 2 groups: All Form Read Only, Region Office Use Section |
-| field-multiple-groups | Con_StatusManageData | — | Field appears in 2 groups: All Form Read Only, Manage Section |
-| field-multiple-groups | btnLegacyPDF | — | Field appears in 2 groups: Offiline Mode Hide Buttons, Read Only - Legacy PDF Button |
 | container-responsive-flow | Con_Logos | Page 1 | Container has 18 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
 | container-responsive-flow | Con_Print | Page 1 | Container has 2 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
 | container-responsive-flow | Con_Details_GrayBar | Page 1 | Container has 2 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: 1) |
@@ -482,6 +487,20 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 760 (0 errors, 468 warnings, 292 i
 | button-label-camelcase | LabelDataGridsFields | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | button-label-camelcase | LabelDocumentUploadPath | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | tab-control-visible | TabControl | — | TabControl is in group "Show Form Tabs" — tab visibility should be controlled via Menu tab, not groups |
+| label-truncation | LabelRequiredField | Page 1 | Label text "<strong style="color:#9E0000;">*</strong> Indicates required field" (~462px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | LabelIcnNumber | Page 1 | Label text "<b>ICN No.</b>" (~98px) may be truncated in 70px width — increase width or enable wrapping |
+| label-truncation | LabelRegion | Page 1 | Label text "Region: <b style="color:#9E0000;">*</b>" (~273px) may be truncated in 70px width — increase width or enable wrapping |
+| label-truncation | LabelClassOfForestPractice | Page 1 | Label text "Class of Forest Practice:" (~175px) may be truncated in 150px width — increase width or enable wrapping |
+| label-truncation | LabelLandownerType | Page 1 | Label text "Select the Landowner type you want to add?<b style="color:#9E0000;"> *</b>" (~518px) may be truncated in 282px width — increase width or enable wrapping |
+| label-truncation | LabelLandownerIndividualSearchTitle | Page 1 | Label text "Landowner (Individual Search)" (~224px) may be truncated in 200px width — increase width or enable wrapping |
+| label-truncation | LabelTimberOwnerType | Page 1 | Label text "Select the Timber Owner type you want to add?<b style="color:#9E0000;"> *</b>" (~539px) may be truncated in 292px width — increase width or enable wrapping |
+| label-truncation | LabelTimberOwnerIndividualSearchTitle | Page 1 | Label text "Timber Owner (Individual Search)" (~247px) may be truncated in 220px width — increase width or enable wrapping |
+| label-truncation | LabelOperatorType | Page 1 | Label text "Select the Operator type you want to add?<b style="color:#9E0000;"> *</b>" (~511px) may be truncated in 292px width — increase width or enable wrapping |
+| label-truncation | LabelOperatorIndividualSearchTitle | Page 1 | Label text "Operator (Individual Search)" (~216px) may be truncated in 190px width — increase width or enable wrapping |
+| label-truncation | Label407 | Page 1 | Label text "Offline Owner/Operator Entry:" (~224px) may be truncated in 200px width — increase width or enable wrapping |
+| label-truncation | LabelParticipantInfoTitle | Page 1 | Label text "Participant Information" (~178px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | LabelUserRolesHidden | Page 1 | Label text "User Role(s):" (~91px) may be truncated in 80px width — increase width or enable wrapping |
+| label-truncation | Label415 | Page 1 | Label text "Offline Initial Form ID:" (~168px) may be truncated in 140px width — increase width or enable wrapping |
 
 ## Info
 
@@ -779,3 +798,45 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 760 (0 errors, 468 warnings, 292 i
 | field-max-length | Subjects Discussed | Page 1 | TextArea MaxLength is 2000 — recommended minimum is 3000 for notes/text fields |
 | field-max-length | Decisions Made | Page 1 | TextArea MaxLength is 2000 — recommended minimum is 3000 for notes/text fields |
 | field-max-length | DNR Rep Full Name | Page 1 | MaxLength is 50 for name field — recommended minimum is 100 |
+| font-consistency | LabelInformalConferenceNoteTitle | Page 1 | Label style differs from form pattern: fontSize=18 (expected 10), bold=true (expected false), color=#ffffffff (expected #FF000000) |
+| font-consistency | LabelRequiredField | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelIcnNumber | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelFpanNoOrWtmfNo | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelRegion | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelClassOfForestPractice | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelDocumentationType | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelLandownerType | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelLandownerBusinessSearchInstructions | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelLandownerIndividualSearchInstructions | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelLandownersBusinesses | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | LabelLandownersIndividuals | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | LabelTimberOwnerType | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelTimberOwnerBusinessInstructions | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelTimberOwnerIndividualInstructions | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelTimberOwnersBusinesses | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | LabelTimberOwnersIndividuals | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | LabelOperatorType | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelOperatorBusinessInstructions | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelOperatorIndividualInstructions | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelOperatorsBusinesses | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | LabelOperatorsIndividuals | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | LabelOfflineOwnerOperatorEntry | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelParticipantSignatureReference | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10) |
+| font-consistency | LabelDnrRepresentative | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | LabelDnrSignature | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | LabelDnrTitle | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | LabelDnrPositionNo | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | LabelDnrDate | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | LabelReadOnlySectionTitle | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff9e0000 (expected #FF000000) |
+| font-consistency | LabelRecordId | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10) |
+| font-consistency | LabelStatus | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10) |
+| font-consistency | LabelSubmittedDate | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10) |
+| font-consistency | LabelAdministrativeSectionTitle | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelAdministrativeSectionInstructions | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10), color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelHiddenFieldsSectionTitle | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelOfflineOnlineHiddenTitle | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelNavigationHiddenTitle | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label423 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelDocumentUploadsHiddenTitle | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | LabelDataGridsFields | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| data-lookup-in-properties | Region | — | Script "Region_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |

@@ -1,35 +1,19 @@
 # Standards Review: Appendix-D-Slope-Stability-Informational
 
-Generated: 2026-04-16 | Rules: 40 | Findings: 416 (0 errors, 296 warnings, 120 info)
+Generated: 2026-04-16 | Rules: 49 | Findings: 442 (28 errors, 293 warnings, 121 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
-| Error    | 0 |
-| Warning  | 296 |
-| Info     | 120 |
+| Error    | 28 |
+| Warning  | 293 |
+| Info     | 121 |
 
-## Warnings
+## Errors
 
 | Rule | Field | Page | Message |
 | :--- | :---- | :--- | :------ |
-| title-case | Question 1a GIS | Page 1 | Field name "Question 1a GIS" is not in Title Case |
-| title-case | DG Field Rep required field | Page 1 | Field name "DG Field Rep required field" is not in Title Case |
-| title-case | DataField59 | Page 1 | Field name "DataField59" is not in Title Case |
-| title-case | FPAN Number | Page 1 | Field name "FPAN Number" is not in Title Case |
-| title-case | UserRoles | Page 1 | Field name "UserRoles" is not in Title Case |
-| title-case | ActivityMapViewSubFormCreated | Page 1 | Field name "ActivityMapViewSubFormCreated" is not in Title Case |
-| title-case | WasItSavedCorrectly | Page 1 | Field name "WasItSavedCorrectly" is not in Title Case |
-| default-name | Image57 | Page 1 | Default field name "Image57" — use a descriptive name |
-| valid-identifier | 1aText | Page 1 | Field name "1aText" contains invalid identifier characters |
-| accessibility-label | Question 2a Other | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | DG Field Rep required field | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Related Record ID | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | DataField59 | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | FPAN Number | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | UserRoles | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | ActivityMapViewSubFormCreated | Page 1 | Missing AccessibilityLabel |
 | script-orphan-assignment | Q3BedrockHollow_onBlur | — | Script assignment references non-existent control ID: 322724e0-9ed3-de94-e539-b6a2e957c2cb |
 | script-orphan-assignment | btnHelpQ4a_onClick | — | Script assignment references non-existent control ID: dc5ce7aa-204d-4d93-1dfd-fb19c2c0c6aa |
 | script-orphan-assignment | Q6TextField_onClick | — | Script assignment references non-existent control ID: 6aa03f40-3146-c8ac-1199-689aca5d1339 |
@@ -58,6 +42,27 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 416 (0 errors, 296 warnings, 120 i
 | script-orphan-assignment | Q5OtherYesOrNo_onBlur | — | Script assignment references non-existent control ID: e03ab98c-6d9b-67ad-c571-5195a94debf9 |
 | script-orphan-assignment | Q3aOtherYesOrNo_onBlur | — | Script assignment references non-existent control ID: 31584f96-4100-70f8-d840-562ab5007a97 |
 | script-orphan-assignment | Q5Structures_onBlur | — | Script assignment references non-existent control ID: 59ecdc6e-8d43-cad0-2337-231a4e7b3d34 |
+
+## Warnings
+
+| Rule | Field | Page | Message |
+| :--- | :---- | :--- | :------ |
+| title-case | Question 1a GIS | Page 1 | Field name "Question 1a GIS" is not in Title Case |
+| title-case | DG Field Rep required field | Page 1 | Field name "DG Field Rep required field" is not in Title Case |
+| title-case | DataField59 | Page 1 | Field name "DataField59" is not in Title Case |
+| title-case | FPAN Number | Page 1 | Field name "FPAN Number" is not in Title Case |
+| title-case | UserRoles | Page 1 | Field name "UserRoles" is not in Title Case |
+| title-case | ActivityMapViewSubFormCreated | Page 1 | Field name "ActivityMapViewSubFormCreated" is not in Title Case |
+| title-case | WasItSavedCorrectly | Page 1 | Field name "WasItSavedCorrectly" is not in Title Case |
+| default-name | Image57 | Page 1 | Default field name "Image57" — use a descriptive name |
+| valid-identifier | 1aText | Page 1 | Field name "1aText" contains invalid identifier characters |
+| accessibility-label | Question 2a Other | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | DG Field Rep required field | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Related Record ID | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | DataField59 | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | FPAN Number | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | UserRoles | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | ActivityMapViewSubFormCreated | Page 1 | Missing AccessibilityLabel |
 | script-empty-body | AddressCopySourceToDestination | — | Script "AddressCopySourceToDestination" has an empty body |
 | script-empty-body | GIS_GetModalGISMap | — | Script "GIS_GetModalGISMap" has an empty body |
 | script-empty-body | SaveBeforeUpload | — | Script "SaveBeforeUpload" has an empty body |
@@ -310,6 +315,32 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 416 (0 errors, 296 warnings, 120 i
 | button-label-camelcase | Header1b | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | button-label-camelcase | Q3Groundwater2 | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | tab-control-visible | TabControl | — | TabControl is in group "Hide Edit Button" — tab visibility should be controlled via Menu tab, not groups |
+| standard-hidden-group | — | — | Template does not have a Hidden Fields group — expected a group with visibility condition referencing Admin Override |
+| standard-readonly-group | — | — | Template does not have a Read-Only Fields group — expected a group with read-only condition referencing Admin Override |
+| label-truncation | DataField2 | Page 1 | Label text "<strong style="color:#9E0000;">*</strong> Indicates required field" (~462px) may be truncated in 132px width — increase width or enable wrapping |
+| label-truncation | IntroductionText3 | Page 1 | Label text "Complete this form if you are working with an FPA/N or the LTA Step 1, and you have indicated you are working <i>in</i> or <i>around</i> potentially unstable slopes or landforms." (~1246px) may be truncated in 742px width — increase width or enable wrapping |
+| label-truncation | Label57 | Page 1 | Label text "• Refer to <a href="https://app.leg.wa.gov/wac/default.aspx?cite=222-16-050" target="_blank">WAC 222-16-050(1)(d)</a> and Forest Practices Board Manual Section 16 - Guidelines for Evaluating Potentially Unstable Slopes for definitions and descriptions of potentially unstable slopes or landforms." (~2072px) may be truncated in 862px width — increase width or enable wrapping |
+| label-truncation | Label_Documentation_Instructions | Page 1 | Label text "<strong style="color:#000000;">Instructions:</strong> To upload documentation, select the document type and  then select the upload button below. View documentation by selecting the View Documentation button." (~1456px) may be truncated in 802px width — increase width or enable wrapping |
+| label-truncation | Header1a | Page 1 | Label text "1a. What preliminary screening tools were used to identify unstable slopes or landform features in and/or around your proposal? <strong style="color:#9E0000;">*</strong>" (~1183px) may be truncated in 812px width — increase width or enable wrapping |
+| label-truncation | Header1b | Page 1 | Label text "1b. Did any of the features identified during the preliminary screening not exist when you performed a field review? <strong style="color:#9E0000;">*</strong>" (~1106px) may be truncated in 812px width — increase width or enable wrapping |
+| label-truncation | lbl1bSelectYesOrNo | Page 1 | Label text "Select yes or no:" (~119px) may be truncated in 42px width — increase width or enable wrapping |
+| label-truncation | lbl1bDescribe | Page 1 | Label text "Describe:" (~63px) may be truncated in 42px width — increase width or enable wrapping |
+| label-truncation | Label74 | Page 1 | Label text "2a. Are you conducting forest practices activities in or over potentially unstable slopes or landforms? <strong style="color:#9E0000;">*</strong>" (~1015px) may be truncated in 812px width — increase width or enable wrapping |
+| label-truncation | Label99 | Page 1 | Label text "Category E. Describe:" (~147px) may be truncated in 122px width — increase width or enable wrapping |
+| label-truncation | Label122 | Page 1 | Label text "3a. Are you conducting forest practices activities around potentially unstable slopes or landforms? <strong style="color:#9E0000;">*</strong>" (~987px) may be truncated in 822px width — increase width or enable wrapping |
+| label-truncation | Label125 | Page 1 | Label text "Select yes or no:" (~119px) may be truncated in 42px width — increase width or enable wrapping |
+| label-truncation | Label140 | Page 1 | Label text "Category E. Describe:" (~147px) may be truncated in 122px width — increase width or enable wrapping |
+| label-truncation | Label203 | Page 1 | Label text "4a. Were any features identified in Question 3.a. excluded from your forest practices activity? 
+ <strong style="color:#9E0000;">*</strong>" (~973px) may be truncated in 862px width — increase width or enable wrapping |
+| label-truncation | Label204 | Page 1 | Label text "Select yes or no:" (~119px) may be truncated in 42px width — increase width or enable wrapping |
+| label-truncation | Label206 | Page 1 | Label text "4b. Describe the field indicators you used to exclude potentially unstable slopes or landforms from your forest practices activity (example: harvest boundary was placed a crown width away from the break in slope of the inner gorge): <strong style="color:#9E0000;">*</strong>" (~1918px) may be truncated in 812px width — increase width or enable wrapping |
+| label-truncation | Label209 | Page 1 | Label text "5. Are there areas of public use located in or around the area of your proposed forest practices activity? <strong style="color:#9E0000;">*</strong>" (~1036px) may be truncated in 812px width — increase width or enable wrapping |
+| label-truncation | Label152 | Page 1 | Label text "Select Yes or No. If Other is checked, please provide a description." (~476px) may be truncated in 342px width — increase width or enable wrapping |
+| label-truncation | Label34 | Page 1 | Label text "Record ID:" (~70px) may be truncated in 62px width — increase width or enable wrapping |
+| label-truncation | DataField3 | Page 1 | Label text "Status:" (~49px) may be truncated in 42px width — increase width or enable wrapping |
+| label-truncation | Label43 | Page 1 | Label text "<strong>Instructions:</strong>  This section is only visible to VaultAccess users.  Check Administrator Override to remove read-only configurations and show all fields.  Select Admin Save to save any changes without applying business rules.  Remember to uncheck override and save before closing." (~2065px) may be truncated in 642px width — increase width or enable wrapping |
+| label-truncation | lblRelatedRecordId | Page 1 | Label text "Related Record ID:" (~126px) may be truncated in 62px width — increase width or enable wrapping |
+| label-truncation | Label146 | Page 1 | Label text "FPAN Number:" (~84px) may be truncated in 62px width — increase width or enable wrapping |
 
 ## Info
 
@@ -435,3 +466,4 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 416 (0 errors, 296 warnings, 120 i
 | field-max-length | Question 3b Other Describe | Page 1 | TextArea MaxLength is 1000 — recommended minimum is 3000 for notes/text fields |
 | field-max-length | Question 4b Describe | Page 1 | TextArea MaxLength is 1000 — recommended minimum is 3000 for notes/text fields |
 | field-max-length | Question 5 Other Describe | Page 1 | TextArea MaxLength is 1000 — recommended minimum is 3000 for notes/text fields |
+| field-width-standard | DG Field Rep required field | Page 1 | FieldTextbox3 width is 10px — recommended minimum is 80px |

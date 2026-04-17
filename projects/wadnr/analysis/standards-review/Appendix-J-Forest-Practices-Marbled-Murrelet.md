@@ -1,40 +1,19 @@
 # Standards Review: Appendix-J-Forest-Practices-Marbled-Murrelet
 
-Generated: 2026-04-16 | Rules: 40 | Findings: 380 (0 errors, 331 warnings, 49 info)
+Generated: 2026-04-16 | Rules: 49 | Findings: 409 (89 errors, 263 warnings, 57 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
-| Error    | 0 |
-| Warning  | 331 |
-| Info     | 49 |
+| Error    | 89 |
+| Warning  | 263 |
+| Info     | 57 |
 
-## Warnings
+## Errors
 
 | Rule | Field | Page | Message |
 | :--- | :---- | :--- | :------ |
-| title-case | Q4 Harvesting inner zone | Page 1 | Field name "Q4 Harvesting inner zone" is not in Title Case |
-| title-case | Q4 Harvesting outer zone | Page 1 | Field name "Q4 Harvesting outer zone" is not in Title Case |
-| title-case | Question 4 Description of managed buffers | Page 1 | Field name "Question 4 Description of managed buffers" is not in Title Case |
-| title-case | UserRoles | Page 1 | Field name "UserRoles" is not in Title Case |
-| title-case | ActivityMapViewSubFormCreated | Page 1 | Field name "ActivityMapViewSubFormCreated" is not in Title Case |
-| title-case | FPAN Number | Page 1 | Field name "FPAN Number" is not in Title Case |
-| default-name | Image57 | Page 1 | Default field name "Image57" — use a descriptive name |
-| accessibility-label | Question 1 Checkboxes | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Survey Record | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Question 4 Checkboxes | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Question 4 Additional Checkboxes | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Question 5 Checkboxes | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Nesting Platform Record | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Question 6 Checkboxes | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Unit Identifier Record | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Valid Survey Records | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Valid Nesting Platforms Records | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Valid Unit Identifier Records | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | ActivityMapViewSubFormCreated | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Region Zone | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Sensitive Content | Page 1 | Missing AccessibilityLabel |
 | script-orphan-assignment | Question_5_Other_Describe_onBlur | — | Script assignment references non-existent control ID: a6cabcca-d644-f4f4-85b7-6f2e4bf5f433 |
 | script-orphan-assignment | Question_5_Designated_Recreation_Area_onChange | — | Script assignment references non-existent control ID: 76a16d14-33e5-faaf-8f44-752f3563e964 |
 | script-orphan-assignment | Question_2a_Inner_Gorge_onChange | — | Script assignment references non-existent control ID: f98b42bf-26aa-ac1b-85e2-2452f94ab148 |
@@ -124,6 +103,32 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 380 (0 errors, 331 warnings, 49 in
 | script-orphan-assignment | Question_3b_Timber_Harvest_onChange | — | Script assignment references non-existent control ID: 141599b5-76d8-7ac1-11f6-b097fa829241 |
 | script-orphan-assignment | Question_2b_Suspending_Cables_onChange | — | Script assignment references non-existent control ID: ec7e98ce-75e5-99d5-2669-0c2001fe011b |
 | script-orphan-assignment | Question_2a_Outher_Edges_onChange | — | Script assignment references non-existent control ID: 6ff253c0-12dc-13f4-4d9c-e3fa19cb6ec1 |
+
+## Warnings
+
+| Rule | Field | Page | Message |
+| :--- | :---- | :--- | :------ |
+| title-case | Q4 Harvesting inner zone | Page 1 | Field name "Q4 Harvesting inner zone" is not in Title Case |
+| title-case | Q4 Harvesting outer zone | Page 1 | Field name "Q4 Harvesting outer zone" is not in Title Case |
+| title-case | Question 4 Description of managed buffers | Page 1 | Field name "Question 4 Description of managed buffers" is not in Title Case |
+| title-case | UserRoles | Page 1 | Field name "UserRoles" is not in Title Case |
+| title-case | ActivityMapViewSubFormCreated | Page 1 | Field name "ActivityMapViewSubFormCreated" is not in Title Case |
+| title-case | FPAN Number | Page 1 | Field name "FPAN Number" is not in Title Case |
+| default-name | Image57 | Page 1 | Default field name "Image57" — use a descriptive name |
+| accessibility-label | Question 1 Checkboxes | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Survey Record | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Question 4 Checkboxes | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Question 4 Additional Checkboxes | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Question 5 Checkboxes | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Nesting Platform Record | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Question 6 Checkboxes | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Unit Identifier Record | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Valid Survey Records | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Valid Nesting Platforms Records | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Valid Unit Identifier Records | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | ActivityMapViewSubFormCreated | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Region Zone | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Sensitive Content | Page 1 | Missing AccessibilityLabel |
 | script-empty-body | LoadActivityMap | — | Script "LoadActivityMap" has an empty body |
 | script-empty-body | AddressCopySourceToDestination | — | Script "AddressCopySourceToDestination" has an empty body |
 | script-empty-body | GIS_GetModalGISMap | — | Script "GIS_GetModalGISMap" has an empty body |
@@ -345,6 +350,27 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 380 (0 errors, 331 warnings, 49 in
 | button-label-camelcase | HeaderDocumentation | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | button-label-camelcase | Header1 | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | tab-control-visible | TabControl | — | TabControl is in group "Hide Edit Button" — tab visibility should be controlled via Menu tab, not groups |
+| standard-hidden-group | — | — | Template does not have a Hidden Fields group — expected a group with visibility condition referencing Admin Override |
+| standard-readonly-group | — | — | Template does not have a Read-Only Fields group — expected a group with read-only condition referencing Admin Override |
+| label-truncation | DataField2 | Page 1 | Label text "<strong style="color:#9E0000;">*</strong> Indicates required field" (~462px) may be truncated in 132px width — increase width or enable wrapping |
+| label-truncation | Label137 | Page 1 | Label text "<b>Instructions:</b>  To upload documentation, select the document type and then select the upload button below. View documentation by selecting the View Documentation button." (~1225px) may be truncated in 872px width — increase width or enable wrapping |
+| label-truncation | Header1 | Page 1 | Label text "1. Was a protocol survey completed for the area located within 300 feet (on your ownership) of the following proposed activities: Harvesting, salvaging, or any area of proposed road construction?<strong style="color:#9E0000;">*</strong>" (~1652px) may be truncated in 782px width — increase width or enable wrapping |
+| label-truncation | Label147 | Page 1 | Label text "Explanation of disapproved or pending decision survey: or use the Upload documentation at the top of this form to attach documents.<strong style="color:#9E0000;">*</strong>" (~1204px) may be truncated in 822px width — increase width or enable wrapping |
+| label-truncation | Label74 | Page 1 | Label text "2. Are you harvesting, salvaging, or constructing roads within 0.25 miles of an occupied site?<strong style="color:#9E0000;">*</strong>" (~945px) may be truncated in 802px width — increase width or enable wrapping |
+| label-truncation | Label122 | Page 1 | Label text "4. Are you harvesting live trees within a 300-foot managed buffer zone of an occupied site? If leaving less than required in WAC 222-16-080(1)(h)(v) your proposal will be a class IV-Special and a SEPA Checklist is required?<strong style="color:#9E0000;">*</strong>" (~1848px) may be truncated in 802px width — increase width or enable wrapping |
+| label-truncation | Label161 | Page 1 | Label text "Harvesting within the 150-foot-outer zone managed buffer resulting in less than a residual stand relative density of 35 for Douglas-fir or red alder dominant species group or less than 50 for Western hemlock or spruce dominant species group." (~1687px) may be truncated in 742px width — increase width or enable wrapping |
+| label-truncation | DataField1 | Page 1 | Label text "<b>5. Are there nesting platforms within 300 feet of any harvesting, salvaging, or road construction that:<strong style="color:#9E0000;">*</strong></b><br>• Are not located within a surveyed area, <b>and</b>;<br>• Have a minimum of 2 platforms per acre, <b>and</b>;<br>• Are located within 5 or more acres of contiguous habitat, <b>and</b>;<br>• Have at least 40% (number not volume) of the dominant and co-dominant trees made up of conifer species?" (~3143px) may be truncated in 794px width — increase width or enable wrapping |
+| label-truncation | Label203 | Page 1 | Label text "<b>6. Are there any areas within this proposal or within 300 feet that:</b><strong style="color:#9E0000;">*</strong><br>• Are not surveyed, <b>and</b>;<br>• Are not listed in Question 5, <b>and</b>;<br>• Have trees that are at least 32 inches dbh (24 inches dbh for western hemlock)?" (~1981px) may be truncated in 802px width — increase width or enable wrapping |
+| label-truncation | Label162 | Page 1 | Label text "Yes. List the unit identifier from your map. Provide a brief description of current stand conditions that demonstrates the proposed area is not marbled murrelet habitat. Include tree species composition, stand age (if known), and maximum tree size (dbh)." (~1778px) may be truncated in 772px width — increase width or enable wrapping |
+| label-truncation | Label169 | Page 1 | Label text "<b>7. If you answered yes to question 1, 4 or 5, include a separate map that shows your proposed harvest units and/or road constructions.</b><strong style="color:#9E0000;">*</strong> See instructions for required map information." (~1603px) may be truncated in 782px width — increase width or enable wrapping |
+| label-truncation | Label34 | Page 1 | Label text "Record ID:" (~70px) may be truncated in 62px width — increase width or enable wrapping |
+| label-truncation | DataField3 | Page 1 | Label text "Status:" (~49px) may be truncated in 42px width — increase width or enable wrapping |
+| label-truncation | Label43 | Page 1 | Label text "<strong>Instructions:</strong>  This section is only visible to VaultAccess users.  Check Administrator Override to remove read-only configurations and show all fields.  Select Admin Save to save any changes without applying business rules.  Remember to uncheck override and save before closing." (~2065px) may be truncated in 642px width — increase width or enable wrapping |
+| label-truncation | lblRelatedRecordId | Page 1 | Label text "Related Record ID:" (~126px) may be truncated in 62px width — increase width or enable wrapping |
+| label-truncation | Label87 | Page 1 | Label text "User Role/s:" (~84px) may be truncated in 72px width — increase width or enable wrapping |
+| label-truncation | Label106 | Page 1 | Label text "FPAN Number:" (~84px) may be truncated in 72px width — increase width or enable wrapping |
+| label-truncation | Label97 | Page 1 | Label text "Sensitive Content:" (~126px) may be truncated in 102px width — increase width or enable wrapping |
+| label-truncation | Label91 | Page 1 | Label text "Document Upload Path:" (~147px) may be truncated in 72px width — increase width or enable wrapping |
 
 ## Info
 
@@ -399,3 +425,11 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 380 (0 errors, 331 warnings, 49 in
 | listener-disabled | Created Date | Page 1 | EnableQListener is enabled — verify this field requires query string fill-in/relate capability |
 | listener-disabled | Region Zone | Page 1 | EnableQListener is enabled — verify this field requires query string fill-in/relate capability |
 | listener-disabled | Document Upload Path | Page 1 | EnableQListener is enabled — verify this field requires query string fill-in/relate capability |
+| field-width-standard | Question 1 Checkboxes | Page 1 | FieldTextbox3 width is 10px — recommended minimum is 80px |
+| field-width-standard | Survey Record | Page 1 | FieldTextbox3 width is 10px — recommended minimum is 80px |
+| field-width-standard | Question 4 Checkboxes | Page 1 | FieldTextbox3 width is 10px — recommended minimum is 80px |
+| field-width-standard | Question 4 Additional Checkboxes | Page 1 | FieldTextbox3 width is 10px — recommended minimum is 80px |
+| field-width-standard | Question 5 Checkboxes | Page 1 | FieldTextbox3 width is 10px — recommended minimum is 80px |
+| field-width-standard | Nesting Platform Record | Page 1 | FieldTextbox3 width is 10px — recommended minimum is 80px |
+| field-width-standard | Question 6 Checkboxes | Page 1 | FieldTextbox3 width is 10px — recommended minimum is 80px |
+| field-width-standard | Unit Identifier Record | Page 1 | FieldTextbox3 width is 10px — recommended minimum is 80px |

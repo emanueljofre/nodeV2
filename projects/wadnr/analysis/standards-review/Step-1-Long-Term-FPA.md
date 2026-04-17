@@ -1,14 +1,68 @@
 # Standards Review: Step-1-Long-Term-FPA
 
-Generated: 2026-04-16 | Rules: 40 | Findings: 322 (0 errors, 247 warnings, 75 info)
+Generated: 2026-04-16 | Rules: 49 | Findings: 417 (49 errors, 259 warnings, 109 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
-| Error    | 0 |
-| Warning  | 247 |
-| Info     | 75 |
+| Error    | 49 |
+| Warning  | 259 |
+| Info     | 109 |
+
+## Errors
+
+| Rule | Field | Page | Message |
+| :--- | :---- | :--- | :------ |
+| script-orphan-assignment | Last_Name_Landowner_onBlur | — | Script assignment references non-existent control ID: 16d82648-9ea6-7819-9280-fe13c69accbd |
+| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
+| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
+| script-orphan-assignment | First_Name_Landowner_onBlur | — | Script assignment references non-existent control ID: 8ff15494-5a24-9317-d5a0-2b0f92595160 |
+| script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
+| script-orphan-assignment | btnPayNow_Maintab_onClick | — | Script assignment references non-existent control ID: 25cc1bb6-cc30-0f53-2d5e-f99e40f01084 |
+| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
+| script-orphan-assignment | City_onChange | — | Script assignment references non-existent control ID: b43f107f-c4f1-1971-e871-bec0a4890552 |
+| script-orphan-assignment | City_onBlur | — | Script assignment references non-existent control ID: b43f107f-c4f1-1971-e871-bec0a4890552 |
+| script-orphan-assignment | btn_HelpSensitiveSiteInventory_onClick | — | Script assignment references non-existent control ID: aea569a0-065e-bdd1-99ef-a9c14dbd3d65 |
+| script-field-reference | LaunchLTAStep2FPAN | — | Script references non-existent field "Long Term FPA Number" via GetFieldValue() |
+| script-field-reference | LoadActivityMap | — | Script references non-existent field "Related Record ID" via GetFieldValue() |
+| field-multiple-groups | Con_LandownerBusinessSearchHeader | — | Field appears in 2 groups: Landowner Business Search Visibility, Show Business Section |
+| field-multiple-groups | Con_LandownerBusinessSearch | — | Field appears in 3 groups: Landowner Business Search Visibility, Main Tab Read Only, Show Business Section |
+| field-multiple-groups | Con_LandownerSearchHeader | — | Field appears in 2 groups: Landowner Individual Visibility, Show Landowner Section |
+| field-multiple-groups | Con_LandownerSearch | — | Field appears in 3 groups: Landowner Individual Visibility, Main Tab Read Only, Show Landowner Section |
+| field-multiple-groups | Con_LandownerBusinessOrIndividual | — | Field appears in 2 groups: Main Tab Read Only, Show Question 1a |
+| field-multiple-groups | Container5 | — | Field appears in 2 groups: Main Tab Read Only, Show Question 1b |
+| field-multiple-groups | Con_Question2 | — | Field appears in 2 groups: Main Tab Read Only, Show Question 2 |
+| field-multiple-groups | Con_Question2_Checkboxes | — | Field appears in 2 groups: Main Tab Read Only, SmallForestLandowner Visibility |
+| field-multiple-groups | Con_Question3 | — | Field appears in 2 groups: Main Tab Read Only, Show Question 3 |
+| field-multiple-groups | Con_Question4 | — | Field appears in 2 groups: Main Tab Read Only, Show Question 4 |
+| field-multiple-groups | Con_Question4_AppD | — | Field appears in 2 groups: Main Tab Read Only, Show Appendix D Datagrid |
+| field-multiple-groups | Con_Question5a | — | Field appears in 2 groups: Main Tab Read Only, Show Question 5 |
+| field-multiple-groups | Con_Question5a_ParkName | — | Field appears in 3 groups: Main Tab Read Only, Q5A, Show Question 5 |
+| field-multiple-groups | Con_Question5b | — | Field appears in 2 groups: Main Tab Read Only, Show Question 5 |
+| field-multiple-groups | Con_Question5b_AppJ | — | Field appears in 3 groups: Main Tab Read Only, Q5B, Show Question 5 |
+| field-multiple-groups | Con_Question5c | — | Field appears in 2 groups: Main Tab Read Only, Show Question 5 |
+| field-multiple-groups | Con_Question5c_Documents | — | Field appears in 3 groups: Main Tab Read Only, Q5C, Show Question 5 |
+| field-multiple-groups | Con_Question5d | — | Field appears in 2 groups: Main Tab Read Only, Show Question 5 |
+| field-multiple-groups | Con_Question5d_AppE | — | Field appears in 3 groups: Main Tab Read Only, Q5D, Show Question 5 |
+| field-multiple-groups | Con_Question6 | — | Field appears in 2 groups: Main Tab Read Only, Show Question 6 |
+| field-multiple-groups | Con_Question6_DG | — | Field appears in 3 groups: Main Tab Read Only, Show Question 6 Buttons and DG, StreamSegment Visibility |
+| field-multiple-groups | Con_Question7 | — | Field appears in 2 groups: Main Tab Read Only, Show Question 7 |
+| field-multiple-groups | Con_Question7 DG | — | Field appears in 2 groups: Main Tab Read Only, Show Question 7 Buttons and DG |
+| field-multiple-groups | Con_Question8 | — | Field appears in 2 groups: Main Tab Read Only, Show Question 8 |
+| field-multiple-groups | Con_Question8 DG | — | Field appears in 2 groups: Main Tab Read Only, Show Question 8 Buttons and DG |
+| field-multiple-groups | Con_Question9 | — | Field appears in 2 groups: Main Tab Read Only, Show Question 9 |
+| field-multiple-groups | Con_Question9 DG | — | Field appears in 2 groups: Main Tab Read Only, Show Question 9 Buttons and DG |
+| field-multiple-groups | Con_Question10 | — | Field appears in 2 groups: Main Tab Read Only, Show Question 10 |
+| field-multiple-groups | Con_Question11 | — | Field appears in 2 groups: Main Tab Read Only, Show Question 11 |
+| field-multiple-groups | Con_Question12a | — | Field appears in 2 groups: Main Tab Read Only, Show Question 12 |
+| field-multiple-groups | Con_Question13 | — | Field appears in 2 groups: Main Tab Read Only, Show Question 13 |
+| field-multiple-groups | Con_LandownerDGs | — | Field appears in 2 groups: Main Tab Read Only, Show Question 1a |
+| field-multiple-groups | Con_Question12c | — | Field appears in 2 groups: Main Tab Read Only, Show Question 12c |
+| field-multiple-groups | Con_Question5b_AppJ_DG_Edit | — | Field appears in 2 groups: Q5B, Show Edit Datagrids |
+| field-multiple-groups | Con_Question5b_AppJ_DG_View | — | Field appears in 2 groups: Q5B, Show View Datagrids |
+| field-multiple-groups | Con_Question4_AppD_DG_Edit | — | Field appears in 2 groups: Show Appendix D Datagrid, Show Edit Datagrids |
+| field-multiple-groups | Con_Question4_AppD_DG_View | — | Field appears in 2 groups: Show Appendix D Datagrid, Show View Datagrids |
 
 ## Warnings
 
@@ -77,61 +131,12 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 322 (0 errors, 247 warnings, 75 in
 | accessibility-required | Landowner Business Or Individual | Page 1 | Required field AccessibilityLabel "Landowner Business Or Individual Dropdown Required" should end with "field Required" |
 | accessibility-required | Unstable Slopes Landforms | Page 1 | Required field AccessibilityLabel "Unstable Slopes Landforms" should end with "field Required" |
 | accessibility-required | Park Name | Page 1 | Required field AccessibilityLabel "Park Name" should end with "field Required" |
-| script-orphan-assignment | Last_Name_Landowner_onBlur | — | Script assignment references non-existent control ID: 16d82648-9ea6-7819-9280-fe13c69accbd |
-| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
-| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
-| script-orphan-assignment | First_Name_Landowner_onBlur | — | Script assignment references non-existent control ID: 8ff15494-5a24-9317-d5a0-2b0f92595160 |
-| script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
-| script-orphan-assignment | btnPayNow_Maintab_onClick | — | Script assignment references non-existent control ID: 25cc1bb6-cc30-0f53-2d5e-f99e40f01084 |
-| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
-| script-orphan-assignment | City_onChange | — | Script assignment references non-existent control ID: b43f107f-c4f1-1971-e871-bec0a4890552 |
-| script-orphan-assignment | City_onBlur | — | Script assignment references non-existent control ID: b43f107f-c4f1-1971-e871-bec0a4890552 |
-| script-orphan-assignment | btn_HelpSensitiveSiteInventory_onClick | — | Script assignment references non-existent control ID: aea569a0-065e-bdd1-99ef-a9c14dbd3d65 |
 | script-unused-template | RemoveSelectedLandownersBusiness | — | Template helper "RemoveSelectedLandownersBusiness" is never referenced from any other script |
 | script-unused-template | LandownerSearch | — | Template helper "LandownerSearch" is never referenced from any other script |
 | script-unused-template | RemoveSelectedLandowners | — | Template helper "RemoveSelectedLandowners" is never referenced from any other script |
 | script-unused-template | ValidateContactSearchCriteria | — | Template helper "ValidateContactSearchCriteria" is never referenced from any other script |
 | script-unused-template | AddressFieldNamesMap | — | Template helper "AddressFieldNamesMap" is never referenced from any other script |
 | script-unused-template | AddSorFWaters | — | Template helper "AddSorFWaters" is never referenced from any other script |
-| script-field-reference | LaunchLTAStep2FPAN | — | Script references non-existent field "Long Term FPA Number" via GetFieldValue() |
-| script-field-reference | LoadActivityMap | — | Script references non-existent field "Related Record ID" via GetFieldValue() |
-| field-multiple-groups | Con_LandownerBusinessSearchHeader | — | Field appears in 2 groups: Landowner Business Search Visibility, Show Business Section |
-| field-multiple-groups | Con_LandownerBusinessSearch | — | Field appears in 3 groups: Landowner Business Search Visibility, Main Tab Read Only, Show Business Section |
-| field-multiple-groups | Con_LandownerSearchHeader | — | Field appears in 2 groups: Landowner Individual Visibility, Show Landowner Section |
-| field-multiple-groups | Con_LandownerSearch | — | Field appears in 3 groups: Landowner Individual Visibility, Main Tab Read Only, Show Landowner Section |
-| field-multiple-groups | Con_LandownerBusinessOrIndividual | — | Field appears in 2 groups: Main Tab Read Only, Show Question 1a |
-| field-multiple-groups | Container5 | — | Field appears in 2 groups: Main Tab Read Only, Show Question 1b |
-| field-multiple-groups | Con_Question2 | — | Field appears in 2 groups: Main Tab Read Only, Show Question 2 |
-| field-multiple-groups | Con_Question2_Checkboxes | — | Field appears in 2 groups: Main Tab Read Only, SmallForestLandowner Visibility |
-| field-multiple-groups | Con_Question3 | — | Field appears in 2 groups: Main Tab Read Only, Show Question 3 |
-| field-multiple-groups | Con_Question4 | — | Field appears in 2 groups: Main Tab Read Only, Show Question 4 |
-| field-multiple-groups | Con_Question4_AppD | — | Field appears in 2 groups: Main Tab Read Only, Show Appendix D Datagrid |
-| field-multiple-groups | Con_Question5a | — | Field appears in 2 groups: Main Tab Read Only, Show Question 5 |
-| field-multiple-groups | Con_Question5a_ParkName | — | Field appears in 3 groups: Main Tab Read Only, Q5A, Show Question 5 |
-| field-multiple-groups | Con_Question5b | — | Field appears in 2 groups: Main Tab Read Only, Show Question 5 |
-| field-multiple-groups | Con_Question5b_AppJ | — | Field appears in 3 groups: Main Tab Read Only, Q5B, Show Question 5 |
-| field-multiple-groups | Con_Question5c | — | Field appears in 2 groups: Main Tab Read Only, Show Question 5 |
-| field-multiple-groups | Con_Question5c_Documents | — | Field appears in 3 groups: Main Tab Read Only, Q5C, Show Question 5 |
-| field-multiple-groups | Con_Question5d | — | Field appears in 2 groups: Main Tab Read Only, Show Question 5 |
-| field-multiple-groups | Con_Question5d_AppE | — | Field appears in 3 groups: Main Tab Read Only, Q5D, Show Question 5 |
-| field-multiple-groups | Con_Question6 | — | Field appears in 2 groups: Main Tab Read Only, Show Question 6 |
-| field-multiple-groups | Con_Question6_DG | — | Field appears in 3 groups: Main Tab Read Only, Show Question 6 Buttons and DG, StreamSegment Visibility |
-| field-multiple-groups | Con_Question7 | — | Field appears in 2 groups: Main Tab Read Only, Show Question 7 |
-| field-multiple-groups | Con_Question7 DG | — | Field appears in 2 groups: Main Tab Read Only, Show Question 7 Buttons and DG |
-| field-multiple-groups | Con_Question8 | — | Field appears in 2 groups: Main Tab Read Only, Show Question 8 |
-| field-multiple-groups | Con_Question8 DG | — | Field appears in 2 groups: Main Tab Read Only, Show Question 8 Buttons and DG |
-| field-multiple-groups | Con_Question9 | — | Field appears in 2 groups: Main Tab Read Only, Show Question 9 |
-| field-multiple-groups | Con_Question9 DG | — | Field appears in 2 groups: Main Tab Read Only, Show Question 9 Buttons and DG |
-| field-multiple-groups | Con_Question10 | — | Field appears in 2 groups: Main Tab Read Only, Show Question 10 |
-| field-multiple-groups | Con_Question11 | — | Field appears in 2 groups: Main Tab Read Only, Show Question 11 |
-| field-multiple-groups | Con_Question12a | — | Field appears in 2 groups: Main Tab Read Only, Show Question 12 |
-| field-multiple-groups | Con_Question13 | — | Field appears in 2 groups: Main Tab Read Only, Show Question 13 |
-| field-multiple-groups | Con_LandownerDGs | — | Field appears in 2 groups: Main Tab Read Only, Show Question 1a |
-| field-multiple-groups | Con_Question12c | — | Field appears in 2 groups: Main Tab Read Only, Show Question 12c |
-| field-multiple-groups | Con_Question5b_AppJ_DG_Edit | — | Field appears in 2 groups: Q5B, Show Edit Datagrids |
-| field-multiple-groups | Con_Question5b_AppJ_DG_View | — | Field appears in 2 groups: Q5B, Show View Datagrids |
-| field-multiple-groups | Con_Question4_AppD_DG_Edit | — | Field appears in 2 groups: Show Appendix D Datagrid, Show Edit Datagrids |
-| field-multiple-groups | Con_Question4_AppD_DG_View | — | Field appears in 2 groups: Show Appendix D Datagrid, Show View Datagrids |
 | container-responsive-flow | Con_LandownerDGs | Page 1 | Container has 9 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
 | default-text | DataField160 | Page 1 | Field text "Checkbox" is a default value |
 | default-text | DataField27 | Page 1 | Field text "Checkbox" is a default value |
@@ -262,6 +267,69 @@ Notification Needed" does not match expected "Forest Practice Notification Neede
 | accessibility-label-match | UserRoles | Page 1 | AccessibilityLabel "Individual ID" does not match expected "User Roles" |
 | button-label-camelcase | FPANIDLabel | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | tab-control-visible | TabControl | — | TabControl is in group "Hide Form Tabs" — tab visibility should be controlled via Menu tab, not groups |
+| label-truncation | Label196 | Page 1 | Label text "Long-Term Forest Practices Application Step 1" (~693px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | DataField2 | Page 1 | Label text "<b style="color:#9E0000;">*</b> Indicates required field" (~392px) may be truncated in 132px width — increase width or enable wrapping |
+| label-truncation | Label179 | Page 1 | Label text "Region: <b style="color:#9E0000;">*</b>" (~273px) may be truncated in 72px width — increase width or enable wrapping |
+| label-truncation | Label60 | Page 1 | Label text "Visit the <a href="https://www.dnr.wa.gov/programs-and-services/forest-practices/review-applications-fpars/forest-practices-forms-and" target="_blank" style="color: forestgreen; font-weight: bold; text-decoration: underline;">Forest Practices Forms and Applications page</a> for more information on forest practices applications and forms." (~2373px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label66 | Page 1 | Label text "1a. Landowner Information<b style="color:#9E0000;">*</b>" (~432px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label191 | Page 1 | Label text "Select the Landowner type you want to add.<strong style="color:#9E0000;">*</strong>" (~581px) may be truncated in 282px width — increase width or enable wrapping |
+| label-truncation | Label190 | Page 1 | Label text "Landowner (Business Search)" (~208px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label192 | Page 1 | Label text "<strong>Instructions:</strong> Search for a contact below to add a Landowner to your application." (~679px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label79 | Page 1 | Label text "Province / State:" (~119px) may be truncated in 102px width — increase width or enable wrapping |
+| label-truncation | DataField36 | Page 1 | Label text "Landowner (Business Signer Search)" (~262px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label197 | Page 1 | Label text "Landowner (Individual Search)" (~224px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label198 | Page 1 | Label text "<b>Instructions:</b> Search for a contact below to add a business signer to your application." (~651px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label228 | Page 1 | Label text "<b>Instructions:</b> Search for a contact below to add a Landowner to your application." (~609px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label211 | Page 1 | Label text "Province / State:" (~119px) may be truncated in 102px width — increase width or enable wrapping |
+| label-truncation | Label85 | Page 1 | Label text "1b. Contact Person Information<b style="color:#9E0000;">*</b>" (~470px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label86 | Page 1 | Label text "First Name: <b style="color:#9E0000;">*</b>" (~301px) may be truncated in 92px width — increase width or enable wrapping |
+| label-truncation | Label88 | Page 1 | Label text "Last Name: <b style="color:#9E0000;">*</b>" (~294px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label94 | Page 1 | Label text "2. Are you a small forest landowner per RCW 76.09.450?<b style="color:#9E0000;">*</b>" (~655px) may be truncated in 372px width — increase width or enable wrapping |
+| label-truncation | Label96 | Page 1 | Label text "Are you a small forest landowner per RCW 76.09.450? See instructions for details." (~567px) may be truncated in 502px width — increase width or enable wrapping |
+| label-truncation | Label182 | Page 1 | Label text "in preparing this application." (~210px) may be truncated in 182px width — increase width or enable wrapping |
+| label-truncation | Label104 | Page 1 | Label text "3. What is the legal description of the areas included in this assessment?<b style="color:#9E0000;">*</b>" (~809px) may be truncated in 482px width — increase width or enable wrapping |
+| label-truncation | Label106 | Page 1 | Label text "4. Are there potential unstable slopes or landforms in or around the area of your forest practices activity?<b style="color:#9E0000;">*</b>" (~1071px) may be truncated in 682px width — increase width or enable wrapping |
+| label-truncation | Label111 | Page 1 | Label text "5. Is this Forest Practices Application/Notification (answer all of the following questions)<b style="color:#9E0000;">*</b>" (~948px) may be truncated in 602px width — increase width or enable wrapping |
+| label-truncation | Label112 | Page 1 | Label text "a. Within 500 feet of a public park?<b style="color:#9E0000;">*</b>" (~469px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label113 | Page 1 | Label text "Park Name:<b style="color:#9E0000;">*</b>" (~287px) may be truncated in 92px width — increase width or enable wrapping |
+| label-truncation | Label118 | Page 1 | Label text "Include Appendix J. Marbled Murrelet Form or attach/reference applicable HCP 
+prescriptions." (~644px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label120 | Page 1 | Label text "c. Including areas of critical wildlife habitat?<b style="color:#9E0000;">*</b>" (~553px) may be truncated in 272px width — increase width or enable wrapping |
+| label-truncation | Label122 | Page 1 | Label text "If yes, document types of habitat and their locations on an activity map separate from the one(s) used for the rest of your assessment" (~938px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label124 | Page 1 | Label text "d. In or directly adjacent to a potential Channel Migration Zone (CMZ)?<b style="color:#9E0000;">*</b>" (~714px) may be truncated in 432px width — increase width or enable wrapping |
+| label-truncation | Label126 | Page 1 | Label text "If yes, upload Appendix E. CMZ Assessment Form or upload/reference applicable HCP and/or Watershed Analysis Prescriptions" (~847px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label128 | Page 1 | Label text "6.Stream Segment, Stream Associated Wetland, Lake, or Pond Inventory." (~532px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label189 | Page 1 | Label text "Does this Forest Practices include streams, Stream associated Wetlands, Lakes, and/or Ponds?" (~644px) may be truncated in 432px width — increase width or enable wrapping |
+| label-truncation | Label245 | Page 1 | Label text "List each one separately and show it, along with their identifier on your activity map." (~609px) may be truncated in 432px width — increase width or enable wrapping |
+| label-truncation | Label135 | Page 1 | Label text "8. Sensitive Site Inventory for Type Np Waters." (~362px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label136 | Page 1 | Label text "Does your forest practices include sensitive sites near or adjacent to Type Np water?" (~595px) may be truncated in 512px width — increase width or enable wrapping |
+| label-truncation | Label250 | Page 1 | Label text "List each one separately and show it, along with their identifier on your activity map." (~609px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label139 | Page 1 | Label text "Are private or forest roads being used for this forest practices?" (~455px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label141 | Page 1 | Label text "10. How are the following currently marked on the ground?" (~439px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label149 | Page 1 | Label text "12. Additional information (attach additional pages if necessary):" (~509px) may be truncated in 422px width — increase width or enable wrapping |
+| label-truncation | Label284 | Page 1 | Label text "&#x2022; 45-Day Resubmittal of a Withdrawn or Disapproved LTA Step 1:" (~483px) may be truncated in 352px width — increase width or enable wrapping |
+| label-truncation | Label286 | Page 1 | Label text "&#x2022; Inter-Agency Payment" (~203px) may be truncated in 152px width — increase width or enable wrapping |
+| label-truncation | DataField7 | Page 1 | Label text "13. Send for Signature(s)" (~193px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label265 | Page 1 | Label text "I/We acknowledge the following:" (~239px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label264 | Page 1 | Label text "<b style="color:#9E0000;">*</b>The information on this application/notification is true." (~616px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label263 | Page 1 | Label text "<b style="color:#9E0000;">*</b>We understand this proposed forest practice is subject to:" (~623px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label154 | Page 1 | Label text "&#x2022;	The Forest Practices Act and Rules, AND" (~336px) may be truncated in 262px width — increase width or enable wrapping |
+| label-truncation | Label155 | Page 1 | Label text "&#x2022;	All other federal, state or local regulations." (~385px) may be truncated in 262px width — increase width or enable wrapping |
+| label-truncation | Label267 | Page 1 | Label text "<b style="color:#9E0000;">*</b>Compliance with the Forest Practices Act and Rules does not ensure compliance with the Endangered Species Act or other federal, state or local laws." (~1253px) may be truncated in 202px width — increase width or enable wrapping |
+| label-truncation | Label266 | Page 1 | Label text "<b style="color:#9E0000;">*</b>The following may result in an unauthorized incidental take of certain endangered or threatened fish species:" (~980px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label159 | Page 1 | Label text "&#x2022;	Conversion of land to non-forestry use." (~336px) may be truncated in 252px width — increase width or enable wrapping |
+| label-truncation | Label160 | Page 1 | Label text "&#x2022;	Harvesting within the maximum RMZ on a 20-acre exempt parcel that was acquired after June 5, 2006." (~749px) may be truncated in 622px width — increase width or enable wrapping |
+| label-truncation | Label161 | Page 1 | Label text "&#x2022;	Equipment crossings or fords that are in or over Type S and F Waters." (~546px) may be truncated in 432px width — increase width or enable wrapping |
+| label-truncation | Label268 | Page 1 | Label text "<b style="color:#9E0000;">*</b>Inadvertent Discovery &#x2013; Chapter 27.44, 27.53, 68.50 and 68.60 RCW" (~721px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label274 | Page 1 | Label text "You can manage your submitted application by selecting one of the following actions." (~588px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label237 | Page 1 | Label text "Individual ID:" (~98px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label296 | Page 1 | Label text "Control for Q3:" (~105px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label304 | Page 1 | Label text "LTA Step1 Status Updated At:" (~196px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label300 | Page 1 | Label text "Clean Text for Q12 (Add Info):" (~210px) may be truncated in 182px width — increase width or enable wrapping |
+| label-wrap-textbox | Label108 | Page 1 | Label text "Are there potential unstable slopes or landforms in or around the area of your forest practices activity?<b style="color:#9E0000;">*</b>" wraps at 572px width next to "Unstable Slopes Landforms" — widen label or shorten text |
+| label-wrap-textbox | Label116 | Page 1 | Label text "b. Within 50 miles of saltwater AND you own more than 500 acres of forestland in Washington 
+state?<b style="color:#9E0000;">*</b>" wraps at 602px width next to "Within 50 Miles Saltwater Own More Than 500 Acres" — widen label or shorten text |
+| label-wrap-textbox | Label132 | Page 1 | Label text "Are you operating within 200 feet of a wetland that is not associated with Type S or F water?" wraps at 642px width next to "Wetlands Inventory" — widen label or shorten text |
 
 ## Info
 
@@ -342,3 +410,37 @@ Notification Needed" does not match expected "Forest Practice Notification Neede
 | field-max-length | Additional Information | Page 1 | TextArea MaxLength is 50 — recommended minimum is 3000 for notes/text fields |
 | field-max-length | Redacted Content | Page 1 | TextArea MaxLength is 50 — recommended minimum is 3000 for notes/text fields |
 | field-max-length | Add Legal Description | Page 1 | MaxLength is 50 for notes field — recommended minimum is 3000 |
+| font-consistency | Label196 | Page 1 | Label style differs from form pattern: fontSize=20 (expected 10), bold=true (expected false), color=#ffffffff (expected #FF000000) |
+| font-consistency | DataField2 | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | Label47 | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | Label6 | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | Label33 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff9e0000 (expected #FF000000) |
+| font-consistency | Label34 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10) |
+| font-consistency | DataField3 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10) |
+| font-consistency | Label38 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label43 | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label41 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| data-lookup-in-properties | Within 500 Feet Public Park | — | Script "Within_500_Feet_Public_Park_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Landowner Business Search Country | — | Script "Country_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Historic Sites Native American Cultural Resources Review | — | Script "Historic_Sites_Native_American_Cultural_Resources_Review_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Adjacent Potential Channel Migration Zone | — | Script "Adjacent_Potential_Channel_Migration_Zone_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Unstable Slopes Landforms | — | Script "Unstable_Slopes_Landforms_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Landowner Business Or Individual | — | Script "Landowner_Business_Or_Individual_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Within 50 Miles Saltwater Own More Than 500 Acres | — | Script "Within_50_Miles_Saltwater_Own_More_Than_500_Acres_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Adjacent Potential Channel Migration Zone | — | Script "Adjacent_Potential_Channel_Migration_Zone_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Region | — | Script "Region_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Critical Wildlife Habitat Areas | — | Script "Critical_Wildlife_Habitat_Areas_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Unstable Slopes Landforms | — | Script "Unstable_Slopes_Landforms_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Landowner Business Or Individual | — | Script "Landowner_Business_Or_Individual_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Landowner Business Search Province State | — | Script "State_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Small Forest Landowner | — | Script "Small_Forest_Landowner_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Landowner Business Search County | — | Script "County_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Landowner Business Search Province State | — | Script "State_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Within 500 Feet Public Park | — | Script "Within_500_Feet_Public_Park_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Historic Sites Native American Cultural Resources Review | — | Script "Historic_Sites_Native_American_Cultural_Resources_Review_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Within 50 Miles Saltwater Own More Than 500 Acres | — | Script "Within_50_Miles_Saltwater_Own_More_Than_500_Acres_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Region | — | Script "Region_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Critical Wildlife Habitat Areas | — | Script "Critical_Wildlife_Habitat_Areas_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| field-width-standard | Landowner Business Search Email | Page 1 | email field width is 196px — recommended minimum is 200px |
+| field-width-standard | Landowner Search Email | Page 1 | email field width is 196px — recommended minimum is 200px |
+| field-width-standard | Add Legal Description | Page 1 | notes field width is 176px — recommended minimum is 300px |

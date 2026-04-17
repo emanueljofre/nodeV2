@@ -1,25 +1,19 @@
 # Standards Review: Fee
 
-Generated: 2026-04-16 | Rules: 40 | Findings: 140 (0 errors, 105 warnings, 35 info)
+Generated: 2026-04-16 | Rules: 49 | Findings: 166 (67 errors, 53 warnings, 46 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
-| Error    | 0 |
-| Warning  | 105 |
-| Info     | 35 |
+| Error    | 67 |
+| Warning  | 53 |
+| Info     | 46 |
 
-## Warnings
+## Errors
 
 | Rule | Field | Page | Message |
 | :--- | :---- | :--- | :------ |
-| title-case | GL Account | Page 1 | Field name "GL Account" is not in Title Case |
-| title-case | Related Record GUID | Page 1 | Field name "Related Record GUID" is not in Title Case |
-| title-case | Customer Pays CCTP | Page 1 | Field name "Customer Pays CCTP" is not in Title Case |
-| default-name | Image108 | Page 1 | Default field name "Image108" — use a descriptive name |
-| tab-order-zero | btnAdminSave | Page 1 | TabOrder is 136 — should be 0 (auto-calculated) |
-| tab-order-zero | Admin Override | Page 1 | TabOrder is 137 — should be 0 (auto-calculated) |
 | script-orphan-assignment | Assigned_Staff_onBlur | — | Script assignment references non-existent control ID: f4a91ba7-f48f-fc80-01b1-13559954d316 |
 | script-orphan-assignment | TabComplaintsIncidents_onClick | — | Script assignment references non-existent control ID: c38eb918-5e09-47bf-b39f-66224779a2b4 |
 | script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
@@ -86,8 +80,19 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 140 (0 errors, 105 warnings, 35 in
 | script-orphan-assignment | btnAddStaff_onClick | — | Script assignment references non-existent control ID: ad564d4b-4087-228c-e418-9cba0ab47211 |
 | script-orphan-assignment | Legal_Name_onBlur | — | Script assignment references non-existent control ID: e7945bdb-30e9-011c-9c0d-3b2d54805a05 |
 | script-orphan-assignment | Physical_Telephone_onBlur | — | Script assignment references non-existent control ID: 61e33551-492f-a10e-013a-e18694f878ae |
-| script-unused-template | TabToFieldRelationships | — | Template helper "TabToFieldRelationships" is never referenced from any other script |
 | script-field-reference | Physical_Same_As_Mailing_Address_onChange | — | Script references non-existent field "Has Approved License" via GetFieldValue() |
+
+## Warnings
+
+| Rule | Field | Page | Message |
+| :--- | :---- | :--- | :------ |
+| title-case | GL Account | Page 1 | Field name "GL Account" is not in Title Case |
+| title-case | Related Record GUID | Page 1 | Field name "Related Record GUID" is not in Title Case |
+| title-case | Customer Pays CCTP | Page 1 | Field name "Customer Pays CCTP" is not in Title Case |
+| default-name | Image108 | Page 1 | Default field name "Image108" — use a descriptive name |
+| tab-order-zero | btnAdminSave | Page 1 | TabOrder is 136 — should be 0 (auto-calculated) |
+| tab-order-zero | Admin Override | Page 1 | TabOrder is 137 — should be 0 (auto-calculated) |
+| script-unused-template | TabToFieldRelationships | — | Template helper "TabToFieldRelationships" is never referenced from any other script |
 | container-responsive-flow | Con_Tabs | Page 1 | Container has 4 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
 | distance-to-border | Form ID | Page 1 | Field is 10px from the right border (minimum: 30px) |
 | distance-to-border | btnOpenRelatedRecord | Page 1 | Field is 24px from the right border (minimum: 30px) |
@@ -119,6 +124,21 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 140 (0 errors, 105 warnings, 35 in
 | button-label-camelcase | TabNotes | Page 1 | Button name should start with "btn" prefix (camelCase convention) |
 | button-label-camelcase | TabRefund | Page 1 | Button name should start with "btn" prefix (camelCase convention) |
 | tab-control-visible | TabControl | — | TabControl is in group "Hide Form Tabs" — tab visibility should be controlled via Menu tab, not groups |
+| label-truncation | DataField2 | Page 1 | Label text "<b style="color:#9E0000;">*</b> Indicates required field" (~392px) may be truncated in 122px width — increase width or enable wrapping |
+| label-truncation | Label40 | Page 1 | Label text "Process Type: <b style="color:#9E0000;">*</b>" (~315px) may be truncated in 142px width — increase width or enable wrapping |
+| label-truncation | Label25 | Page 1 | Label text "Fee Name: <b style="color:#9E0000;">*</b>" (~287px) may be truncated in 142px width — increase width or enable wrapping |
+| label-truncation | Label42 | Page 1 | Label text "Fee Type: <b style="color:#9E0000;">*</b>" (~287px) may be truncated in 132px width — increase width or enable wrapping |
+| label-truncation | Label27 | Page 1 | Label text "Fee Description: <b style="color:#9E0000;">*</b>" (~336px) may be truncated in 142px width — increase width or enable wrapping |
+| label-truncation | Label33 | Page 1 | Label text "Fund: <b style="color:#9E0000;">*</b>" (~259px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | DataField3 | Page 1 | Label text "Cost Center: <b style="color:#9E0000;">*</b>" (~308px) may be truncated in 100px width — increase width or enable wrapping |
+| label-truncation | Label37 | Page 1 | Label text "GL Account: <b style="color:#9E0000;">*</b>" (~301px) may be truncated in 100px width — increase width or enable wrapping |
+| label-truncation | Label29 | Page 1 | Label text "Fee Amount: <b style="color:#9E0000;">*</b>" (~301px) may be truncated in 142px width — increase width or enable wrapping |
+| label-truncation | Label99 | Page 1 | Label text "Finalized Transaction Total:" (~196px) may be truncated in 162px width — increase width or enable wrapping |
+| label-truncation | Label55 | Page 1 | Label text "Minimum Payment: <b style="color:#9E0000;">*</b>" (~336px) may be truncated in 152px width — increase width or enable wrapping |
+| label-truncation | Label57 | Page 1 | Label text "Frequency: <b style="color:#9E0000;">*</b>" (~294px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label59 | Page 1 | Label text "Start Date: <b style="color:#9E0000;">*</b>" (~301px) may be truncated in 162px width — increase width or enable wrapping |
+| label-truncation | Label61 | Page 1 | Label text "Next Due Date: <b style="color:#9E0000;">*</b>" (~322px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label92 | Page 1 | Label text "Overdue Installment Fee Notification Last Send Date:" (~364px) may be truncated in 322px width — increase width or enable wrapping |
 
 ## Info
 
@@ -159,3 +179,14 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 140 (0 errors, 105 warnings, 35 in
 | listener-disabled | User ID | Page 1 | EnableQListener is enabled — verify this field requires query string fill-in/relate capability |
 | listener-disabled | Unit Type | Page 1 | EnableQListener is enabled — verify this field requires query string fill-in/relate capability |
 | field-max-length | Fee Description | Page 1 | MaxLength is 100 for notes field — recommended minimum is 3000 |
+| font-consistency | fpOnlineTitle | Page 1 | Label style differs from form pattern: fontSize=18 (expected 10), bold=true (expected false), color=#ffffffff (expected #FF000000) |
+| font-consistency | DataField2 | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | DataField6 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff9e0000 (expected #FF000000) |
+| font-consistency | DataField5 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10) |
+| font-consistency | DataField8 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | DataField9 | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10), color=#ff000000 (expected #FF000000) |
+| font-consistency | DataField7 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| data-lookup-in-properties | Fee Name | — | Script "Fee_Name_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Frequency | — | Script "Frequency_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Fee Type | — | Script "Fee_Type_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Process Type | — | Script "Process_Type_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |

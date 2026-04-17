@@ -1,14 +1,23 @@
 # Standards Review: Stream-Segment
 
-Generated: 2026-04-16 | Rules: 40 | Findings: 71 (0 errors, 56 warnings, 15 info)
+Generated: 2026-04-16 | Rules: 49 | Findings: 95 (4 errors, 64 warnings, 27 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
-| Error    | 0 |
-| Warning  | 56 |
-| Info     | 15 |
+| Error    | 4 |
+| Warning  | 64 |
+| Info     | 27 |
+
+## Errors
+
+| Rule | Field | Page | Message |
+| :--- | :---- | :--- | :------ |
+| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
+| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
+| script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
+| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
 
 ## Warnings
 
@@ -30,10 +39,6 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 71 (0 errors, 56 warnings, 15 info
 | title-case | Question 9 Yes Type Ns water | Page 1 | Field name "Question 9 Yes Type Ns water" is not in Title Case |
 | default-name | Image57 | Page 1 | Default field name "Image57" — use a descriptive name |
 | default-name | DataField77 | Page 1 | Default field name "DataField77" — use a descriptive name |
-| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
-| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
-| script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
-| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
 | script-unused-template | VerifyUniqueAndSave | — | Template helper "VerifyUniqueAndSave" is never referenced from any other script |
 | container-responsive-flow | Container2 | Page 1 | Container has 2 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
 | container-responsive-flow | Con_Q4 | Page 1 | Container has 3 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
@@ -70,6 +75,18 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 71 (0 errors, 56 warnings, 15 info
 | accessibility-label-match | btnAdminSave | Page 1 | AccessibilityLabel "Admin Save Button" does not match expected "Admin Save" |
 | accessibility-label-match | Related Record ID | Page 1 | AccessibilityLabel "Tab Control" does not match expected "Related Record ID" |
 | tab-control-visible | TabControl | — | TabControl is in group "Hide Form Tabs" — tab visibility should be controlled via Menu tab, not groups |
+| label-truncation | DataField2 | Page 1 | Label text "<strong style="color:#9E0000;">*</strong> Indicates required field" (~462px) may be truncated in 132px width — increase width or enable wrapping |
+| label-truncation | Label82 | Page 1 | Label text "<strong style="color:#9E0000;">*</strong>" (~259px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | DataField8 | Page 1 | Label text "<strong style="color:#9E0000;">*</strong>" (~259px) may be truncated in 192px width — increase width or enable wrapping |
+| label-truncation | Label83 | Page 1 | Label text "<strong style="color:#9E0000;">*</strong>" (~259px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label88 | Page 1 | Label text "<strong style="color:#9E0000;">*</strong>" (~259px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label84 | Page 1 | Label text "<strong style="color:#9E0000;">*</strong>" (~259px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label85 | Page 1 | Label text "<strong style="color:#9E0000;">*</strong>" (~259px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label86 | Page 1 | Label text "<strong style="color:#9E0000;">*</strong>" (~259px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label87 | Page 1 | Label text "<strong style="color:#9E0000;">*</strong>" (~259px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | DataField6 | Page 1 | Label text "Related Record ID:" (~126px) may be truncated in 82px width — increase width or enable wrapping |
+| label-wrap-textbox | Label92 | Page 1 | Label text "Stream/Segment ID: <strong style="color:#9E0000;">*</strong>" wraps at 152px width next to "Stream Segment ID" — widen label or shorten text |
+| label-wrap-textbox | Label93 | Page 1 | Label text "Date(s) Observed <strong style="color:#9E0000;">*</strong>" wraps at 142px width next to "Dates Observed" — widen label or shorten text |
 
 ## Info
 
@@ -90,3 +107,15 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 71 (0 errors, 56 warnings, 15 info
 | spelling | Question 8 Yes Type Np water Skip to 10 | Page 1 | Possible misspelling: "10" (suggestions: 0, 1) |
 | spelling | Question 9 Yes Type Ns water | Page 1 | Possible misspelling: "Ns" (suggestions: Na, Nd, Ne) |
 | listener-disabled | Related Record ID | Page 1 | EnableQListener is enabled — verify this field requires query string fill-in/relate capability |
+| font-consistency | Label71 | Page 1 | Label style differs from form pattern: fontSize=18 (expected 9), bold=true (expected false), color=#ffffffff (expected #ff000000) |
+| font-consistency | DataField2 | Page 1 | Label style differs from form pattern: fontSize=10 (expected 9) |
+| font-consistency | Label56 | Page 1 | Label style differs from form pattern: fontSize=10 (expected 9), bold=true (expected false) |
+| font-consistency | Label92 | Page 1 | Label style differs from form pattern: fontSize=11 (expected 9) |
+| font-consistency | Label93 | Page 1 | Label style differs from form pattern: fontSize=11 (expected 9) |
+| font-consistency | Label76 | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | Label33 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 9), bold=true (expected false), color=#ff9e0000 (expected #ff000000) |
+| font-consistency | Label34 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 9), color=#FF000000 (expected #ff000000) |
+| font-consistency | DataField3 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 9), color=#FF000000 (expected #ff000000) |
+| font-consistency | Label38 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 9), bold=true (expected false) |
+| font-consistency | DataField5 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 9), bold=true (expected false) |
+| font-consistency | DataField6 | Page 1 | Label style differs from form pattern: fontSize=10 (expected 9), color=#FF000000 (expected #ff000000) |

@@ -1,14 +1,23 @@
 # Standards Review: Associated-Document-Relation
 
-Generated: 2026-04-16 | Rules: 40 | Findings: 25 (0 errors, 15 warnings, 10 info)
+Generated: 2026-04-16 | Rules: 49 | Findings: 32 (4 errors, 12 warnings, 16 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
-| Error    | 0 |
-| Warning  | 15 |
-| Info     | 10 |
+| Error    | 4 |
+| Warning  | 12 |
+| Info     | 16 |
+
+## Errors
+
+| Rule | Field | Page | Message |
+| :--- | :---- | :--- | :------ |
+| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
+| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
+| script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
+| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
 
 ## Warnings
 
@@ -19,16 +28,13 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 25 (0 errors, 15 warnings, 10 info
 | default-name | Image57 | Page 1 | Default field name "Image57" — use a descriptive name |
 | accessibility-label | Sensitive Indicator | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | Receipt Date | Page 1 | Missing AccessibilityLabel |
-| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
-| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
-| script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
-| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
 | distance-to-border | Top Form ID | Page 1 | Field is 10px from the right border (minimum: 30px) |
 | accessibility-label-match | Document Form Name | Page 1 | AccessibilityLabel "Document Form Name" does not match expected "Document/Form Name" |
 | accessibility-label-match | Document Form Type | Page 1 | AccessibilityLabel "Document Form Type" does not match expected "Document/Form Type" |
 | accessibility-label-match | Document Form Status | Page 1 | AccessibilityLabel "Document Form Status" does not match expected "Document/Form Status" |
 | accessibility-label-match | Document Create By | Page 1 | AccessibilityLabel "Document Create By" does not match expected "Create By" |
 | accessibility-label-match | btnAdminSave | Page 1 | AccessibilityLabel "Admin Save Button" does not match expected "Admin Save" |
+| label-truncation | DataField2 | Page 1 | Label text "<strong style="color:#9E0000;">*</strong> Indicates required field" (~462px) may be truncated in 132px width — increase width or enable wrapping |
 
 ## Info
 
@@ -44,3 +50,9 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 25 (0 errors, 15 warnings, 10 info
 | spelling | ARP ID or WTM RP ID | Page 1 | Possible misspelling: "WTM" (suggestions: ATM, WPM, TM) |
 | listener-disabled | Document or Form | Page 1 | EnableQListener is enabled — verify this field requires query string fill-in/relate capability |
 | field-max-length | Document Form Name | Page 1 | MaxLength is 50 for name field — recommended minimum is 100 |
+| font-consistency | Label71 | Page 1 | Label style differs from form pattern: fontSize=18 (expected 10), bold=true (expected false), color=#ffffffff (expected #ff000000) |
+| font-consistency | Label22 | Page 1 | Label style differs from form pattern: bold=true (expected false) |
+| font-consistency | Label33 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff9e0000 (expected #ff000000) |
+| font-consistency | Label38 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false) |
+| font-consistency | Label43 | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10) |
+| font-consistency | Label41 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false) |

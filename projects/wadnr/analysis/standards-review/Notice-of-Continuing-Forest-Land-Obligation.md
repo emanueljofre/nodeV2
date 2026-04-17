@@ -1,14 +1,21 @@
 # Standards Review: Notice-of-Continuing-Forest-Land-Obligation
 
-Generated: 2026-04-16 | Rules: 40 | Findings: 407 (0 errors, 298 warnings, 109 info)
+Generated: 2026-04-16 | Rules: 49 | Findings: 445 (2 errors, 332 warnings, 111 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
-| Error    | 0 |
-| Warning  | 298 |
-| Info     | 109 |
+| Error    | 2 |
+| Warning  | 332 |
+| Info     | 111 |
+
+## Errors
+
+| Rule | Field | Page | Message |
+| :--- | :---- | :--- | :------ |
+| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
+| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
 
 ## Warnings
 
@@ -30,8 +37,6 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 407 (0 errors, 298 warnings, 109 i
 | accessibility-required | Seller Zip | Page 1 | Required field AccessibilityLabel "Seller Zip" should end with "field Required" |
 | accessibility-required | Buyer Company Name Person | Page 1 | Required field AccessibilityLabel "Buyer Company Name Person" should end with "field Required" |
 | accessibility-required | Buyer Email | Page 1 | Required field AccessibilityLabel "Buyer Email" should end with "field Required" |
-| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
-| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
 | script-empty-body | AddressCopySourceToDestination | — | Script "AddressCopySourceToDestination" has an empty body |
 | script-empty-body | GIS_GetModalGISMap | — | Script "GIS_GetModalGISMap" has an empty body |
 | script-empty-body | FormValidation | — | Script "FormValidation" has an empty body |
@@ -312,6 +317,54 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 407 (0 errors, 298 warnings, 109 i
 | button-label-camelcase | LabelDocumentUploadPath | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | button-label-camelcase | LabelCommunication | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | tab-control-visible | TabControl | — | TabControl is in group "Hide Edit Button" — tab visibility should be controlled via Menu tab, not groups |
+| standard-hidden-group | — | — | Template does not have a Hidden Fields group — expected a group with visibility condition referencing Admin Override |
+| standard-readonly-group | — | — | Template does not have a Read-Only Fields group — expected a group with read-only condition referencing Admin Override |
+| label-truncation | DataField2 | Page 1 | Label text "<strong style="color:#9E0000;">*</strong> Indicates required field" (~462px) may be truncated in 132px width — increase width or enable wrapping |
+| label-truncation | LabelRegion | Page 1 | Label text "Region:<strong style="color:#9E0000;">*</strong>" (~336px) may be truncated in 112px width — increase width or enable wrapping |
+| label-truncation | LabelIntroductionText1 | Page 1 | Label text "Sellers and Buyers of land and perpetual timber rights have certain rights and responsibilities when the land or perpetual timber rights are sold or transferred. Where the land is subject to certain continuing forest land obligations including without limitation: Reforestation; Road Maintenance and Abandonment Plans; Harvest Strategies along Type Np Waters in Eastern Washington; Conversion of forest land; and required mitigation. Prior to the sale or transfer of the land or perpetual timber rights the law requires that the following occur:" (~3815px) may be truncated in 840px width — increase width or enable wrapping |
+| label-truncation | LabelIntroductionText4 | Page 1 | Label text "At the time of sale or transfer of the land or perpetual timber rights, the seller shall send the signed form to the Department of Natural Resources (DNR).
+" (~1092px) may be truncated in 840px width — increase width or enable wrapping |
+| label-truncation | LabelIntroductionText5 | Page 1 | Label text "If the seller fails to notify the buyer about continuing forest land obligation, the seller shall pay the buyer´s costs related to such continuing forest land obligation, (including all legal costs) incurred by the buyer in enforcing the continuing forest land obligation against the seller.
+
+" (~2051px) may be truncated in 840px width — increase width or enable wrapping |
+| label-truncation | LabelIntroductionText6 | Page 1 | Label text "Failure by the seller to send the required notice to the DNR at the time of sale shall be prima facie evidence, in an action by the buyer against the seller for costs related to continuing forest land obligation, that seller did not notify the buyer of the continuing forest land obligation prior to sale.
+
+
+" (~2156px) may be truncated in 840px width — increase width or enable wrapping |
+| label-truncation | LabelIntroductionText7 | Page 1 | Label text "See <a href="https://app.leg.wa.gov/rcw/default.aspx?cite=76.09.070" target="_blank" style="color: forestgreen; font-weight: bold; text-decoration: underline;">RCW 76.09.070</a>, <a href="https://app.leg.wa.gov/rcw/default.aspx?cite=76.09.390" target="_blank" style="color: forestgreen; font-weight: bold; text-decoration: underline;">RCW 76.09.390</a> and <a href="https://app.leg.wa.gov/wac/default.aspx?cite=222-20-055" target="_blank" style="color: forestgreen; font-weight: bold; text-decoration: underline;">WAC 222-20-055</a>." (~3731px) may be truncated in 840px width — increase width or enable wrapping |
+| label-truncation | LabelIntroductionText8 | Page 1 | Label text "There are also other types of obligations subject to certain requirements, including without limitation: Small Forest Landowner Forest Riparian Easements; Landowner Landscape Plans; Approved alternative prescriptions; enforcement mitigation. Contact the local DNR Region Office for more information.
+
+
+" (~2114px) may be truncated in 840px width — increase width or enable wrapping |
+| label-truncation | LabelDocumentationInstructions | Page 1 | Label text "<b>Instructions:</b> To upload documentation, select the document type and then select the upload button below. View documentation by selecting the View Documentation button." (~1218px) may be truncated in 840px width — increase width or enable wrapping |
+| label-truncation | LabelContinuingObligationInstructions | Page 1 | Label text "<b>Instructions:</b> When adding one of more FPA/N or Enforcement Action numbers, please use the complete number and separate with a comma as needed. (o.e. OL-FPA-25-0402, NE-FPA-25-0522, 19210413)" (~1379px) may be truncated in 820px width — increase width or enable wrapping |
+| label-truncation | LabelReforestation | Page 1 | Label text "Reforestation (<a href="https://app.leg.wa.gov/rcw/default.aspx?cite=76.09.070" target="_blank" style="color: forestgreen; font-weight: bold; text-decoration: underline;">RCW 76.09.070</a>)" (~1323px) may be truncated in 512px width — increase width or enable wrapping |
+| label-truncation | LabelReforestationCheckbox | Page 1 | Label text "Obligations exists on the property identified within this document, and relates to the following Forest Practices Application/Notification (FPA/N) Number(s) <i>(list all that apply: add attachment if necessary)</i>:" (~1505px) may be truncated in 790px width — increase width or enable wrapping |
+| label-truncation | LabelRoadMantenance | Page 1 | Label text "Road Maintenance and Abandonment Plan (<a href="https://app.leg.wa.gov/WAC/default.aspx?cite=222-24-051" target="_blank" style="color: forestgreen; font-weight: bold; text-decoration: underline;">WAC 222-24-051</a>; <a href="https://app.leg.wa.gov/rcw/default.aspx?cite=76.09.390" target="_blank" style="color: forestgreen; font-weight: bold; text-decoration: underline;">RCW 76.09390</a>(2))" (~2744px) may be truncated in 512px width — increase width or enable wrapping |
+| label-truncation | LabelRoadMantenanceCheckbox | Page 1 | Label text "Obligations exists on the property identified within this document, and relates to the following Road Maintenance and Abandonment Plan Number(s) <i>(list all that apply: add attachment if necessary)</i>:" (~1421px) may be truncated in 790px width — increase width or enable wrapping |
+| label-truncation | LabelHarvestStrategy | Page 1 | Label text "Harvest Strategy along type Np Waters in Eastern Washington (<a href="https://app.leg.wa.gov/wac/default.aspx?cite=222-30-022" target="_blank" style="color: forestgreen; font-weight: bold; text-decoration: underline;">WAC 222-30-022</a>(2)(b))" (~1701px) may be truncated in 512px width — increase width or enable wrapping |
+| label-truncation | LabelHarvestStrategyCheckbox | Page 1 | Label text "Obligations exists on the property identified within this document, and relates to the following Forest Practices Application/Notification (FPA/N) Number(s) <i>(list all that apply: add attachment if necessary)</i>:" (~1505px) may be truncated in 790px width — increase width or enable wrapping |
+| label-truncation | LabelConvertionOfForestland | Page 1 | Label text "Conversion of Forestland (<a href="https://app.leg.wa.gov/rcw/default.aspx?cite=76.09.060" target="_blank" style="color: forestgreen; font-weight: bold; text-decoration: underline;">RCW 76.09.060</a> and <a href="https://app.leg.wa.gov/rcw/default.aspx?cite=76.09.070" target="_blank" style="color: forestgreen; font-weight: bold; text-decoration: underline;">070</a>)" (~2576px) may be truncated in 512px width — increase width or enable wrapping |
+| label-truncation | LabelConvertionOfForestlandCheckbox | Page 1 | Label text "Obligations exists on the property identified within this document, and relates to the following Forest Practices Application/Notification (FPA/N) Number(s) <i>(list all that apply: add attachment if necessary)</i>:" (~1505px) may be truncated in 790px width — increase width or enable wrapping |
+| label-truncation | LabelOtherCheckbox | Page 1 | Label text "Obligations exists on the property identified within this document, and relates to the following Forest Practices Application/Notification (FPA/N) Number(s) <i>(describe obligation and list all associated documents that apply; add attachment if necessary)</i>:" (~1820px) may be truncated in 790px width — increase width or enable wrapping |
+| label-truncation | LabelAssociatedDNRRegions | Page 1 | Label text "<b>Associated DNR/Region(s)</b> (select all that apply)" (~385px) may be truncated in 320px width — increase width or enable wrapping |
+| label-truncation | LabelLegalDescription | Page 1 | Label text "<b>Legal Description</b> <i>(include county parcel number(s) and/attachment if necessary)</i>:" (~658px) may be truncated in 512px width — increase width or enable wrapping |
+| label-truncation | LabelSellerInformationCompanyName | Page 1 | Label text "Company Name/Person <strong style="color:#9E0000;">*</strong>" (~427px) may be truncated in 155px width — increase width or enable wrapping |
+| label-truncation | LabelSellerInformationEmail | Page 1 | Label text "eMail <strong style="color:#9E0000;">*</strong>" (~329px) may be truncated in 50px width — increase width or enable wrapping |
+| label-truncation | LabelSellerInformationZip | Page 1 | Label text "Zip <strong style="color:#9E0000;">*</strong>" (~315px) may be truncated in 30px width — increase width or enable wrapping |
+| label-truncation | LabelNoteToSellerText | Page 1 | Label text "At the time of sale or transfer of the property or the perpetual timber rights: The seller is responsible for delivering (by certified mail or in person) the signed original to the DNR Region Office in which the property is located. However, if you choose to also have this form recorded by the county, deliver the original to the county and a copy (by certified mail or in person) to the DNR Region Office.
+
+
+" (~2870px) may be truncated in 840px width — increase width or enable wrapping |
+| label-truncation | LabelBuyerInformationCompanyName | Page 1 | Label text "Company Name/Person <strong style="color:#9E0000;">*</strong>" (~427px) may be truncated in 155px width — increase width or enable wrapping |
+| label-truncation | LabelBuyerInformationEmail | Page 1 | Label text "eMail <strong style="color:#9E0000;">*</strong>" (~329px) may be truncated in 50px width — increase width or enable wrapping |
+| label-truncation | LabelBuyerInformationZip | Page 1 | Label text "Zip <strong style="color:#9E0000;">*</strong>" (~315px) may be truncated in 50px width — increase width or enable wrapping |
+| label-truncation | LabelRecordId | Page 1 | Label text "Record ID:" (~70px) may be truncated in 62px width — increase width or enable wrapping |
+| label-truncation | LaberStatus | Page 1 | Label text "Status:" (~49px) may be truncated in 42px width — increase width or enable wrapping |
+| label-truncation | LabelAdminSectionText | Page 1 | Label text "<strong>Instructions:</strong>  This section is only visible to VaultAccess users.  Check Administrator Override to remove read-only configurations and show all fields.  Select Admin Save to save any changes without applying business rules.  Remember to uncheck override and save before closing." (~2065px) may be truncated in 642px width — increase width or enable wrapping |
+| label-truncation | LabelRelatedRecordID | Page 1 | Label text "Related Record ID: " (~133px) may be truncated in 120px width — increase width or enable wrapping |
+| label-truncation | LabelDocumentUploadPath | Page 1 | Label text "Document Upload Path: " (~154px) may be truncated in 120px width — increase width or enable wrapping |
+| label-truncation | Label139 | Page 1 | Label text "Temp Data Migration ID:" (~161px) may be truncated in 120px width — increase width or enable wrapping |
 
 ## Info
 
@@ -426,3 +479,5 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 407 (0 errors, 298 warnings, 109 i
 | field-max-length | Other Description | Page 1 | TextArea MaxLength is 2500 — recommended minimum is 3000 for notes/text fields |
 | field-max-length | Seller Mailing Address | Page 1 | MaxLength is 100 for address field — recommended minimum is 300 |
 | field-max-length | Buyer Mailing Address | Page 1 | MaxLength is 100 for address field — recommended minimum is 300 |
+| field-width-standard | Seller Mailing Address | Page 1 | address field width is 200px — recommended minimum is 250px |
+| field-width-standard | Buyer Mailing Address | Page 1 | address field width is 200px — recommended minimum is 250px |

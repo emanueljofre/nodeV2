@@ -1,21 +1,19 @@
 # Standards Review: Survey
 
-Generated: 2026-04-16 | Rules: 40 | Findings: 109 (0 errors, 100 warnings, 9 info)
+Generated: 2026-04-16 | Rules: 49 | Findings: 122 (83 errors, 22 warnings, 17 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
-| Error    | 0 |
-| Warning  | 100 |
-| Info     | 9 |
+| Error    | 83 |
+| Warning  | 22 |
+| Info     | 17 |
 
-## Warnings
+## Errors
 
 | Rule | Field | Page | Message |
 | :--- | :---- | :--- | :------ |
-| title-case | WDFW Survey Status | Page 1 | Field name "WDFW Survey Status" is not in Title Case |
-| default-name | Image57 | Page 1 | Default field name "Image57" — use a descriptive name |
 | script-orphan-assignment | btnHelpQ4a_onClick | — | Script assignment references non-existent control ID: dc5ce7aa-204d-4d93-1dfd-fb19c2c0c6aa |
 | script-orphan-assignment | Q1OtherDescribe_onChange | — | Script assignment references non-existent control ID: f793c18f-3f7d-30d0-86a7-1cf21dc40d17 |
 | script-orphan-assignment | Q2OutherEdges_onBlur | — | Script assignment references non-existent control ID: 32dcbddd-ff23-3280-0552-a4069405d4f5 |
@@ -99,6 +97,13 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 109 (0 errors, 100 warnings, 9 inf
 | script-orphan-assignment | Q1GIS_onChange | — | Script assignment references non-existent control ID: 5110ee94-df7b-8f5c-29b7-6bc48b2e6701 |
 | script-orphan-assignment | btnHelpQ6_onClick | — | Script assignment references non-existent control ID: 21342ca7-78cb-638d-0310-8d2784240c90 |
 | script-orphan-assignment | btnHelpQ2a_onClick | — | Script assignment references non-existent control ID: 913328f8-1005-fc23-4d72-77be39260632 |
+
+## Warnings
+
+| Rule | Field | Page | Message |
+| :--- | :---- | :--- | :------ |
+| title-case | WDFW Survey Status | Page 1 | Field name "WDFW Survey Status" is not in Title Case |
+| default-name | Image57 | Page 1 | Default field name "Image57" — use a descriptive name |
 | container-responsive-flow | Container4 | Page 1 | Container has 12 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
 | distance-to-border | Top Form ID | Page 1 | Field is 20px from the right border (minimum: 30px) |
 | button-min-size | btnHelpSurveyID | Page 1 | Button is 20x20px — minimum is 24x24px (508 compliance) |
@@ -114,6 +119,11 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 109 (0 errors, 100 warnings, 9 inf
 | accessibility-label-match | btnSaveDraft | Page 1 | AccessibilityLabel "Save Draft Button" does not match expected "Save Draft" |
 | button-label-camelcase | FormTemplateTitle | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | tab-control-visible | TabControl | — | TabControl is in group "Hide Form Tabs" — tab visibility should be controlled via Menu tab, not groups |
+| label-truncation | DataField2 | Page 1 | Label text "<strong style="color:#9E0000;">*</strong> Indicates required field" (~462px) may be truncated in 132px width — increase width or enable wrapping |
+| label-truncation | Label137 | Page 1 | Label text "Survey ID:<strong style="color:#9E0000;">*</strong>" (~357px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label138 | Page 1 | Label text "Legal Description:<strong style="color:#9E0000;">*</strong>" (~413px) may be truncated in 122px width — increase width or enable wrapping |
+| label-truncation | Label139 | Page 1 | Label text "WDFW Survey Status:<strong style="color:#9E0000;">*</strong>" (~420px) may be truncated in 152px width — increase width or enable wrapping |
+| label-truncation | Label140 | Page 1 | Label text "Survey Results:<strong style="color:#9E0000;">*</strong>" (~392px) may be truncated in 102px width — increase width or enable wrapping |
 
 ## Info
 
@@ -128,3 +138,11 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 109 (0 errors, 100 warnings, 9 inf
 | listener-disabled | Related Record ID | Page 1 | EnableQListener is enabled — verify this field requires query string fill-in/relate capability |
 | field-max-length | Survey ID | Page 1 | MaxLength is 25 — recommended minimum is 50 |
 | field-max-length | Legal Description | Page 1 | MaxLength is 25 for notes field — recommended minimum is 3000 |
+| font-consistency | FormTemplateTitle | Page 1 | Label style differs from form pattern: fontSize=18 (expected 10), bold=true (expected false), color=#ffffffff (expected #FF000000) |
+| font-consistency | DataField2 | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | Label33 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff9e0000 (expected #FF000000) |
+| font-consistency | DataField3 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10) |
+| font-consistency | Label43 | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10), color=#ff000000 (expected #FF000000) |
+| data-lookup-in-properties | WDFW Survey Status | — | Script "WDFW_Survey_Status_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Survey Results | — | Script "Survey_Results_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| field-width-standard | Legal Description | Page 1 | notes field width is 186px — recommended minimum is 300px |

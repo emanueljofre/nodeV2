@@ -1,14 +1,24 @@
 # Standards Review: Payment-Item
 
-Generated: 2026-04-16 | Rules: 40 | Findings: 42 (0 errors, 30 warnings, 12 info)
+Generated: 2026-04-16 | Rules: 49 | Findings: 72 (5 errors, 42 warnings, 25 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
-| Error    | 0 |
-| Warning  | 30 |
-| Info     | 12 |
+| Error    | 5 |
+| Warning  | 42 |
+| Info     | 25 |
+
+## Errors
+
+| Rule | Field | Page | Message |
+| :--- | :---- | :--- | :------ |
+| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
+| script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
+| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
+| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
+| field-multiple-groups | Due Date | — | Field appears in 2 groups: Read Only Fields, Visible Transaction Type - Payment |
 
 ## Warnings
 
@@ -19,11 +29,6 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 42 (0 errors, 30 warnings, 12 info
 | title-case | Refund GUID | Page 1 | Field name "Refund GUID" is not in Title Case |
 | default-name | Image78 | Page 1 | Default field name "Image78" — use a descriptive name |
 | accessibility-label | Refund Started | Page 1 | Missing AccessibilityLabel |
-| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
-| script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
-| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
-| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
-| field-multiple-groups | Due Date | — | Field appears in 2 groups: Read Only Fields, Visible Transaction Type - Payment |
 | distance-to-border | Top Form ID | Page 1 | Field is 10px from the right border (minimum: 30px) |
 | label-overlap | Transaction Type | Page 1 | Label "Label73" overlaps field by 92px |
 | label-overlap | Date of Transaction | Page 1 | Label "Label75" overlaps field by 102px |
@@ -44,6 +49,23 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 42 (0 errors, 30 warnings, 12 info
 | button-label-camelcase | fpOnlineTitle | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | button-label-camelcase | LicenseID | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | tab-control-visible | TabControl | — | TabControl is in group "Hide Form Tabs" — tab visibility should be controlled via Menu tab, not groups |
+| label-truncation | DataField2 | Page 1 | Label text "<b style="color:#9E0000;">*</b> Indicates required field" (~392px) may be truncated in 122px width — increase width or enable wrapping |
+| label-truncation | Label73 | Page 1 | Label text "Transaction Type: <b style="color:#9E0000;">*</b>" (~343px) may be truncated in 282px width — increase width or enable wrapping |
+| label-truncation | Label75 | Page 1 | Label text "Date of Transaction: <b style="color:#9E0000;">*</b>" (~364px) may be truncated in 282px width — increase width or enable wrapping |
+| label-truncation | Label76 | Page 1 | Label text "Payment Method: <b style="color:#9E0000;">*</b>" (~329px) may be truncated in 282px width — increase width or enable wrapping |
+| label-truncation | Label77 | Page 1 | Label text "Item Balance Due: <b style="color:#9E0000;">*</b>" (~343px) may be truncated in 282px width — increase width or enable wrapping |
+| label-truncation | Label85 | Page 1 | Label text "Original Transaction Amount: <b style="color:#9E0000;">*</b>" (~420px) may be truncated in 282px width — increase width or enable wrapping |
+| label-truncation | Label59 | Page 1 | Label text "Date of Original Transaction: <b style="color:#9E0000;">*</b>" (~427px) may be truncated in 282px width — increase width or enable wrapping |
+| label-truncation | Label87 | Page 1 | Label text "Refund Reason: <b style="color:#9E0000;">*</b>" (~322px) may be truncated in 282px width — increase width or enable wrapping |
+| label-truncation | Label88 | Page 1 | Label text "Transaction Amount: <b style="color:#9E0000;">*</b>" (~357px) may be truncated in 282px width — increase width or enable wrapping |
+| label-truncation | Label95 | Page 1 | Label text "Fund: <b style="color:#9E0000;">*</b>" (~259px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label97 | Page 1 | Label text "Cost Center: <b style="color:#9E0000;">*</b>" (~308px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label99 | Page 1 | Label text "GL Account: <b style="color:#9E0000;">*</b>" (~301px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label102 | Page 1 | Label text "Related Record ID:" (~126px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label60 | Page 1 | Label text "Individual ID:" (~98px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label62 | Page 1 | Label text "Transaction ID:" (~105px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label58 | Page 1 | Label text "Related Payment Item ID:" (~168px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label64 | Page 1 | Label text "Shopping Cart Removed ID:" (~175px) may be truncated in 152px width — increase width or enable wrapping |
 
 ## Info
 
@@ -61,3 +83,16 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 42 (0 errors, 30 warnings, 12 info
 | spelling | OnLoad Calculated Fee Balance | Page 1 | Possible misspelling: "OnLoad" (suggestions: UnLoad) |
 | spelling | Refund GUID | Page 1 | Possible misspelling: "GUID" (suggestions: GRID, GUIDE, GUIDO) |
 | listener-disabled | Related Payment Item ID | Page 1 | EnableQListener is enabled — verify this field requires query string fill-in/relate capability |
+| font-consistency | fpOnlineTitle | Page 1 | Label style differs from form pattern: fontSize=18 (expected 10), bold=true (expected false), color=#ffffffff (expected #FF000000) |
+| font-consistency | Label56 | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label22 | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label55 | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label33 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff9e0000 (expected #FF000000) |
+| font-consistency | Label34 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10) |
+| font-consistency | DataField3 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10) |
+| font-consistency | Label38 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label43 | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label41 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| data-lookup-in-properties | Payment Method | — | Script "Payment_Method_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Refund Reason | — | Script "Refund_Reason_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Transaction Type | — | Script "Transaction_Type_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |

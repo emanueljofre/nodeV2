@@ -1,26 +1,19 @@
 # Standards Review: Nesting-Platforms
 
-Generated: 2026-04-16 | Rules: 40 | Findings: 116 (0 errors, 105 warnings, 11 info)
+Generated: 2026-04-16 | Rules: 49 | Findings: 127 (79 errors, 29 warnings, 19 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
-| Error    | 0 |
-| Warning  | 105 |
-| Info     | 11 |
+| Error    | 79 |
+| Warning  | 29 |
+| Info     | 19 |
 
-## Warnings
+## Errors
 
 | Rule | Field | Page | Message |
 | :--- | :---- | :--- | :------ |
-| title-case | Nesting Platforms per Acre | Page 1 | Field name "Nesting Platforms per Acre" is not in Title Case |
-| default-name | Image57 | Page 1 | Default field name "Image57" — use a descriptive name |
-| accessibility-required | Delineated Stand Identifier | Page 1 | Required field AccessibilityLabel "Delineated Stand Identifier Required" should end with "field Required" |
-| accessibility-required | Acreage of Delineated Stand | Page 1 | Required field AccessibilityLabel "Acreage of Delineated Stand Required" should end with "field Required" |
-| accessibility-required | Nesting Platforms per Acre | Page 1 | Required field AccessibilityLabel "Nesting Platforms per Acre Required" should end with "field Required" |
-| accessibility-required | Number of Trees | Page 1 | Required field AccessibilityLabel "Number of Trees 32-inches &#xFEFF;dbh or Greater Required" should end with "field Required" |
-| accessibility-required | Platform Assessment Method | Page 1 | Required field AccessibilityLabel "Platform Assessment Method Required" should end with "field Required" |
 | script-orphan-assignment | Q3Yarding_onBlur | — | Script assignment references non-existent control ID: 6649cb91-44fa-66a7-2159-a0216c18a4ed |
 | script-orphan-assignment | Q4TextField_onBlur | — | Script assignment references non-existent control ID: 1d03b40f-5aab-5552-a001-dabeffdabeae |
 | script-orphan-assignment | btnHelpQ5_onClick | — | Script assignment references non-existent control ID: bf216cc3-caa7-f397-88fc-7984863482f4 |
@@ -100,6 +93,18 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 116 (0 errors, 105 warnings, 11 in
 | script-orphan-assignment | Q5OtherDescribeTextField_onBlur | — | Script assignment references non-existent control ID: a6cabcca-d644-f4f4-85b7-6f2e4bf5f433 |
 | script-orphan-assignment | Q3ToeOfDeepSeated_onBlur | — | Script assignment references non-existent control ID: 73c4d499-c2aa-e4ba-0679-943868901e4f |
 | script-orphan-assignment | Q3bYesOrNo_onBlur | — | Script assignment references non-existent control ID: 68558688-e9d3-2030-c3f8-e4b0630f548b |
+
+## Warnings
+
+| Rule | Field | Page | Message |
+| :--- | :---- | :--- | :------ |
+| title-case | Nesting Platforms per Acre | Page 1 | Field name "Nesting Platforms per Acre" is not in Title Case |
+| default-name | Image57 | Page 1 | Default field name "Image57" — use a descriptive name |
+| accessibility-required | Delineated Stand Identifier | Page 1 | Required field AccessibilityLabel "Delineated Stand Identifier Required" should end with "field Required" |
+| accessibility-required | Acreage of Delineated Stand | Page 1 | Required field AccessibilityLabel "Acreage of Delineated Stand Required" should end with "field Required" |
+| accessibility-required | Nesting Platforms per Acre | Page 1 | Required field AccessibilityLabel "Nesting Platforms per Acre Required" should end with "field Required" |
+| accessibility-required | Number of Trees | Page 1 | Required field AccessibilityLabel "Number of Trees 32-inches &#xFEFF;dbh or Greater Required" should end with "field Required" |
+| accessibility-required | Platform Assessment Method | Page 1 | Required field AccessibilityLabel "Platform Assessment Method Required" should end with "field Required" |
 | distance-to-border | Top Form ID | Page 1 | Field is 20px from the right border (minimum: 30px) |
 | distance-to-border | btnHelpInstructions | Page 1 | Field is 20px from the right border (minimum: 30px) |
 | button-min-size | btnHelpInstructions | Page 1 | Button is 20x20px — minimum is 24x24px (508 compliance) |
@@ -119,6 +124,9 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 116 (0 errors, 105 warnings, 11 in
 | button-label-camelcase | fpOnlineTitle | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | button-label-camelcase | IntroductionTitle | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | tab-control-visible | TabControl | — | TabControl is in group "Hide Form Tabs" — tab visibility should be controlled via Menu tab, not groups |
+| label-truncation | DataField2 | Page 1 | Label text "<strong style="color:#9E0000;">*</strong> Indicates required field" (~462px) may be truncated in 132px width — increase width or enable wrapping |
+| label-truncation | Label142 | Page 1 | Label text "Describe &#x201C;Other&#x201D;:<strong style="color:#9E0000;">*</strong>" (~504px) may be truncated in 372px width — increase width or enable wrapping |
+| label-wrap-textbox | Label140 | Page 1 | Label text "Number of Trees 32-inches &#xFEFF;dbh or Greater (24-inches for Western Hemlock) with Platforms:<strong style="color:#9E0000;">*</strong>" wraps at 582px width next to "Number of Trees" — widen label or shorten text |
 
 ## Info
 
@@ -135,3 +143,11 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 116 (0 errors, 105 warnings, 11 in
 | field-max-length | Acreage of Delineated Stand | Page 1 | MaxLength is 5 — recommended minimum is 50 |
 | field-max-length | Nesting Platforms per Acre | Page 1 | MaxLength is 5 — recommended minimum is 50 |
 | field-max-length | Number of Trees | Page 1 | MaxLength is 5 — recommended minimum is 50 |
+| font-consistency | fpOnlineTitle | Page 1 | Label style differs from form pattern: fontSize=18 (expected 10), bold=true (expected false), color=#ffffffff (expected #FF000000) |
+| font-consistency | DataField2 | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | IntroductionTitle | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label33 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff9e0000 (expected #FF000000) |
+| font-consistency | DataField3 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10) |
+| font-consistency | Label43 | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10), color=#ff000000 (expected #FF000000) |
+| data-lookup-in-properties | Platform Assessment Method | — | Script "Platform_Assessment_Method_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Platform Assessment Method | — | Script "Platform_Assessment_Method_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |

@@ -1,14 +1,52 @@
 # Standards Review: FPAN-Renewal
 
-Generated: 2026-04-16 | Rules: 40 | Findings: 274 (0 errors, 210 warnings, 64 info)
+Generated: 2026-04-16 | Rules: 49 | Findings: 372 (33 errors, 224 warnings, 115 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
-| Error    | 0 |
-| Warning  | 210 |
-| Info     | 64 |
+| Error    | 33 |
+| Warning  | 224 |
+| Info     | 115 |
+
+## Errors
+
+| Rule | Field | Page | Message |
+| :--- | :---- | :--- | :------ |
+| script-orphan-assignment | btnPayApplicationFee_onClick | — | Script assignment references non-existent control ID: e029f683-2d3d-c4ea-b358-abfaab9ce172 |
+| script-orphan-assignment | Street_Line_1_Landowner_onBlur | — | Script assignment references non-existent control ID: e35c5343-6243-e076-2409-e99deda8e45f |
+| script-orphan-assignment | Timber_Owner_same_Landowner_onBlur | — | Script assignment references non-existent control ID: 455ef014-3dc2-3d93-db58-606a03175fd4 |
+| script-orphan-assignment | btn_HelpLastNameLandowner_onClick | — | Script assignment references non-existent control ID: 0dda0ce5-0877-c943-9c13-676b3541d2bf |
+| script-orphan-assignment | First_Name_Landowner_onBlur | — | Script assignment references non-existent control ID: 3aa911c7-69a0-2e89-8060-d44f9209952d |
+| script-orphan-assignment | btn_HelpBusinessName_onClick | — | Script assignment references non-existent control ID: 25e70344-11dc-bb48-cb8b-710452f09808 |
+| script-orphan-assignment | Phone_Operator_onBlur | — | Script assignment references non-existent control ID: 7c6ab2f1-4117-3e5b-884d-5eb460dca16b |
+| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
+| script-orphan-assignment | Phone_Landowner_onBlur | — | Script assignment references non-existent control ID: 1f159b0a-7e3d-dc6b-d5c1-7954d3ec9788 |
+| script-orphan-assignment | Zip_code_Landowner_onBlur | — | Script assignment references non-existent control ID: 9a1652af-0565-990b-becb-8b7f96b28c34 |
+| script-orphan-assignment | Operator_Same_Landowner_onBlur | — | Script assignment references non-existent control ID: 38c0b556-25d3-dfb9-3677-1965680281af |
+| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
+| script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
+| script-orphan-assignment | Country_Landowner_onBlur | — | Script assignment references non-existent control ID: 4f82b123-0e39-0c9e-b0c3-08cf780637d5 |
+| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
+| script-orphan-assignment | Country_Operator_onBlur | — | Script assignment references non-existent control ID: f44d8971-6789-5f81-8630-c7230871b6a1 |
+| script-orphan-assignment | btn_HelpRegion_onClick | — | Script assignment references non-existent control ID: 69aba288-82ba-341c-8f73-eb6ff72eb725 |
+| script-orphan-assignment | Zip_code_Operator_onBlur | — | Script assignment references non-existent control ID: 0c3f1936-a544-684e-fd5e-9c37ef004b9c |
+| script-orphan-assignment | Last_Name_Landowner_onBlur | — | Script assignment references non-existent control ID: 06086eed-4edc-102e-25c3-730c5a99dca7 |
+| script-orphan-assignment | Email_Operator_onBlur | — | Script assignment references non-existent control ID: 264373c6-623c-e5ba-2c24-daf7f5bb1525 |
+| script-orphan-assignment | Contact_Person_Same_Landowner_onBlur | — | Script assignment references non-existent control ID: 7d4d222e-da81-2d82-270e-ad717e6bc774 |
+| script-orphan-assignment | State_Landowner_onBlur | — | Script assignment references non-existent control ID: a7a3538b-bf65-8693-994e-f2b0e6b167d1 |
+| script-orphan-assignment | County_Landowner_onBlur | — | Script assignment references non-existent control ID: 88b54b26-0911-26ba-6ad3-57160caddc20 |
+| script-orphan-assignment | State_Operator_onBlur | — | Script assignment references non-existent control ID: 9a4c942e-64b5-aac6-312f-4b53b933d74c |
+| script-orphan-assignment | Street_Line_1_Operator_onBlur | — | Script assignment references non-existent control ID: 78d25bcd-1765-5536-5382-405037a9bd66 |
+| script-orphan-assignment | Email_Landowner_onBlur | — | Script assignment references non-existent control ID: 5a52faf0-aff6-0bb8-7de4-c607ae051384 |
+| script-orphan-assignment | City_Operator_onBlur | — | Script assignment references non-existent control ID: a58052e3-9cf9-b49a-2900-9e6a42f502bc |
+| script-orphan-assignment | County_Operator_onBlur | — | Script assignment references non-existent control ID: bb0c772d-b1bf-bae3-eb0d-fad7be2acae9 |
+| script-orphan-assignment | City_Landowner_onBlur | — | Script assignment references non-existent control ID: baf3aca2-20a2-7879-fd32-7ddbcf06ec7e |
+| field-multiple-groups | Con_MainHeader | — | Field appears in 2 groups: Show Main Tab Content, Show Tabs |
+| field-multiple-groups | Con_MainContent | — | Field appears in 2 groups: Show Main Tab Content, Show Tabs |
+| field-multiple-groups | Con_Q7Header | — | Field appears in 2 groups: Show Main Tab Content, Show Q7 |
+| field-multiple-groups | Con_Q7Content | — | Field appears in 2 groups: Show Main Tab Content, Show Q7 |
 
 ## Warnings
 
@@ -42,35 +80,6 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 274 (0 errors, 210 warnings, 64 in
 | accessibility-label | Show Pay Now Button | Page 1 | Missing AccessibilityLabel |
 | accessibility-label | Show Send for Signature | Page 1 | Missing AccessibilityLabel |
 | accessibility-required | Small Forest Landowner | Page 1 | Required field AccessibilityLabel "Small Forest Landowner" should end with "field Required" |
-| script-orphan-assignment | btnPayApplicationFee_onClick | — | Script assignment references non-existent control ID: e029f683-2d3d-c4ea-b358-abfaab9ce172 |
-| script-orphan-assignment | Street_Line_1_Landowner_onBlur | — | Script assignment references non-existent control ID: e35c5343-6243-e076-2409-e99deda8e45f |
-| script-orphan-assignment | Timber_Owner_same_Landowner_onBlur | — | Script assignment references non-existent control ID: 455ef014-3dc2-3d93-db58-606a03175fd4 |
-| script-orphan-assignment | btn_HelpLastNameLandowner_onClick | — | Script assignment references non-existent control ID: 0dda0ce5-0877-c943-9c13-676b3541d2bf |
-| script-orphan-assignment | First_Name_Landowner_onBlur | — | Script assignment references non-existent control ID: 3aa911c7-69a0-2e89-8060-d44f9209952d |
-| script-orphan-assignment | btn_HelpBusinessName_onClick | — | Script assignment references non-existent control ID: 25e70344-11dc-bb48-cb8b-710452f09808 |
-| script-orphan-assignment | Phone_Operator_onBlur | — | Script assignment references non-existent control ID: 7c6ab2f1-4117-3e5b-884d-5eb460dca16b |
-| script-orphan-assignment | btnTabFourTwo_onClick | — | Script assignment references non-existent control ID: 63d8f4ec-1ad7-e63b-78c0-862e7b86c7fb |
-| script-orphan-assignment | Phone_Landowner_onBlur | — | Script assignment references non-existent control ID: 1f159b0a-7e3d-dc6b-d5c1-7954d3ec9788 |
-| script-orphan-assignment | Zip_code_Landowner_onBlur | — | Script assignment references non-existent control ID: 9a1652af-0565-990b-becb-8b7f96b28c34 |
-| script-orphan-assignment | Operator_Same_Landowner_onBlur | — | Script assignment references non-existent control ID: 38c0b556-25d3-dfb9-3677-1965680281af |
-| script-orphan-assignment | btnClose2_onClick | — | Script assignment references non-existent control ID: dcc4c208-d05e-cac1-fade-70334c13b657 |
-| script-orphan-assignment | btnTabFourOne_onClick | — | Script assignment references non-existent control ID: ede21e46-85e5-9232-15c3-572e995ebf29 |
-| script-orphan-assignment | Country_Landowner_onBlur | — | Script assignment references non-existent control ID: 4f82b123-0e39-0c9e-b0c3-08cf780637d5 |
-| script-orphan-assignment | btnClose1_onClick | — | Script assignment references non-existent control ID: a4f97f0c-71b3-74d4-4ac2-3a7e899a1bce |
-| script-orphan-assignment | Country_Operator_onBlur | — | Script assignment references non-existent control ID: f44d8971-6789-5f81-8630-c7230871b6a1 |
-| script-orphan-assignment | btn_HelpRegion_onClick | — | Script assignment references non-existent control ID: 69aba288-82ba-341c-8f73-eb6ff72eb725 |
-| script-orphan-assignment | Zip_code_Operator_onBlur | — | Script assignment references non-existent control ID: 0c3f1936-a544-684e-fd5e-9c37ef004b9c |
-| script-orphan-assignment | Last_Name_Landowner_onBlur | — | Script assignment references non-existent control ID: 06086eed-4edc-102e-25c3-730c5a99dca7 |
-| script-orphan-assignment | Email_Operator_onBlur | — | Script assignment references non-existent control ID: 264373c6-623c-e5ba-2c24-daf7f5bb1525 |
-| script-orphan-assignment | Contact_Person_Same_Landowner_onBlur | — | Script assignment references non-existent control ID: 7d4d222e-da81-2d82-270e-ad717e6bc774 |
-| script-orphan-assignment | State_Landowner_onBlur | — | Script assignment references non-existent control ID: a7a3538b-bf65-8693-994e-f2b0e6b167d1 |
-| script-orphan-assignment | County_Landowner_onBlur | — | Script assignment references non-existent control ID: 88b54b26-0911-26ba-6ad3-57160caddc20 |
-| script-orphan-assignment | State_Operator_onBlur | — | Script assignment references non-existent control ID: 9a4c942e-64b5-aac6-312f-4b53b933d74c |
-| script-orphan-assignment | Street_Line_1_Operator_onBlur | — | Script assignment references non-existent control ID: 78d25bcd-1765-5536-5382-405037a9bd66 |
-| script-orphan-assignment | Email_Landowner_onBlur | — | Script assignment references non-existent control ID: 5a52faf0-aff6-0bb8-7de4-c607ae051384 |
-| script-orphan-assignment | City_Operator_onBlur | — | Script assignment references non-existent control ID: a58052e3-9cf9-b49a-2900-9e6a42f502bc |
-| script-orphan-assignment | County_Operator_onBlur | — | Script assignment references non-existent control ID: bb0c772d-b1bf-bae3-eb0d-fad7be2acae9 |
-| script-orphan-assignment | City_Landowner_onBlur | — | Script assignment references non-existent control ID: baf3aca2-20a2-7879-fd32-7ddbcf06ec7e |
 | script-unused-template | AutopopulateRenewal | — | Template helper "AutopopulateRenewal" is never referenced from any other script |
 | script-unused-template | SubmitRenewal | — | Template helper "SubmitRenewal" is never referenced from any other script |
 | script-unused-template | TimberOwnerSearch | — | Template helper "TimberOwnerSearch" is never referenced from any other script |
@@ -80,10 +89,6 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 274 (0 errors, 210 warnings, 64 in
 | script-unused-template | OperatorSearch | — | Template helper "OperatorSearch" is never referenced from any other script |
 | script-unused-template | LandownerSearch | — | Template helper "LandownerSearch" is never referenced from any other script |
 | script-unused-template | GetFPANData | — | Template helper "GetFPANData" is never referenced from any other script |
-| field-multiple-groups | Con_MainHeader | — | Field appears in 2 groups: Show Main Tab Content, Show Tabs |
-| field-multiple-groups | Con_MainContent | — | Field appears in 2 groups: Show Main Tab Content, Show Tabs |
-| field-multiple-groups | Con_Q7Header | — | Field appears in 2 groups: Show Main Tab Content, Show Q7 |
-| field-multiple-groups | Con_Q7Content | — | Field appears in 2 groups: Show Main Tab Content, Show Q7 |
 | container-responsive-flow | Con_LandownersDatagrids | Page 1 | Container has 9 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
 | container-responsive-flow | Con_TimberOwnerDatagrids | Page 1 | Container has 9 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
 | container-responsive-flow | Con_OperatorDatagrids | Page 1 | Container has 9 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
@@ -224,6 +229,62 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 274 (0 errors, 210 warnings, 64 in
 | button-label-camelcase | Operator Business DG lbl | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | button-label-camelcase | Email Contact Person label | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | tab-control-visible | TabControl | — | TabControl is in group "Hide Form Tabs" — tab visibility should be controlled via Menu tab, not groups |
+| label-truncation | DataField2 | Page 1 | Label text "<strong style="color:#9E0000;">*</strong> Indicates required field" (~462px) may be truncated in 132px width — increase width or enable wrapping |
+| label-truncation | Label40 | Page 1 | Label text "FPA/N Number:<strong style="color:#9E0000;">*</strong>" (~378px) may be truncated in 102px width — increase width or enable wrapping |
+| label-truncation | Label48 | Page 1 | Label text "Region:<strong style="color:#9E0000;">*</strong>" (~336px) may be truncated in 72px width — increase width or enable wrapping |
+| label-truncation | Label54 | Page 1 | Label text "FPA/N Renewal Eligibility:" (~201px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label55 | Page 1 | Label text "You may renew your current Forest Practices Application/Notification if:" (~504px) may be truncated in 432px width — increase width or enable wrapping |
+| label-truncation | DataField1 | Page 1 | Label text "<ul>
+  <li>You are not proposing to modify the uncompleted operation.</li></ul>" (~553px) may be truncated in 472px width — increase width or enable wrapping |
+| label-truncation | Label57 | Page 1 | Label text "<ul>
+  <li>There are no outstanding enforcement actions associated with the application/notification.</li></ul>" (~777px) may be truncated in 652px width — increase width or enable wrapping |
+| label-truncation | Label58 | Page 1 | Label text "<ul>
+  <li>The current forest practices rules do not require a change in the nature and extent of the forest practices.</li></ul>" (~903px) may be truncated in 742px width — increase width or enable wrapping |
+| label-truncation | Label61 | Page 1 | Label text "Submit the completed form with appropriate fees to the DNR region office that is responsible for the geographic areas of the operation." (~945px) may be truncated in 802px width — increase width or enable wrapping |
+| label-truncation | DataField7 | Page 1 | Label text "1a. Landowner Information<strong style="color:#9E0000;">*</strong>" (~509px) may be truncated in 192px width — increase width or enable wrapping |
+| label-truncation | Label64 | Page 1 | Label text "Is the landowner a business or an individual?:<strong style="color:#9E0000;">*</strong>" (~670px) may be truncated in 272px width — increase width or enable wrapping |
+| label-truncation | Label172 | Page 1 | Label text "Postal Code/Zip Code:" (~147px) may be truncated in 92px width — increase width or enable wrapping |
+| label-truncation | Landowner Individual lbl | Page 1 | Label text "Landowner (Individual Search)" (~224px) may be truncated in 202px width — increase width or enable wrapping |
+| label-truncation | Label203 | Page 1 | Label text "Postal Code/Zip Code:" (~147px) may be truncated in 92px width — increase width or enable wrapping |
+| label-truncation | Landowner Individual DG lbl | Page 1 | Label text "Landowner(s) Individuals:" (~193px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label215 | Page 1 | Label text "1b. Timber Owner Information<strong style="color:#9E0000;">*</strong>" (~532px) may be truncated in 202px width — increase width or enable wrapping |
+| label-truncation | Label217 | Page 1 | Label text "Is the timber owner a business or an individual?:<strong style="color:#9E0000;">*</strong>" (~693px) may be truncated in 272px width — increase width or enable wrapping |
+| label-truncation | Label218 | Page 1 | Label text "Timber Owner (Business Search)" (~232px) may be truncated in 142px width — increase width or enable wrapping |
+| label-truncation | Label227 | Page 1 | Label text "Postal Code/Zip Code:" (~147px) may be truncated in 92px width — increase width or enable wrapping |
+| label-truncation | Timber Owner Individual lbl | Page 1 | Label text "Timber Owner (Individual Search)" (~247px) may be truncated in 222px width — increase width or enable wrapping |
+| label-truncation | Label257 | Page 1 | Label text "Postal Code/Zip Code:" (~147px) may be truncated in 92px width — increase width or enable wrapping |
+| label-truncation | Timber Owner Individual DG lbl | Page 1 | Label text "Timber Owner(s) Individuals:" (~216px) may be truncated in 192px width — increase width or enable wrapping |
+| label-truncation | Label246 | Page 1 | Label text "Timber Owner(s) Business:" (~193px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label281 | Page 1 | Label text "1c. Operator Information<strong style="color:#9E0000;">*</strong>" (~501px) may be truncated in 192px width — increase width or enable wrapping |
+| label-truncation | Label282 | Page 1 | Label text "Is the Operator a business or an individual?:<strong style="color:#9E0000;">*</strong>" (~663px) may be truncated in 272px width — increase width or enable wrapping |
+| label-truncation | Label234 | Page 1 | Label text "Postal Code/Zip Code:" (~147px) may be truncated in 92px width — increase width or enable wrapping |
+| label-truncation | Operator Individual lbl | Page 1 | Label text "Operator (Individual Search)" (~216px) may be truncated in 192px width — increase width or enable wrapping |
+| label-truncation | Label264 | Page 1 | Label text "Postal Code/Zip Code:" (~147px) may be truncated in 92px width — increase width or enable wrapping |
+| label-truncation | Operator Individual DG lbl | Page 1 | Label text "Operator(s) Invididuals:" (~185px) may be truncated in 160px width — increase width or enable wrapping |
+| label-truncation | Label284 | Page 1 | Label text "1d. Contact Person Information<strong style="color:#9E0000;">*</strong>" (~547px) may be truncated in 192px width — increase width or enable wrapping |
+| label-truncation | Label129 | Page 1 | Label text "First Name:<strong style="color:#9E0000;">*</strong>" (~364px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label131 | Page 1 | Label text "Last Name:<strong style="color:#9E0000;">*</strong>" (~357px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | DataField16 | Page 1 | Label text "2. Are you proposing any modifications to the original approved forest practices?<strong style="color:#9E0000;">*</strong>" (~940px) may be truncated in 512px width — increase width or enable wrapping |
+| label-truncation | Label287 | Page 1 | Label text "Are you proposing any modifications to the original approved forest practices?<strong style="color:#9E0000;">*</strong>" (~917px) may be truncated in 542px width — increase width or enable wrapping |
+| label-truncation | DataField17 | Page 1 | Label text "3. Are you small forest landowner per RCW 76.09.450? See FPA/N instructions for details.<strong style="color:#9E0000;">*</strong>" (~994px) may be truncated in 582px width — increase width or enable wrapping |
+| label-truncation | Label67 | Page 1 | Label text "Are you a small forest landowner per RCW 76.09.450?<strong style="color:#9E0000;">*</strong>" (~709px) may be truncated in 582px width — increase width or enable wrapping |
+| label-truncation | DataField18 | Page 1 | Label text "4. Is entire proposed harvest on a singles contiguous ownership consisting of one or more parcels?<strong style="color:#9E0000;">*</strong>" (~1071px) may be truncated in 642px width — increase width or enable wrapping |
+| label-truncation | Label69 | Page 1 | Label text "5. What is the legal description of your forest practices?<strong style="color:#9E0000;">*</strong>" (~763px) may be truncated in 582px width — increase width or enable wrapping |
+| label-truncation | Label321 | Page 1 | Label text "6. Additional Information:" (~201px) may be truncated in 182px width — increase width or enable wrapping |
+| label-truncation | Label323 | Page 1 | Label text "<ul><li>45-Day Resubmittal of a Withdrawn or Disapproved FPA/N:</li></ul>" (~511px) may be truncated in 382px width — increase width or enable wrapping |
+| label-truncation | DataField20 | Page 1 | Label text "7. I/We acknowledge the following:" (~262px) may be truncated in 232px width — increase width or enable wrapping |
+| label-truncation | Label140 | Page 1 | Label text "I/We acknowledge the following:" (~239px) may be truncated in 212px width — increase width or enable wrapping |
+| label-truncation | Label298 | Page 1 | Label text "<ul>
+  <li>The information on this application/notification is true.</li></ul>" (~601px) may be truncated in 472px width — increase width or enable wrapping |
+| label-truncation | Label297 | Page 1 | Label text "<ul>
+  <li>I/We understand this proposed forest practice is subject to:</li>
+
+<ul>
+  <li>The Forest Practices Act and Rules, AND</li>
+<li>All other federal, state or local regulations.</li></ul></ul>" (~1533px) may be truncated in 842px width — increase width or enable wrapping |
+| label-truncation | Label341 | Page 1 | Label text "Forest Practice Notification Needed:" (~252px) may be truncated in 160px width — increase width or enable wrapping |
+| label-wrap-textbox | Label47 | Page 1 | Label text "Expiration Date of approved FPA/N:" wraps at 222px width next to "Expiration Date Of Approved FPAN" — widen label or shorten text |
+| label-wrap-textbox | DataField19 | Page 1 | Label text "Is entire proposed harvest on a singles contiguous ownership consisting of one or more parcels?<strong style="color:#9E0000;">*</strong>" wraps at 692px width next to "Proposed Harvest" — widen label or shorten text |
 
 ## Info
 
@@ -293,3 +354,54 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 274 (0 errors, 210 warnings, 64 in
 | listener-disabled | AutoResubmitNeeded | Page 1 | EnableQListener is enabled — verify this field requires query string fill-in/relate capability |
 | listener-disabled | showLoadingPanel | Page 1 | EnableQListener is enabled — verify this field requires query string fill-in/relate capability |
 | field-max-length | Project Name | Page 1 | MaxLength is 50 for name field — recommended minimum is 100 |
+| font-consistency | Label71 | Page 1 | Label style differs from form pattern: fontSize=20 (expected 10), bold=true (expected false), color=#ffffffff (expected #FF000000) |
+| font-consistency | DataField2 | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | Label56 | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label22 | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | DataField5 | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | DataField7 | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label157 | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Landowner Business lbl | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label215 | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label218 | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Timber Owner Business lbl | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Timber Owner Individual lbl | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label281 | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | DataField9 | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Operator Business lbl | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Operator Individual lbl | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label284 | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | DataField16 | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | DataField17 | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label67 | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | DataField18 | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | DataField19 | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label69 | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | DataField20 | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label298 | Page 1 | Label style differs from form pattern: fontSize=11 (expected 10) |
+| font-consistency | Label297 | Page 1 | Label style differs from form pattern: fontSize=11 (expected 10) |
+| font-consistency | Label299 | Page 1 | Label style differs from form pattern: fontSize=11 (expected 10) |
+| font-consistency | Label304 | Page 1 | Label style differs from form pattern: fontSize=11 (expected 10) |
+| font-consistency | Label33 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff9e0000 (expected #FF000000) |
+| font-consistency | Label34 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10) |
+| font-consistency | DataField3 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10) |
+| font-consistency | Label38 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label43 | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label41 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label123 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| data-lookup-in-properties | Region | — | Script "Region_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Status | — | Script "Status_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Small Forest Landowner | — | Script "Small_Forest_Landowner_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Timber Owner Business Or Individual | — | Script "Timber_Owner_Business_Or_Individual_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Timber Owner Business Or Individual | — | Script "Timber_Owner_Business_Or_Individual_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Proposed Harvest | — | Script "Proposed_Harvest_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Landowner Business Or Individual | — | Script "Landowner_Business_Or_Individual_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Small Forest Landowner | — | Script "Small_Forest_Landowner_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Operator Business Or Individual | — | Script "Operator_Business_Or_Individual_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Proposing Modifications | — | Script "Proposing_Modifications_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Proposing Modifications | — | Script "Proposing_Modifications_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Operator Business Or Individual | — | Script "Operator_Business_Or_Individual_onChange" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Landowner Business Or Individual | — | Script "Landowner_Business_Or_Individual_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Proposed Harvest | — | Script "Proposed_Harvest_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| data-lookup-in-properties | Region | — | Script "Region_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |
+| field-width-standard | Email Contact Person | Page 1 | email field width is 196px — recommended minimum is 200px |

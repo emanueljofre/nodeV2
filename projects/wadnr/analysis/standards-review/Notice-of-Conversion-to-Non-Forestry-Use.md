@@ -1,67 +1,19 @@
 # Standards Review: Notice-of-Conversion-to-Non-Forestry-Use
 
-Generated: 2026-04-16 | Rules: 40 | Findings: 543 (0 errors, 429 warnings, 114 info)
+Generated: 2026-04-16 | Rules: 49 | Findings: 581 (280 errors, 175 warnings, 126 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
-| Error    | 0 |
-| Warning  | 429 |
-| Info     | 114 |
+| Error    | 280 |
+| Warning  | 175 |
+| Info     | 126 |
 
-## Warnings
+## Errors
 
 | Rule | Field | Page | Message |
 | :--- | :---- | :--- | :------ |
-| title-case | NCNU Number | Page 1 | Field name "NCNU Number" is not in Title Case |
-| title-case | FPAN Number | Page 1 | Field name "FPAN Number" is not in Title Case |
-| title-case | Chkbx_RemovalVegetation | Page 1 | Field name "Chkbx_RemovalVegetation" is not in Title Case |
-| title-case | MT_RemovalVegetation | Page 1 | Field name "MT_RemovalVegetation" is not in Title Case |
-| title-case | Chkbx_RemovalStumps | Page 1 | Field name "Chkbx_RemovalStumps" is not in Title Case |
-| title-case | MT_RemovalStumps | Page 1 | Field name "MT_RemovalStumps" is not in Title Case |
-| title-case | Chkbx_InstallationUtilities | Page 1 | Field name "Chkbx_InstallationUtilities" is not in Title Case |
-| title-case | MT_InstallationUtilities | Page 1 | Field name "MT_InstallationUtilities" is not in Title Case |
-| title-case | Chkbx_DiggingPercolation | Page 1 | Field name "Chkbx_DiggingPercolation" is not in Title Case |
-| title-case | MT_DiggingPercolation | Page 1 | Field name "MT_DiggingPercolation" is not in Title Case |
-| title-case | Chkbx_ConstructionRoads | Page 1 | Field name "Chkbx_ConstructionRoads" is not in Title Case |
-| title-case | MT_ConstructionRoads | Page 1 | Field name "MT_ConstructionRoads" is not in Title Case |
-| title-case | Chkbx_GradingFillingSite | Page 1 | Field name "Chkbx_GradingFillingSite" is not in Title Case |
-| title-case | MT_GradingFillingSite | Page 1 | Field name "MT_GradingFillingSite" is not in Title Case |
-| title-case | Chkbx_ExistencePermitsApplications | Page 1 | Field name "Chkbx_ExistencePermitsApplications" is not in Title Case |
-| title-case | MT_ExistencePermitsApplications | Page 1 | Field name "MT_ExistencePermitsApplications" is not in Title Case |
-| title-case | Chkbx_RockpitNonForest | Page 1 | Field name "Chkbx_RockpitNonForest" is not in Title Case |
-| title-case | MT_RockpitNonForest | Page 1 | Field name "MT_RockpitNonForest" is not in Title Case |
-| title-case | Chkbx_Other | Page 1 | Field name "Chkbx_Other" is not in Title Case |
-| title-case | MT_Other | Page 1 | Field name "MT_Other" is not in Title Case |
-| title-case | UserRoles | Page 1 | Field name "UserRoles" is not in Title Case |
-| title-case | UserID | Page 1 | Field name "UserID" is not in Title Case |
-| title-case | PDF Report GUID | Page 1 | Field name "PDF Report GUID" is not in Title Case |
-| title-case | Legacy ENF ID | Page 1 | Field name "Legacy ENF ID" is not in Title Case |
-| title-case | Legacy PDF URL | Page 1 | Field name "Legacy PDF URL" is not in Title Case |
-| title-case | IsOfficeStaff | Page 1 | Field name "IsOfficeStaff" is not in Title Case |
-| title-case | isFieldStaff | Page 1 | Field name "isFieldStaff" is not in Title Case |
-| title-case | Was AutoPopulated | Page 1 | Field name "Was AutoPopulated" is not in Title Case |
-| default-name | Image508 | Page 1 | Default field name "Image508" — use a descriptive name |
-| accessibility-label | Chkbx_RemovalVegetation | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | MT_RemovalVegetation | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Chkbx_RemovalStumps | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | MT_RemovalStumps | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Chkbx_InstallationUtilities | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | MT_InstallationUtilities | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Chkbx_DiggingPercolation | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | MT_DiggingPercolation | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Chkbx_ConstructionRoads | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | MT_ConstructionRoads | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Chkbx_GradingFillingSite | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | MT_GradingFillingSite | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Chkbx_ExistencePermitsApplications | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | MT_ExistencePermitsApplications | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Chkbx_RockpitNonForest | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | MT_RockpitNonForest | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Chkbx_Other | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | MT_Other | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Legacy ENF ID | Page 1 | Missing AccessibilityLabel |
 | script-orphan-assignment | btnRemoveSelectedWaterCrossing_onClick | — | Script assignment references non-existent control ID: e5303577-c907-9a98-e4f3-bca818a31f74 |
 | script-orphan-assignment | Salvage_of_Individual_Dead_or_Damaged_Trees_onChange | — | Script assignment references non-existent control ID: e8646e2e-e606-b0ec-ab50-45ef23385576 |
 | script-orphan-assignment | Acres_Contiguous_onChange | — | Script assignment references non-existent control ID: 7f510d40-b058-cb7a-e499-5191bca78840 |
@@ -342,6 +294,59 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 543 (0 errors, 429 warnings, 114 i
 | field-multiple-groups | Con_BusinessSearchTimberOwner | — | Field appears in 2 groups: Show Main Section, Timber Owner Business Search Visibility |
 | field-multiple-groups | Con_TimberOwnerIndividualSearchHeader | — | Field appears in 2 groups: Show Main Section, Timber Owner Individual Search Visibility |
 | field-multiple-groups | Con_IndividualSearchTimberOwner | — | Field appears in 2 groups: Show Main Section, Timber Owner Individual Search Visibility |
+
+## Warnings
+
+| Rule | Field | Page | Message |
+| :--- | :---- | :--- | :------ |
+| title-case | NCNU Number | Page 1 | Field name "NCNU Number" is not in Title Case |
+| title-case | FPAN Number | Page 1 | Field name "FPAN Number" is not in Title Case |
+| title-case | Chkbx_RemovalVegetation | Page 1 | Field name "Chkbx_RemovalVegetation" is not in Title Case |
+| title-case | MT_RemovalVegetation | Page 1 | Field name "MT_RemovalVegetation" is not in Title Case |
+| title-case | Chkbx_RemovalStumps | Page 1 | Field name "Chkbx_RemovalStumps" is not in Title Case |
+| title-case | MT_RemovalStumps | Page 1 | Field name "MT_RemovalStumps" is not in Title Case |
+| title-case | Chkbx_InstallationUtilities | Page 1 | Field name "Chkbx_InstallationUtilities" is not in Title Case |
+| title-case | MT_InstallationUtilities | Page 1 | Field name "MT_InstallationUtilities" is not in Title Case |
+| title-case | Chkbx_DiggingPercolation | Page 1 | Field name "Chkbx_DiggingPercolation" is not in Title Case |
+| title-case | MT_DiggingPercolation | Page 1 | Field name "MT_DiggingPercolation" is not in Title Case |
+| title-case | Chkbx_ConstructionRoads | Page 1 | Field name "Chkbx_ConstructionRoads" is not in Title Case |
+| title-case | MT_ConstructionRoads | Page 1 | Field name "MT_ConstructionRoads" is not in Title Case |
+| title-case | Chkbx_GradingFillingSite | Page 1 | Field name "Chkbx_GradingFillingSite" is not in Title Case |
+| title-case | MT_GradingFillingSite | Page 1 | Field name "MT_GradingFillingSite" is not in Title Case |
+| title-case | Chkbx_ExistencePermitsApplications | Page 1 | Field name "Chkbx_ExistencePermitsApplications" is not in Title Case |
+| title-case | MT_ExistencePermitsApplications | Page 1 | Field name "MT_ExistencePermitsApplications" is not in Title Case |
+| title-case | Chkbx_RockpitNonForest | Page 1 | Field name "Chkbx_RockpitNonForest" is not in Title Case |
+| title-case | MT_RockpitNonForest | Page 1 | Field name "MT_RockpitNonForest" is not in Title Case |
+| title-case | Chkbx_Other | Page 1 | Field name "Chkbx_Other" is not in Title Case |
+| title-case | MT_Other | Page 1 | Field name "MT_Other" is not in Title Case |
+| title-case | UserRoles | Page 1 | Field name "UserRoles" is not in Title Case |
+| title-case | UserID | Page 1 | Field name "UserID" is not in Title Case |
+| title-case | PDF Report GUID | Page 1 | Field name "PDF Report GUID" is not in Title Case |
+| title-case | Legacy ENF ID | Page 1 | Field name "Legacy ENF ID" is not in Title Case |
+| title-case | Legacy PDF URL | Page 1 | Field name "Legacy PDF URL" is not in Title Case |
+| title-case | IsOfficeStaff | Page 1 | Field name "IsOfficeStaff" is not in Title Case |
+| title-case | isFieldStaff | Page 1 | Field name "isFieldStaff" is not in Title Case |
+| title-case | Was AutoPopulated | Page 1 | Field name "Was AutoPopulated" is not in Title Case |
+| default-name | Image508 | Page 1 | Default field name "Image508" — use a descriptive name |
+| accessibility-label | Chkbx_RemovalVegetation | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | MT_RemovalVegetation | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Chkbx_RemovalStumps | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | MT_RemovalStumps | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Chkbx_InstallationUtilities | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | MT_InstallationUtilities | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Chkbx_DiggingPercolation | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | MT_DiggingPercolation | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Chkbx_ConstructionRoads | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | MT_ConstructionRoads | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Chkbx_GradingFillingSite | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | MT_GradingFillingSite | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Chkbx_ExistencePermitsApplications | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | MT_ExistencePermitsApplications | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Chkbx_RockpitNonForest | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | MT_RockpitNonForest | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Chkbx_Other | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | MT_Other | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Legacy ENF ID | Page 1 | Missing AccessibilityLabel |
 | container-responsive-flow | Con_Body_Manage | Page 1 | Container has 3 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
 | default-text | Signature of Compliance Officer | Page 1 | Field text "Signature Stamp" is a default value |
 | simple-upload | btnUpload | Page 1 | DisplayUploadedFiles is not set — should be false (simple upload mode) |
@@ -443,6 +448,32 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 543 (0 errors, 429 warnings, 114 i
 | button-label-camelcase | LabelDocHeader | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | button-label-camelcase | LabelDocType | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | tab-control-visible | TabControl | — | TabControl is in group "Hide Form Tabs" — tab visibility should be controlled via Menu tab, not groups |
+| label-truncation | DataField2 | Page 1 | Label text "<b style="color:#9E0000;">*</b> Indicates required field" (~392px) may be truncated in 132px width — increase width or enable wrapping |
+| label-truncation | Label195 | Page 1 | Label text "Region: <b style="color:#9E0000;">*</b>" (~273px) may be truncated in 72px width — increase width or enable wrapping |
+| label-truncation | Label606 | Page 1 | Label text "Select the Landowner type you want to add<b style="color:#9E0000;">*</b>" (~555px) may be truncated in 302px width — increase width or enable wrapping |
+| label-truncation | Label388 | Page 1 | Label text "Landowner (Business Search)" (~208px) may be truncated in 102px width — increase width or enable wrapping |
+| label-truncation | Label597 | Page 1 | Label text "<b>Instructions:</b> Search for a business below to add a Landowner to your application." (~616px) may be truncated in 532px width — increase width or enable wrapping |
+| label-truncation | Label427 | Page 1 | Label text "Landowner (Individual Search)" (~224px) may be truncated in 102px width — increase width or enable wrapping |
+| label-truncation | Label428 | Page 1 | Label text "<b>Instructions:</b> Search for a contact below to add as a Landowner to your application." (~630px) may be truncated in 552px width — increase width or enable wrapping |
+| label-truncation | Label411 | Page 1 | Label text "Select the Timber Owner type you want to add<b style="color:#9E0000;">*</b>" (~578px) may be truncated in 302px width — increase width or enable wrapping |
+| label-truncation | Label415 | Page 1 | Label text "<b>Instructions:</b> Search for a business below to add as Timber Owner to your application." (~644px) may be truncated in 532px width — increase width or enable wrapping |
+| label-truncation | DataField6 | Page 1 | Label text "Timber Owner (Individual Search)" (~247px) may be truncated in 102px width — increase width or enable wrapping |
+| label-truncation | Label442 | Page 1 | Label text "<b>Instructions:</b> Search for a contact below to add a Timber Owner to your application." (~630px) may be truncated in 552px width — increase width or enable wrapping |
+| label-truncation | Label468 | Page 1 | Label text "Timber Owner(s)" (~116px) may be truncated in 102px width — increase width or enable wrapping |
+| label-truncation | Label469 | Page 1 | Label text "Timber Owner(s) Business:" (~193px) may be truncated in 162px width — increase width or enable wrapping |
+| label-truncation | Label472 | Page 1 | Label text "Timber Owner(s) Individual:" (~208px) may be truncated in 172px width — increase width or enable wrapping |
+| label-truncation | Label479 | Page 1 | Label text "Select the Operator type you want to add<b style="color:#9E0000;">*</b>" (~547px) may be truncated in 302px width — increase width or enable wrapping |
+| label-truncation | Label482 | Page 1 | Label text "<b>Instructions:</b> Search for a business below to add as an Operator to your application." (~637px) may be truncated in 532px width — increase width or enable wrapping |
+| label-truncation | Label477 | Page 1 | Label text "Operator (Individual Search)" (~216px) may be truncated in 102px width — increase width or enable wrapping |
+| label-truncation | Label534 | Page 1 | Label text "<b>Instructions:</b> Search for a contact below to add as an Operator to your application." (~630px) may be truncated in 552px width — increase width or enable wrapping |
+| label-truncation | Label569 | Page 1 | Label text "Location of Activity:" (~147px) may be truncated in 122px width — increase width or enable wrapping |
+| label-truncation | DataField12 | Page 1 | Label text "<b>Type(s) of Conversion Activity Observed </b> - answer all that apply and describe the location, amount and/or size." (~826px) may be truncated in 722px width — increase width or enable wrapping |
+| label-truncation | Label591 | Page 1 | Label text "---- Contact/Signature Information ----" (~301px) may be truncated in 252px width — increase width or enable wrapping |
+| label-truncation | Label593 | Page 1 | Label text "Title of Compliance Officer:" (~196px) may be truncated in 172px width — increase width or enable wrapping |
+| label-truncation | Label594 | Page 1 | Label text "Signature of Compliance Officer:" (~224px) may be truncated in 202px width — increase width or enable wrapping |
+| label-truncation | Label289 | Page 1 | Label text "User Role(s):" (~91px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label299 | Page 1 | Label text "Individual ID:" (~98px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label303 | Page 1 | Label text "Legacy ENF ID:" (~98px) may be truncated in 82px width — increase width or enable wrapping |
 
 ## Info
 
@@ -562,3 +593,15 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 543 (0 errors, 429 warnings, 114 i
 | field-max-length | MT_ExistencePermitsApplications | Page 1 | TextArea MaxLength is 1000 — recommended minimum is 3000 for notes/text fields |
 | field-max-length | MT_RockpitNonForest | Page 1 | TextArea MaxLength is 1000 — recommended minimum is 3000 for notes/text fields |
 | field-max-length | MT_Other | Page 1 | TextArea MaxLength is 1000 — recommended minimum is 3000 for notes/text fields |
+| font-consistency | Label71 | Page 1 | Label style differs from form pattern: fontSize=18 (expected 10), bold=true (expected false), color=#ffffffff (expected #FF000000) |
+| font-consistency | Label216 | Page 1 | Label style differs from form pattern: bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | DataField2 | Page 1 | Label style differs from form pattern: color=#ff000000 (expected #FF000000) |
+| font-consistency | Label33 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff9e0000 (expected #FF000000) |
+| font-consistency | Label34 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10) |
+| font-consistency | DataField3 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10) |
+| font-consistency | Label292 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10) |
+| font-consistency | Label38 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label43 | Page 1 | Label style differs from form pattern: fontSize=9 (expected 10), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label41 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false), color=#ff000000 (expected #FF000000) |
+| font-consistency | Label288 | Page 1 | Label style differs from form pattern: fontSize=8 (expected 10), bold=true (expected false) |
+| data-lookup-in-properties | Region | — | Script "Region_onBlur" on drop-down contains API calls — prefer configuring data lookups in the properties panel |

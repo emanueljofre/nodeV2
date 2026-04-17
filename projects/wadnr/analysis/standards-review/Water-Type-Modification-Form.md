@@ -1,63 +1,19 @@
 # Standards Review: Water-Type-Modification-Form
 
-Generated: 2026-04-16 | Rules: 40 | Findings: 1014 (0 errors, 779 warnings, 235 info)
+Generated: 2026-04-16 | Rules: 49 | Findings: 1086 (321 errors, 527 warnings, 238 info)
 
 ## Summary
 
 | Severity | Count |
 | :------- | ----: |
-| Error    | 0 |
-| Warning  | 779 |
-| Info     | 235 |
+| Error    | 321 |
+| Warning  | 527 |
+| Info     | 238 |
 
-## Warnings
+## Errors
 
 | Rule | Field | Page | Message |
 | :--- | :---- | :--- | :------ |
-| title-case | WTMF Number | Page 1 | Field name "WTMF Number" is not in Title Case |
-| title-case | FPAN Number | Page 1 | Field name "FPAN Number" is not in Title Case |
-| title-case | Associate With A FPAN Yes | Page 1 | Field name "Associate With A FPAN Yes" is not in Title Case |
-| title-case | Associate With A FPAN No | Page 1 | Field name "Associate With A FPAN No" is not in Title Case |
-| title-case | Approved FPAN Number | Page 1 | Field name "Approved FPAN Number" is not in Title Case |
-| title-case | ICN Number | Page 1 | Field name "ICN Number" is not in Title Case |
-| title-case | FN Type Break | Page 1 | Field name "FN Type Break" is not in Title Case |
-| title-case | UserRoles | Page 1 | Field name "UserRoles" is not in Title Case |
-| title-case | PDF GUID | Page 1 | Field name "PDF GUID" is not in Title Case |
-| title-case | IsOfficeStaff | Page 1 | Field name "IsOfficeStaff" is not in Title Case |
-| title-case | UpdateSubformsToSubmitted | Page 1 | Field name "UpdateSubformsToSubmitted" is not in Title Case |
-| title-case | isProponent | Page 1 | Field name "isProponent" is not in Title Case |
-| title-case | isFieldStaff | Page 1 | Field name "isFieldStaff" is not in Title Case |
-| title-case | UpdateSubformsToDraft | Page 1 | Field name "UpdateSubformsToDraft" is not in Title Case |
-| title-case | Is The FPAN Number Correct | Page 1 | Field name "Is The FPAN Number Correct" is not in Title Case |
-| title-case | ActivityMapViewSubFormCreated | Page 1 | Field name "ActivityMapViewSubFormCreated" is not in Title Case |
-| title-case | isRelatedFPANSubmitted | Page 1 | Field name "isRelatedFPANSubmitted" is not in Title Case |
-| title-case | isViewOnly | Page 1 | Field name "isViewOnly" is not in Title Case |
-| title-case | sectionsMap | Page 1 | Field name "sectionsMap" is not in Title Case |
-| title-case | questionsMap | Page 1 | Field name "questionsMap" is not in Title Case |
-| default-name | Image508 | Page 1 | Default field name "Image508" — use a descriptive name |
-| accessibility-label | FPAN Number | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Contact Information First Name | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Contact Information Last Name | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Contact Information Phone | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Contact Information Email | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Add Water Segment | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Add Legal Description | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Add Channel Characteristics | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Related Record ID | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Individual ID | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Parent Region | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Document Upload Path | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | PDF GUID | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Created Date | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Date Resubmitted | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Visible Section | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Show Next Button | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Is The FPAN Number Correct | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | ActivityMapViewSubFormCreated | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Show Back Button | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | Show Submit Button | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | sectionsMap | Page 1 | Missing AccessibilityLabel |
-| accessibility-label | questionsMap | Page 1 | Missing AccessibilityLabel |
 | script-orphan-assignment | btnHelpDescribeTheWaterTypeBreak_onClick | — | Script assignment references non-existent control ID: 3a26b0e1-e7bd-e247-1195-2ca399f52e4d |
 | script-orphan-assignment | btnHelpAdditionalClarifyingInformation_onClick | — | Script assignment references non-existent control ID: ae442125-7220-12d0-6353-2f0988c65b58 |
 | script-orphan-assignment | btnHelpExemptParcelHarvesting_onClick | — | Script assignment references non-existent control ID: 4abd215b-c3ce-903b-0c38-cbfc3df13d11 |
@@ -281,6 +237,153 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 1014 (0 errors, 779 warnings, 235 
 | script-orphan-assignment | Land_Owner_Last_Name_onBlur | — | Script assignment references non-existent control ID: 4a85c493-ec42-dcda-7c1e-bac09cadc8df |
 | script-orphan-assignment | Bridge_Construction_Or_Repair_onBlur | — | Script assignment references non-existent control ID: 70f34199-11bf-54fd-bd64-86d129504b61 |
 | script-orphan-assignment | btnAddSorFWater_onClick | — | Script assignment references non-existent control ID: ff257912-7b2a-09b6-dd89-d947cc22a6e6 |
+| field-multiple-groups | Con_WetlandProximityCheckAditionalInformation | — | Field appears in 2 groups: Additional Information Section Visibility, All Form Read Only |
+| field-multiple-groups | Con_DocumentUploads | — | Field appears in 2 groups: All Form Read Only, Main Section Visibility |
+| field-multiple-groups | Con_ProponentBusinessOrIndividual | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Proponent Section Visibility, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_ProponentBusinessSearch | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Proponent Business Search Visibility, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_ProponentIndividualSearch | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Proponent Individual Search Visibility, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_ProponentBusinessesDG | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Proponent Section Visibility, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_ProponentIndividualsDG | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Proponent Section Visibility, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_SurveyorBusinessOrIndividual | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, ReadOnly For Main Tab Content, Surveyor Section Visibility |
+| field-multiple-groups | Con_SurveyorBusinessSearch | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, ReadOnly For Main Tab Content, Surveyor Business Search Visibility |
+| field-multiple-groups | Con_SurveyorIndividualSearch | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, ReadOnly For Main Tab Content, Surveyor Individual Search Visibility |
+| field-multiple-groups | Con_SurveyorBusinessesDG | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, ReadOnly For Main Tab Content, Surveyor Section Visibility |
+| field-multiple-groups | Con_SurveyorIndividualsDG | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, ReadOnly For Main Tab Content, Surveyor Section Visibility |
+| field-multiple-groups | Con_LandownerBusinessOrIndividual | — | Field appears in 4 groups: All Form Read Only, Landowner Section Visibility, Main Section Visibility, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_BusinessSearchLandowner | — | Field appears in 4 groups: All Form Read Only, Landowner Business Search Visibility, Main Section Visibility, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_IndividualSearchLandowner | — | Field appears in 4 groups: All Form Read Only, Landowner Individual Search Visibility, Main Section Visibility, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_LandownerBusinessesDG | — | Field appears in 4 groups: All Form Read Only, Landowner Section Visibility, Main Section Visibility, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_LandownerIndividualsDG | — | Field appears in 4 groups: All Form Read Only, Landowner Section Visibility, Main Section Visibility, ReadOnly For Main Tab Content |
+| field-multiple-groups | DataField29 | — | Field appears in 4 groups: All Form Read Only, Contact Information Section Visibility, Main Section Visibility, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_WasLandownerNotified | — | Field appears in 4 groups: All Form Read Only, Landowner Notified Section Visibility, Main Section Visibility, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_WTMInclude | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, ReadOnly For Main Tab Content, Water Type Modifications Section Visibility |
+| field-multiple-groups | Con_WTMIncludeDescription | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Q3 Other Description Visibility, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_WaterSegment | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, ReadOnly For Main Tab Content, Water Segment Section Visibility |
+| field-multiple-groups | Con_AssociateWithAFPAN | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Modification Associated with FPAN Section Visibility, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_AssociateWithAFPANDescription | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Q5 Approved FPAN Visibility, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_IdTeamMeetingOccur | — | Field appears in 4 groups: All Form Read Only, ID Meeting Section Visibility, Main Section Visibility, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_IdTeamMeetingOccurDescription | — | Field appears in 4 groups: All Form Read Only, ICN Number Visibility, Main Section Visibility, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_LegalDescription | — | Field appears in 4 groups: All Form Read Only, Legal Description Section Visibility, Main Section Visibility, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_WaterTypeDoesNotMeetTheDefinition | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Modification Based on Following Section Visibility, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_WaterTypeDoesNotMeetTheDefinitionDescription | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Q8 Describe Visibility, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_ModificationIsBasedInTheFollowingOptions | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Modification Based on Following Section Visibility, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_ListSpeciesIfKnown | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Q8 List Species Visibility, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_ChannelIsAPublicWaterDiversion | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Modification Based on Following Section Visibility, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_ChannelIsAPublicWaterDiversionDescriptions | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Q8 Public Water Diversion Visibility, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_ChannelIsAFishHatcheryDiversion | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Modification Based on Following Section Visibility, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_ChannelIsAFishHatcheryDiversionDescriptions | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Q8 Fish Hatchery Diversion Visibility, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_WaterLevels | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, ReadOnly For Main Tab Content, Water Levels Section Visibility |
+| field-multiple-groups | Con_WasDroughtDeclaration | — | Field appears in 4 groups: All Form Read Only, Drought Declaration Issued Section Visibility, Main Section Visibility, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_WasDroughtDeclarationDescription | — | Field appears in 3 groups: All Form Read Only, Q10 Description Visibility, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_ChannelCharacteristics | — | Field appears in 3 groups: All Form Read Only, Channel Characteristics Section Visibility, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_ChannelCharacteristicsViewColumn | — | Field appears in 3 groups: All Form Read Only, Channel Characteristics Section Visibility For Proponent, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_ChannelCharacteristics_Description | — | Field appears in 5 groups: All Form Read Only, Channel Characteristics Section Visibility, Main Section Visibility, Q11 Channel Characteristics Description Read Only, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_WaterTypeBreak | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, ReadOnly For Main Tab Content, Water Type Breaks Section Visibility |
+| field-multiple-groups | Con_WaterTypeBreak_ElectrofishingOptions | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, ReadOnly For Main Tab Content, Water Type Breaks Section Electrofishing Options Visibility |
+| field-multiple-groups | Con_WaterTypeBreak_2 | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, ReadOnly For Main Tab Content, Water Type Breaks Section Visibility |
+| field-multiple-groups | WaterTypeBreakDescription | — | Field appears in 3 groups: All Form Read Only, ReadOnly For Main Tab Content, Water Type Breaks Section Describe Other Visibility |
+| field-multiple-groups | Con_DescribeTheWaterTypeBreak | — | Field appears in 4 groups: All Form Read Only, Describe Water Type Breaks Section Visibility, Main Section Visibility, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_ConsultedDNR | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, ReadOnly For Main Tab Content, Type F Physical Characteristics Section Visibility |
+| field-multiple-groups | Con_UpstreamPhysicalCharacteristics | — | Field appears in 4 groups: All Form Read Only, Fish Passage Section Visibility, Main Section Visibility, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_NaturalBarrier | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Q15 Show Yes Options, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_NaturalBarrierOptions | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Q15 Show Natural Barrier Options, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_NaturalBarrierDescription | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Q15 Show Natural Barrier Description, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_NaturalBarrierMeasurements | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Q15 Show Natural Barrier Options, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_TemporaryBarrier | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Q15 Show Yes Options, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_TemporaryBarrierDescription | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, ReadOnly For Main Tab Content, Temporary Barrier Description Visibility |
+| field-multiple-groups | Con_ManmadeBarrier | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Q15 Show Yes Options, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_ManmadeBarrierDescription | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Manmade Barrier Description Visibility, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_FishAboveBarrier | — | Field appears in 4 groups: All Form Read Only, Fish Observed Section Visibility, Main Section Visibility, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_BarrierIdentificationMaps | — | Field appears in 4 groups: All Form Read Only, Fish Barriers Section Visibility, Main Section Visibility, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_BarrierIdentificationSpecify | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Q17 Show Specify Visibility, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_BarrierIdentificationFieldObservations | — | Field appears in 4 groups: All Form Read Only, Fish Barriers Section Visibility, Main Section Visibility, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_DescribeDownstreamBarriers | — | Field appears in 4 groups: All Form Read Only, Locations Of Downstream Barriers Section Visibility, Main Section Visibility, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_WetlandProximityCheck | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, ReadOnly For Main Tab Content, Recent Mass Wasting Section Visibility |
+| field-multiple-groups | Con_WetlandProximityCheckContent | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Q19 Evidence Visibility, ReadOnly For Main Tab Content |
+| field-multiple-groups | Con_ManageWhiteSpace | — | Field appears in 2 groups: All Form Read Only, Manage Section Visibility |
+| field-multiple-groups | Con_SubmitSave | — | Field appears in 2 groups: All Form Read Only, Main Section Visibility |
+| field-multiple-groups | Con_BackNextSaveDraft | — | Field appears in 2 groups: All Form Read Only, Main Section Visibility |
+| field-multiple-groups | Con_SectionWhitespace | — | Field appears in 2 groups: All Form Read Only, Main Section Visibility |
+| field-multiple-groups | Con_PrintActions | — | Field appears in 2 groups: All Form Read Only, Show Print Default Buttons Section |
+| field-multiple-groups | DataField28 | — | Field appears in 2 groups: Contact Information Section Visibility, Main Section Visibility |
+| field-multiple-groups | Con_DescribeTheWaterTypeBreakHeader | — | Field appears in 2 groups: Describe Water Type Breaks Section Visibility, Main Section Visibility |
+| field-multiple-groups | Con_WasDroughtDeclarationHeader | — | Field appears in 2 groups: Drought Declaration Issued Section Visibility, Main Section Visibility |
+| field-multiple-groups | Con_BarrierIdentificationMethodHeader | — | Field appears in 2 groups: Fish Barriers Section Visibility, Main Section Visibility |
+| field-multiple-groups | Con_FishAboveBarrierHeader | — | Field appears in 2 groups: Fish Observed Section Visibility, Main Section Visibility |
+| field-multiple-groups | Con_UpstreamPhysicalCharacteristicsHeader | — | Field appears in 2 groups: Fish Passage Section Visibility, Main Section Visibility |
+| field-multiple-groups | Con_IdTeamMeetingOccurHeader | — | Field appears in 2 groups: ID Meeting Section Visibility, Main Section Visibility |
+| field-multiple-groups | Con_LandownerBusinessSearchHeader | — | Field appears in 2 groups: Landowner Business Search Visibility, Main Section Visibility |
+| field-multiple-groups | Con_LandownerIndividualSearchHeader | — | Field appears in 2 groups: Landowner Individual Search Visibility, Main Section Visibility |
+| field-multiple-groups | Con_WasLandownerNotifiedHeader | — | Field appears in 2 groups: Landowner Notified Section Visibility, Main Section Visibility |
+| field-multiple-groups | Con_LandownerHeader | — | Field appears in 2 groups: Landowner Section Visibility, Main Section Visibility |
+| field-multiple-groups | Con_LandownersDGHeader | — | Field appears in 2 groups: Landowner Section Visibility, Main Section Visibility |
+| field-multiple-groups | Con_LegalDescriptionHeader | — | Field appears in 2 groups: Legal Description Section Visibility, Main Section Visibility |
+| field-multiple-groups | Con_DescribeDownstreamBarriersHeader | — | Field appears in 2 groups: Locations Of Downstream Barriers Section Visibility, Main Section Visibility |
+| field-multiple-groups | Con_ProponentHeader | — | Field appears in 2 groups: Main Section Visibility, Proponent Section Visibility |
+| field-multiple-groups | Con_ProponentBusinessSearchHeader | — | Field appears in 2 groups: Main Section Visibility, Proponent Business Search Visibility |
+| field-multiple-groups | Con_ProponentIndividualSearchHeader | — | Field appears in 2 groups: Main Section Visibility, Proponent Individual Search Visibility |
+| field-multiple-groups | Con_ProponentsDGHeader | — | Field appears in 2 groups: Main Section Visibility, Proponent Section Visibility |
+| field-multiple-groups | Con_SurveyorHeader | — | Field appears in 2 groups: Main Section Visibility, Surveyor Section Visibility |
+| field-multiple-groups | Con_SurveyorBusinessSearchHeader | — | Field appears in 2 groups: Main Section Visibility, Surveyor Business Search Visibility |
+| field-multiple-groups | Con_SurveyorIndividualSearchHeader | — | Field appears in 2 groups: Main Section Visibility, Surveyor Individual Search Visibility |
+| field-multiple-groups | Con_SurveyorsDGHeader | — | Field appears in 2 groups: Main Section Visibility, Surveyor Section Visibility |
+| field-multiple-groups | Con_WTMIncludeHeader | — | Field appears in 2 groups: Main Section Visibility, Water Type Modifications Section Visibility |
+| field-multiple-groups | Con_WaterSegmentHeader | — | Field appears in 2 groups: Main Section Visibility, Water Segment Section Visibility |
+| field-multiple-groups | Con_AssociateWithAFPANHeader | — | Field appears in 2 groups: Main Section Visibility, Modification Associated with FPAN Section Visibility |
+| field-multiple-groups | Con_ModificationIsBasedInTheFollowingHeader | — | Field appears in 2 groups: Main Section Visibility, Modification Based on Following Section Visibility |
+| field-multiple-groups | Con_WaterLevelsHeader | — | Field appears in 2 groups: Main Section Visibility, Water Levels Section Visibility |
+| field-multiple-groups | Con_WaterTypeBreakHeader | — | Field appears in 2 groups: Main Section Visibility, Water Type Breaks Section Visibility |
+| field-multiple-groups | Con_ConsultedDNRHeader | — | Field appears in 2 groups: Main Section Visibility, Type F Physical Characteristics Section Visibility |
+| field-multiple-groups | Con_WetlandProximityCheckHeader | — | Field appears in 2 groups: Main Section Visibility, Recent Mass Wasting Section Visibility |
+
+## Warnings
+
+| Rule | Field | Page | Message |
+| :--- | :---- | :--- | :------ |
+| title-case | WTMF Number | Page 1 | Field name "WTMF Number" is not in Title Case |
+| title-case | FPAN Number | Page 1 | Field name "FPAN Number" is not in Title Case |
+| title-case | Associate With A FPAN Yes | Page 1 | Field name "Associate With A FPAN Yes" is not in Title Case |
+| title-case | Associate With A FPAN No | Page 1 | Field name "Associate With A FPAN No" is not in Title Case |
+| title-case | Approved FPAN Number | Page 1 | Field name "Approved FPAN Number" is not in Title Case |
+| title-case | ICN Number | Page 1 | Field name "ICN Number" is not in Title Case |
+| title-case | FN Type Break | Page 1 | Field name "FN Type Break" is not in Title Case |
+| title-case | UserRoles | Page 1 | Field name "UserRoles" is not in Title Case |
+| title-case | PDF GUID | Page 1 | Field name "PDF GUID" is not in Title Case |
+| title-case | IsOfficeStaff | Page 1 | Field name "IsOfficeStaff" is not in Title Case |
+| title-case | UpdateSubformsToSubmitted | Page 1 | Field name "UpdateSubformsToSubmitted" is not in Title Case |
+| title-case | isProponent | Page 1 | Field name "isProponent" is not in Title Case |
+| title-case | isFieldStaff | Page 1 | Field name "isFieldStaff" is not in Title Case |
+| title-case | UpdateSubformsToDraft | Page 1 | Field name "UpdateSubformsToDraft" is not in Title Case |
+| title-case | Is The FPAN Number Correct | Page 1 | Field name "Is The FPAN Number Correct" is not in Title Case |
+| title-case | ActivityMapViewSubFormCreated | Page 1 | Field name "ActivityMapViewSubFormCreated" is not in Title Case |
+| title-case | isRelatedFPANSubmitted | Page 1 | Field name "isRelatedFPANSubmitted" is not in Title Case |
+| title-case | isViewOnly | Page 1 | Field name "isViewOnly" is not in Title Case |
+| title-case | sectionsMap | Page 1 | Field name "sectionsMap" is not in Title Case |
+| title-case | questionsMap | Page 1 | Field name "questionsMap" is not in Title Case |
+| default-name | Image508 | Page 1 | Default field name "Image508" — use a descriptive name |
+| accessibility-label | FPAN Number | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Contact Information First Name | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Contact Information Last Name | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Contact Information Phone | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Contact Information Email | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Add Water Segment | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Add Legal Description | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Add Channel Characteristics | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Related Record ID | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Individual ID | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Parent Region | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Document Upload Path | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | PDF GUID | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Created Date | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Date Resubmitted | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Visible Section | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Show Next Button | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Is The FPAN Number Correct | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | ActivityMapViewSubFormCreated | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Show Back Button | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | Show Submit Button | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | sectionsMap | Page 1 | Missing AccessibilityLabel |
+| accessibility-label | questionsMap | Page 1 | Missing AccessibilityLabel |
 | script-empty-body | AddressCopySourceToDestination | — | Script "AddressCopySourceToDestination" has an empty body |
 | script-empty-body | GIS_GetModalGISMap | — | Script "GIS_GetModalGISMap" has an empty body |
 | script-empty-body | SaveBeforeUpload | — | Script "SaveBeforeUpload" has an empty body |
@@ -503,104 +606,6 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 1014 (0 errors, 779 warnings, 235 
 | script-empty-body | ValidateQuestion5 | — | Script "ValidateQuestion5" has an empty body |
 | script-empty-body | AddWaterSegment | — | Script "AddWaterSegment" has an empty body |
 | script-empty-body | ValidateBusinessSearchCriteria | — | Script "ValidateBusinessSearchCriteria" has an empty body |
-| field-multiple-groups | Con_WetlandProximityCheckAditionalInformation | — | Field appears in 2 groups: Additional Information Section Visibility, All Form Read Only |
-| field-multiple-groups | Con_DocumentUploads | — | Field appears in 2 groups: All Form Read Only, Main Section Visibility |
-| field-multiple-groups | Con_ProponentBusinessOrIndividual | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Proponent Section Visibility, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_ProponentBusinessSearch | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Proponent Business Search Visibility, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_ProponentIndividualSearch | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Proponent Individual Search Visibility, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_ProponentBusinessesDG | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Proponent Section Visibility, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_ProponentIndividualsDG | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Proponent Section Visibility, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_SurveyorBusinessOrIndividual | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, ReadOnly For Main Tab Content, Surveyor Section Visibility |
-| field-multiple-groups | Con_SurveyorBusinessSearch | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, ReadOnly For Main Tab Content, Surveyor Business Search Visibility |
-| field-multiple-groups | Con_SurveyorIndividualSearch | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, ReadOnly For Main Tab Content, Surveyor Individual Search Visibility |
-| field-multiple-groups | Con_SurveyorBusinessesDG | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, ReadOnly For Main Tab Content, Surveyor Section Visibility |
-| field-multiple-groups | Con_SurveyorIndividualsDG | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, ReadOnly For Main Tab Content, Surveyor Section Visibility |
-| field-multiple-groups | Con_LandownerBusinessOrIndividual | — | Field appears in 4 groups: All Form Read Only, Landowner Section Visibility, Main Section Visibility, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_BusinessSearchLandowner | — | Field appears in 4 groups: All Form Read Only, Landowner Business Search Visibility, Main Section Visibility, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_IndividualSearchLandowner | — | Field appears in 4 groups: All Form Read Only, Landowner Individual Search Visibility, Main Section Visibility, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_LandownerBusinessesDG | — | Field appears in 4 groups: All Form Read Only, Landowner Section Visibility, Main Section Visibility, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_LandownerIndividualsDG | — | Field appears in 4 groups: All Form Read Only, Landowner Section Visibility, Main Section Visibility, ReadOnly For Main Tab Content |
-| field-multiple-groups | DataField29 | — | Field appears in 4 groups: All Form Read Only, Contact Information Section Visibility, Main Section Visibility, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_WasLandownerNotified | — | Field appears in 4 groups: All Form Read Only, Landowner Notified Section Visibility, Main Section Visibility, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_WTMInclude | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, ReadOnly For Main Tab Content, Water Type Modifications Section Visibility |
-| field-multiple-groups | Con_WTMIncludeDescription | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Q3 Other Description Visibility, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_WaterSegment | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, ReadOnly For Main Tab Content, Water Segment Section Visibility |
-| field-multiple-groups | Con_AssociateWithAFPAN | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Modification Associated with FPAN Section Visibility, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_AssociateWithAFPANDescription | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Q5 Approved FPAN Visibility, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_IdTeamMeetingOccur | — | Field appears in 4 groups: All Form Read Only, ID Meeting Section Visibility, Main Section Visibility, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_IdTeamMeetingOccurDescription | — | Field appears in 4 groups: All Form Read Only, ICN Number Visibility, Main Section Visibility, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_LegalDescription | — | Field appears in 4 groups: All Form Read Only, Legal Description Section Visibility, Main Section Visibility, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_WaterTypeDoesNotMeetTheDefinition | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Modification Based on Following Section Visibility, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_WaterTypeDoesNotMeetTheDefinitionDescription | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Q8 Describe Visibility, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_ModificationIsBasedInTheFollowingOptions | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Modification Based on Following Section Visibility, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_ListSpeciesIfKnown | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Q8 List Species Visibility, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_ChannelIsAPublicWaterDiversion | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Modification Based on Following Section Visibility, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_ChannelIsAPublicWaterDiversionDescriptions | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Q8 Public Water Diversion Visibility, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_ChannelIsAFishHatcheryDiversion | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Modification Based on Following Section Visibility, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_ChannelIsAFishHatcheryDiversionDescriptions | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Q8 Fish Hatchery Diversion Visibility, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_WaterLevels | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, ReadOnly For Main Tab Content, Water Levels Section Visibility |
-| field-multiple-groups | Con_WasDroughtDeclaration | — | Field appears in 4 groups: All Form Read Only, Drought Declaration Issued Section Visibility, Main Section Visibility, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_WasDroughtDeclarationDescription | — | Field appears in 3 groups: All Form Read Only, Q10 Description Visibility, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_ChannelCharacteristics | — | Field appears in 3 groups: All Form Read Only, Channel Characteristics Section Visibility, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_ChannelCharacteristicsViewColumn | — | Field appears in 3 groups: All Form Read Only, Channel Characteristics Section Visibility For Proponent, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_ChannelCharacteristics_Description | — | Field appears in 5 groups: All Form Read Only, Channel Characteristics Section Visibility, Main Section Visibility, Q11 Channel Characteristics Description Read Only, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_WaterTypeBreak | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, ReadOnly For Main Tab Content, Water Type Breaks Section Visibility |
-| field-multiple-groups | Con_WaterTypeBreak_ElectrofishingOptions | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, ReadOnly For Main Tab Content, Water Type Breaks Section Electrofishing Options Visibility |
-| field-multiple-groups | Con_WaterTypeBreak_2 | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, ReadOnly For Main Tab Content, Water Type Breaks Section Visibility |
-| field-multiple-groups | WaterTypeBreakDescription | — | Field appears in 3 groups: All Form Read Only, ReadOnly For Main Tab Content, Water Type Breaks Section Describe Other Visibility |
-| field-multiple-groups | Con_DescribeTheWaterTypeBreak | — | Field appears in 4 groups: All Form Read Only, Describe Water Type Breaks Section Visibility, Main Section Visibility, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_ConsultedDNR | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, ReadOnly For Main Tab Content, Type F Physical Characteristics Section Visibility |
-| field-multiple-groups | Con_UpstreamPhysicalCharacteristics | — | Field appears in 4 groups: All Form Read Only, Fish Passage Section Visibility, Main Section Visibility, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_NaturalBarrier | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Q15 Show Yes Options, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_NaturalBarrierOptions | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Q15 Show Natural Barrier Options, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_NaturalBarrierDescription | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Q15 Show Natural Barrier Description, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_NaturalBarrierMeasurements | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Q15 Show Natural Barrier Options, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_TemporaryBarrier | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Q15 Show Yes Options, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_TemporaryBarrierDescription | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, ReadOnly For Main Tab Content, Temporary Barrier Description Visibility |
-| field-multiple-groups | Con_ManmadeBarrier | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Q15 Show Yes Options, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_ManmadeBarrierDescription | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Manmade Barrier Description Visibility, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_FishAboveBarrier | — | Field appears in 4 groups: All Form Read Only, Fish Observed Section Visibility, Main Section Visibility, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_BarrierIdentificationMaps | — | Field appears in 4 groups: All Form Read Only, Fish Barriers Section Visibility, Main Section Visibility, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_BarrierIdentificationSpecify | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Q17 Show Specify Visibility, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_BarrierIdentificationFieldObservations | — | Field appears in 4 groups: All Form Read Only, Fish Barriers Section Visibility, Main Section Visibility, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_DescribeDownstreamBarriers | — | Field appears in 4 groups: All Form Read Only, Locations Of Downstream Barriers Section Visibility, Main Section Visibility, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_WetlandProximityCheck | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, ReadOnly For Main Tab Content, Recent Mass Wasting Section Visibility |
-| field-multiple-groups | Con_WetlandProximityCheckContent | — | Field appears in 4 groups: All Form Read Only, Main Section Visibility, Q19 Evidence Visibility, ReadOnly For Main Tab Content |
-| field-multiple-groups | Con_ManageWhiteSpace | — | Field appears in 2 groups: All Form Read Only, Manage Section Visibility |
-| field-multiple-groups | Con_SubmitSave | — | Field appears in 2 groups: All Form Read Only, Main Section Visibility |
-| field-multiple-groups | Con_BackNextSaveDraft | — | Field appears in 2 groups: All Form Read Only, Main Section Visibility |
-| field-multiple-groups | Con_SectionWhitespace | — | Field appears in 2 groups: All Form Read Only, Main Section Visibility |
-| field-multiple-groups | Con_PrintActions | — | Field appears in 2 groups: All Form Read Only, Show Print Default Buttons Section |
-| field-multiple-groups | DataField28 | — | Field appears in 2 groups: Contact Information Section Visibility, Main Section Visibility |
-| field-multiple-groups | Con_DescribeTheWaterTypeBreakHeader | — | Field appears in 2 groups: Describe Water Type Breaks Section Visibility, Main Section Visibility |
-| field-multiple-groups | Con_WasDroughtDeclarationHeader | — | Field appears in 2 groups: Drought Declaration Issued Section Visibility, Main Section Visibility |
-| field-multiple-groups | Con_BarrierIdentificationMethodHeader | — | Field appears in 2 groups: Fish Barriers Section Visibility, Main Section Visibility |
-| field-multiple-groups | Con_FishAboveBarrierHeader | — | Field appears in 2 groups: Fish Observed Section Visibility, Main Section Visibility |
-| field-multiple-groups | Con_UpstreamPhysicalCharacteristicsHeader | — | Field appears in 2 groups: Fish Passage Section Visibility, Main Section Visibility |
-| field-multiple-groups | Con_IdTeamMeetingOccurHeader | — | Field appears in 2 groups: ID Meeting Section Visibility, Main Section Visibility |
-| field-multiple-groups | Con_LandownerBusinessSearchHeader | — | Field appears in 2 groups: Landowner Business Search Visibility, Main Section Visibility |
-| field-multiple-groups | Con_LandownerIndividualSearchHeader | — | Field appears in 2 groups: Landowner Individual Search Visibility, Main Section Visibility |
-| field-multiple-groups | Con_WasLandownerNotifiedHeader | — | Field appears in 2 groups: Landowner Notified Section Visibility, Main Section Visibility |
-| field-multiple-groups | Con_LandownerHeader | — | Field appears in 2 groups: Landowner Section Visibility, Main Section Visibility |
-| field-multiple-groups | Con_LandownersDGHeader | — | Field appears in 2 groups: Landowner Section Visibility, Main Section Visibility |
-| field-multiple-groups | Con_LegalDescriptionHeader | — | Field appears in 2 groups: Legal Description Section Visibility, Main Section Visibility |
-| field-multiple-groups | Con_DescribeDownstreamBarriersHeader | — | Field appears in 2 groups: Locations Of Downstream Barriers Section Visibility, Main Section Visibility |
-| field-multiple-groups | Con_ProponentHeader | — | Field appears in 2 groups: Main Section Visibility, Proponent Section Visibility |
-| field-multiple-groups | Con_ProponentBusinessSearchHeader | — | Field appears in 2 groups: Main Section Visibility, Proponent Business Search Visibility |
-| field-multiple-groups | Con_ProponentIndividualSearchHeader | — | Field appears in 2 groups: Main Section Visibility, Proponent Individual Search Visibility |
-| field-multiple-groups | Con_ProponentsDGHeader | — | Field appears in 2 groups: Main Section Visibility, Proponent Section Visibility |
-| field-multiple-groups | Con_SurveyorHeader | — | Field appears in 2 groups: Main Section Visibility, Surveyor Section Visibility |
-| field-multiple-groups | Con_SurveyorBusinessSearchHeader | — | Field appears in 2 groups: Main Section Visibility, Surveyor Business Search Visibility |
-| field-multiple-groups | Con_SurveyorIndividualSearchHeader | — | Field appears in 2 groups: Main Section Visibility, Surveyor Individual Search Visibility |
-| field-multiple-groups | Con_SurveyorsDGHeader | — | Field appears in 2 groups: Main Section Visibility, Surveyor Section Visibility |
-| field-multiple-groups | Con_WTMIncludeHeader | — | Field appears in 2 groups: Main Section Visibility, Water Type Modifications Section Visibility |
-| field-multiple-groups | Con_WaterSegmentHeader | — | Field appears in 2 groups: Main Section Visibility, Water Segment Section Visibility |
-| field-multiple-groups | Con_AssociateWithAFPANHeader | — | Field appears in 2 groups: Main Section Visibility, Modification Associated with FPAN Section Visibility |
-| field-multiple-groups | Con_ModificationIsBasedInTheFollowingHeader | — | Field appears in 2 groups: Main Section Visibility, Modification Based on Following Section Visibility |
-| field-multiple-groups | Con_WaterLevelsHeader | — | Field appears in 2 groups: Main Section Visibility, Water Levels Section Visibility |
-| field-multiple-groups | Con_WaterTypeBreakHeader | — | Field appears in 2 groups: Main Section Visibility, Water Type Breaks Section Visibility |
-| field-multiple-groups | Con_ConsultedDNRHeader | — | Field appears in 2 groups: Main Section Visibility, Type F Physical Characteristics Section Visibility |
-| field-multiple-groups | Con_WetlandProximityCheckHeader | — | Field appears in 2 groups: Main Section Visibility, Recent Mass Wasting Section Visibility |
 | container-responsive-flow | Container3 | Page 1 | Container has 3 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
 | container-responsive-flow | Con_PrintActions | Page 1 | Container has 3 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
 | container-responsive-flow | Con_ProponentIndividualSearch | Page 1 | Container has 26 fields but ResponsiveFlow is not set to 1 Column or 2 Columns (current: none) |
@@ -793,6 +798,75 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 1014 (0 errors, 779 warnings, 235 
 | button-label-camelcase | ProgressLabel | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | button-label-camelcase | Label Select Question | Page 1 | Label name should start with "lbl" prefix (camelCase convention) |
 | tab-control-visible | TabControl | — | TabControl is in group "Show Edit Form Button" — tab visibility should be controlled via Menu tab, not groups |
+| standard-hidden-group | — | — | Template does not have a Hidden Fields group — expected a group with visibility condition referencing Admin Override |
+| standard-readonly-group | — | — | Template does not have a Read-Only Fields group — expected a group with read-only condition referencing Admin Override |
+| label-truncation | DataField2 | Page 1 | Label text "<b style="color:#9E0000;">*</b> Indicates required field" (~392px) may be truncated in 132px width — increase width or enable wrapping |
+| label-truncation | Label195 | Page 1 | Label text "Region: <b style="color:#9E0000;">*</b>" (~273px) may be truncated in 72px width — increase width or enable wrapping |
+| label-truncation | Label138 | Page 1 | Label text "Visit the <a href="https://dnr.wa.gov/forest-regulation/forest-practices-application/forest-practices-forms-and-instructions" target="_blank">Forest Practices Forms and Applications page</a> for more information on the Water Type Modification Form." (~1736px) may be truncated in 892px width — increase width or enable wrapping |
+| label-truncation | Label393 | Page 1 | Label text "<b>Instructions:</b>  To upload documentation, select the document type and then select the upload button below. View documentation by selecting the View Documentation button." (~1225px) may be truncated in 840px width — increase width or enable wrapping |
+| label-truncation | Label66 | Page 1 | Label text "1a. Proponent Information" (~175px) may be truncated in 112px width — increase width or enable wrapping |
+| label-truncation | Label407 | Page 1 | Label text "Select the Proponent type you want to add <b style="color:#9E0000;">*</b>" (~511px) may be truncated in 302px width — increase width or enable wrapping |
+| label-truncation | Label598 | Page 1 | Label text "<b>Instructions:</b> Search for a business below to add as a Proponent to your application." (~637px) may be truncated in 552px width — increase width or enable wrapping |
+| label-truncation | Label327 | Page 1 | Label text "<b>Instructions:</b> Search for a contact below to add as a Proponent to your application." (~630px) may be truncated in 552px width — increase width or enable wrapping |
+| label-truncation | Label215 | Page 1 | Label text "Proponent(s) Business:" (~154px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label353 | Page 1 | Label text "Proponent(s) Individuals:" (~175px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label73 | Page 1 | Label text "1b. Surveyor Information" (~168px) may be truncated in 102px width — increase width or enable wrapping |
+| label-truncation | Label679 | Page 1 | Label text "Select the Surveyor type you want to add<b style="color:#9E0000;">*</b>" (~497px) may be truncated in 292px width — increase width or enable wrapping |
+| label-truncation | Label594 | Page 1 | Label text "Surveyor (Business Search)" (~182px) may be truncated in 72px width — increase width or enable wrapping |
+| label-truncation | Label682 | Page 1 | Label text "<b>Instructions:</b> Search for a business below to add as a Surveyor to your application." (~630px) may be truncated in 512px width — increase width or enable wrapping |
+| label-truncation | Label368 | Page 1 | Label text "Surveyor (Individual Search)" (~196px) may be truncated in 92px width — increase width or enable wrapping |
+| label-truncation | Label395 | Page 1 | Label text "<b>Instructions:</b> Search for a contact below to add as a Surveyor to your application." (~623px) may be truncated in 552px width — increase width or enable wrapping |
+| label-truncation | Label606 | Page 1 | Label text "Select the Landowner type you want to add<b style="color:#9E0000;">*</b>" (~504px) may be truncated in 302px width — increase width or enable wrapping |
+| label-truncation | Label388 | Page 1 | Label text "Landowner (Business Search)" (~189px) may be truncated in 102px width — increase width or enable wrapping |
+| label-truncation | Label597 | Page 1 | Label text "<b>Instructions:</b> Search for a contact below to add a Landowner to your application." (~609px) may be truncated in 532px width — increase width or enable wrapping |
+| label-truncation | Label427 | Page 1 | Label text "Landowner (Individual Search)" (~203px) may be truncated in 102px width — increase width or enable wrapping |
+| label-truncation | Label428 | Page 1 | Label text "<b>Instructions:</b> Search for a contact below to add as a Landowner to your application." (~630px) may be truncated in 552px width — increase width or enable wrapping |
+| label-truncation | Label359 | Page 1 | Label text "First Name:<b style="color:#9E0000;">*</b>" (~294px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label361 | Page 1 | Label text "Last Name:<b style="color:#9E0000;">*</b>" (~287px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label160 | Page 1 | Label text "2. Was Landowner notified of the proposed modification? <b style="color:#9E0000;">*</b>" (~609px) may be truncated in 382px width — increase width or enable wrapping |
+| label-truncation | Label161 | Page 1 | Label text "3. Water type modification include: <b style="color:#9E0000;">*</b>" (~469px) may be truncated in 232px width — increase width or enable wrapping |
+| label-truncation | DataField10 | Page 1 | Label text "Click the Add Water Segment button to enter the water segment modification." (~525px) may be truncated in 472px width — increase width or enable wrapping |
+| label-truncation | lblQ5NotMandatory | Page 1 | Label text "5. Is the proposed modification associated with a Forest Practices Application/Notification? <b style="color:#9E0000;">*</b>" (~868px) may be truncated in 602px width — increase width or enable wrapping |
+| label-truncation | DataField20 | Page 1 | Label text "Enter the approved FPA/N number, or enter "new". <b style="color:#9E0000;">*</b>" (~560px) may be truncated in 314px width — increase width or enable wrapping |
+| label-truncation | lblQ6Mandatory | Page 1 | Label text "6. Did an interdisciplinary (ID) team meeting occur? <b style="color:#9E0000;">*</b>" (~588px) may be truncated in 352px width — increase width or enable wrapping |
+| label-truncation | lblQ7Mandatory | Page 1 | Label text "7. What is the legal description of your modification request? <b style="color:#9E0000;">*</b>" (~658px) may be truncated in 422px width — increase width or enable wrapping |
+| label-truncation | Label233 | Page 1 | Label text "Use the Add Legal Description button to add your information." (~427px) may be truncated in 382px width — increase width or enable wrapping |
+| label-truncation | lblQ8Mandatory | Page 1 | Label text "8. Modification is based on the following: <b style="color:#9E0000;">*</b>" (~518px) may be truncated in 292px width — increase width or enable wrapping |
+| label-truncation | Label357 | Page 1 | Label text "Check all that apply:" (~147px) may be truncated in 132px width — increase width or enable wrapping |
+| label-truncation | DataField8 | Page 1 | Label text "Describe: <b style="color:#9E0000;">*</b>" (~287px) may be truncated in 72px width — increase width or enable wrapping |
+| label-truncation | Label371 | Page 1 | Label text "Distance from diversion: <b style="color:#9E0000;">*</b>" (~392px) may be truncated in 152px width — increase width or enable wrapping |
+| label-truncation | DataField12 | Page 1 | Label text "Water rights reference number: <b style="color:#9E0000;">*</b>" (~434px) may be truncated in 192px width — increase width or enable wrapping |
+| label-truncation | Label376 | Page 1 | Label text "Hatchery Name: <b style="color:#9E0000;">*</b>" (~322px) may be truncated in 112px width — increase width or enable wrapping |
+| label-truncation | DataField6 | Page 1 | Label text "Distance from Hatchery: <b style="color:#9E0000;">*</b>" (~385px) may be truncated in 152px width — increase width or enable wrapping |
+| label-truncation | Label168 | Page 1 | Label text "9. Water levels in the survey area were: <b style="color:#9E0000;">*</b>" (~504px) may be truncated in 292px width — increase width or enable wrapping |
+| label-truncation | Label169 | Page 1 | Label text "10. Was a drought declaration issued per RCW 43.83B? <b style="color:#9E0000;">*</b>" (~588px) may be truncated in 372px width — increase width or enable wrapping |
+| label-truncation | Label247 | Page 1 | Label text "Describe how stream flows and fish use determination were unaffected by drought conditions." (~637px) may be truncated in 572px width — increase width or enable wrapping |
+| label-truncation | Label170 | Page 1 | Label text "11. Use the table below to describe the channel characteristics. <b style="color:#9E0000;">*</b>" (~672px) may be truncated in 422px width — increase width or enable wrapping |
+| label-truncation | Label263 | Page 1 | Label text "If necessary, use a stream tally sheet for multiple stream segments. Per WAC 222-16-031(6)(f), proponents of water typing changes are expected to provide at least 10 evenly spaced measurements at points along the stream channel over a representative section of at least 500 feet." (~1953px) may be truncated in 572px width — increase width or enable wrapping |
+| label-truncation | Label384 | Page 1 | Label text "If necessary, use a stream tally sheet for multiple stream segments. Per WAC 222-16-031(6)(f), proponents of water typing changes are expected to provide at least 10 evenly spaced measurements at points along the stream channel over a representative section of at least 500 feet." (~1953px) may be truncated in 572px width — increase width or enable wrapping |
+| label-truncation | Label171 | Page 1 | Label text "12. Water type break was determined by: <b style="color:#9E0000;">*</b>" (~497px) may be truncated in 282px width — increase width or enable wrapping |
+| label-truncation | DataField23 | Page 1 | Label text "Description: <b style="color:#9E0000;">*</b>" (~308px) may be truncated in 72px width — increase width or enable wrapping |
+| label-truncation | lblQ13Mandatory | Page 1 | Label text "13. Describe the water type break and how it is marked on the ground. <b style="color:#9E0000;">*</b>" (~707px) may be truncated in 462px width — increase width or enable wrapping |
+| label-truncation | lblQ14Mandatory | Page 1 | Label text "14. Do Type F physical characteristics occur above the surveyed segment? <b style="color:#9E0000;">*</b>" (~728px) may be truncated in 502px width — increase width or enable wrapping |
+| label-truncation | lblQ15Mandatory | Page 1 | Label text "15. Are there any fish passage barrier downstream of the surveyed stream segment(s)? <b style="color:#9E0000;">*</b>" (~812px) may be truncated in 572px width — increase width or enable wrapping |
+| label-truncation | Label446 | Page 1 | Label text "Description:<b style="color:#9E0000;">*</b>" (~301px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | DataField25 | Page 1 | Label text "Please provide the natural barrier measurements:<b style="color:#9E0000;">*</b>" (~553px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | DataField13 | Page 1 | Label text "Description: <b style="color:#9E0000;">*</b>" (~308px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label386 | Page 1 | Label text "Description:<b style="color:#9E0000;">*</b>" (~301px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | lblQ16Mandatory | Page 1 | Label text "16. Were fish observed above the barrier? <b style="color:#9E0000;">*</b>" (~511px) may be truncated in 292px width — increase width or enable wrapping |
+| label-truncation | Label176 | Page 1 | Label text "17. How were fish barriers identified? <b style="color:#9E0000;">*</b>" (~490px) may be truncated in 262px width — increase width or enable wrapping |
+| label-truncation | DataField5 | Page 1 | Label text "Specify:<b style="color:#9E0000;">*</b>" (~273px) may be truncated in 62px width — increase width or enable wrapping |
+| label-truncation | DataField4 | Page 1 | Label text "18. Describe locations of downstream barrier(s): <b style="color:#9E0000;">*</b>" (~560px) may be truncated in 332px width — increase width or enable wrapping |
+| label-truncation | DataField61 | Page 1 | Label text "Describe the location(s) of fish passage barriers downstream of the surveyed segment. Provide latitude and longitude if possible." (~903px) may be truncated in 772px width — increase width or enable wrapping |
+| label-truncation | Label178 | Page 1 | Label text "19. Is there evidence of recent mass wasting (sediment filling in the stream channel) or scouring events?<b style="color:#9E0000;">*</b>" (~952px) may be truncated in 622px width — increase width or enable wrapping |
+| label-truncation | Label349 | Page 1 | Label text "Estimated occurrence date:<b style="color:#9E0000;">*</b>" (~399px) may be truncated in 172px width — increase width or enable wrapping |
+| label-truncation | Label352 | Page 1 | Label text "Describe how the event affected current stream channel conditions and fish distribution in the stream:<b style="color:#9E0000;">*</b>" (~931px) may be truncated in 612px width — increase width or enable wrapping |
+| label-truncation | Label355 | Page 1 | Label text "Provide any additional clarifying information and list attachments <i>(survey cards, photos of type break, field notes, expert reports, stationing, etc.)</i>" (~1099px) may be truncated in 782px width — increase width or enable wrapping |
+| label-truncation | DataField74 | Page 1 | Label text "You can manage your submitted application by selecting one of the following actions." (~588px) may be truncated in 512px width — increase width or enable wrapping |
+| label-truncation | Label34 | Page 1 | Label text "Record ID:" (~70px) may be truncated in 62px width — increase width or enable wrapping |
+| label-truncation | Label43 | Page 1 | Label text "<b>Instructions:</b>  This section is only visible to VaultAccess users.  Check Administrator Override to remove read-only configurations and show all fields.  Select Admin Save to save any changes without applying business rules.  Remember to uncheck override and save before closing." (~1995px) may be truncated in 722px width — increase width or enable wrapping |
+| label-truncation | Label454 | Page 1 | Label text "AUTOMATION FLAGS:" (~119px) may be truncated in 82px width — increase width or enable wrapping |
+| label-truncation | Label383 | Page 1 | Label text "Questions Map: Update this whenever form validation rules are changed for proper evaluation in ValidateAll and UpdateQuestionsMap functions" (~973px) may be truncated in 862px width — increase width or enable wrapping |
 
 ## Info
 
@@ -1033,3 +1107,6 @@ Generated: 2026-04-16 | Rules: 40 | Findings: 1014 (0 errors, 779 warnings, 235 
 | field-max-length | Describe Downstream Barriers | Page 1 | TextArea MaxLength is 250 — recommended minimum is 3000 for notes/text fields |
 | field-max-length | Event Impact Summary | Page 1 | TextArea MaxLength is 250 — recommended minimum is 3000 for notes/text fields |
 | field-max-length | Additional Clarifying Information | Page 1 | TextArea MaxLength is 1000 — recommended minimum is 3000 for notes/text fields |
+| field-width-standard | Add Water Segment | Page 1 | FieldTextbox3 width is 10px — recommended minimum is 80px |
+| field-width-standard | Add Legal Description | Page 1 | notes field width is 10px — recommended minimum is 300px |
+| field-width-standard | Add Channel Characteristics | Page 1 | FieldTextbox3 width is 10px — recommended minimum is 80px |
