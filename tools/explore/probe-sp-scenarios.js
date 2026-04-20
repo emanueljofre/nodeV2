@@ -35,8 +35,8 @@ function loadEmanuelJofreConfig() {
     const raw = JSON.parse(fs.readFileSync(envPath, 'utf8'));
     const server = raw.servers && raw.servers['vvdemo'];
     if (!server) throw new Error('No "vvdemo" server in .env.json');
-    const customer = server.customers && server.customers['EmanuelJofre'];
-    if (!customer) throw new Error('No "EmanuelJofre" customer under vvdemo');
+    const customer = server.customers && server.customers['EmanuelJofre-vvdemo'];
+    if (!customer) throw new Error('No "EmanuelJofre-vvdemo" customer under vvdemo');
     return {
         baseUrl: server.baseUrl,
         customerAlias: customer.customerAlias,
@@ -260,7 +260,7 @@ async function runPhase2(config) {
     const { chromium } = require('playwright');
     const vvAdmin = require('../helpers/vv-admin');
 
-    const adminConfig = vvAdmin.loadEnvConfig('vvdemo', 'EmanuelJofre');
+    const adminConfig = vvAdmin.loadEnvConfig('vvdemo', 'EmanuelJofre-vvdemo');
     const browser = await chromium.launch({ headless: !HEADED });
     const page = await browser.newPage();
 

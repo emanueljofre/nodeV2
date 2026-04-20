@@ -24,7 +24,7 @@
  *
  * Usage:
  *   node tools/explore/environment-profile.js --project wadnr
- *   node tools/explore/environment-profile.js --project emanueljofre --with-browser
+ *   node tools/explore/environment-profile.js --project emanueljofre-vvdemo --with-browser
  *   node tools/explore/environment-profile.js --print
  *   node tools/explore/environment-profile.js --output /custom/path
  *
@@ -64,7 +64,7 @@ const PROJECTS_DIR = path.resolve(__dirname, '..', '..', 'projects');
 // Known FormViewer template paths per customer (for browser probes).
 // These must contain at least one calendar field for Kendo variant detection.
 const FORMVIEWER_PATHS = {
-    EmanuelJofre:
+    'EmanuelJofre-vvdemo':
         '/FormViewer/app?hidemenu=true' +
         '&formid=6be0265c-152a-f111-ba23-0afff212cc87' +
         '&xcid=815eb44d-5ec8-eb11-8200-a8333ebd7939' +

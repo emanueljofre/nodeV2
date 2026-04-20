@@ -32,8 +32,8 @@ Not every project needs every subfolder. They're created as needed.
 
 | Type | Has repo/ | Has extracts/ | Has .env.json entry | Example |
 |------|-----------|---------------|---------------------|---------|
-| VV customer (workspace only) | No | Yes | Yes | wadnr, emanueljofre |
-| VV customer (with code repo) | Yes | Yes | Yes | future client work |
+| VV customer (workspace only) | No | Yes | Yes | wadnr, emanueljofre-vvdemo |
+| VV customer (with code repo) | Yes | Yes | Yes | emanueljofre-vv5dev |
 | Non-VV project | Yes | No | No | licensing |
 
 ## Shared vs. Project-Specific
@@ -60,4 +60,5 @@ Manual steps:
 | Project | Environment | Description |
 |---------|-------------|-------------|
 | `wadnr/` | vv5dev/WADNR/fpOnline | WA DNR: 89 templates, 251 scripts, 157 globals, 21 schedules |
-| `emanueljofre/` | vvdemo/EmanuelJofre/Main | Development/testing environment for platform investigations |
+| `emanueljofre-vvdemo/` | vvdemo/EmanuelJofre/Main | Development/testing sandbox for platform investigations |
+| `emanueljofre-vv5dev/` | vv5dev/EmanuelJofre/Main | Personal sandbox on vv5dev (unrestricted writes) |

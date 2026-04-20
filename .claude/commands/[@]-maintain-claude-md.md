@@ -201,7 +201,7 @@ git log --since="$claude_md_date" --diff-filter=ADR --name-only --format="" -- "
 
 If structural changes exist, flag as **WARNING**: "N structural changes in {scope}/ since CLAUDE.md was last updated" and list them so the maintainer knows what to address.
 
-Ignore changes to files inside subdirectories that aren't described by this CLAUDE.md (e.g., changes inside `projects/emanueljofre/testing/` don't affect `research/CLAUDE.md`).
+Ignore changes to files inside subdirectories that aren't described by this CLAUDE.md (e.g., changes inside `projects/emanueljofre-vvdemo/testing/` don't affect `research/CLAUDE.md`).
 
 **Noise filter:** Ignore changes from the same commit that created or last modified the CLAUDE.md itself. Initial file moves (e.g., from a restructure) that happen in the same commit as CLAUDE.md creation are not "unaddressed changes."
 

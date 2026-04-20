@@ -18,7 +18,8 @@ These are the documentation files in the project and what each one covers:
 | `testing/CLAUDE.md`                         | Testing folder scope: spec dirs, helpers, fixtures, pipelines                     |
 | `research/date-handling/CLAUDE.md`          | Date investigation scope table, bug index, component status                       |
 | `projects/wadnr/CLAUDE.md`                  | WADNR env config, extracts summary, write safety, validation results              |
-| `projects/emanueljofre/CLAUDE.md`           | EmanuelJofre env config, extracts summary, commands                               |
+| `projects/emanueljofre-vvdemo/CLAUDE.md`    | EmanuelJofre vvdemo env config, extracts summary, commands                        |
+| `projects/emanueljofre-vv5dev/CLAUDE.md`    | EmanuelJofre vv5dev env config, extracts summary, commands                        |
 | `CHANGELOG.md`                              | Server/library changes under Unreleased (lib/ scope + project tooling)            |
 | `docs/guides/dev-setup.md`                  | **Canonical setup guide** — env setup, Playwright, credentials, troubleshooting   |
 | `docs/guides/playwright-testing.md`         | Playwright patterns, architecture, extension guide (links to dev-setup for setup) |

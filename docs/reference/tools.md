@@ -168,7 +168,7 @@ npm run version:list
 
 ```bash
 node tools/explore/environment-profile.js --project wadnr
-node tools/explore/environment-profile.js --project emanueljofre --with-browser
+node tools/explore/environment-profile.js --project emanueljofre-vvdemo --with-browser
 node tools/explore/environment-profile.js --print
 npm run env:profile
 npm run env:profile:browser
@@ -379,10 +379,10 @@ All admin tools automate VV admin pages via Playwright. They share these traits:
 **Usage:**
 
 ```bash
-node tools/admin/create-ws.js --project emanueljofre --name "zzzMyService" --category form
-node tools/admin/create-ws.js --project emanueljofre --name "zzzMyService" --category form --script "response.json(200, 'ok')"
-node tools/admin/create-ws.js --project emanueljofre --name "zzzMyService" --category form --script-file ./path/to/script.js
-node tools/admin/create-ws.js --project emanueljofre --name "zzzMyService" --description "test" --category workflow --headed
+node tools/admin/create-ws.js --project emanueljofre-vvdemo --name "zzzMyService" --category form
+node tools/admin/create-ws.js --project emanueljofre-vvdemo --name "zzzMyService" --category form --script "response.json(200, 'ok')"
+node tools/admin/create-ws.js --project emanueljofre-vvdemo --name "zzzMyService" --category form --script-file ./path/to/script.js
+node tools/admin/create-ws.js --project emanueljofre-vvdemo --name "zzzMyService" --description "test" --category workflow --headed
 ```
 
 **Parameters:**
@@ -595,9 +595,9 @@ npm run version:diff            # see what changed
 Create a web service, link it to a schedule, test it:
 
 ```bash
-node tools/admin/create-ws.js --project emanueljofre --name "zzzMyService" --category scheduled
-node tools/admin/create-schedule.js --project emanueljofre --name "zzzMySchedule" --service "zzzMyService"
-node tools/admin/test-schedule.js --project emanueljofre --name "zzzMySchedule"
+node tools/admin/create-ws.js --project emanueljofre-vvdemo --name "zzzMyService" --category scheduled
+node tools/admin/create-schedule.js --project emanueljofre-vvdemo --name "zzzMySchedule" --service "zzzMyService"
+node tools/admin/test-schedule.js --project emanueljofre-vvdemo --name "zzzMySchedule"
 ```
 
 ### Environment Profiling

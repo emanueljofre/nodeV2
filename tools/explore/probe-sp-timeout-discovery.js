@@ -32,8 +32,8 @@ function loadEmanuelJofreConfig() {
     const envPath = path.resolve(__dirname, '..', '..', '.env.json');
     const raw = JSON.parse(fs.readFileSync(envPath, 'utf8'));
     const server = raw.servers && raw.servers['vvdemo'];
-    const customer = server && server.customers && server.customers['EmanuelJofre'];
-    if (!server || !customer) throw new Error('EmanuelJofre config not found in .env.json');
+    const customer = server && server.customers && server.customers['EmanuelJofre-vvdemo'];
+    if (!server || !customer) throw new Error('EmanuelJofre-vvdemo config not found in .env.json');
     return {
         clientId: customer.clientId,
         clientSecret: customer.clientSecret,
@@ -248,7 +248,7 @@ async function triggerTest(page, scheduleName, schedUrl, waitTimeout) {
 
 async function main() {
     const config = loadEmanuelJofreConfig();
-    const adminConfig = vvAdmin.loadEnvConfig('vvdemo', 'EmanuelJofre');
+    const adminConfig = vvAdmin.loadEnvConfig('vvdemo', 'EmanuelJofre-vvdemo');
 
     console.log('╔═══════════════════════════════════════════════════════╗');
     console.log('║  VV Platform Timeout Discovery                             ║');

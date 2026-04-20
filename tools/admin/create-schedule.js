@@ -6,8 +6,8 @@
  * They link to an existing web service (outside process) by name.
  *
  * Usage:
- *   node tools/admin/create-schedule.js --project emanueljofre --name "zzzMySchedule" --service "zzzSchedTarget"
- *   node tools/admin/create-schedule.js --project emanueljofre --name "zzzMySchedule" --service "zzzSchedTarget" --headed
+ *   node tools/admin/create-schedule.js --project emanueljofre-vvdemo --name "zzzMySchedule" --service "zzzSchedTarget"
+ *   node tools/admin/create-schedule.js --project emanueljofre-vvdemo --name "zzzMySchedule" --service "zzzSchedTarget" --headed
  *
  * Options:
  *   --project <name>        Customer name (resolved from .env.json)

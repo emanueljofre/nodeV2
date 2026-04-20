@@ -6,10 +6,10 @@
  * automate the outsideprocessadmin page.
  *
  * Usage:
- *   node tools/admin/create-ws.js --project emanueljofre --name "zzzMyService" --category form
- *   node tools/admin/create-ws.js --project emanueljofre --name "zzzMyService" --category form --script "response.json(200, 'ok')"
- *   node tools/admin/create-ws.js --project emanueljofre --name "zzzMyService" --category form --script-file ./path/to/script.js
- *   node tools/admin/create-ws.js --project emanueljofre --name "zzzMyService" --description "test" --category workflow --headed
+ *   node tools/admin/create-ws.js --project emanueljofre-vvdemo --name "zzzMyService" --category form
+ *   node tools/admin/create-ws.js --project emanueljofre-vvdemo --name "zzzMyService" --category form --script "response.json(200, 'ok')"
+ *   node tools/admin/create-ws.js --project emanueljofre-vvdemo --name "zzzMyService" --category form --script-file ./path/to/script.js
+ *   node tools/admin/create-ws.js --project emanueljofre-vvdemo --name "zzzMyService" --description "test" --category workflow --headed
  *
  * Options:
  *   --project <name>        Customer name (case-insensitive, resolved from .env.json)

@@ -63,7 +63,8 @@ Every write operation in a spec MUST go through a guarded helper. No exceptions.
 
 Platform-side test components (forms, web services, saved records) are cataloged per-project:
 
-- [`projects/emanueljofre/test-assets.md`](../projects/emanueljofre/test-assets.md) — development environment (read-write)
+- [`projects/emanueljofre-vvdemo/test-assets.md`](../projects/emanueljofre-vvdemo/test-assets.md) — vvdemo sandbox (read-write)
+- [`projects/emanueljofre-vv5dev/test-assets.md`](../projects/emanueljofre-vv5dev/test-assets.md) — vv5dev sandbox (read-write)
 - [`projects/wadnr/test-assets.md`](../projects/wadnr/test-assets.md) — WADNR environment (read-only)
 
 When adding a test harness to any environment, update that project's `test-assets.md`.

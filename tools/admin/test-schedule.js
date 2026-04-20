@@ -8,7 +8,7 @@
  * 5. Report the result
  *
  * Usage:
- *   node tools/admin/test-schedule.js --project emanueljofre --name "zzzSched_Underscore2" [--headed]
+ *   node tools/admin/test-schedule.js --project emanueljofre-vvdemo --name "zzzSched_Underscore2" [--headed]
  */
 const { chromium } = require('@playwright/test');
 const vvAdmin = require('../helpers/vv-admin');

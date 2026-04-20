@@ -41,7 +41,7 @@ function loadConfig() {
     const envPath = path.resolve(__dirname, '..', '..', '.env.json');
     const raw = JSON.parse(fs.readFileSync(envPath, 'utf8'));
     const server = raw.servers['vvdemo'];
-    const customer = server.customers['EmanuelJofre'];
+    const customer = server.customers['EmanuelJofre-vvdemo'];
     return {
         clientId: customer.clientId,
         clientSecret: customer.clientSecret,
@@ -346,7 +346,7 @@ async function readScheduleLog(page, scheduleName, schedUrl, maxEntries) {
 
 async function main() {
     const config = loadConfig();
-    const adminConfig = vvAdmin.loadEnvConfig('vvdemo', 'EmanuelJofre');
+    const adminConfig = vvAdmin.loadEnvConfig('vvdemo', 'EmanuelJofre-vvdemo');
     const opUrl = vvAdmin.adminUrl(adminConfig, 'outsideprocessadmin');
     const schedUrl = vvAdmin.adminUrl(adminConfig, 'scheduleradmin');
 

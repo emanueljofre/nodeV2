@@ -4,8 +4,8 @@
  * and postback targets. Works with any admin section.
  *
  * Usage:
- *   node tools/admin/explore-admin.js --project emanueljofre --section scheduleradmin
- *   node tools/admin/explore-admin.js --project emanueljofre --section outsideprocessadmin
+ *   node tools/admin/explore-admin.js --project emanueljofre-vvdemo --section scheduleradmin
+ *   node tools/admin/explore-admin.js --project emanueljofre-vvdemo --section outsideprocessadmin
  */
 const { chromium } = require('@playwright/test');
 const path = require('path');

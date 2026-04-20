@@ -3,9 +3,9 @@
  * Verify web service(s) exist and are callable via the VV REST API.
  *
  * Usage:
- *   node tools/admin/verify-ws.js --project emanueljofre --name "zzzTestUnderscore_Name"
- *   node tools/admin/verify-ws.js --project emanueljofre --name "zzzTest*"  # glob match
- *   node tools/admin/verify-ws.js --project emanueljofre --list             # list all WS
+ *   node tools/admin/verify-ws.js --project emanueljofre-vvdemo --name "zzzTestUnderscore_Name"
+ *   node tools/admin/verify-ws.js --project emanueljofre-vvdemo --name "zzzTest*"  # glob match
+ *   node tools/admin/verify-ws.js --project emanueljofre-vvdemo --list             # list all WS
  */
 const path = require('path');
 const vvAdmin = require('../helpers/vv-admin');
