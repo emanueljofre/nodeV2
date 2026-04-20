@@ -1,4 +1,4 @@
-# EmanuelJofre Project — Development & Testing Environment
+# EmanuelJofre-vvdemo Project — Personal Sandbox on vvdemo
 
 ## Environment
 
@@ -11,7 +11,7 @@
 | Read-Only | No                                       |
 | Write Policy | `unrestricted` — development sandbox, all writes allowed |
 
-Full environment profile (platform versions, services, front-end stack): [`environment.json`](environment.json) — generate with `npm run env:profile -- --project emanueljofre`.
+Full environment profile (platform versions, services, front-end stack): [`environment.json`](environment.json) — generate with `npm run env:profile -- --project emanueljofre-vvdemo`.
 
 ## Extracts
 
@@ -31,13 +31,13 @@ Last full extraction: 2026-04-09. Schedules re-extracted 2026-04-14 (10 schedule
 
 ```bash
 # Extract all components
-node tools/extract/extract.js --project emanueljofre
+node tools/extract/extract.js --project emanueljofre-vvdemo
 
 # Extract just scripts
-node tools/extract/extract.js --project emanueljofre --component scripts
+node tools/extract/extract.js --project emanueljofre-vvdemo --component scripts
 
 # Dry-run
-node tools/extract/extract.js --project emanueljofre --dry-run
+node tools/extract/extract.js --project emanueljofre-vvdemo --dry-run
 ```
 
 ## Analysis
