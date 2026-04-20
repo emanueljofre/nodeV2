@@ -103,7 +103,7 @@ analysis/ # Investigation findings, bug reports, fix recommendations
 | ID | Name | Severity | File |
 |----|------|----------|------|
 
-Each bug gets its own file in `analysis/` following `docs/standards/bug-report-standard.md`.
+Each bug gets its own file in `analysis/` following `docs/standards/bug-report-investigation.md`. See `docs/standards/bug-reporting.md` for the index of formats and when to use which.
 
 ## Next Steps
 
@@ -156,5 +156,5 @@ Next steps:
 2. **Minimal scaffolding.** Only create the directories and files needed from day one. Don't pre-create empty matrix.md or test-cases/ — they emerge from the investigation.
 3. **Follow CLAUDE.md content standard** — generated CLAUDE.md should be concise (~30 lines) with the template structure, not filled with placeholder prose. Customer-bound analysis folders get a `README.md`, not a `CLAUDE.md` (per CLAUDE.md standards — no CLAUDE.md for implementation subfolders).
 4. **Sharing boundary** — `research/` is shared (team repo), `projects/` is personal (private repo). The generated CLAUDE.md doesn't need to mention this (it's in the parent docs).
-5. **Bug report standard** — point to `docs/standards/bug-report-standard.md` for how to write bug documents.
+5. **Bug report standard** — point to `docs/standards/bug-reporting.md` (the index) for the two available formats: `bug-report-support.md` for filing tickets, `bug-report-investigation.md` for deep analysis.
 6. **Promotion path** — if a customer-bound investigation turns out to be platform-level, it can be promoted to `research/` later. Mention this in the customer-bound report.

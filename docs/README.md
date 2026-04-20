@@ -20,7 +20,9 @@ docs/
 
 ### Standards
 
-- [bug-report-standard.md](standards/bug-report-standard.md) — Bug report structure, writing principles, severity levels, companion doc format, field configuration appendix pattern
+- [bug-reporting.md](standards/bug-reporting.md) — Index for bug documentation: when to use which format, shared conventions (bug ID, severity rubric, core writing principles, file naming)
+- [bug-report-support.md](standards/bug-report-support.md) — Short-form template for filing tickets with VV support or product teams (one page, metadata + repro + evidence)
+- [bug-report-investigation.md](standards/bug-report-investigation.md) — Deep-analysis format for defects you're analyzing yourself (9-section structure, root cause, companion fix doc, scope boundary check)
 - [form-template-standard.md](standards/form-template-standard.md) — 49 atomic form template standards (naming, accessibility, layout, calendar config, script hygiene, groups, admin override, form controls, dropdown config, label layout, visual consistency, field width) with pass/fail definitions
 
 ### Guides

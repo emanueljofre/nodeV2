@@ -1,24 +1,10 @@
-# Bug Report Standard
+# Bug Report — Investigation Format
 
-Guidelines for writing bug reports that will be read by people with no prior context — product teams, developers picking up the fix, support engineers triaging tickets.
+Deep-analysis format for documenting a defect you're investigating yourself: root cause, evidence, and a companion fix recommendation doc. Target audience: developers picking up the fix, support engineers triaging related tickets, and future readers doing similar investigations.
+
+For short-form support tickets (one-page, for handoff without ownership), use [bug-report-support.md](bug-report-support.md). Shared conventions — bug ID pattern, severity rubric, core writing principles, file naming — live in [bug-reporting.md](bug-reporting.md).
 
 Reference implementation: `research/date-handling/forms-calendar/analysis/bug-1-timezone-stripping.md`
-
----
-
-## Bug ID Convention
-
-Bug IDs follow the pattern `{COMPONENT}-BUG-{N}`:
-
-| Component               | Prefix               | Example                |
-| ----------------------- | -------------------- | ---------------------- |
-| Forms calendar fields   | `FORM-BUG-`          | FORM-BUG-1, FORM-BUG-7 |
-| Web Services (REST API) | `WEBSERVICE-BUG-`    | WEBSERVICE-BUG-1       |
-| Analytic Dashboards     | `FORMDASHBOARD-BUG-` | FORMDASHBOARD-BUG-1    |
-| Reports                 | `REPORT-BUG-`        | (future)               |
-| Node.js Client Library  | `NODECLIENT-BUG-`    | (future)               |
-
-Numbers are sequential within each component. Once assigned, a bug ID is permanent — do not renumber.
 
 ---
 
@@ -70,16 +56,7 @@ Every bug report follows this structure. Sections are in this order because each
 - State the active impact scope — what's affected right now, in what scenarios
 - If the bug has limited real-world impact (e.g., self-consistent save/reload masks it), say so explicitly
 - Do not overstate ("all users affected") or understate ("dormant") — describe the actual scope
-- Rate using the severity definitions below, with a brief justification
-
-**Severity levels:**
-
-| Level        | Definition                                                                                                                                                                          |
-| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **CRITICAL** | Data loss or corruption that cannot be recovered, or the defect affects all users in all configurations with no workaround                                                          |
-| **HIGH**     | Incorrect data is stored or returned, affecting a broad set of users or configurations. Workarounds exist but require non-obvious changes                                           |
-| **MEDIUM**   | Incorrect behavior with a narrow trigger (specific configuration, specific data source, specific timezone). Workarounds are available or the most common usage paths are unaffected |
-| **LOW**      | Cosmetic, edge-case-only, or theoretical — the defect exists in code but has no confirmed real-world impact under tested conditions                                                 |
+- Rate using the severity rubric in [bug-reporting.md](bug-reporting.md#severity-rubric) (CRITICAL / HIGH / MEDIUM / LOW), with a brief justification
 
 ### 4. How to Reproduce
 
@@ -219,77 +196,50 @@ When new evidence changes the understanding of a bug:
 
 ## Writing Principles
 
-### Language and tone
-
-1. **Use neutral, precise language.** Bug reports describe defective behavior — they are not editorials. Avoid informal, judgmental, or emotionally loaded words. The tone should be that of a clinical report: factual, measured, and professional.
-
-    | Avoid                            | Use instead                                                            |
-    | -------------------------------- | ---------------------------------------------------------------------- |
-    | "garbage", "junk", "bogus"       | "invalid", "incorrect", "malformed"                                    |
-    | "tricks", "fools", "lies to"     | "causes", "results in", "leads to"                                     |
-    | "insidious", "nasty", "ugly"     | "silent" (if no warning), "difficult to detect"                        |
-    | "explodes", "blows up"           | "throws an uncaught exception", "crashes"                              |
-    | "fake" (as adjective for values) | "literal" (for hardcoded markers), "non-functional", "incorrect"       |
-    | "wearing a costume", metaphors   | Describe the behavior directly                                         |
-    | "breaks" (when vague)            | "fails", "produces incorrect results", "does not function as expected" |
-
-    "Crashes" is acceptable when the code literally throws an uncaught exception. "Breaks" is acceptable when describing a specific pattern that stops working. The test is: would this word appear in a vendor support ticket? If not, rephrase.
+The core principles (neutral language, zero prior context, evidence-backed claims, accuracy about tested environments, stating what you don't know) are defined in [bug-reporting.md](bug-reporting.md#core-writing-principles) and apply to both formats. The principles below are **investigation-specific** — they address the depth and structure that only the investigation format has.
 
 ### Audience and assumptions
 
-2. **The reader has zero prior context.** No "the original analysis stated," no "corrected during the audit," no "as we discussed." Every concept must be introduced before it's used.
+1. **Don't use technical jargon before defining it.** First use of any internal term must include a brief explanation. Introduce it in the section where the reader first needs it — not earlier, not later.
 
-3. **Don't use technical jargon before defining it.** First use of any internal term must include a brief explanation. Introduce it in the section where the reader first needs it — not earlier, not later.
-
-4. **Don't forward-reference unexplained concepts.** Don't write "see Background for what X means" in the opening. Either introduce it where you mention it, or don't mention it yet.
+2. **Don't forward-reference unexplained concepts.** Don't write "see Background for what X means" in the opening. Either introduce it where you mention it, or don't mention it yet.
 
 ### Scope and accuracy
 
-5. **Report the full scope of the defect.** If a bug exists in multiple code paths, all are first-class manifestations. Don't frame one as "the bug" and others as "equivalents" or footnotes.
+3. **Report the full scope of the defect.** If a bug exists in multiple code paths, all are first-class manifestations. Don't frame one as "the bug" and others as "equivalents" or footnotes.
 
-6. **Don't claim knowledge about environments you haven't tested.** Say "the demo environment" not "production." Say "we have not verified other environments" not "not active in production."
+4. **Don't call a bug "dormant" when it has a narrower active scope.** A bug affecting one field configuration on API-created records is _narrow_, not dormant.
 
-7. **State what you don't know.** If you can see code-level triggers but don't know what admin setting controls them, say so. Don't present code observations as complete system knowledge.
+5. **If two concepts are independent, say so explicitly.** Don't let the reader conflate orthogonal axes (e.g., a service-level flag vs a per-field flag).
 
-8. **Don't call a bug "dormant" when it has a narrower active scope.** A bug affecting one field configuration on API-created records is _narrow_, not dormant.
-
-9. **If two concepts are independent, say so explicitly.** Don't let the reader conflate orthogonal axes (e.g., a service-level flag vs a per-field flag).
-
-10. **Verify scope boundaries before finalizing.** Check that every affected scenario is covered by this report or another. Don't leave gaps between bug reports.
+6. **Verify scope boundaries before finalizing.** Check that every affected scenario is covered by this report or another. Don't leave gaps between bug reports.
 
 ### Evidence and claims
 
-11. **Every claim should be backed or marked as unverified.** "Verified via automated testing" or "code-level observation — not verified in a live environment."
+7. **When a bug has limited real-world impact, call that out.** If a save/reload cycle masks the defect for the most common scenario, state it. Don't overstate or understate severity.
 
-12. **When a bug has limited real-world impact, call that out.** If a save/reload cycle masks the defect for the most common scenario, state it. Don't overstate or understate severity.
-
-13. **No internal process language.** No "corrections from original analysis," no "this was revised during the audit." State the finding directly — the reader doesn't care about your drafts.
+8. **No internal process language.** No "corrections from original analysis," no "this was revised during the audit." State the finding directly — the reader doesn't care about your drafts.
 
 ### Structure and clarity
 
-14. **"What Happens" is jargon-free.** Observable symptom only. No function names, no code paths, no internal flags.
+9. **"What Happens" is jargon-free.** Observable symptom only. No function names, no code paths, no internal flags.
 
-15. **Conditions come before technical details.** The reader answers "does this affect me?" within the first four sections, before any code.
+10. **Conditions come before technical details.** The reader answers "does this affect me?" within the first four sections, before any code.
 
-16. **Explain the full data flow for any value that "arrives."** If something enters a component, explain who put it there. Don't assume the reader knows which layer transforms what.
+11. **Explain the full data flow for any value that "arrives."** If something enters a component, explain who put it there. Don't assume the reader knows which layer transforms what.
 
-17. **Separate problem from solution.** Bug report = what's broken, when, why, evidence. Workarounds and fixes = companion document.
+12. **Separate problem from solution.** Bug report = what's broken, when, why, evidence. Workarounds and fixes = companion document.
 
-18. **Don't keep redundant sections after restructuring.** If content was integrated elsewhere, delete the old section.
+13. **Don't keep redundant sections after restructuring.** If content was integrated elsewhere, delete the old section.
 
-19. **Declare the test environment in the Verification section.** Tools, environment URL, timezones, browsers — stated once, not assumed.
+14. **Declare the test environment in the Verification section.** Tools, environment URL, timezones, browsers — stated once, not assumed.
 
-20. **Reference the supporting repository on first mention of automation.** The reader may receive the bug report standalone. The first time automated testing, spec files, or test artifacts are mentioned, include a note that a supporting repository with automation scripts, additional analysis, and raw data exists and can be requested.
+15. **Reference the supporting repository on first mention of automation.** The reader may receive the bug report standalone. The first time automated testing, spec files, or test artifacts are mentioned, include a note that a supporting repository with automation scripts, additional analysis, and raw data exists and can be requested.
 
-21. **Avoid redundancy between sections.** "When This Applies" introduces concepts; "Background" adds detail — not the same detail. "Problem in Detail" explains the mechanism; "Technical Root Cause" is a code reference — not the same code block twice. If two sections say the same thing, one needs trimming.
+16. **Avoid redundancy between sections.** "When This Applies" introduces concepts; "Background" adds detail — not the same detail. "Problem in Detail" explains the mechanism; "Technical Root Cause" is a code reference — not the same code block twice. If two sections say the same thing, one needs trimming.
 
 ---
 
 ## File Naming
 
-| File                           | Purpose                                                      |
-| ------------------------------ | ------------------------------------------------------------ |
-| `bug-N-short-description.md`   | Bug report (problem description, evidence, root cause)       |
-| `bug-N-fix-recommendations.md` | Companion doc (workarounds, proposed fix, impact assessment) |
-
-Both files live in the same `analysis/` directory. The `N` matches the bug ID number (e.g., `bug-1-timezone-stripping.md` for FORM-BUG-1).
+See [bug-reporting.md — File Naming and Location](bug-reporting.md#file-naming-and-location). Investigation reports use `bug-N-short-description.md` with a `bug-N-fix-recommendations.md` companion in the same `analysis/` directory.
