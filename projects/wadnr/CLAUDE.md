@@ -22,7 +22,7 @@ All data extracted via `tools/extract/` from the WADNR admin panels on vv5dev.
 | Web Services (Form + Workflow) | 251 scripts | `extracts/web-services/` |
 | Scheduled Services | 21 schedules + 20 scripts | `extracts/schedules/` |
 | Global Functions | 157 functions | `extracts/global-functions/` |
-| Form Templates | 88 total (77 XML + 11 JSON) | `extracts/form-templates/` |
+| Form Templates | 89 total (77 XML + 12 JSON) | `extracts/form-templates/` |
 | Custom Queries | 447 queries (11 main + 436 form DB) | `extracts/custom-queries/` |
 
 Last full extraction: 2026-04-08.

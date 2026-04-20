@@ -59,5 +59,5 @@ Manual steps:
 
 | Project | Environment | Description |
 |---------|-------------|-------------|
-| `wadnr/` | vv5dev/WADNR/fpOnline | WA DNR: 77 templates, 251 scripts, 157 globals, 21 schedules |
+| `wadnr/` | vv5dev/WADNR/fpOnline | WA DNR: 89 templates, 251 scripts, 157 globals, 21 schedules |
 | `emanueljofre/` | vvdemo/EmanuelJofre/Main | Development/testing environment for platform investigations |

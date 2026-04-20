@@ -43,15 +43,15 @@ research/date-handling/
 | FORM-BUG-1 | Timezone marker stripped on form load                 | Medium   | `forms-calendar/analysis/bug-1-timezone-stripping.md`             |
 | FORM-BUG-2 | Popup and typed input store different values          | Low      | `forms-calendar/analysis/bug-2-inconsistent-handlers.md`          |
 | FORM-BUG-3 | V2 hardcoded parameters                               | Low      | `forms-calendar/analysis/bug-3-hardcoded-params.md`               |
-| FORM-BUG-4 | Save format strips timezone                           | Medium   | `forms-calendar/analysis/bug-4-save-format.md`                    |
+| FORM-BUG-4 | Save format strips timezone                           | Medium   | `forms-calendar/analysis/bug-4-legacy-save-format.md`             |
 | FORM-BUG-5 | Fake Z in GetFieldValue — progressive drift           | **High** | `forms-calendar/analysis/bug-5-fake-z-drift.md`                   |
-| FORM-BUG-6 | GetFieldValue returns "Invalid Date" for empty fields | Medium   | `forms-calendar/analysis/bug-6-empty-invalid-date.md`             |
+| FORM-BUG-6 | GetFieldValue returns "Invalid Date" for empty fields | Medium   | `forms-calendar/analysis/bug-6-invalid-date-empty.md`             |
 | FORM-BUG-7 | SetFieldValue stores wrong day for UTC+               | **High** | `forms-calendar/analysis/bug-7-wrong-day-utc-plus.md`             |
 | WS-BUG-1   | Cross-layer shift (API→Forms)                         | High     | `web-services/analysis/ws-bug-1-cross-layer-shift.md`             |
 | WS-BUG-2   | DD/MM/YYYY silently discarded                         | High     | `web-services/analysis/ws-bug-2-latam-data-loss.md`               |
 | WS-BUG-3   | Ambiguous dates silently swapped                      | High     | `web-services/analysis/ws-bug-3-ambiguous-dates.md`               |
-| WS-BUG-4   | ISO format stored differently than US format          | Medium   | `web-services/analysis/ws-bug-4-iso-vs-us-format.md`              |
-| WS-BUG-5   | Time portion silently truncated                       | Medium   | `web-services/analysis/ws-bug-5-time-truncation.md`               |
+| WS-BUG-4   | Two endpoints store the same value, Forms diverges    | Medium   | `web-services/analysis/ws-bug-4-endpoint-format-mismatch.md`      |
+| WS-BUG-5   | Compact ISO and epoch formats silently discarded      | Medium   | `web-services/analysis/ws-bug-5-silent-null-formats.md`           |
 | WS-BUG-6   | Date-only fields accept time components               | Medium   | `web-services/analysis/ws-bug-6-no-date-only-enforcement.md`      |
 | DB-BUG-1   | Dashboard format inconsistency                        | Medium   | `dashboards/analysis/formdashboard-bug-1-format-inconsistency.md` |
 | DOC-BUG-1  | Index field: TZ offset converted to UTC, Z stripped   | **High** | `document-library/analysis/overview.md`                           |
@@ -75,7 +75,7 @@ See `forms-calendar/matrix.md` for current coverage status.
 
 ### Testing Method
 
-Tests run via Chrome MCP extension or Playwright. Cross-timezone testing requires changing **macOS system timezone** + restarting Chrome (DevTools Sensors does NOT override JS `Date` timezone). Verify with `new Date().toString()`.
+Tests run via Playwright (see root `CLAUDE.md` § Browser Automation). Cross-timezone testing requires changing **macOS system timezone** + restarting Chrome (DevTools Sensors does NOT override JS `Date` timezone). Verify with `new Date().toString()`.
 
 ### What Has NOT Been Tested
 

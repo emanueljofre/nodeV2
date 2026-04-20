@@ -130,18 +130,7 @@ Scheduled process pattern validation via `node tools/runners/run-sp-test.js`. Se
 
 ## Platform Exploration & Version Monitoring
 
-Playwright-based exploration of VV platform structure and version state. See `tools/CLAUDE.md` for details.
-
-```bash
-npm run explore              # Run exploration specs (headless)
-npm run explore:headed       # Headed mode (visible browser)
-npm run version:snapshot     # Capture current platform version state
-npm run version:diff         # Compare two most recent snapshots
-npm run env:profile          # Generate customer environment profile (HTTP, ~3s)
-npm run env:profile:browser  # Generate profile with browser probes (~12s)
-```
-
-Environment profiles consolidate platform version, service configuration, and front-end library stack into `projects/{customer}/environment.json`. Use `--project <name>` to target a specific customer.
+Playwright-based exploration of VV platform structure and version state. Environment profiles consolidate platform version, service configuration, and front-end library stack into `projects/{customer}/environment.json`. See [tools/CLAUDE.md § Explore Commands](tools/CLAUDE.md#explore-commands) for the full command reference.
 
 ## Standards Review
 
@@ -158,23 +147,7 @@ Reports written to `projects/{customer}/analysis/standards-review/` (summary.md,
 
 ## Active Research
 
-See `research/` folder. Each investigation gets its own subfolder with analysis, test results, and working notes. Completed investigations are moved to `research/_archive/`.
-
-| Research                                               | Status      | Description                                                                                             |
-| ------------------------------------------------------ | ----------- | ------------------------------------------------------------------------------------------------------- |
-| [date-handling](research/date-handling/)               | In Progress | Cross-platform date handling bug investigation across Forms, Web Services, Dashboards, Document Library |
-| [form-templates](research/form-templates/)             | Active      | VV form template format analysis (XML + JSON), documentation, and improved template generation          |
-| [extract-optimization](research/extract-optimization/) | Active      | Extract pipeline speed: parallel extraction, revision tracking, API-first                               |
-| [standards-review](research/standards-review/)         | In Progress | Deterministic standards compliance tool — 49 rules, unit tested (form templates first)                  |
-| [wadnr](projects/wadnr/)                               | In Progress | WADNR client project: impact analysis, exported artifacts                                               |
-
-### Completed Research (`research/_archive/`)
-
-| Research                                                            | Description                                                                             |
-| ------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| [ws-naming](research/_archive/ws-naming/)                           | Web service naming — valid character investigation                                      |
-| [scheduled-process-logs](research/_archive/scheduled-process-logs/) | SP execution mechanics: response.json vs postCompletion, platform timeout, log behavior |
-| [unrelate-forms](research/_archive/unrelate-forms/)                 | Client-side UnrelateForm script — API verification and reusable global function         |
+See [research/CLAUDE.md](research/CLAUDE.md) for the active-task index and `research/_archive/` for completed investigations. Active-project workspaces (e.g., `projects/wadnr/`) are tracked in [projects/CLAUDE.md](projects/CLAUDE.md).
 
 ## Principles
 
@@ -222,60 +195,24 @@ This repo is an **AI harness** — a workbench that orchestrates work across mul
 
 ### Git Topology
 
-```
-HARNESS REPO (emanueljofre/vv-ai-harness)
-  Tracks: tools/, testing/, docs/, scripts/, research/, .claude/, configs
-          projects/CLAUDE.md, projects/*/CLAUDE.md, projects/*/test-assets.md
-  Ignores: /lib/, /projects/*/repo/, /projects/*/extracts/,
-           /projects/*/testing/, /projects/*/environment.json
+Three independent git repos cooperate at runtime. `.gitignore` defines exact tracked/ignored paths — the summary:
 
-LIB REPO (independent, lives at lib/)
-  VV API wrapper — fork of VisualVault/nodeJs-rest-client-library
-  Own .git, own remote, own upstream sync
-
-PROJECT REPOS (independent, live at projects/{name}/repo/)
-  Each project's deployable code — own .git, own GH remote
-```
+- **HARNESS** (`emanueljofre/vv-ai-harness`): tools, testing, docs, scripts, research, .claude, configs, project CLAUDE.md + test-assets.md. Ignores `lib/`, `projects/*/repo/`, and project workspace artifacts.
+- **LIB** (independent, at `lib/`): VV API wrapper — fork of `VisualVault/nodeJs-rest-client-library`, own remote and upstream.
+- **PROJECT REPOS** (independent, at `projects/{name}/repo/`): each project's deployable code, own GH remote.
 
 ### What's Tracked Where
 
-| Artifact                  | Harness repo | Private remote | Project repo | lib repo |
-| ------------------------- | ------------ | -------------- | ------------ | -------- |
-| Shared tools, tests, docs | yes          | yes            |              |          |
-| Research investigations   | yes          | yes            |              |          |
-| Claude commands           | yes          | yes            |              |          |
-| Project CLAUDE.md         | yes          | yes            |              |          |
-| Project extracts/analysis |              | yes            |              |          |
-| Project test records      |              | yes            |              |          |
-| Deployable project code   |              |                | yes          |          |
-| VV API wrapper            |              |                |              | yes      |
-
-### Shared vs. Project-Specific
-
-Work output goes to one of four destinations:
-
-- **Deployable code** → project's GH repo (`projects/{name}/repo/`)
-- **Project-specific tools & research** → project workspace (`projects/{name}/analysis/` or `tools/`)
-- **Workspace artifacts** (extracts, test records) → untracked locally, backed up via private remote
-- **Shared outputs** (reusable tools, standards, platform docs) → harness repo
+| Artifact                            | Harness | Private remote | Project repo | lib repo |
+| ----------------------------------- | :-----: | :------------: | :----------: | :------: |
+| Shared tools, tests, docs, research |   yes   |      yes       |              |          |
+| Project CLAUDE.md + test-assets.md  |   yes   |      yes       |              |          |
+| Project extracts/analysis/testing   |         |      yes       |              |          |
+| Deployable project code             |         |                |     yes      |          |
+| VV API wrapper                      |         |                |              |   yes    |
 
 **Promotion flow:** project-specific → shared when a second project needs it or it describes platform behavior. The deciding question: "Would a second project ever need this?"
 
-### Bootstrap (new machine)
+### Bootstrap & Upstream Sync
 
-```bash
-git clone <harness-url> vv-ai-harness
-cd vv-ai-harness && npm install
-cd lib && git clone <api-wrapper-url> .       # restore VV API wrapper
-cd ../projects/wadnr/repo && git clone <url> . # restore project repos (if any)
-```
-
-### lib/ Upstream Sync
-
-`lib/` is now an independent repo. Sync with upstream inside `lib/`:
-
-```bash
-cd lib
-git remote add upstream https://github.com/VisualVault/nodeJs-rest-client-library.git
-git fetch upstream && git merge upstream/master
-```
+See [dev-setup.md § 1 Clone & Install](docs/guides/dev-setup.md#1-clone--install) and [§ 6 Upstream Sync](docs/guides/dev-setup.md#6-upstream-sync).

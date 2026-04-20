@@ -10,10 +10,19 @@ Step-by-step guide to set up the vv-ai-harness development and testing environme
 
 ## 1. Clone & Install
 
+The harness is one of several independent repos that cooperate at runtime. The harness tracks its own files; `lib/` and each `projects/{name}/repo/` are independent git repos that must be cloned separately.
+
 ```bash
+# Harness
 git clone git@github.com:emanueljofre/vv-ai-harness.git
 cd vv-ai-harness
 npm install
+
+# VV API wrapper (independent repo, lives at lib/)
+cd lib && git clone <api-wrapper-url> .
+
+# Project repos, if any (independent repos, live at projects/{name}/repo/)
+cd ../projects/wadnr/repo && git clone <url> .
 ```
 
 `npm install` also runs `husky` via the `prepare` script, which sets up the pre-commit hook.
@@ -278,12 +287,17 @@ Full details: [`research/date-handling/web-services/README.md`](../../research/d
 
 ## 6. Upstream Sync
 
+The harness itself has no upstream — it's a standalone workbench. Upstream sync applies only to the `lib/` repo (the VV API wrapper), which is an independent git repo nested inside the harness.
+
 ```bash
+cd lib
+git remote add upstream https://github.com/VisualVault/nodeJs-rest-client-library.git
 git fetch upstream
 git merge upstream/master
 ```
 
-Origin: `emanueljofre/vv-ai-harness` | Upstream: `VisualVault/nodeJs-rest-client-library`
+Harness origin: `emanueljofre/vv-ai-harness` (standalone, no upstream).
+`lib/` origin: `emanueljofre/nodeJs-rest-client-library` | `lib/` upstream: `VisualVault/nodeJs-rest-client-library`.
 
 ## 7. Troubleshooting
 
