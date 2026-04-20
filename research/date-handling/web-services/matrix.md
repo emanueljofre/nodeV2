@@ -5,9 +5,9 @@ API analysis → `analysis/overview.md` | Harness → `webservice-test-harness.j
 
 **Execution results**: See `projects/{customer}/testing/date-handling/web-services/status.md` per environment.
 
-Total slots: 148
+Total slots: 166 (148 baselined + 18 backlog — see [Open Gaps & Backlog](#open-gaps--backlog))
 
-> **Note**: Results columns in the tables below are a historical snapshot from the EmanuelJofre (vvdemo) baseline run. Live status tracking is in per-project `status.md` files.
+> **Note**: Results columns in the tables below are a historical snapshot from the EmanuelJofre (vvdemo) baseline run under the **default Platform Scope** (V1 code path, T1/T2 off, en-US Culture — see [`forms-calendar/matrix.md § Platform Scope`](../forms-calendar/matrix.md#platform-scope)). Live status tracking is in per-project `status.md` files.
 
 ---
 
@@ -15,6 +15,8 @@ Total slots: 148
 
 Web services test IDs use the format `ws-{category}-{config}-{tz}` (e.g., `ws-1-A-BRT`).
 For format/scenario variants: `ws-{category}-{config}-{variant}` (e.g., `ws-5-A-US`, `ws-7-A-change`).
+
+**Platform-scope suffix** (added 2026-04-20): slots run under a non-default Platform Scope carry a `.<scope>` suffix — e.g. `ws-11-D-BRT.T1`, `ws-12-A-DDMM.ptBR`, `ws-13-now.UTC`. The scope tokens (`V1`/`V2`, `T1`/`T2`/`T3`, `enUS`/`ptBR`/`esES`) are defined in [`forms-calendar/matrix.md § Platform Scope`](../forms-calendar/matrix.md#platform-scope) and apply identically here.
 
 ---
 
@@ -62,21 +64,45 @@ WS-1 includes UTC spot-checks (ws-1-{A,C,D,H}-UTC) to prove that the cloud envir
 
 `PASS` = ran, no issue. `FAIL` = ran, unexpected behavior. `PENDING` = not yet run. `BLOCKED` = requires setup not available.
 
-| Category                          |  Total  | PASS | FAIL | PENDING | BLOCKED | Priority |
-| --------------------------------- | :-----: | :--: | :--: | :-----: | :-----: | :------: |
-| WS-1. API Write Path (Create)     |   16    |  16  |  0   |    0    |         |    P1    |
-| WS-2. API Read + Cross-Layer      |   16    |  16  |  0   |    0    |         |    P1    |
-| WS-3. API Round-Trip              |    4    |  4   |  0   |    0    |         |    P2    |
-| WS-4. API→Forms Cross-Layer       |   10    |  3   |  7   |    0    |         |    P3    |
-| WS-5. Input Format Tolerance      |   33    |  24  |  9   |    0    |         |    P2    |
-| WS-6. Empty/Null Handling         |   12    |  12  |  0   |    0    |         |    P3    |
-| WS-7. API Update Path             |   12    |  12  |  0   |    0    |         |    P2    |
-| WS-8. Query Date Filtering        |   10    |  10  |  0   |    0    |         |    P3    |
-| WS-9. Date Computation            |   23    |  17  |  6   |    0    |         |    P2    |
-| WS-10. postForms vs forminstance/ |   12    |  2   |  10  |    0    |    0    |    P1    |
-| **TOTAL**                         | **148** | 116  |  32  |  **0**  |  **0**  |          |
+| Category                             |  Total  | PASS | FAIL | PENDING | BLOCKED | Priority |
+| ------------------------------------ | :-----: | :--: | :--: | :-----: | :-----: | :------: |
+| WS-1. API Write Path (Create)        |   16    |  16  |  0   |    0    |         |    P1    |
+| WS-2. API Read + Cross-Layer         |   16    |  16  |  0   |    0    |         |    P1    |
+| WS-3. API Round-Trip                 |    4    |  4   |  0   |    0    |         |    P2    |
+| WS-4. API→Forms Cross-Layer          |   10    |  3   |  7   |    0    |         |    P3    |
+| WS-5. Input Format Tolerance         |   33    |  24  |  9   |    0    |         |    P2    |
+| WS-6. Empty/Null Handling            |   12    |  12  |  0   |    0    |         |    P3    |
+| WS-7. API Update Path                |   12    |  12  |  0   |    0    |         |    P2    |
+| WS-8. Query Date Filtering           |   10    |  10  |  0   |    0    |         |    P3    |
+| WS-9. Date Computation               |   23    |  17  |  6   |    0    |         |    P2    |
+| WS-10. postForms vs forminstance/    |   12    |  2   |  10  |    0    |    0    |    P1    |
+| WS-11. T1/T2 Cross-Layer             |    6    |  0   |  0   |    6    |    0    |    P0    |
+| WS-12. Culture Input Tolerance       |    8    |  0   |  0   |    8    |    0    |    P1    |
+| WS-13. Customer-TZ in Server Scripts |    4    |  0   |  0   |    4    |    0    |    P1    |
+| **TOTAL**                            | **166** | 116  |  32  | **18**  |  **0**  |          |
 
 > **Counting note**: WS-10A includes 7 additional forminstance/ comparison rows (all PASS) embedded in the detailed table for side-by-side analysis. These share test IDs with the postForms rows and are **not** counted as separate test slots. WS-5 counts 33 executed format/config combinations (2 planned LATAM variants for Config C were not needed — Config A results generalize).
+
+---
+
+## Open Gaps & Backlog
+
+Platform-scope gaps identified from the Central Admin exploration on 2026-04-20. Cross-linked with [`forms-calendar/matrix.md § Open Gaps`](../forms-calendar/matrix.md#open-gaps--backlog).
+
+| ID   | Gap                                                               | Why it matters                                                                                                            | Close by                                   | Priority |
+| ---- | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ | -------- |
+| WSG1 | T1 / T2 Forms-side toggle effect on cross-layer                   | WS-2 / WS-4 verify API→Forms re-read. If T1 rewrites the Forms-side interpretation, WS-BUG-1 shift could flip.            | WS-11 (6 slots below)                      | **P0**   |
+| WSG2 | Customer Culture effect on API DD/MM parsing (WEBSERVICE-BUG-2/3) | Under `ptBR` customer Culture, DD/MM may become the canonical format — flipping WS-BUG-2/3 from bugs to expected behavior | WS-12 (8 slots below)                      | **P1**   |
+| WSG3 | Customer TZ effect on `DateTime.Now` / `GETDATE()` in scripts     | WS-9 tests script date math, but never varies Customer TZ. Scripts using customer-local time produce different outputs    | WS-13 (4 slots below)                      | **P1**   |
+| WSG4 | V2 code-path effect on cross-layer (WS-2 / WS-4)                  | Forms V2 changes how API-written values are re-read. Cross-ref Forms G1.                                                  | V2 rebaseline of WS-2/WS-4 (not a new cat) | **P0**   |
+| WSG5 | `Parse JSON Dropdownlist Values` — does it affect calendar JSON?  | Checkbox in Forms section. May or may not apply to calendar JSON template dropdown metadata.                              | Spot check — low priority                  | P3       |
+
+### Cross-cutting references
+
+- [Forms Cat 17](../forms-calendar/matrix.md#17--platform-tz-conversion-toggles-t1t2) — paired form-side Cat for WS-11
+- [Forms Cat 18](../forms-calendar/matrix.md#18--customer-culture-locale) — paired form-side Cat for WS-12
+- [Forms Cat 19](../forms-calendar/matrix.md#19--server-generated-timestamps) — paired form-side Cat for WS-13
+- [Scheduled Processes matrix](../scheduled-processes/matrix.md) — SP script `DateTime.Now` semantics (related to WS-13)
 
 ---
 
@@ -455,3 +481,70 @@ Record: DateTest-001568 → saved as ffc087e3-4a34-4ab9-9d2d-fdcd61cf2cdf
 | ws-10c-D-BRT |   D    |    BRT     | **`02:30 PM`** | `"2026-03-15T11:30:00"` | **`11:30 AM`** | `"2026-03-15T11:30:00"` |       Yes        |  FAIL  | **#124697**: Display shows original time on first open (ignoreTZ), save commits shifted value, display changes to shifted time on reopen. Exactly matches customer report. |
 
 > **WS-10C Finding**: 0 PASS, 2 FAIL. **Config D is the exact Freshdesk #124697 scenario**: display shows `02:30 PM` on first open (ignoreTZ preserves original DB time), rawValue already shifted to `T11:30:00` in memory. After save+reopen, display changes to `11:30 AM` (shifted value now in DB). Stable after first mutation — no further drift. Config C shifts both display and rawValue identically (no surprise — ignoreTZ=false).
+
+---
+
+## WS-11. T1/T2 Cross-Layer (Platform-Scope Backlog)
+
+Paired with Forms Cat 17. When the Central Admin Forms section has **T1** ("Convert Date Fields to Customer Timezone") on — with or without **T2** ("Prevent Conversion For Dates Ignoring Timezones") — does the API→Forms cross-layer path (WS-2/WS-4) behave differently?
+
+**Hypothesis**: T1 injects a Customer-TZ normalization step between DB storage and Forms re-read. If so, the CB-8 shift (WEBSERVICE-BUG-1) may disappear or invert.
+
+**Method**: Write via `postForms` with canonical ISO+Z inputs, toggle T1/T2 at DB scope, re-read via Forms and via API. Compare to WS-2/WS-4 baseline.
+
+**Shape**: 2 configs (A, D) × 3 toggle combos = 6 slots.
+
+| Test ID              | Config | Scope    | Input (via postForms)        | WS-2/WS-4 baseline                                                          | Probe                                                    | Status  | Run Date | Evidence |
+| -------------------- | :----: | -------- | ---------------------------- | --------------------------------------------------------------------------- | -------------------------------------------------------- | ------- | -------- | -------- |
+| ws-11-A-BRT.T1       |   A    | `.T1`    | `"2026-03-15T00:00:00.000Z"` | Forms: `"2026-03-15"`, OK                                                   | Does T1 introduce a shift on date-only?                  | PENDING | —        | —        |
+| ws-11-D-BRT.T1       |   D    | `.T1`    | `"2026-03-15T00:00:00.000Z"` | Forms: fake Z, shift (CB-8/BUG-5)                                           | Does T1 fix or worsen CB-8? Round-trip stability?        | PENDING | —        | —        |
+| ws-11-D-IST.T1       |   D    | `.T1`    | `"2026-03-15T00:00:00.000Z"` | Forms: shifted to IST local                                                 | Same but from IST browser                                | PENDING | —        | —        |
+| ws-11-A-BRT.T1+T2    |   A    | `.T1+T2` | `"2026-03-15T00:00:00.000Z"` | (T2 requires ignoreTZ — Config A has ignoreTZ=false, so T2 should be no-op) | Verify T2 no-op on ignoreTZ=false                        | PENDING | —        | —        |
+| ws-11-D-BRT.T1+T2    |   D    | `.T1+T2` | `"2026-03-15T00:00:00.000Z"` | Config D has ignoreTZ=true — T2 applies                                     | Does T2 restore baseline (CB-8 shift preserved)?         | PENDING | —        | —        |
+| ws-11-D-BRT.baseline |   D    | —        | Same input                   | Same                                                                        | Control: rerun after T1/T2 flip to confirm no state leak | PENDING | —        | —        |
+
+> **If T1 eliminates CB-8**: This is a platform-provided fix we need to document as the VV-recommended remediation. Tests should also verify it doesn't break anything else.
+> **If T1 doesn't eliminate CB-8 or introduces new behavior**: Document the new behavior and file as a separate bug if discrepant.
+
+---
+
+## WS-12. Culture Input Tolerance (Platform-Scope Backlog)
+
+Paired with Forms Cat 18. When Customer **Culture** is `ptBR` or `esES` (DD/MM/YYYY locales), does the REST API parse DD/MM strings correctly? Does this flip WEBSERVICE-BUG-2 ("DD/MM silently discarded") and WEBSERVICE-BUG-3 ("ambiguous dates silently swapped")?
+
+**Method**: Set Customer Culture to `Portuguese (Brazil)` via Central Admin. POST via `postForms` with DD/MM, MM/DD, ISO, and ambiguous date strings. Verify parse success vs null vs swap.
+
+**Shape**: 2 cultures × 4 formats = 8 slots.
+
+| Test ID              | Culture | Format    | Input          | enUS baseline (WS-5 / WS-BUG-2/3) | Probe                                                                                       | Status  | Run Date | Evidence |
+| -------------------- | :-----: | --------- | -------------- | --------------------------------- | ------------------------------------------------------------------------------------------- | ------- | -------- | -------- |
+| ws-12-DDMM.ptBR      |  ptBR   | DD/MM     | `"15/03/2026"` | enUS: null (WS-BUG-2)             | ptBR: parse to `"2026-03-15"`? Expected yes.                                                | PENDING | —        | —        |
+| ws-12-MMDD.ptBR      |  ptBR   | MM/DD     | `"03/15/2026"` | enUS: parses to `"2026-03-15"`    | ptBR: reject? Fallback? Tolerant?                                                           | PENDING | —        | —        |
+| ws-12-ISO.ptBR       |  ptBR   | ISO       | `"2026-03-15"` | enUS: parses ✓                    | ISO should be Culture-independent                                                           | PENDING | —        | —        |
+| ws-12-ambiguous.ptBR |  ptBR   | ambiguous | `"03/04/2026"` | enUS: parses to Mar 4 (MM/DD)     | ptBR: parse to Apr 3 (DD/MM) — opposite interpretation, no swap warning (WS-BUG-3 inverted) | PENDING | —        | —        |
+| ws-12-DDMM.enUS      |  enUS   | DD/MM     | `"15/03/2026"` | —                                 | Control: reproduce WS-BUG-2 on current matrix                                               | PENDING | —        | —        |
+| ws-12-MMDD.enUS      |  enUS   | MM/DD     | `"03/15/2026"` | —                                 | Control                                                                                     | PENDING | —        | —        |
+| ws-12-ISO.enUS       |  enUS   | ISO       | `"2026-03-15"` | —                                 | Control                                                                                     | PENDING | —        | —        |
+| ws-12-ambiguous.enUS |  enUS   | ambiguous | `"03/04/2026"` | —                                 | Control: reproduce WS-BUG-3 on current matrix                                               | PENDING | —        | —        |
+
+> **Implication for LATAM customers**: VV admin docs probably recommend Culture=ptBR for Brazilian customers. If those customers' scripts send DD/MM to the API, WS-BUG-2/3 may be **platform-misconfiguration** not **API bug** — the fix is Culture, not code.
+
+---
+
+## WS-13. Customer-TZ in Server Scripts (Platform-Scope Backlog)
+
+Paired with Forms Cat 19. Does the Central Admin Customer TZ setting propagate to `DateTime.Now` in Node.js scripts and `GETDATE()` in SQL (via custom queries / web services)?
+
+**Method**: On two sandboxes (vv5dev Customer TZ = UTC; vvdemo Customer TZ = BRT), run a small scheduled script returning `DateTime.Now`. Read a custom query that returns `GETDATE()`. Compare to wall-clock and to the Customer TZ setting.
+
+**Shape**: 2 Customer TZs × 2 mechanisms = 4 slots.
+
+| Test ID           | Customer TZ | Mechanism                                    | Expected                                                                              | Status  | Run Date | Evidence |
+| ----------------- | ----------- | -------------------------------------------- | ------------------------------------------------------------------------------------- | ------- | -------- | -------- |
+| ws-13-now.UTC     | UTC         | `DateTime.Now` (Node.js via outside process) | Returns UTC wall-clock timestamp. `process.env.TZ` on harness may override.           | PENDING | —        | —        |
+| ws-13-now.BRT     | BRT         | `DateTime.Now` (Node.js)                     | Returns BRT wall-clock timestamp (UTC-3). Compare with TZ=UTC harness override.       | PENDING | —        | —        |
+| ws-13-getdate.UTC | UTC         | `GETDATE()` via custom query                 | SQL Server OS-TZ, not Customer TZ. Document the discrepancy.                          | PENDING | —        | —        |
+| ws-13-getdate.BRT | BRT         | `GETDATE()` via custom query                 | Same SQL Server OS-TZ on both customers — Customer TZ setting does **not** reach SQL. | PENDING | —        | —        |
+
+> **Expected finding (hypothesis)**: `DateTime.Now` will follow the harness server's `TZ` env var (not Customer TZ). `GETDATE()` will follow SQL Server OS TZ (not Customer TZ). If confirmed, **the Customer TZ setting is effectively display-only** for server-generated timestamps — a significant documentation gap to close.
+> **Cross-reference**: Cat 19 (Forms) tests server-generated timestamps from the form-save path (Created Date auto-field). WS-13 tests them from the script/SQL path. Combined picture tells us whether Customer TZ is enforced at any server layer.

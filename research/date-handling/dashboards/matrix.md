@@ -5,7 +5,9 @@ Analysis → `analysis/overview.md` | Exploration → `explore-dashboard.js`
 
 **Execution results**: See `projects/{customer}/testing/date-handling/dashboards/status.md` per environment.
 
-Total slots: 44
+Total slots: 56 (44 baselined + 12 backlog — see [Open Gaps & Backlog](#open-gaps--backlog))
+
+> **Note**: Baseline slots assume the **default Platform Scope** (V1 code path, en-US Culture, T1/T2 off — see [`forms-calendar/matrix.md § Platform Scope`](../forms-calendar/matrix.md#platform-scope)).
 
 ---
 
@@ -14,6 +16,8 @@ Total slots: 44
 Dashboard test IDs use the format `db-{category}-{config}` (e.g., `db-1-A`).
 For non-config tests: `db-{category}-{variant}` (e.g., `db-4-sort-f7-asc`, `db-7-excel`).
 Execution IDs: `db-{category}-{config}-run-{N}` or `db-{category}-batch-run-{N}`.
+
+**Platform-scope suffix** (added 2026-04-20): slots under non-default scope use `.<scope>` (e.g. `db-9-A.ptBR`, `db-1-D.V2`). Scope tokens per [`forms-calendar/matrix.md § Platform Scope`](../forms-calendar/matrix.md#platform-scope).
 
 ---
 
@@ -54,17 +58,30 @@ Dashboards are **server-side rendered** (Telerik RadGrid / ASP.NET). Browser tim
 
 Status tracked per-environment in `projects/{customer}/testing/date-handling/dashboards/status.md`.
 
-| Category                     | Total  | Priority |
-| ---------------------------- | :----: | :------: |
-| DB-1. Display Format         |   8    |    P1    |
-| DB-2. Date Accuracy          |   8    |    P1    |
-| DB-3. Wrong Date Detection   |   8    |    P1    |
-| DB-4. Column Sort            |   4    |    P2    |
-| DB-5. Search / SQL Filter    |   4    |    P2    |
-| DB-6. Cross-Layer Comparison |   8    |    P2    |
-| DB-7. Export Verification    |   3    |    P3    |
-| DB-8. TZ Independence        |   1    |    P1    |
-| **TOTAL**                    | **44** |          |
+| Category                         | Total  | Priority |
+| -------------------------------- | :----: | :------: |
+| DB-1. Display Format             |   8    |    P1    |
+| DB-2. Date Accuracy              |   8    |    P1    |
+| DB-3. Wrong Date Detection       |   8    |    P1    |
+| DB-4. Column Sort                |   4    |    P2    |
+| DB-5. Search / SQL Filter        |   4    |    P2    |
+| DB-6. Cross-Layer Comparison     |   8    |    P2    |
+| DB-7. Export Verification        |   3    |    P3    |
+| DB-8. TZ Independence            |   1    |    P1    |
+| DB-9. Culture (display + filter) |   12   |    P1    |
+| **TOTAL**                        | **56** |          |
+
+---
+
+## Open Gaps & Backlog
+
+Platform-scope gaps identified 2026-04-20. Cross-linked with [`forms-calendar/matrix.md § Open Gaps`](../forms-calendar/matrix.md#open-gaps--backlog).
+
+| ID   | Gap                                                                       | Why it matters                                                                                                                       | Close by                  | Priority |
+| ---- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------- | -------- |
+| DBG1 | Culture (ptBR/esES) effect on display format and filter parsing           | DB-1 baseline assumes `M/D/YYYY` — is this hardcoded or Culture-driven? Filters (DB-5) parse user input against the current Culture. | DB-9 (12 slots below)     | **P1**   |
+| DBG2 | T1 "Convert Date Fields to Customer Timezone" effect on dashboard display | If T1 normalizes stored values, dashboard display may shift. DB-3 wrong-date detection (FORM-BUG-7 propagation) could flip.          | Spot-check under T1 scope | P2       |
+| DBG3 | V2 code-path effect on dashboard                                          | Dashboards read the stored values directly — shouldn't depend on Forms V1/V2. Verify via comparison.                                 | Spot-check under V2 scope | P3       |
 
 ---
 
@@ -212,3 +229,31 @@ Status tracked per-environment in `projects/{customer}/testing/date-handling/das
 | ID      | Variant              | Expected                        |
 | ------- | -------------------- | ------------------------------- |
 | db-8-tz | Full page comparison | BRT ≡ IST ≡ UTC0 (0 mismatches) |
+
+---
+
+## DB-9. Culture — Display Format + Filter Parsing (Platform-Scope Backlog)
+
+**Purpose**: Determine whether the dashboard's `M/D/YYYY` display format is hardcoded or Culture-driven, and whether the SQL filter builder (DB-5) parses user-input dates against the Customer Culture. Paired with Forms Cat 18 and WS-12.
+
+**Method**: Set Customer Culture to `Portuguese (Brazil)` via Central Admin. Reload the same dashboard used for DB-1 / DB-5. Compare rendered dates (expected DD/MM/YYYY) and filter parsing (DD/MM input should succeed; MM/DD input behavior needs measurement).
+
+**Shape**: 4 config cells × 3 tests (display format, filter DD/MM, filter MM/DD) = **12 slots**.
+
+| Test ID          | Config | Culture | Aspect         | Input / Value                        | enUS baseline (M/D/YYYY)     | Expected under ptBR                   | Status  | Run Date | Evidence |
+| ---------------- | :----: | :-----: | -------------- | ------------------------------------ | ---------------------------- | ------------------------------------- | ------- | -------- | -------- |
+| db-9-A.ptBR      |   A    |  ptBR   | Display format | stored `"2026-03-15"`                | `3/15/2026`                  | `15/03/2026` (DD/MM/YYYY)             | PENDING | —        | —        |
+| db-9-C.ptBR      |   C    |  ptBR   | Display format | stored `"2026-03-15T14:30:00"`       | `3/15/2026 2:30 PM`          | `15/03/2026 14:30` (24h? DD/MM?)      | PENDING | —        | —        |
+| db-9-D.ptBR      |   D    |  ptBR   | Display format | stored `"2026-03-15T14:30:00"`       | `3/15/2026 2:30 PM`          | `15/03/2026 14:30`                    | PENDING | —        | —        |
+| db-9-H.ptBR      |   H    |  ptBR   | Display format | legacy DateTime                      | `3/15/2026 12:00 AM`         | `15/03/2026 00:00`                    | PENDING | —        | —        |
+| db-9-A-ddmm.ptBR |   A    |  ptBR   | Filter DD/MM   | Filter: `15/03/2026`                 | Fails (DD/MM not parsed)     | Parses → finds Mar 15 records         | PENDING | —        | —        |
+| db-9-C-ddmm.ptBR |   C    |  ptBR   | Filter DD/MM   | Filter: `15/03/2026 14:30`           | Fails                        | Parses → finds Mar 15 14:30 records   | PENDING | —        | —        |
+| db-9-D-ddmm.ptBR |   D    |  ptBR   | Filter DD/MM   | Filter: `15/03/2026 14:30`           | Fails                        | Parses (or fails if UI coerces MM/DD) | PENDING | —        | —        |
+| db-9-H-ddmm.ptBR |   H    |  ptBR   | Filter DD/MM   | Filter: `15/03/2026`                 | Fails                        | Parses                                | PENDING | —        | —        |
+| db-9-A-mmdd.ptBR |   A    |  ptBR   | Filter MM/DD   | Filter: `03/15/2026` on ptBR         | Works (MM/DD is enUS native) | Rejects OR falls back?                | PENDING | —        | —        |
+| db-9-C-mmdd.ptBR |   C    |  ptBR   | Filter MM/DD   | Filter: `03/15/2026 2:30 PM` on ptBR | Works                        | Rejects OR tolerant?                  | PENDING | —        | —        |
+| db-9-D-mmdd.ptBR |   D    |  ptBR   | Filter MM/DD   | Filter: `03/15/2026 2:30 PM` on ptBR | Works                        | Rejects OR tolerant?                  | PENDING | —        | —        |
+| db-9-H-mmdd.ptBR |   H    |  ptBR   | Filter MM/DD   | Filter: `03/15/2026` on ptBR         | Works                        | Rejects OR tolerant?                  | PENDING | —        | —        |
+
+> **Implication for customer support**: A Brazilian user filtering by DD/MM on an enUS-configured customer gets zero results (looks like no data). The customer-support guidance "set Culture correctly" needs to be confirmed — and this test is how.
+> **Interaction with DB-4 (Column Sort)**: If display format changes but **SQL sort order** remains based on the underlying `datetime`, sort should still work. Spot-check one sort slot under ptBR to verify (not counted in 12 above — add only if filter tests reveal divergence).

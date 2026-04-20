@@ -17,12 +17,12 @@ research/
 
 ## Active
 
-| Task                                          | Status      | Description                                                                                    |
-| --------------------------------------------- | ----------- | ---------------------------------------------------------------------------------------------- |
-| [date-handling](date-handling/)               | In Progress | Cross-platform date handling bug investigation — Forms, Web Services, Dashboards               |
-| [form-templates](form-templates/)             | Active      | VV form template format analysis (XML + JSON), documentation, and improved template generation |
-| [extract-optimization](extract-optimization/) | Active      | Extract pipeline speed + reliability — parallel extraction, revision tracking, API-first       |
-| [standards-review](standards-review/)         | In Progress | Deterministic standards compliance tool — 49 rules for form templates, unit tested             |
+| Task                                          | Status      | Description                                                                                                                        |
+| --------------------------------------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| [date-handling](date-handling/)               | In Progress | Cross-platform date handling bug investigation — Forms, Web Services, Dashboards, Document Library, Workflows, Scheduled Processes |
+| [form-templates](form-templates/)             | Active      | VV form template format analysis (XML + JSON), documentation, and improved template generation                                     |
+| [extract-optimization](extract-optimization/) | Active      | Extract pipeline speed + reliability — parallel extraction, revision tracking, API-first                                           |
+| [standards-review](standards-review/)         | In Progress | Deterministic standards compliance tool — 49 rules for form templates, unit tested                                                 |
 
 ## Complete
 

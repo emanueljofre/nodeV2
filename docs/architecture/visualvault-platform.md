@@ -376,6 +376,14 @@ The Export link triggers `__doPostBack(eventTarget, '')` which sends a server-si
 
 The downloaded XML is a `<FormEntity>` document containing the full template definition: metadata, pages, fields, scripts, groups/conditions, and PDF settings. See `docs/reference/form-template-xml.md` for the XML format reference.
 
+### REST API — `GET /api/v1/{customer}/{db}/formtemplates`
+
+Listing endpoint behavior (`vvClient.forms.getFormTemplates()`), verified 2026-04-20 on vv5dev/EmanuelJofre:
+
+- **Released-only filter**: returns only templates whose current revision is Released. Draft (never-released) templates are invisible — they exist in the admin grid but not in the API. A new template appears in the API the first time it is Released.
+- **Silent empty on missing permission**: if the authenticated OAuth user lacks form-template read permission on the target customer/database, the response is `status: 200` with `data: []` — no `401`/`403`. Distinguish "no access" from "no templates" by cross-checking against the admin grid or another user.
+- **Metadata only**: the response has `id`, `revisionId`, `name`, `description`, `revision`, `status`, `modifyDate`, `createDate`, etc. The template XML content is NOT included — use `/ExportForm?...` (browser session required) or the PreFormsAPI `/FormTemplate/Controls/{revisionId}` endpoint to fetch content.
+
 ### Pagination
 
 Pager buttons use ASP.NET `__doPostBack` for page changes:
@@ -667,6 +675,148 @@ The user menu (top-right, shows the logged-in user's email) provides quick links
 ### Language Support
 
 The UI includes a language selector with: English, Brazil Portuguese, Spanish (Peru), Spanish (Colombia), Chinese (Simplified). Hidden field: `ctl00_CtrlMenu1_ddlLanguagesV5_ClientState`.
+
+---
+
+## Central Admin (Cross-Customer Control Panel)
+
+Central Admin is the cross-customer super-user surface under `/ca/`. It's where platform-level customer provisioning and configuration lives — **this is where all customer-scoped toggles that affect system behavior are set**. Many platform behaviors that differ between environments trace back to settings here, so check these before assuming a behavior is a code-level bug.
+
+Entry point: the **Central Admin** item in the top-right user menu (postback `lnkCentralAdmin`) → redirects to `/ca/SelectDatabase`.
+
+### Access Control
+
+Restricted to users flagged as Central Administrators. Regular customer accounts (and API-only service accounts like `apivv5`) can reach `/ca/SelectDatabase` but are bounced off `/ca/ConfigureCustomerDetails` via `/ca/centraladmin → /ca/SelectDatabase`. Playwright automation using non-CA service accounts cannot scrape these pages; use a CA-enabled browser session.
+
+### URL Map
+
+| Path                                                         | Purpose                                             |
+| ------------------------------------------------------------ | --------------------------------------------------- |
+| `/ca/centraladmin`                                           | Access gate — redirects to SelectDatabase           |
+| `/ca/SelectDatabase`                                         | Lists all customers × databases; entry point        |
+| `/ca/SelectDatabase?tab=favorites`                           | Favorite databases sub-tab                          |
+| `/ca/SelectDatabase?tab=alldatabases`                        | All databases sub-tab                               |
+| `/ca/SelectDatabase?cid={customerId}&dbid={dbId}`            | "Login" link — SSOs into that customer's UserPortal |
+| `/ca/ConfigureCustomerDetails?customerid={customerId}`       | Customer config landing (Details tab)               |
+| `/ca/ConfigureCustomerDetails?customerid=...&tab={tabParam}` | Switch sub-tab (see table below)                    |
+
+### Customer Configuration Tabs
+
+Implemented as an outer RadTabStrip with one nested level. All tabs share the same URL — switching is a `tab=` query-string param, so each sub-view is directly linkable.
+
+| Order | Label                             | `tab=` value                  | Content                                                                          |
+| ----- | --------------------------------- | ----------------------------- | -------------------------------------------------------------------------------- |
+| 1     | Customer Details                  | `Details`                     | Name / Alias / Description / Active / **Time Zone** / Culture / Language / Logos |
+| 2     | Users                             | `Users`                       | Users grid for the customer (filter: Enabled/Disabled/All × Online/All)          |
+| 3     | Databases                         | `CustomerDatabases`           | Database grid: Name, **Database Version**, **Server Name**, DB / Form-DB names   |
+| 4     | Settings                          | `Settings` / `ConfigSettings` | 13-section configuration form (see below) — parent tab                           |
+| 4a    | Settings → Configuration Settings | `ConfigSettings`              | Default sub-tab of Settings — same content as `tab=Settings`                     |
+| 4b    | Settings → Security Settings      | `SecuritySettings`            | Password Rules + Login Rules                                                     |
+| 5     | Customer Administrators           | `Administrators`              | Grid of CA-privileged users for this customer                                    |
+| 6     | Customer Billing                  | `CustomerBilling`             | Organization address + Subscription + audit-log grid of billing events           |
+
+### Scope Hierarchy — Three Cascading Layers
+
+Customer-level configuration is one of **three cascading scopes**. Understanding this is critical: a setting can be off at the scope you're looking at and still be on at runtime because a lower scope overrides it.
+
+| Scope        | Where configured                                                                                  | Notes                                                                                            |
+| ------------ | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| Environment  | Platform-wide (instance/server level)                                                             | Not yet located in `/ca/` UI — likely web.config/appsettings or a CA URL not exposed in the menu |
+| Customer     | `/ca/ConfigureCustomerDetails?customerid=...&tab=ConfigSettings` (what we documented above)       | Same 15-section toolbar as Database scope                                                        |
+| **Database** | `/ca/ConfigureCustomerDatabaseDetails?customerid=...&customerdatabaseid=...&tab=DatabaseSettings` | **Wins over Customer** when both set a value                                                     |
+
+The `ConfigureCustomerDatabaseDetails` page has its own 6-tab strip (Database Details / Database Users / Vault Access Users / Database Settings / Content Providers / Index Management). `Database Settings` is the tab that hosts the same Configuration Sections toolbar described below, but scoped to the database.
+
+**Landmark verification** — `useUpdatedCalendarValueLogic` (V1/V2 calendar logic) is **unchecked at customer scope but checked at database scope** on vv5dev/EmanuelJofre. Runtime probes (`tools/explore/probe-v1-v2-flag.js`) report V2 active, which matches the database scope, confirming DB-over-Customer override. `setUserInfo()` is what pushes the resolved effective value to the client.
+
+Practical consequence: **always check the database-scope toggle, not just the customer-scope one** before concluding a setting is off. Every test on vv5dev/EmanuelJofre so far has been running under database-scope V2, not V1 like vvdemo.
+
+### Configuration Sections Toolbar
+
+Both the customer-scope Configuration Settings page and the database-scope Database Settings page share a top toolbar with a **"Configuration Sections"** dropdown. Clicking an item postbacks and re-renders the form below with that section's settings. 15 sections in total:
+
+| Section             | Size (cust / db)                                | Notable toggles                                                                                                                                                                                                        |
+| ------------------- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| General             | 36/29 inputs, 44/39 checkboxes, 0/4 dropdowns   | Culture, logs, perf, security, workflow, users, training, billing                                                                                                                                                      |
+| Add-In Profile 1-4  | 43 inputs, 16 checkboxes each (identical slots) | QuickBase + SalesForce + Outlook integration config                                                                                                                                                                    |
+| Document Library    | 99 inputs, 111 checkboxes, 8 dropdowns          | Largest — S3 storage, viewer, annotations, e-sign, indexing, WebDAV/WOPI, purge permissions per role                                                                                                                   |
+| Email Configuration | 19 inputs, 11 checkboxes                        | SMTP, AWS bounce check, transmittal reasons, subscription digest                                                                                                                                                       |
+| **Forms**           | 17 inputs, 23 checkboxes, 4 dropdowns           | **Use Updated Calendar Control Logic** (the V1/V2 switch), Convert Date Fields to Customer Timezone, Prevent Conversion For Dates Ignoring Timezones, Calendar Field Default Mask, Beta Form Viewer, Offline Forms 2.0 |
+| Intelligent Objects | 0 inputs, 2 checkboxes                          | Feature flag only (Enable IO / Allow Vault Access to Assign Package)                                                                                                                                                   |
+| Other               | 23 inputs, 6 checkboxes, 1 dropdown             | **Scripting Server URL** (harness endpoint), eFax/vFax, SNS, VVConnect, GitHub version control, utilization dashboard                                                                                                  |
+| Server Farm         | 26 inputs, 2 checkboxes                         | Endpoint URLs for add-ins, `Minutes to Cache Time Zone Value: 20`, process-server endpoints, distributed cache                                                                                                         |
+| Service Tasks       | 4 inputs, 21 checkboxes                         | Scheduled background jobs: doc audit, purge, reindex, user/password/training expiration, task escalation                                                                                                               |
+| SociaVault PG       | 18 inputs, 0 checkboxes                         | Behavioral-health vertical: URL + form-template mapping (not activated)                                                                                                                                                |
+| Timecard            | 32 inputs, 1 checkbox                           | Time-card vertical: **Pay Period Start Date + Days In Pay Period** drive date-math, task sequences, employee/accounting groups                                                                                         |
+| User Interface      | 3 inputs, 33 checkboxes, 1 dropdown             | Legacy vs new admin pages (Menus/Fields/Dropdowns/Sites/Groups/form lists all on legacy), menu-hide flags, beta task list, workspace manager                                                                           |
+
+**Totals:** ~386 settings per scope. Full per-section JSON captures: [projects/emanueljofre-vv5dev/analysis/central-admin/config-sections/](../../projects/emanueljofre-vv5dev/analysis/central-admin/config-sections/). Landmark cross-section findings (V1/V2 cascade, customer-only checkboxes, vertical modules) documented in [SCOPE-HIERARCHY.md](../../projects/emanueljofre-vv5dev/analysis/central-admin/SCOPE-HIERARCHY.md).
+
+### "General" Section — Sub-Section Breakdown
+
+The General Configuration Section is a single scrollable form with 13 h2-headered groups. Verified on vv5dev/EmanuelJofre (platform v3041, UTC server TZ) on 2026-04-20:
+
+| Section                   | Field count | Representative toggles                                                                                                                                                   |
+| ------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Content Providers         | 0 / 1       | Allow Owner/Editors to Download Corrupt Files                                                                                                                            |
+| Culture And Time          | 1 / 0       | Current Culture (text override, not the Details-tab dropdown)                                                                                                            |
+| Customer Billing Settings | 2 / 1       | Idle Timeout (sec), Warning Timeout (sec), Allow Public Shares                                                                                                           |
+| Database                  | 0 / 2       | Use SQL2005 Commands, Use Unicode Upgrade Script                                                                                                                         |
+| Logs and Paths            | 5 / 3       | Days-to-retain for Exception/Info/Email/LDAP logs, URL Content Base, Verbose Logging                                                                                     |
+| Performance and Timeouts  | 7 / 3       | Web Session Timeout, Max Row Count, SQL Connection Timeout, Request Throttling                                                                                           |
+| Resource Scheduler        | 1 / 1       | `<WorkWeek>` XML (days enabled), Is MyAvailability Visible                                                                                                               |
+| Security and Login        | 9 / 15      | Default Authentication Type, Login Token Expiration, **Require MFA**, **Enable Roles and Permissions Security**, IP restrictions, SAML/BofA params, session cookie flags |
+| Training                  | 3 / 1       | User-facing training link/header text, Users Can Initiate Document Training                                                                                              |
+| User Portal Settings      | 1 / 1       | Portal Redirect URL, Append Access Token to Redirect URL                                                                                                                 |
+| Users                     | 4 / 2       | **Username Format** (`UserId` / `Email` / etc.), Signature Username Format, Employee ID label, Default Password Expiration Days                                          |
+| Workflow                  | 3 / 14      | Default Days for Approval Task, **Use Numeric Comparisons**, **Allow Legacy Workflow**, Task List visibility toggles, `<WorkflowTaskCompletionNames>` XML                |
+
+(Format: `text/number inputs / checkboxes`.) The Workflow `<WorkflowTaskCompletionNames>` XML defines the Acknowledge/Complete/Finish action names for approval tasks, and `<TrainingCompetencyLevels>` defines the 5-level training scale.
+
+### Security Settings Sub-Tab
+
+Narrow page; two sub-sections:
+
+| Section        | Fields                                                                                                                                                                                     |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Password Rules | Min Length / Alpha / Digit / Symbol, Max Repeating per category, Max Simple Sequence, Expiration Days, Retain N Previous, Require Mixed Alpha Case, Allow User Data, Never-Expires Default |
+| Login Rules    | Max Login Attempts, Login Attempt Reset Minutes, Lock Length Minutes                                                                                                                       |
+
+All-zero defaults on a new customer effectively disable password complexity.
+
+### Customer Databases Grid
+
+Exposes the full app/form DB mapping — important for tracing data-flow issues:
+
+| Column             | Example (vv5dev/EmanuelJofre)       |
+| ------------------ | ----------------------------------- |
+| Name               | Main                                |
+| Database Version   | `v3041`                             |
+| Server Name        | `use1d-vvdevsql1`                   |
+| Database Name      | `vv5dev_EmanuelJofre_Main`          |
+| Form Database Name | `vv5dev_EmanuelJofre_Main_FormData` |
+
+`Database Version` here is the **schema version** shown in Central Admin — distinct from the code version in `/api/v1/.../version`. The two usually move together but can diverge during upgrades.
+
+### Customer Details Tab — Key Fields
+
+| Field             | Notes                                                                                                                                                                 |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Name / Alias      | Display name + URL-segment alias (used in `/app/{alias}/{db}/...`)                                                                                                    |
+| Active (checkbox) | Soft-disable for the entire customer                                                                                                                                  |
+| **Time Zone**     | Telerik combobox → picks from Windows TZ list. **Server-side timestamps** (`GETDATE()`, `DateTime.Now`) use this. Same field as `utcOffset` in `/api/v1/.../version`. |
+| Culture           | Server-side culture — affects server-rendered date formats, number formatting                                                                                         |
+| Language          | Default UI language                                                                                                                                                   |
+
+**Per-customer time zone is set here**, and it's what `getTimeZone` in the env-profile tool reports. It's _not_ the user's browser TZ and not the SQL server's TZ — it's the customer's configured TZ, used for any server-generated timestamp.
+
+### Per-Environment Snapshots
+
+Captured configurations for each known env are under `projects/{customer}/analysis/central-admin/`. Each snapshot includes per-tab JSON + an index with the flags most likely to affect platform behavior. Update on platform version changes or whenever a test reveals an environment-specific behavior worth tracing back.
+
+Known snapshots:
+
+- [`projects/emanueljofre-vv5dev/analysis/central-admin/`](../../projects/emanueljofre-vv5dev/analysis/central-admin/) — vv5dev/EmanuelJofre, v3041, UTC
 
 ---
 

@@ -5,13 +5,17 @@ Analysis → `analysis/overview.md` | Spec → `testing/specs/date-handling/doc-
 
 **Execution results**: See `projects/{customer}/testing/date-handling/document-library/status.md` per environment.
 
-Total slots: 52
+Total slots: 68 (52 baselined + 16 backlog — see [Open Gaps & Backlog](#open-gaps--backlog))
+
+> **Note**: Baseline slots assume the **default Platform Scope** (en-US Culture, Doc Library Configuration Section at its default values — see [`forms-calendar/matrix.md § Platform Scope`](../forms-calendar/matrix.md#platform-scope) and [`projects/emanueljofre-vv5dev/analysis/central-admin/config-sections/document-library.json`](../../../projects/emanueljofre-vv5dev/analysis/central-admin/config-sections/document-library.json)).
 
 ---
 
 ## ID Convention
 
 Document library test IDs use the format `doc-{category}-{variant}` (e.g., `doc-1-iso-naive`, `doc-2-brt-offset`).
+
+**Platform-scope suffix** (added 2026-04-20): slots under non-default scope use `.<scope>` (e.g. `doc-9-ddmm.ptBR`, `doc-10-review.custTZ-UTC`). Scope tokens per [`forms-calendar/matrix.md § Platform Scope`](../forms-calendar/matrix.md#platform-scope).
 
 ---
 
@@ -48,7 +52,24 @@ Unlike form calendar fields (8 configs: enableTime × ignoreTimezone × useLegac
 | DOC-6. Cross-Layer Comparison     |   6    |    P2    | API + Browser   |
 | DOC-7. Query & Search             |   4    |    P2    | API             |
 | DOC-8. DocAPI Infrastructure Diff |   4    |    P1    | API (cross-env) |
-| **TOTAL**                         | **52** |          |                 |
+| DOC-9. Culture (Input + UI)       |   8    |    P1    | API + Browser   |
+| DOC-10. Lifecycle Date Defaults   |   8    |    P2    | API             |
+| **TOTAL**                         | **68** |          |                 |
+
+---
+
+## Open Gaps & Backlog
+
+Platform-scope gaps identified 2026-04-20. Cross-linked with [`forms-calendar/matrix.md § Open Gaps`](../forms-calendar/matrix.md#open-gaps--backlog).
+
+| ID    | Gap                                                                                 | Why it matters                                                                                                                                                                      | Close by                  | Priority |
+| ----- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- | -------- |
+| DOCG1 | Customer Culture (ptBR/esES) effect on DD/MM parsing + RadDateTimePicker display    | DOC-1 already includes `doc-1-eu-date` passing (unlike WS-BUG-2). Worth verifying that result holds under ptBR Culture, and that RadDateTimePicker (DOC-5) renders DD/MM correctly. | DOC-9 (8 slots below)     | **P1**   |
+| DOCG2 | Lifecycle date defaults: Days to Review / Expire / Training Due / Workflow Task Due | Central Admin Doc Library section has 4 Days-based defaults. If a document is created with "Review in N days", what TZ drives the computation? DST / year-boundary edge cases.      | DOC-10 (8 slots below)    | **P2**   |
+| DOCG3 | Default Checkin State (`Released` vs `Unreleased`)                                  | Not date-related — only affects workflow timing if release triggers a dated action. Low priority.                                                                                   | Spot-check only           | P3       |
+| DOCG4 | S3 Secure URL Expiration Minutes                                                    | Expiry timestamp on S3 pre-signed URLs. Off-topic for date-bug investigation but documented as a date-related setting.                                                              | Defer                     | P4       |
+| DOCG5 | `Index Documents on save in UI` (DocAPI flag)                                       | If OFF, date index field writes bypass DocAPI. Spot-check under `disabled` scope.                                                                                                   | Spot-check                | P3       |
+| DOCG6 | T1 "Convert Date Fields to Customer Timezone" — does it apply to index fields?      | Title says "Date Fields" — ambiguous whether it applies only to Forms calendar fields or also to Doc Library index fields. Material for understanding platform consistency.         | Spot-check under T1 scope | P2       |
 
 ---
 
@@ -202,6 +223,60 @@ vv5dev has `docapi: enabled`, vvdemo has `docapi: disabled`. This is the only co
 | doc-8-read-docapi-off  | GET index field (DocAPI disabled) | vvdemo (Emanuel) | Baseline behavior              |
 
 **Key question**: Does `docApiDefaultForDocList: true` on vv5dev route index field operations through a different code path?
+
+---
+
+## DOC-9. Culture — Input Parsing + UI Display (Platform-Scope Backlog)
+
+Does Customer Culture (Central Admin → Customer Details → Culture) affect how the Document Library API parses DD/MM input and how the RadDateTimePicker renders dates? DOC-1's `doc-1-eu-date` already reports DD/MM parsing as **working** on enUS — worth re-verifying under ptBR and checking UI display. Paired with Forms Cat 18 and WS-12.
+
+**Method**: Set Customer Culture to `Portuguese (Brazil)`. Rerun the DOC-1 format-normalization slots with Culture = ptBR. Open the RadDateTimePicker on a test document (DOC-5 parallel) and verify display/format.
+
+**Shape**: 4 API slots × 2 cultures = 8 slots. Covers: DD/MM, MM/DD (ambiguous), ISO, RadDateTimePicker display.
+
+| Test ID               | Aspect            | Culture | Input / Setup                  | enUS baseline                   | Expected under ptBR                | Status  | Run Date | Evidence |
+| --------------------- | ----------------- | :-----: | ------------------------------ | ------------------------------- | ---------------------------------- | ------- | -------- | -------- |
+| doc-9-api-ddmm.ptBR   | API PUT           |  ptBR   | `"15/03/2026"`                 | Parses (doc-1-eu-date PASS)     | Parses ✓ — confirm no regression   | PENDING | —        | —        |
+| doc-9-api-mmdd.ptBR   | API PUT           |  ptBR   | `"03/15/2026"`                 | Parses as Mar 15 (MM/DD native) | Parses as Apr 3 (DD/MM) OR rejects | PENDING | —        | —        |
+| doc-9-api-iso.ptBR    | API PUT           |  ptBR   | `"2026-03-15"`                 | Parses                          | Parses (ISO Culture-independent)   | PENDING | —        | —        |
+| doc-9-ui-display.ptBR | RadDateTimePicker |  ptBR   | stored `"2026-03-15T00:00:00"` | Display: `3/15/2026`            | Display: `15/03/2026`              | PENDING | —        | —        |
+| doc-9-api-ddmm.enUS   | API PUT           |  enUS   | `"15/03/2026"`                 | —                               | Control: reproduces doc-1-eu-date  | PENDING | —        | —        |
+| doc-9-api-mmdd.enUS   | API PUT           |  enUS   | `"03/15/2026"`                 | —                               | Control                            | PENDING | —        | —        |
+| doc-9-api-iso.enUS    | API PUT           |  enUS   | `"2026-03-15"`                 | —                               | Control                            | PENDING | —        | —        |
+| doc-9-ui-display.enUS | RadDateTimePicker |  enUS   | stored `"2026-03-15T00:00:00"` | —                               | Control                            | PENDING | —        | —        |
+
+> **Key comparison**: doc-9-api-mmdd.ptBR vs doc-9-api-ddmm.ptBR — if both succeed with opposite interpretations, the Doc Library API is tolerant and Culture-driven. If one rejects, the API enforces Culture strictly. Either is informative.
+
+---
+
+## DOC-10. Lifecycle Date Defaults (Platform-Scope Backlog)
+
+Central Admin **Document Library** section defines four Days-based defaults that drive date math on documents and related tasks:
+
+- `Default Days for Documents to be Reviewed`
+- `Default Days for a Document to Expire`
+- `Default Days for a Training Task to be due`
+- `Default days for a Workflow Task to be due`
+
+These compute `due_date = creation_date + N days` at save time. **Untested**: which TZ drives the arithmetic, and what happens at DST/year-boundary edges.
+
+**Method**: Create a document at a known UTC time close to midnight in Customer TZ. Read back the computed review/expiration dates. Cross-check against expected `created + N days` with both UTC and Customer TZ as the arithmetic basis.
+
+**Shape**: 4 defaults × 2 Customer TZs = 8 slots.
+
+| Test ID             | Default Field     | Customer TZ | Test Condition                                             | Expected                                                                             | Status  | Run Date | Evidence |
+| ------------------- | ----------------- | ----------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------ | ------- | -------- | -------- |
+| doc-10-review.UTC   | Days to Review    | UTC         | Upload doc at 2026-03-15T23:30:00 UTC                      | Review date stored as 2026-03-15 + N days (straight UTC arithmetic)                  | PENDING | —        | —        |
+| doc-10-review.BRT   | Days to Review    | BRT         | Upload doc at 2026-03-15T23:30:00 UTC (20:30 BRT same day) | Review date = 2026-03-15 + N days in BRT? Or 2026-03-16 + N if UTC midnight crossed? | PENDING | —        | —        |
+| doc-10-expire.UTC   | Days to Expire    | UTC         | Upload doc at 2026-03-15T23:30:00 UTC                      | Expire date = 2026-03-15 + N days                                                    | PENDING | —        | —        |
+| doc-10-expire.BRT   | Days to Expire    | BRT         | Same                                                       | Expire date in BRT TZ                                                                | PENDING | —        | —        |
+| doc-10-training.UTC | Training Task Due | UTC         | Create training task from doc                              | Task due = now + N days in UTC                                                       | PENDING | —        | —        |
+| doc-10-training.BRT | Training Task Due | BRT         | Same                                                       | Task due in BRT                                                                      | PENDING | —        | —        |
+| doc-10-workflow.UTC | Workflow Task Due | UTC         | Start workflow on doc                                      | Task due = now + N days in UTC                                                       | PENDING | —        | —        |
+| doc-10-workflow.BRT | Workflow Task Due | BRT         | Same                                                       | Task due in BRT                                                                      | PENDING | —        | —        |
+
+> **Cross-reference**: Forms Cat 19 tests server-generated timestamps on forms (`Created Date` auto-field, `DateTime.Now`, etc.). DOC-10 tests the same question from the Doc Library angle. The answers _should_ be consistent — if they're not, we've found a platform inconsistency.
+> **DST edge case**: Schedule a follow-up DOC-10 run with creation timestamp inside a DST-transition window in a DST-observing Customer TZ (America/Los_Angeles). Spot-check only — not in the 8 slots above.
 
 ---
 
