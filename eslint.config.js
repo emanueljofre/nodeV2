@@ -10,6 +10,7 @@ module.exports = [
             'scripts/examples/',
             'research/**/main.js',
             'research/**/bug-analysis/',
+            'research/_archive/',
             'projects/',
             'lib/VVRestApi/',
         ],

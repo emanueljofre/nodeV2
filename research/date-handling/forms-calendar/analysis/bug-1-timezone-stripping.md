@@ -95,7 +95,7 @@ This section adds detail on V1/V2 activation and testing coverage beyond what [W
 - The form has a non-empty `modelId` context
 - The `setUserInfo()` response includes the flag
 
-These are code-level observations — we do not know what admin or account-level configuration controls the server flag. The flag is also writable from the console: `VV.Form.calendarValueService.useUpdatedCalendarValueLogic = true`.
+The `setUserInfo()` push is controlled by the **"Use Updated Calendar Control Logic"** checkbox in Central Admin, located at **Database scope → Database Settings → Configuration Sections dropdown → Forms**. The same checkbox also exists at Customer scope (Configuration Settings → Forms), but **database scope wins**: on vv5dev/EmanuelJofre the customer-scope box is unchecked while the database-scope box is checked, and the runtime flag resolves to `true`. The flag is also writable from the console: `VV.Form.calendarValueService.useUpdatedCalendarValueLogic = true`. See [docs/architecture/visualvault-platform.md § Central Admin](../../../../docs/architecture/visualvault-platform.md#central-admin-cross-customer-control-panel).
 
 **Testing coverage**: The bulk of this investigation ran under V1 (the demo environment default). V2 was activated manually via console for targeted tests — [TC-8-V2](../test-cases/tc-8-V2.md) confirmed FORM-BUG-5 is absent under V2 and that `parseDateString` is called. The `?ObjectID=` URL approach was attempted but requires a valid Object View context that the demo environment did not expose.
 

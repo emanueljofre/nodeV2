@@ -66,6 +66,8 @@ These apply regardless of format. The investigation format adds more (see its ow
 
 5. **State what you don't know.** If you see code-level triggers but don't know what admin setting controls them, say so.
 
+6. **Frame around user-observable effects, not internal mechanism.** Open every report with what a user sees, does, and ends up with — not with why the platform behaves that way. The title, summary, and reproduction steps describe symptoms in the user's vocabulary: displayed values, dates on screen, buttons clicked, records saved. Terms like "Z suffix", "ISO 8601", "UTC marker", function names, field-config IDs, or code paths belong in the evidence or hypothesis sections, not in the framing. A reader who has never opened the source should be able to understand what is broken from the top of the report alone. This principle applies to both formats but is strictest for the support format, where the receiving team may not share your internal context.
+
 ### File Naming and Location
 
 | File                           | Purpose                                                          |
