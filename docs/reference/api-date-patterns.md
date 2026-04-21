@@ -175,6 +175,8 @@ const params = { q: "[Field7] ge '2026-03-15' AND [Field7] lt '2026-03-16'" };
 
 **Rule of thumb:** Always use range queries (`ge` + `lt`) instead of exact equality (`eq`) when filtering on date-only fields. This is necessary because the VV server does not enforce date-only semantics — it stores whatever datetime value was provided, and the "date-only" concept only exists in the Forms client-side JS.
 
+**Lookup by record GUID**: `getForms` OData does **not** accept `[id] eq '<guid>'` as a query — it returns zero rows even when the GUID is valid. Query by `instanceName` instead (`[instanceName] eq 'DateTest-000123'`). The record GUID returned in `postForms` responses is the `revisionId` field (no `id` field is present), and that same GUID is what goes into the `DataID=` FormViewer URL param. Confirmed 2026-04-21 against vvdemo and vv5dev.
+
 Empirically verified: [WEBSERVICE-BUG-6 audit](../../research/date-handling/web-services/analysis/ws-bug-6-no-date-only-enforcement.md) — exact equality returned 1 of 2 March 15 records; range query returned both.
 
 ---

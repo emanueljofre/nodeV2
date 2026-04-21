@@ -222,6 +222,20 @@ npm run test:dash:regression -- --skip-artifacts
 
 See [Dev Setup Guide — Troubleshooting](dev-setup.md#6-troubleshooting) for common issues (auth, timeouts, timezone mismatches, missing tools).
 
+### Kendo "value 'undefined' is not valid" notification blocks sparse API-created records
+
+When a form record is created via REST `postForms` with only a subset of fields populated (e.g. the WS input tests set a single date field and leave the rest null), navigating to `DataID=<revisionId>` can surface a Kendo notification reading **"The value 'undefined' is not valid"** during form init. The notification keeps an Angular digest pending indefinitely, so Playwright's `waitUntil: 'networkidle'` never fires and `VV.Form.VV.FormPartition.fieldMaster` stays undefined. Observed on both V1 (vvdemo) and V2 (vv5dev). The page header eventually renders (you'll see `DateTest-XXXXXX Rev 1` in the title) but the form body is empty.
+
+**Mitigation pattern** (see [`cat-10-ws-input.spec.js`](../../testing/specs/date-handling/cat-10-ws-input.spec.js) `gotoSavedRecord`):
+
+1. Use `waitUntil: 'domcontentloaded'` (not `networkidle`).
+2. Poll a short loop (250 ms) that both (a) calls the fieldMaster-ready check and (b) clicks any Kendo notification close buttons. Common selectors:
+    - `.k-notification .k-i-close`
+    - `.k-notification a.k-notification-close`
+    - `.k-notification [class*="close"]`
+    - `[aria-label="Close"]`
+3. If the target field starts empty (e.g. the server stored `null` because `WS-BUG-5` silently discarded an epoch input), skip the browser-load step entirely — there's no observable to capture, and the empty-field case can hang form init altogether.
+
 ### FormViewer `beforeunload` dialog blocks navigation
 
 VV's FormViewer installs `window.onbeforeunload` after form load. This fires on any `page.goto()` away from the form, producing a browser dialog that blocks Playwright. The `playwright-cli` MCP tool is especially affected — it checks for modal state before executing any command and refuses to proceed.
