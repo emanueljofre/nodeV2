@@ -18,8 +18,11 @@
  *                             assert BRT record found, IST record not found
  *
  * Assumptions:
- *   - Expected values are V1-baselined (vvdemo, WADNR run V1). Spec skips on V2 until
- *     re-baselined (see projects/emanueljofre-vv5dev/testing/date-handling/status.md).
+ *   - Expected values are V1-baselined (vvdemo, WADNR run V1). V2 has its own
+ *     observables (vv5dev) — entries default to `scope: 'V1'`; add sibling `.V2`
+ *     entries with `scope: 'V2'` and V2 observed values. The scope filter only
+ *     applies to actions that exercise the Forms client pipeline; `apiWriteRead`
+ *     is server-side and runs on both V1 and V2 environments.
  *   - Target environment must allow writes to the DateTest form template (vvdemo
  *     unrestricted OK; allowlist envs need the template in writePolicy.forms).
  *   - Expected API values carry a trailing "Z" even when the DB stores a naive
@@ -28,18 +31,16 @@
 const { test, expect } = require('@playwright/test');
 const { FIELD_MAP, FORM_TEMPLATE_URL, vvConfig, AUTH_STATE_PATH } = require('../../fixtures/vv-config');
 const { TEST_DATA } = require('../../fixtures/test-data');
-const {
-    gotoAndWaitForVVForm,
-    getCodePath,
-    setFieldValue,
-    saveFormOnly,
-    roundTripCycle,
-} = require('../../helpers/vv-form');
+const { gotoAndWaitForVVForm, setFieldValue, saveFormOnly, roundTripCycle } = require('../../helpers/vv-form');
 const { guardedPost } = require('../../helpers/vv-request');
 
 const categoryTests = TEST_DATA.filter((t) => t.category === 13);
 
 const API_BASE = `/api/v1/${vvConfig.customerAlias}/${vvConfig.databaseAlias}`;
+
+// Known V2 customers — avoids a browser nav just for scope detection.
+const V2_CUSTOMER_KEYS = new Set(['EmanuelJofre-vv5dev']);
+const ENV_SCOPE = V2_CUSTOMER_KEYS.has(vvConfig.customerKey) ? 'V2' : 'V1';
 
 function parseTemplateIdFromUrl(url) {
     const match = /[?&]formid=([^&]+)/i.exec(url);
@@ -78,7 +79,9 @@ async function apiPostForm(request, fieldValues) {
     expect(resp.ok()).toBeTruthy();
     const body = await resp.json();
     const created = (body.data && (Array.isArray(body.data) ? body.data[0] : body.data)) || body;
-    return { instanceName: created.instanceName, revisionId: created.revisionId, id: created.id, raw: body };
+    // VV postForms returns `revisionId` (record GUID) but no `id` field.
+    const dataId = created.revisionId || created.id || created.dhDocId || created.DhDocID;
+    return { instanceName: created.instanceName, revisionId: created.revisionId, id: dataId, raw: body };
 }
 
 async function apiGetFormByQuery(request, query) {
@@ -101,19 +104,45 @@ function caseInsensitiveField(record, fieldName) {
 }
 
 async function captureInstanceName(page) {
+    // VV exposes the instance name through several paths depending on version:
+    //   V1 vvdemo: DOM element `.formInstanceName` (Angular directive-bound)
+    //   V2 vv5dev: the shell header contains a truncated version; JS state holds the full name
+    // Fall through strategies until one yields a non-empty value.
     return page.evaluate(() => {
-        const nameEl = document.querySelector('.formInstanceName, [data-field="instanceName"]');
-        return nameEl ? nameEl.textContent.trim() : '';
+        // 1. JS state (covers V2 shell)
+        if (typeof VV !== 'undefined' && VV.Form) {
+            const candidates = [
+                VV.Form.InstanceName,
+                VV.Form.instanceName,
+                VV.Form.VV && VV.Form.VV.InstanceName,
+                VV.Form.VV && VV.Form.VV.instanceName,
+                VV.Form.VV && VV.Form.VV.FormPartition && VV.Form.VV.FormPartition.InstanceName,
+            ];
+            for (const c of candidates) {
+                if (typeof c === 'string' && c.trim()) return c.trim();
+            }
+        }
+        // 2. DOM element (V1 shell)
+        const domEl = document.querySelector('.formInstanceName, [data-field="instanceName"]');
+        if (domEl && domEl.textContent.trim()) return domEl.textContent.trim();
+        // 3. Document title — VV sets it to the instance name on both shells
+        const titleMatch = document.title && document.title.match(/([A-Za-z][\w\s]*-\d+)/);
+        if (titleMatch) return titleMatch[1];
+        return '';
     });
 }
 
-async function saveViaBrowser(page, inputs) {
+async function saveViaBrowser(page, inputs, testInfo) {
     for (const { field, value } of inputs) {
         await setFieldValue(page, field, value);
     }
     await page.waitForTimeout(300);
     const { dataId } = await saveFormOnly(page);
     const instanceName = await captureInstanceName(page);
+    if (testInfo) {
+        testInfo.annotations.push({ type: 'savedDataId', description: dataId });
+        testInfo.annotations.push({ type: 'savedInstanceName', description: instanceName || '(empty)' });
+    }
     return { dataId, instanceName };
 }
 
@@ -124,9 +153,19 @@ async function readRecordByInstanceName(request, instanceName, dataId) {
         rows = await apiGetFormByQuery(request, `[instanceName] eq '${instanceName}'`);
     }
     if (!rows.length && dataId) {
-        rows = await apiGetFormByQuery(request, `[id] eq '${dataId}'`);
+        // Try multiple field names for the GUID query — VV OData exposes the record GUID
+        // under different names depending on version (id / dhDocId / docId / revisionId).
+        for (const field of ['id', 'dhDocId', 'DhDocID', 'docId', 'revisionId']) {
+            rows = await apiGetFormByQuery(request, `[${field}] eq '${dataId}'`);
+            if (rows.length) break;
+        }
     }
-    expect(rows.length).toBeGreaterThan(0);
+    if (!rows.length) {
+        throw new Error(
+            `No record found for instanceName="${instanceName}" dataId="${dataId}". ` +
+                `Tried [instanceName] and [id|dhDocId|DhDocID|docId|revisionId].`
+        );
+    }
     return rows[0];
 }
 
@@ -146,11 +185,13 @@ for (const tc of categoryTests) {
                 `Skipping — test is for ${tc.tz}-chromium`
             );
 
-            // V1 expected values only — skip on V2 until re-baselined
+            // V1/V2 scope filter — resolved from customerKey. apiWriteRead is pure REST
+            // and runs unconditionally on both scopes; other actions gate early so we
+            // don't load a form template we're about to skip.
             if (tc.action !== 'apiWriteRead') {
+                const entryScope = tc.scope || 'V1';
+                test.skip(ENV_SCOPE !== entryScope, `Entry scope=${entryScope} but active env is ${ENV_SCOPE}`);
                 await gotoAndWaitForVVForm(page, FORM_TEMPLATE_URL);
-                const isV2 = await getCodePath(page);
-                test.skip(isV2 === true, 'V2 expected values not yet baselined for Cat 13');
             }
 
             if (tc.action === 'apiWriteRead') {
@@ -176,7 +217,7 @@ for (const tc of categoryTests) {
                     field: resolveField(b.config, b.variant || 'base'),
                     value: b.value,
                 }));
-                const { dataId, instanceName } = await saveViaBrowser(page, inputs);
+                const { dataId, instanceName } = await saveViaBrowser(page, inputs, testInfo);
                 const record = await readRecordByInstanceName(request, instanceName, dataId);
                 for (const a of tc.apiAssertions) {
                     const fieldName = resolveField(a.config, a.variant || 'base');
@@ -196,6 +237,8 @@ for (const tc of categoryTests) {
                 await page.waitForTimeout(300);
                 const { dataId } = await saveFormOnly(page);
                 const instanceName = await captureInstanceName(page);
+                testInfo.annotations.push({ type: 'savedDataId', description: dataId });
+                testInfo.annotations.push({ type: 'savedInstanceName', description: instanceName || '(empty)' });
                 const record = await readRecordByInstanceName(request, instanceName, dataId);
                 const actual = caseInsensitiveField(record, fieldName);
                 expect(actual, `Config ${tc.config} (${fieldName}) after ${tc.roundTrips} round-trip(s)`).toBe(
@@ -210,7 +253,7 @@ for (const tc of categoryTests) {
                     field: resolveField(b.config, b.variant || 'base'),
                     value: b.value,
                 }));
-                const recA = await saveViaBrowser(page, inputsA);
+                const recA = await saveViaBrowser(page, inputsA, testInfo);
 
                 // 2) Save another record in a second TZ via a new browser context
                 const ctxB = await browser.newContext({
@@ -219,7 +262,7 @@ for (const tc of categoryTests) {
                 });
                 const pageB = await ctxB.newPage();
                 await gotoAndWaitForVVForm(pageB, FORM_TEMPLATE_URL);
-                const recB = await saveViaBrowser(pageB, inputsA);
+                const recB = await saveViaBrowser(pageB, inputsA, testInfo);
                 await ctxB.close();
 
                 // 3) Query by field value — expect only recA to match
