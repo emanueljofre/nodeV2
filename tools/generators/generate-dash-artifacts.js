@@ -6,35 +6,35 @@
  * Does NOT modify matrix.md — the matrix is the source of truth.
  *
  * Creates/updates:
- *   - Run files (new, immutable) in research/date-handling/dashboards/runs/
- *   - Summary files (update) in research/date-handling/dashboards/summaries/
- *   - Session index (append) in research/date-handling/dashboards/results.md
+ *   - Run files (new, immutable) in projects/{customer}/testing/date-handling/dashboards/runs/
+ *   - Summary files (update) in projects/{customer}/testing/date-handling/dashboards/summaries/
+ *   - Session index (append) in projects/{customer}/testing/date-handling/dashboards/results.md
+ *
+ * Matrix stays shared (platform truth) under research/; execution artifacts are
+ * per-customer under projects/.
  *
  * Usage:
  *   node tools/generators/generate-dash-artifacts.js [--input path] [--category DB-N] [--dry-run]
  */
 const fs = require('fs');
 const path = require('path');
+const { FIELD_MAP: VV_FIELD_MAP, vvConfig } = require('../../testing/fixtures/vv-config');
 
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
-const ARTIFACTS_DIR = path.join(REPO_ROOT, 'research', 'date-handling', 'dashboards');
-const RUNS_DIR = path.join(ARTIFACTS_DIR, 'runs');
-const SUMMARIES_DIR = path.join(ARTIFACTS_DIR, 'summaries');
-const MATRIX_PATH = path.join(ARTIFACTS_DIR, 'matrix.md');
-const RESULTS_PATH = path.join(ARTIFACTS_DIR, 'results.md');
+const MATRIX_DIR = path.join(REPO_ROOT, 'research', 'date-handling', 'dashboards');
+const MATRIX_PATH = path.join(MATRIX_DIR, 'matrix.md');
+
+// Per-customer execution artifact directory. customerKey is normalized to lowercase
+// to match the projects/{customer}/ folder convention.
+const CUSTOMER_FOLDER = (vvConfig.customerKey || vvConfig.customerAlias || 'emanueljofre-vvdemo').toLowerCase();
+const PROJECT_DASH_DIR = path.join(REPO_ROOT, 'projects', CUSTOMER_FOLDER, 'testing', 'date-handling', 'dashboards');
+const RUNS_DIR = path.join(PROJECT_DASH_DIR, 'runs');
+const SUMMARIES_DIR = path.join(PROJECT_DASH_DIR, 'summaries');
+const RESULTS_PATH = path.join(PROJECT_DASH_DIR, 'results.md');
 const DEFAULT_INPUT = path.join(REPO_ROOT, 'testing', 'tmp', 'dash-regression-results-latest.json');
 
-// Field → Config mapping (reverse of FIELD_MAP)
-const FIELD_TO_CONFIG = {
-    Field7: 'A',
-    Field10: 'B',
-    Field6: 'C',
-    Field5: 'D',
-    Field12: 'E',
-    Field11: 'F',
-    Field14: 'G',
-    Field13: 'H',
-};
+// Field → Config mapping (reverse of active-customer FIELD_MAP in vv-config.js).
+const FIELD_TO_CONFIG = Object.fromEntries(Object.entries(VV_FIELD_MAP).map(([config, def]) => [def.field, config]));
 
 // Expected display format patterns per config type (DB-1 validation)
 // Date-only: M/D/YYYY (no leading zeros, no time)
@@ -212,6 +212,7 @@ function main() {
         });
 
         if (!dryRun) {
+            fs.mkdirSync(RUNS_DIR, { recursive: true });
             fs.writeFileSync(path.join(RUNS_DIR, runFile), runContent);
         }
         runsCreated++;
@@ -233,6 +234,57 @@ function main() {
     // Append to results.md
     if (!dryRun && sessionEntries.length > 0) {
         appendResultsSession(today, sessionEntries);
+    }
+
+    // Emit a regression-results-shaped JSON so `task:status` can see per-slot verdicts.
+    // Shape matches the Playwright regression-reporter output: {timestamp, buildContext, summary, results[]}.
+    // Without this bridge, DB-1 PASSes stay invisible to the rollup (only the batch run .md is produced).
+    //
+    // Include ONLY pipeline-executed slots (PASS/FAIL/NO_DATA) — SKIPPED entries are slots the
+    // pipeline punts to /@-test-dash-date-pw, and stamping them as "skipped" would mislead the
+    // rollup into thinking those fixture-blocked slots are covered.
+    if (!dryRun) {
+        const statusMap = { PASS: 'passed', FAIL: 'failed', NO_DATA: 'skipped' };
+        const bridgeResults = testResults
+            .filter((r) => statusMap[r.status])
+            .map((r) => ({
+                tcId: r.tcId,
+                status: statusMap[r.status],
+                actualRaw: r.actual || null,
+                actualApi: null,
+                project: 'dash-regression',
+                category: r.category,
+                config: r.config,
+                field: r.field,
+                record: r.record,
+            }));
+        const summary = {
+            total: bridgeResults.length,
+            passed: bridgeResults.filter((r) => r.status === 'passed').length,
+            failed: bridgeResults.filter((r) => r.status === 'failed').length,
+            skipped: bridgeResults.filter((r) => r.status === 'skipped').length,
+            timedOut: 0,
+        };
+        const bridgeOutput = {
+            timestamp: data.timestamp || new Date().toISOString(),
+            completed: new Date().toISOString(),
+            buildContext: data.buildContext || null,
+            summary,
+            results: bridgeResults,
+        };
+        const stamp = (data.timestamp || new Date().toISOString()).replace(/[:.]/g, '-').substring(0, 19);
+        fs.mkdirSync(PROJECT_DASH_DIR, { recursive: true });
+        fs.writeFileSync(
+            path.join(PROJECT_DASH_DIR, `dash-regression-results-${stamp}.json`),
+            JSON.stringify(bridgeOutput, null, 2)
+        );
+        fs.writeFileSync(
+            path.join(PROJECT_DASH_DIR, 'dash-regression-results-latest.json'),
+            JSON.stringify(bridgeOutput, null, 2)
+        );
+        console.log(
+            `  bridge JSON: ${summary.passed}P / ${summary.failed}F / ${summary.skipped}S → dash-regression-results-latest.json`
+        );
     }
 
     console.log(`\nDone: ${runsCreated} batch run files, ${summariesUpdated} summaries updated`);
@@ -391,6 +443,7 @@ ${status === 'PASS' ? 'Passes in regression pipeline — consistent with prior r
 
 Monitor for platform changes.
 `;
+        fs.mkdirSync(SUMMARIES_DIR, { recursive: true });
         fs.writeFileSync(summaryPath, content);
         return;
     }
@@ -441,9 +494,12 @@ Monitor for platform changes.
 }
 
 function appendResultsSession(today, entries) {
-    let content = fs.readFileSync(RESULTS_PATH, 'utf8');
+    let content = fs.existsSync(RESULTS_PATH)
+        ? fs.readFileSync(RESULTS_PATH, 'utf8')
+        : `# Dashboard Date-Handling — Execution Log\n`;
     const header = `\n## Session ${today} (Dashboard Regression Pipeline)\n\n**Purpose**: Automated regression verification of dashboard display tests.\n**Key outcomes**: ${entries.length} tests documented.\n\n`;
     content += header + entries.join('\n') + '\n';
+    fs.mkdirSync(path.dirname(RESULTS_PATH), { recursive: true });
     fs.writeFileSync(RESULTS_PATH, content);
 }
 
