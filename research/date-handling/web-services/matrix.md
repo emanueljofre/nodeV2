@@ -209,6 +209,10 @@ Write a date via API (`postForms`), read back (`getForms`), write the read-back 
 
 ## WS-4. API→Forms Cross-Layer
 
+<!-- task-status: non-executable prefix="ws-4-" reason="browser-only" -->
+
+> **Execution note — browser-only.** These 10 slots cannot be driven by the WS regression runner (`testing/pipelines/run-ws-regression.js`) or `run-ws-test.js` alone — they require browser verification via Playwright / Chrome MCP using `/@-test-ws-date-pw --mode browser`. The WS regression pipeline explicitly skips WS-4 (see `testing/pipelines/run-ws-regression.js`). `npm run task:status` treats these as non-executable for this runner, not as actionable pending.
+
 Create or update a record via API, then open the form in the browser. Verify that the display value and `GetFieldValue()` match what was sent via API.
 
 **Hypothesis**: API stores correct values (bypassing FORM-BUG-7). But Forms may apply FORM-BUG-7 on the _display/load path_ (`initCalendarValueV1` → `moment(e).toDate()`), potentially showing wrong dates in IST even for cleanly-stored data.
@@ -417,6 +421,12 @@ Test what gets stored when scripts perform date arithmetic or create JavaScript 
 ---
 
 ## WS-10. postForms vs forminstance/ Endpoint Comparison (Freshdesk #124697)
+
+<!-- task-status: non-executable prefix="ws-10a-" reason="browser-only" -->
+<!-- task-status: non-executable prefix="ws-10b-" reason="browser-only" -->
+<!-- task-status: non-executable prefix="ws-10c-" reason="browser-only" -->
+
+> **Execution note — browser-only.** These 12 slots cannot be driven by the WS regression runner (`testing/pipelines/run-ws-regression.js`) alone — WS-10a compares rawValue/Display/GFV (browser-only surfaces), WS-10b reads the `FormInstance/Controls` endpoint the runner doesn't call, and WS-10c is a save-and-stabilize flow. The companion is `tools/audit/verify-ws10-browser.js`. `npm run task:status` treats these as non-executable for this runner, not as actionable pending.
 
 **Freshdesk #124697** (Jira WADNR-10407): Customer reports that records created via `postForms` API (`/formtemplates/<id>/forms`) have their time value silently mutated on first form open. Switching to the `forminstance/` endpoint (FormsAPI) avoids the mutation. After saving the corrupted value, subsequent open+save cycles are stable.
 

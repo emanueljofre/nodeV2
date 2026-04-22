@@ -135,6 +135,31 @@ function parseMatrixSlots(matrixPath, slotRegex) {
     return [...slots].map((s) => s.toLowerCase()).sort();
 }
 
+// Parse non-executable section markers from a matrix markdown file.
+//
+// Markers are HTML comments of the form:
+//   <!-- task-status: non-executable prefix="ws-4-" reason="browser-only" -->
+//
+// Any slot whose ID starts with the declared prefix gets routed to the
+// `nonExecutable` bucket with `reason` as its action label. This lets a matrix
+// document classes of slots that are intentionally out-of-scope for the current
+// runner (e.g. WS-4 requires browser verification, not the WS regression runner)
+// without needing a corresponding test-data.js entry per slot.
+//
+// Returns an array of `{ prefix, reason }` (prefixes lowercased).
+function parseNonExecutableMarkers(matrixPath) {
+    const abs = path.isAbsolute(matrixPath) ? matrixPath : path.join(REPO_ROOT, matrixPath);
+    if (!fs.existsSync(abs)) return [];
+    const txt = fs.readFileSync(abs, 'utf8');
+    const markerRe = /<!--\s*task-status:\s*non-executable\s+prefix="([^"]+)"\s+reason="([^"]+)"\s*-->/gi;
+    const out = [];
+    let m;
+    while ((m = markerRe.exec(txt)) !== null) {
+        out.push({ prefix: m[1].toLowerCase(), reason: m[2] });
+    }
+    return out;
+}
+
 // --- Gather execution records from regression JSONs under the project ---
 function findExecutions(projectDir) {
     if (!fs.existsSync(projectDir)) return [];
@@ -244,10 +269,11 @@ const allComponents = {};
 for (const comp of componentsToRun) {
     const { matrixPath, slotRegex } = COMPONENTS[comp];
     const slots = parseMatrixSlots(matrixPath, slotRegex);
+    const nonExecutableMarkers = parseNonExecutableMarkers(matrixPath);
 
     // Partition matrix slots into executed / non-executable / umbrella-covered / pending.
     const executed = [];
-    const nonExecutable = []; // test-data entry exists but action is umbrella/skip/theoretical
+    const nonExecutable = []; // test-data entry is umbrella/skip/theoretical, OR matrix has a non-executable section marker
     const umbrellaCovered = []; // no test-data entry OR test-data says runnable, but fine-grained children executed
     const pending = []; // actually needs work
 
@@ -260,6 +286,8 @@ for (const comp of componentsToRun) {
         const v2 = `${slot}.v2`;
         return [base, v2].filter((k) => historyLc.has(k));
     };
+    // Match a slot against the matrix-declared non-executable prefixes. First match wins.
+    const nonExecutableMarkerFor = (slot) => nonExecutableMarkers.find((m) => slot.startsWith(m.prefix)) || null;
     for (const slot of slots) {
         const variants = variantsOfSlot(slot);
         if (variants.length > 0) {
@@ -269,6 +297,11 @@ for (const comp of componentsToRun) {
         const action = testDataActions.get(slot);
         if (action && NON_EXECUTABLE_ACTIONS.has(action)) {
             nonExecutable.push({ slot, action });
+            continue;
+        }
+        const marker = nonExecutableMarkerFor(slot);
+        if (marker) {
+            nonExecutable.push({ slot, action: marker.reason });
             continue;
         }
         const children = umbrellaChildrenOf(slot, historyKeysLc);
@@ -348,7 +381,9 @@ function renderComponent(comp, data) {
     lines.push(`| Matrix slots | **${counts.total}** |`);
     lines.push(`| Executed (≥1 non-skip run) | **${counts.executed}** |`);
     lines.push(`| Umbrella-covered (aggregate row — children executed) | ${counts.umbrellaCovered} |`);
-    lines.push(`| Non-executable (test-data action = umbrella/skip/theoretical) | ${counts.nonExecutable} |`);
+    lines.push(
+        `| Non-executable (test-data action = umbrella/skip/theoretical OR matrix non-executable marker) | ${counts.nonExecutable} |`
+    );
     lines.push(`| **Actionable pending** (need work) | **${counts.pending}** |`);
     lines.push(`| Extras (executed but not in matrix) | ${extraTcs.length} |`);
     lines.push('');
@@ -415,7 +450,9 @@ function renderComponent(comp, data) {
     if (nonExecutable.length) {
         lines.push(`## Non-executable — ${nonExecutable.length} intentionally-skipped matrix rows`);
         lines.push('');
-        lines.push("test-data.js marks these with `action: umbrella|skip|theoretical` — intent captured, won't run.");
+        lines.push(
+            'Either `test-data.js` marks them `action: umbrella|skip|theoretical`, or `matrix.md` declares a `<!-- task-status: non-executable prefix="..." reason="..." -->` section marker. Intent captured, won\'t run via this runner.'
+        );
         lines.push('');
         lines.push('<details><summary>Expand</summary>');
         lines.push('');
