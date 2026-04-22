@@ -280,12 +280,12 @@ for (const comp of componentsToRun) {
     };
     // Match a slot against the matrix-declared non-executable prefixes. First match wins.
     const nonExecutableMarkerFor = (slot) => nonExecutableMarkers.find((m) => slot.startsWith(m.prefix)) || null;
+    // Intent wins over history: a slot whose test-data entry declares it non-executable
+    // (umbrella/skip/theoretical) or whose matrix section carries a non-executable marker
+    // is classified as non-executable even if older runs recorded non-skip results. This
+    // lets a slot be retired (e.g. moved to a different category's scaffolding) without
+    // leaving its frozen V1 failure history inflating the "inactive" or failed counts.
     for (const slot of slots) {
-        const variants = variantsOfSlot(slot);
-        if (variants.length > 0) {
-            executed.push({ slot, variants });
-            continue;
-        }
         const action = testDataActions.get(slot);
         if (action && NON_EXECUTABLE_ACTIONS.has(action)) {
             nonExecutable.push({ slot, action });
@@ -294,6 +294,11 @@ for (const comp of componentsToRun) {
         const marker = nonExecutableMarkerFor(slot);
         if (marker) {
             nonExecutable.push({ slot, action: marker.reason });
+            continue;
+        }
+        const variants = variantsOfSlot(slot);
+        if (variants.length > 0) {
+            executed.push({ slot, variants });
             continue;
         }
         const children = umbrellaChildrenOf(slot, historyKeysLc);
