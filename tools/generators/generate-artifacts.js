@@ -3,26 +3,42 @@
  * Generate/update test artifacts from regression test results.
  *
  * Reads regression-results-latest.json (or specified file) and test-data.js,
- * then creates/updates:
- *   - Run files (new, immutable) in research/date-handling/forms-calendar/runs/
- *   - Summary files (append) in research/date-handling/forms-calendar/summaries/
- *   - Matrix rows (update) in research/date-handling/forms-calendar/matrix.md
- *   - Session index (append) in research/date-handling/forms-calendar/results.md
+ * then creates/updates (under the active customer's projects/{customer}/testing/
+ * date-handling/forms-calendar/ folder — see tools/helpers/forms-results-path.js):
+ *   - Run files (new, immutable) in runs/
+ *   - Summary files (append) in summaries/
+ *   - Session index (append) in results.md
+ *
+ * Matrix rows (PASS/FAIL + Run Date columns) are updated in place in
+ * research/date-handling/forms-calendar/matrix.md — the matrix stays there
+ * as shared platform truth (one file for every customer).
  *
  * Usage:
- *   node tools/generators/generate-artifacts.js [--input path/to/results.json] [--artifacts-only | --dry-run]
+ *   node tools/generators/generate-artifacts.js [--input path/to/results.json]
+ *       [--project <customer-slug>] [--artifacts-only | --dry-run]
  */
 const fs = require('fs');
 const path = require('path');
+const { resolveArtifactsDir, resolveResultsPath } = require('../helpers/forms-results-path');
 
 // Paths
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
-const ARTIFACTS_DIR = path.join(REPO_ROOT, 'research', 'date-handling', 'forms-calendar');
+// Matrix.md stays in research/ — it's shared platform truth (one file for every
+// customer). Per-run observed data (runs/, summaries/, results.md) routes to the
+// active customer's projects/ folder via resolveArtifactsDir().
+const MATRIX_PATH = path.join(REPO_ROOT, 'research', 'date-handling', 'forms-calendar', 'matrix.md');
+
+// Parse --project early so path helpers can honor CLI override at module scope.
+// Default resolution comes from vvConfig (active customer in .env.json).
+const CLI_ARGS = process.argv.slice(2);
+const PROJECT_IDX = CLI_ARGS.indexOf('--project');
+const PROJECT_SLUG = PROJECT_IDX >= 0 ? CLI_ARGS[PROJECT_IDX + 1] : null;
+
+const ARTIFACTS_DIR = resolveArtifactsDir({ projectSlug: PROJECT_SLUG });
 const RUNS_DIR = path.join(ARTIFACTS_DIR, 'runs');
 const SUMMARIES_DIR = path.join(ARTIFACTS_DIR, 'summaries');
-const MATRIX_PATH = path.join(ARTIFACTS_DIR, 'matrix.md');
 const RESULTS_PATH = path.join(ARTIFACTS_DIR, 'results.md');
-const DEFAULT_INPUT = path.join(REPO_ROOT, 'testing', 'tmp', 'regression-results-latest.json');
+const DEFAULT_INPUT = resolveResultsPath({ projectSlug: PROJECT_SLUG });
 
 // Load test data for metadata lookup
 const { TEST_DATA } = require(path.join(REPO_ROOT, 'testing', 'fixtures', 'test-data.js'));
@@ -43,6 +59,13 @@ function main() {
         console.error(`Results file not found: ${inputPath}`);
         console.error('Run tests first: node testing/pipelines/run-regression.js --browser firefox');
         process.exit(1);
+    }
+
+    // Artifact dirs are created on demand — they don't pre-exist in a fresh
+    // checkout and aren't tracked until populated.
+    if (!dryRun) {
+        fs.mkdirSync(RUNS_DIR, { recursive: true });
+        fs.mkdirSync(SUMMARIES_DIR, { recursive: true });
     }
 
     const data = JSON.parse(fs.readFileSync(inputPath, 'utf8'));
@@ -361,7 +384,16 @@ function updateMatrix(executed, tcLookup, today) {
 }
 
 function appendResultsSession(today, browser, entries) {
-    let content = fs.readFileSync(RESULTS_PATH, 'utf8');
+    // Seed results.md on first run in a fresh project folder. Matrix.md and
+    // analysis/ live in research/ (shared truth); results.md is a per-customer
+    // session log, so bootstrap it with relative links back to research/.
+    let content;
+    if (fs.existsSync(RESULTS_PATH)) {
+        content = fs.readFileSync(RESULTS_PATH, 'utf8');
+    } else {
+        const matrixLink = path.relative(path.dirname(RESULTS_PATH), MATRIX_PATH);
+        content = `# Forms-Calendar Regression Results\n\n**Matrix**: [matrix.md](${matrixLink}) (shared platform truth)\n\nPer-customer session index. Each session lists test runs for that date and browser. Runs themselves live under \`runs/\`; per-TC summaries under \`summaries/\`.\n`;
+    }
 
     const sessionHeader = `\n## Session ${today} (${capitalize(browser)} regression)\n\n**Purpose**: Cross-browser regression verification — all test cases in ${capitalize(browser)}.\n**Key outcomes**: ${entries.length} tests documented.\n\n`;
 
