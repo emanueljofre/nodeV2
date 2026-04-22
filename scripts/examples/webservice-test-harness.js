@@ -910,13 +910,22 @@ module.exports.main = async function (ffCollection, vvClient, response) {
     async function actionUpdatePath(targetConfigs, inputDate, isDebug) {
         // WS-7: Test postFormRevision() — change, preserve, and add date values.
         // Runs 3 scenarios per config: Change, Preserve, Add.
+        //
+        // NOTE: `inputDate` is intentionally IGNORED for WS-7. The matrix defines
+        // the exact Step 1 (create) and Step 2 (update) values per scenario — using
+        // the pipeline's shared `inputDate` for both create and change would make
+        // the "change" scenario a no-op (same value sent twice) and the stored
+        // value would match the create value, not the post-update value the matrix
+        // expects. Pipeline passes `--input-date 2026-03-15` for all WS actions;
+        // WS-7 must pin its own distinct create/change pair to match matrix IDs
+        // (ws-7-<config>-change / -preserve / -add).
         const allResults = [];
 
         for (const configKey of targetConfigs) {
             const fieldName = FIELD_MAP[configKey].field;
             const isDateTime = FIELD_MAP[configKey].enableTime;
             const createDate = isDateTime ? '2026-03-15T14:30:00' : '2026-03-15';
-            const changeDate = isDateTime ? inputDate || '2026-06-20T09:00:00' : inputDate || '2026-06-20';
+            const changeDate = isDateTime ? '2026-06-20T09:00:00' : '2026-06-20';
             const addDate = createDate;
 
             // Scenario 1: Change — create with dateA, update to dateB
