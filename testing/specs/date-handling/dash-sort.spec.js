@@ -14,10 +14,12 @@ const { customerTemplates, FIELD_MAP } = require('../../fixtures/vv-config');
 const AUTH_STATE_PATH = path.join(__dirname, '..', '..', 'config', 'auth-state-pw.json');
 const DASHBOARD_URL = customerTemplates.dashboardDateTest;
 
-// Per-customer field names. Config A = date-only, Config C = DateTime ignoreTZ=false.
+// Matrix slot IDs use field-alias `f7` (Config A) and `f6` (Config C) for historical
+// compatibility with the vvdemo Field7/Field6 naming. Mirror those aliases here so
+// tcIds in the reporter match matrix slots regardless of active customer.
 const SORT_FIELDS = [
-    { field: FIELD_MAP.A.field, desc: 'Config A — date-only, ignoreTZ=false' },
-    { field: FIELD_MAP.C.field, desc: 'Config C — DateTime, ignoreTZ=false' },
+    { matrixAlias: 'f7', field: FIELD_MAP.A.field, desc: 'Config A — date-only, ignoreTZ=false' },
+    { matrixAlias: 'f6', field: FIELD_MAP.C.field, desc: 'Config C — DateTime, ignoreTZ=false' },
 ];
 
 function parseDateValue(str) {
@@ -38,83 +40,80 @@ function checkOrder(values, ascending) {
 test.describe('DB-4: Dashboard Column Sort', () => {
     test.use({ storageState: AUTH_STATE_PATH });
 
-    for (const { field, desc } of SORT_FIELDS) {
-        test(`${field} sort ascending/descending — ${desc}`, async ({ page }) => {
-            await page.goto(DASHBOARD_URL, { waitUntil: 'networkidle', timeout: 60000 });
-            await page.waitForTimeout(3000);
+    async function runSort({ page, field, direction }) {
+        await page.goto(DASHBOARD_URL, { waitUntil: 'networkidle', timeout: 60000 });
+        await page.waitForTimeout(3000);
 
-            // Get the __doPostBack argument for the column header
-            const postbackArg = await page.evaluate((field) => {
-                const links = document.querySelectorAll('.rgMasterTable thead th a.GridHeaderLink');
-                for (const link of links) {
-                    if (link.textContent.trim() === field) {
-                        const href = link.getAttribute('href') || '';
-                        const match = href.match(/__doPostBack\('([^']+)'/);
-                        return match ? match[1] : null;
-                    }
+        const postbackArg = await page.evaluate((fieldName) => {
+            const links = document.querySelectorAll('.rgMasterTable thead th a.GridHeaderLink');
+            for (const link of links) {
+                if (link.textContent.trim() === fieldName) {
+                    const href = link.getAttribute('href') || '';
+                    const match = href.match(/__doPostBack\('([^']+)'/);
+                    return match ? match[1] : null;
                 }
-                return null;
-            }, field);
-
-            expect(postbackArg).not.toBeNull();
-
-            async function captureColumn() {
-                return await page.evaluate((fieldName) => {
-                    const headerCells = [];
-                    document.querySelectorAll('.rgMasterTable thead th').forEach((th) => {
-                        const link = th.querySelector('a');
-                        headerCells.push(link ? link.textContent.trim() : th.textContent.trim());
-                    });
-                    const colIdx = headerCells.indexOf(fieldName);
-                    const formIdIdx = headerCells.indexOf('Form ID');
-                    if (colIdx === -1) return [];
-                    const values = [];
-                    document
-                        .querySelectorAll('.rgMasterTable tbody tr.rgRow, .rgMasterTable tbody tr.rgAltRow')
-                        .forEach((tr) => {
-                            const cells = tr.querySelectorAll('td');
-                            values.push({
-                                formId: cells[formIdIdx]?.textContent.trim() || '',
-                                value: cells[colIdx]?.textContent.trim() || '',
-                            });
-                        });
-                    return values;
-                }, field);
             }
+            return null;
+        }, field);
 
-            async function triggerSort() {
-                await page.addScriptTag({
-                    content: `(function() { __doPostBack('${postbackArg}', ''); })();`,
+        expect(postbackArg).not.toBeNull();
+
+        async function captureColumn() {
+            return await page.evaluate((fieldName) => {
+                const headerCells = [];
+                document.querySelectorAll('.rgMasterTable thead th').forEach((th) => {
+                    const link = th.querySelector('a');
+                    headerCells.push(link ? link.textContent.trim() : th.textContent.trim());
                 });
-                try {
-                    await page.waitForResponse(
-                        (resp) => resp.url().includes('FormDataDetails') && resp.status() === 200,
-                        { timeout: 15000 }
-                    );
-                } catch {
-                    // AJAX partial postback
-                }
-                await page.waitForTimeout(4000);
+                const colIdx = headerCells.indexOf(fieldName);
+                const formIdIdx = headerCells.indexOf('Form ID');
+                if (colIdx === -1) return [];
+                const values = [];
+                document
+                    .querySelectorAll('.rgMasterTable tbody tr.rgRow, .rgMasterTable tbody tr.rgAltRow')
+                    .forEach((tr) => {
+                        const cells = tr.querySelectorAll('td');
+                        values.push({
+                            formId: cells[formIdIdx]?.textContent.trim() || '',
+                            value: cells[colIdx]?.textContent.trim() || '',
+                        });
+                    });
+                return values;
+            }, field);
+        }
+
+        async function triggerSort() {
+            await page.addScriptTag({
+                content: `(function() { __doPostBack('${postbackArg}', ''); })();`,
+            });
+            try {
+                await page.waitForResponse((resp) => resp.url().includes('FormDataDetails') && resp.status() === 200, {
+                    timeout: 15000,
+                });
+            } catch {
+                // AJAX partial postback
             }
+            await page.waitForTimeout(4000);
+        }
 
-            // Sort ascending (first click)
-            await triggerSort();
-            const ascData = await captureColumn();
-            const ascNonEmpty = ascData.filter((v) => v.value && v.value.trim() !== '');
-            const ascCheck = checkOrder(ascNonEmpty, true);
+        // First click = ascending. Second click = descending.
+        await triggerSort();
+        if (direction === 'desc') await triggerSort();
 
-            console.log(`${field} ASC: ${ascCheck.violations} violations / ${ascCheck.total} dates`);
+        const data = await captureColumn();
+        const nonEmpty = data.filter((v) => v.value && v.value.trim() !== '');
+        const check = checkOrder(nonEmpty, direction === 'asc');
 
-            // Sort descending (second click)
-            await triggerSort();
-            const descData = await captureColumn();
-            const descNonEmpty = descData.filter((v) => v.value && v.value.trim() !== '');
-            const descCheck = checkOrder(descNonEmpty, false);
+        console.log(`${field} ${direction.toUpperCase()}: ${check.violations} violations / ${check.total} dates`);
+        expect(check.violations).toBe(0);
+    }
 
-            console.log(`${field} DESC: ${descCheck.violations} violations / ${descCheck.total} dates`);
-
-            expect(ascCheck.violations).toBe(0);
-            expect(descCheck.violations).toBe(0);
+    for (const { matrixAlias, field, desc } of SORT_FIELDS) {
+        test(`db-4-${matrixAlias}-asc: ${field} sort ascending — ${desc}`, async ({ page }) => {
+            await runSort({ page, field, direction: 'asc' });
+        });
+        test(`db-4-${matrixAlias}-desc: ${field} sort descending — ${desc}`, async ({ page }) => {
+            await runSort({ page, field, direction: 'desc' });
         });
     }
 });
