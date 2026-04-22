@@ -67,10 +67,10 @@ const TEST_INVOCATIONS = [
     // These invocations do NOT produce matrix-tracked rows (no tcId stamping).
     //
     // Currently gated to BRT only — IST WS-2 matrix rows are still calibrated
-    // against the last-WS-1 record state. Extending baseline coverage to IST
-    // is a follow-up that needs matrix rewrites (see the audit note).
+    // against the last-WS-1 record state.
     // ═══════════════════════════════════════════════════════════════
     { action: 'WS-SETUP-BASELINE', tz: 'BRT', configs: '', inputDate: '2026-03-15', extraArgs: '' },
+    { action: 'WS-SETUP-BASELINE', tz: 'IST', configs: '', inputDate: '2026-03-15', extraArgs: '' },
 
     // ═══════════════════════════════════════════════════════════════
     // WS-2: API Read + Cross-Layer — 16 slots
