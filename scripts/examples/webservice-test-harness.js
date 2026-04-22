@@ -145,19 +145,120 @@ module.exports.main = async function (ffCollection, vvClient, response) {
         },
     };
 
-    // Date format generators for WS-6 (format tolerance testing)
-    // Each takes an ISO date string (e.g. "2026-03-15") and returns the formatted version
-    const FORMAT_MAP = {
-        ISO: (d) => d,
-        US: (d) => {
-            const [y, m, dd] = d.split('-');
-            return `${m}/${dd}/${y}`;
+    // WS-5 format variant table — drives the matrix slot enumeration.
+    // Each entry produces one matrix row `ws-5-<config>-<id>`. The `build` fn
+    // receives the ISO base date (e.g. "2026-03-15") and returns the value sent
+    // to the API. `configs` restricts which config(s) the variant applies to.
+    //
+    // Keep this list aligned with research/date-handling/web-services/matrix.md
+    // (section "WS-5: Input Format Tolerance"). Variant IDs must match the matrix
+    // slot IDs (lowercased by the slot-id helper).
+    const WS5_FORMAT_VARIANTS = [
+        // Shared A/C variants — date-only field gets the same literal; DateTime too.
+        { id: 'ISO', configs: ['A', 'C'], build: (d) => d },
+        {
+            id: 'US',
+            configs: ['A', 'C'],
+            build: (d) => {
+                const [y, m, dd] = d.split('-');
+                return `${m}/${dd}/${y}`;
+            },
         },
-        DATETIME: (d) => `${d}T00:00:00`,
-        ISO_Z: (d) => `${d}T00:00:00Z`,
-        ISO_NEG3: (d) => `${d}T00:00:00-03:00`,
-        ISO_POS530: (d) => `${d}T00:00:00+05:30`,
-    };
+        { id: 'DT', configs: ['A', 'C'], build: (d) => `${d}T14:30:00` },
+        { id: 'DTZ', configs: ['A', 'C'], build: (d) => `${d}T14:30:00Z` },
+        { id: 'DTBRT', configs: ['A', 'C'], build: (d) => `${d}T14:30:00-03:00` },
+        { id: 'DTIST', configs: ['A', 'C'], build: (d) => `${d}T14:30:00+05:30` },
+        {
+            id: 'DB',
+            configs: ['A', 'C'],
+            // Matrix distinguishes by field type: A→midnight, C→2:30 PM.
+            build: (d, configKey) => {
+                const [y, m, dd] = d.split('-');
+                const M = parseInt(m, 10);
+                const D = parseInt(dd, 10);
+                return configKey === 'C' ? `${M}/${D}/${y} 2:30:00 PM` : `${M}/${D}/${y} 12:00:00 AM`;
+            },
+        },
+        { id: 'DTMS', configs: ['A', 'C'], build: (d) => `${d}T14:30:00.000Z` },
+        {
+            id: 'LATAM1',
+            configs: ['A', 'C'],
+            build: (d) => {
+                const [y, m, dd] = d.split('-');
+                return `${dd}/${m}/${y}`;
+            },
+        },
+        {
+            id: 'LATAM2',
+            configs: ['A', 'C'],
+            build: (d) => {
+                const [y, m, dd] = d.split('-');
+                return `${dd}-${m}-${y}`;
+            },
+        },
+
+        // A-only variants
+        {
+            id: 'LATAM3',
+            configs: ['A'],
+            build: (d) => {
+                const [y, m, dd] = d.split('-');
+                return `${dd}.${m}.${y}`;
+            },
+        },
+        {
+            id: 'YS',
+            configs: ['A'],
+            build: (d) => {
+                const [y, m, dd] = d.split('-');
+                return `${y}/${m}/${dd}`;
+            },
+        },
+        {
+            id: 'YD',
+            configs: ['A'],
+            build: (d) => {
+                const [y, m, dd] = d.split('-');
+                return `${y}.${m}.${dd}`;
+            },
+        },
+        {
+            id: 'USD',
+            configs: ['A'],
+            build: (d) => {
+                const [y, m, dd] = d.split('-');
+                return `${m}-${dd}-${y}`;
+            },
+        },
+        { id: 'ENG', configs: ['A'], build: () => 'March 15, 2026' },
+        { id: 'EUR', configs: ['A'], build: () => '15 March 2026' },
+        { id: 'ABBR', configs: ['A'], build: () => '15-Mar-2026' },
+        {
+            id: 'COMP',
+            configs: ['A'],
+            build: (d) => d.replace(/-/g, ''),
+        },
+        {
+            id: 'YRDM',
+            configs: ['A'],
+            // Intentionally invalid: YYYY-DD-MM with month >12. Matrix expects null.
+            build: (d) => {
+                const [y, m, dd] = d.split('-');
+                return `${y}-${dd}-${m}`;
+            },
+        },
+        {
+            id: 'AMBIG',
+            // Matrix fixes this at 05/03/2026 (May 3 vs Mar 5 ambiguity).
+            configs: ['A'],
+            build: () => '05/03/2026',
+        },
+
+        // D-only variants (DateTime + ignoreTimezone)
+        { id: 'DOTNET', configs: ['D'], build: (d) => `${d}T00:00:00.000+00:00` },
+        { id: 'EPOCH', configs: ['D'], build: () => 1773532800000 },
+        { id: 'EPOCHS', configs: ['D'], build: () => '1773532800000' },
+    ];
 
     /* eslint-disable no-unused-vars, no-unsafe-finally */
 
@@ -650,46 +751,63 @@ module.exports.main = async function (ffCollection, vvClient, response) {
 
     async function actionFormatTolerance(targetConfigs, inputDate, isDebug) {
         // WS-5: Send a date in a specific format via postForms(), verify what gets stored.
-        // Tests format acceptance, rejection, and normalization.
+        // Iterates the WS5_FORMAT_VARIANTS table to cover every matrix slot.
+        // Each (config, variant) pair creates a fresh record so one format's
+        // rejection does not taint the next test.
         if (!inputDate) throw new Error('InputDate is required for WS-5');
 
-        const fieldValues = {};
+        const allResults = [];
+        const lastRecordIds = {};
+
         for (const configKey of targetConfigs) {
-            fieldValues[FIELD_MAP[configKey].field] = inputDate;
-        }
+            const applicable = WS5_FORMAT_VARIANTS.filter((v) => v.configs.includes(configKey));
+            for (const variant of applicable) {
+                const fieldName = FIELD_MAP[configKey].field;
+                const sent = variant.build(inputDate, configKey);
 
-        let created, record, stored, accepted, error;
-        try {
-            created = await createFormRecord(fieldValues);
-            record = await readFormRecord(created.instanceName);
-            stored = extractDateFields(record, targetConfigs);
-            accepted = true;
-        } catch (err) {
-            accepted = false;
-            error = err.message || String(err);
-        }
+                let stored = null;
+                let accepted;
+                let error = null;
+                let recordID = null;
 
-        const results = targetConfigs.map((configKey) =>
-            buildResultEntry(configKey, {
-                sent: inputDate,
-                accepted,
-                stored: accepted ? stored[configKey] : null,
-                error: accepted ? null : error,
-            })
-        );
+                try {
+                    const created = await createFormRecord({ [fieldName]: sent });
+                    recordID = created.instanceName;
+                    lastRecordIds[configKey] = recordID;
+                    const record = await readFormRecord(recordID);
+                    const values = extractDateFields(record, [configKey]);
+                    stored = values[configKey] || null;
+                    accepted = true;
+                } catch (err) {
+                    accepted = false;
+                    error = err.message || String(err);
+                }
+
+                allResults.push(
+                    buildResultEntry(configKey, {
+                        // `format` is the matrix slot-id discriminator (ws-5-<config>-<format>).
+                        format: variant.id,
+                        sent,
+                        accepted,
+                        stored: accepted ? stored : null,
+                        recordID,
+                        error,
+                    })
+                );
+            }
+        }
 
         const result = {
             action: 'WS-5',
             targetConfigs,
             inputDate,
-            recordID: accepted ? created.instanceName : null,
+            recordID: lastRecordIds[targetConfigs[0]] || null,
             serverTime: new Date().toISOString(),
-            results,
+            results: allResults,
         };
 
-        if (isDebug && record) {
-            result.rawRecord = record;
-            result.fieldValuesSent = fieldValues;
+        if (isDebug) {
+            result.variantCount = allResults.length;
         }
 
         return result;
@@ -765,6 +883,8 @@ module.exports.main = async function (ffCollection, vvClient, response) {
                 }
 
                 const entry = buildResultEntry(configKey, {
+                    // `variant` is the matrix slot-id discriminator (ws-6-a-<variant>).
+                    variant: scenario.id,
                     scenario: scenario.id,
                     scenarioLabel: scenario.label,
                     sent: scenario.id === 'clearUpd' ? `"${normalDate}" then ""` : scenario.value,
@@ -807,6 +927,8 @@ module.exports.main = async function (ffCollection, vvClient, response) {
                 const values = extractDateFields(record, [configKey]);
                 allResults.push(
                     buildResultEntry(configKey, {
+                        // `variant` is the matrix slot-id discriminator (ws-7-<config>-<variant>).
+                        variant: 'change',
                         scenario: 'change',
                         createValue: createDate,
                         updateValue: changeDate,
@@ -826,6 +948,7 @@ module.exports.main = async function (ffCollection, vvClient, response) {
                 const preserved = values[configKey] !== '' && values[configKey] !== null;
                 allResults.push(
                     buildResultEntry(configKey, {
+                        variant: 'preserve',
                         scenario: 'preserve',
                         createValue: createDate,
                         updateValue: '(field omitted)',
@@ -844,6 +967,7 @@ module.exports.main = async function (ffCollection, vvClient, response) {
                 const values = extractDateFields(record, [configKey]);
                 allResults.push(
                     buildResultEntry(configKey, {
+                        variant: 'add',
                         scenario: 'add',
                         createValue: '(no date)',
                         updateValue: addDate,
@@ -965,6 +1089,8 @@ module.exports.main = async function (ffCollection, vvClient, response) {
 
                 allResults.push(
                     buildResultEntry(configKey, {
+                        // `variant` is the matrix slot-id discriminator (ws-8-<config>-<variant>).
+                        variant: test.id,
                         queryId: test.id,
                         queryType: test.type,
                         query: test.q,

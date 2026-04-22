@@ -189,10 +189,13 @@ async function main() {
             console.log(`> ${cmd}`);
 
             try {
+                // Timeout scales with the largest action — WS-5 iterates ~20 format
+                // variants per config × ~3s per createForm+readForm round-trip.
+                // 240s absorbs that plus network slack without masking real hangs.
                 const output = execSync(cmd, {
                     cwd: REPO_ROOT,
                     encoding: 'utf8',
-                    timeout: 60_000,
+                    timeout: 240_000,
                     env: { ...process.env, TZ: tzEnv },
                 });
 
