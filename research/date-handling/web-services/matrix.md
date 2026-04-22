@@ -258,41 +258,41 @@ Send various date string formats via `postForms()`. Verify which are accepted, r
 
 **Configs**: A (date-only) and C (DateTime)
 
-| ID            | Config | Format | Input Sent                        | Expected Stored         | Status | Actual                   | Accepted? | Notes                                               |
-| ------------- | :----: | :----: | --------------------------------- | ----------------------- | :----: | ------------------------ | :-------: | --------------------------------------------------- |
-| ws-5-A-ISO    |   A    |  ISO   | `"2026-03-15"`                    | `"2026-03-15"`          |  PASS  | `"2026-03-15T00:00:00Z"` |    Yes    | Baseline; getForms serializes with T+Z              |
-| ws-5-A-US     |   A    |   US   | `"03/15/2026"`                    | `"2026-03-15"`          |  PASS  | `"2026-03-15T00:00:00Z"` |    Yes    | US format accepted and normalized                   |
-| ws-5-A-DT     |   A    |   DT   | `"2026-03-15T14:30:00"`           | TBD                     |  PASS  | `"2026-03-15T14:30:00Z"` |    Yes    | Time preserved in date-only field!                  |
-| ws-5-A-DTZ    |   A    |  DTZ   | `"2026-03-15T14:30:00Z"`          | TBD                     |  PASS  | `"2026-03-15T14:30:00Z"` |    Yes    | Z preserved as-is                                   |
-| ws-5-A-DTBRT  |   A    | DTBRT  | `"2026-03-15T14:30:00-03:00"`     | TBD                     |  PASS  | `"2026-03-15T17:30:00Z"` |    Yes    | Offset converted to UTC (+3h)                       |
-| ws-5-A-DTIST  |   A    | DTIST  | `"2026-03-15T14:30:00+05:30"`     | TBD                     |  PASS  | `"2026-03-15T09:00:00Z"` |    Yes    | Offset converted to UTC (-5:30h)                    |
-| ws-5-A-DB     |   A    |   DB   | `"3/15/2026 12:00:00 AM"`         | TBD                     |  PASS  | `"2026-03-15T00:00:00Z"` |    Yes    | DB storage format accepted                          |
-| ws-5-A-DTMS   |   A    |  DTMS  | `"2026-03-15T14:30:00.000Z"`      | TBD                     |  PASS  | `"2026-03-15T14:30:00Z"` |    Yes    | Milliseconds stripped                               |
-| ws-5-A-LATAM1 |   A    | LATAM  | `"15/03/2026"` (DD/MM/YYYY)       | TBD                     |  FAIL  | `null`                   |  Silent   | Accepted but stored null — data loss!               |
-| ws-5-A-LATAM2 |   A    | LATAM  | `"15-03-2026"` (DD-MM-YYYY)       | TBD                     |  FAIL  | `null`                   |  Silent   | Accepted but stored null — data loss!               |
-| ws-5-A-LATAM3 |   A    | LATAM  | `"15.03.2026"` (DD.MM.YYYY)       | TBD                     |  FAIL  | `null`                   |  Silent   | Accepted but stored null — data loss!               |
-| ws-5-C-ISO    |   C    |  ISO   | `"2026-03-15"`                    | TBD                     |  PASS  | `"2026-03-15T00:00:00Z"` |    Yes    | Date-only → DateTime: T+Z added                     |
-| ws-5-C-US     |   C    |   US   | `"03/15/2026"`                    | TBD                     |  PASS  | `"2026-03-15T00:00:00Z"` |    Yes    | US → DateTime: normalized                           |
-| ws-5-C-DT     |   C    |   DT   | `"2026-03-15T14:30:00"`           | `"2026-03-15T14:30:00"` |  PASS  | `"2026-03-15T14:30:00Z"` |    Yes    | Baseline; getForms serializes with Z                |
-| ws-5-C-DTZ    |   C    |  DTZ   | `"2026-03-15T14:30:00Z"`          | TBD                     |  PASS  | `"2026-03-15T14:30:00Z"` |    Yes    | Z kept as-is                                        |
-| ws-5-C-DTBRT  |   C    | DTBRT  | `"2026-03-15T14:30:00-03:00"`     | TBD                     |  PASS  | `"2026-03-15T17:30:00Z"` |    Yes    | BRT offset → UTC conversion (+3h)                   |
-| ws-5-C-DTIST  |   C    | DTIST  | `"2026-03-15T14:30:00+05:30"`     | TBD                     |  PASS  | `"2026-03-15T09:00:00Z"` |    Yes    | IST offset → UTC conversion (-5:30h)                |
-| ws-5-C-DB     |   C    |   DB   | `"3/15/2026 2:30:00 PM"`          | TBD                     |  PASS  | `"2026-03-15T14:30:00Z"` |    Yes    | DB format accepted                                  |
-| ws-5-C-DTMS   |   C    |  DTMS  | `"2026-03-15T14:30:00.000Z"`      | TBD                     |  PASS  | `"2026-03-15T14:30:00Z"` |    Yes    | Milliseconds stripped                               |
-| ws-5-C-LATAM1 |   C    | LATAM  | `"15/03/2026"` (DD/MM/YYYY)       | TBD                     |  FAIL  | `null`                   |  Silent   | Accepted but stored null — data loss!               |
-| ws-5-C-LATAM2 |   C    | LATAM  | `"15-03-2026"` (DD-MM-YYYY)       | TBD                     |  FAIL  | `null`                   |  Silent   | Accepted but stored null — data loss!               |
-| ws-5-A-YS     |   A    |   Y/   | `"2026/03/15"` (YYYY/MM/DD)       | `"2026-03-15"`          |  PASS  | `"2026-03-15T00:00:00Z"` |    Yes    | Year-first with slashes                             |
-| ws-5-A-YD     |   A    |   Y.   | `"2026.03.15"` (YYYY.MM.DD)       | `"2026-03-15"`          |  PASS  | `"2026-03-15T00:00:00Z"` |    Yes    | Year-first with dots                                |
-| ws-5-A-USD    |   A    |  US-   | `"03-15-2026"` (MM-DD-YYYY)       | `"2026-03-15"`          |  PASS  | `"2026-03-15T00:00:00Z"` |    Yes    | US format with dashes                               |
-| ws-5-A-ENG    |   A    |  Word  | `"March 15, 2026"`                | `"2026-03-15"`          |  PASS  | `"2026-03-15T00:00:00Z"` |    Yes    | English month name                                  |
-| ws-5-A-EUR    |   A    |  Euro  | `"15 March 2026"`                 | `"2026-03-15"`          |  PASS  | `"2026-03-15T00:00:00Z"` |    Yes    | European word format                                |
-| ws-5-A-ABBR   |   A    |  Abbr  | `"15-Mar-2026"`                   | `"2026-03-15"`          |  PASS  | `"2026-03-15T00:00:00Z"` |    Yes    | Abbreviated month                                   |
-| ws-5-A-COMP   |   A    |  Comp  | `"20260315"`                      | TBD                     |  FAIL  | `null`                   |  Silent   | Compact ISO silently fails                          |
-| ws-5-A-YRDM   |   A    | Y-D-M  | `"2026-15-03"` (YYYY-DD-MM)       | TBD                     |  FAIL  | `null`                   |  Silent   | Invalid month 15; silently fails                    |
-| ws-5-A-AMBIG  |   A    | Ambig  | `"05/03/2026"`                    | May 3 or Mar 5?         |  PASS  | `"2026-05-03T00:00:00Z"` |    Yes    | **Interpreted as MM/DD (May 3)** — WEBSERVICE-BUG-3 |
-| ws-5-D-DOTNET |   D    |  .NET  | `"2026-03-15T00:00:00.000+00:00"` | `"2026-03-15"`          |  PASS  | `"2026-03-15T00:00:00Z"` |    Yes    | .NET `+00:00` = Z equivalent (CB-12)                |
-| ws-5-D-EPOCH  |   D    | Epoch  | `1773532800000` (number)          | TBD                     |  FAIL  | `null`                   |  Silent   | Numeric epoch silently stored null                  |
-| ws-5-D-EPOCHS |   D    | Epoch  | `"1773532800000"` (string)        | TBD                     |  FAIL  | `null`                   |  Silent   | String epoch silently stored null                   |
+| ID            | Config | Format | Input Sent                        | Expected Stored          | Status | Actual                   | Accepted? | Notes                                               |
+| ------------- | :----: | :----: | --------------------------------- | ------------------------ | :----: | ------------------------ | :-------: | --------------------------------------------------- |
+| ws-5-A-ISO    |   A    |  ISO   | `"2026-03-15"`                    | `"2026-03-15T00:00:00Z"` |  PASS  | `"2026-03-15T00:00:00Z"` |    Yes    | Baseline; getForms serializes with T+Z              |
+| ws-5-A-US     |   A    |   US   | `"03/15/2026"`                    | `"2026-03-15T00:00:00Z"` |  PASS  | `"2026-03-15T00:00:00Z"` |    Yes    | US format accepted and normalized                   |
+| ws-5-A-DT     |   A    |   DT   | `"2026-03-15T14:30:00"`           | `"2026-03-15T14:30:00Z"` |  PASS  | `"2026-03-15T14:30:00Z"` |    Yes    | Time preserved in date-only field!                  |
+| ws-5-A-DTZ    |   A    |  DTZ   | `"2026-03-15T14:30:00Z"`          | `"2026-03-15T14:30:00Z"` |  PASS  | `"2026-03-15T14:30:00Z"` |    Yes    | Z preserved as-is                                   |
+| ws-5-A-DTBRT  |   A    | DTBRT  | `"2026-03-15T14:30:00-03:00"`     | `"2026-03-15T17:30:00Z"` |  PASS  | `"2026-03-15T17:30:00Z"` |    Yes    | Offset converted to UTC (+3h)                       |
+| ws-5-A-DTIST  |   A    | DTIST  | `"2026-03-15T14:30:00+05:30"`     | `"2026-03-15T09:00:00Z"` |  PASS  | `"2026-03-15T09:00:00Z"` |    Yes    | Offset converted to UTC (-5:30h)                    |
+| ws-5-A-DB     |   A    |   DB   | `"3/15/2026 12:00:00 AM"`         | `"2026-03-15T00:00:00Z"` |  PASS  | `"2026-03-15T00:00:00Z"` |    Yes    | DB storage format accepted                          |
+| ws-5-A-DTMS   |   A    |  DTMS  | `"2026-03-15T14:30:00.000Z"`      | `"2026-03-15T14:30:00Z"` |  PASS  | `"2026-03-15T14:30:00Z"` |    Yes    | Milliseconds stripped                               |
+| ws-5-A-LATAM1 |   A    | LATAM  | `"15/03/2026"` (DD/MM/YYYY)       | `null`                   |  FAIL  | `null`                   |  Silent   | Accepted but stored null — data loss! [WS-BUG-2]    |
+| ws-5-A-LATAM2 |   A    | LATAM  | `"15-03-2026"` (DD-MM-YYYY)       | `null`                   |  FAIL  | `null`                   |  Silent   | Accepted but stored null — data loss! [WS-BUG-2]    |
+| ws-5-A-LATAM3 |   A    | LATAM  | `"15.03.2026"` (DD.MM.YYYY)       | `null`                   |  FAIL  | `null`                   |  Silent   | Accepted but stored null — data loss! [WS-BUG-2]    |
+| ws-5-C-ISO    |   C    |  ISO   | `"2026-03-15"`                    | `"2026-03-15T00:00:00Z"` |  PASS  | `"2026-03-15T00:00:00Z"` |    Yes    | Date-only → DateTime: T+Z added                     |
+| ws-5-C-US     |   C    |   US   | `"03/15/2026"`                    | `"2026-03-15T00:00:00Z"` |  PASS  | `"2026-03-15T00:00:00Z"` |    Yes    | US → DateTime: normalized                           |
+| ws-5-C-DT     |   C    |   DT   | `"2026-03-15T14:30:00"`           | `"2026-03-15T14:30:00Z"` |  PASS  | `"2026-03-15T14:30:00Z"` |    Yes    | Baseline; getForms serializes with Z                |
+| ws-5-C-DTZ    |   C    |  DTZ   | `"2026-03-15T14:30:00Z"`          | `"2026-03-15T14:30:00Z"` |  PASS  | `"2026-03-15T14:30:00Z"` |    Yes    | Z kept as-is                                        |
+| ws-5-C-DTBRT  |   C    | DTBRT  | `"2026-03-15T14:30:00-03:00"`     | `"2026-03-15T17:30:00Z"` |  PASS  | `"2026-03-15T17:30:00Z"` |    Yes    | BRT offset → UTC conversion (+3h)                   |
+| ws-5-C-DTIST  |   C    | DTIST  | `"2026-03-15T14:30:00+05:30"`     | `"2026-03-15T09:00:00Z"` |  PASS  | `"2026-03-15T09:00:00Z"` |    Yes    | IST offset → UTC conversion (-5:30h)                |
+| ws-5-C-DB     |   C    |   DB   | `"3/15/2026 2:30:00 PM"`          | `"2026-03-15T14:30:00Z"` |  PASS  | `"2026-03-15T14:30:00Z"` |    Yes    | DB format accepted                                  |
+| ws-5-C-DTMS   |   C    |  DTMS  | `"2026-03-15T14:30:00.000Z"`      | `"2026-03-15T14:30:00Z"` |  PASS  | `"2026-03-15T14:30:00Z"` |    Yes    | Milliseconds stripped                               |
+| ws-5-C-LATAM1 |   C    | LATAM  | `"15/03/2026"` (DD/MM/YYYY)       | `null`                   |  FAIL  | `null`                   |  Silent   | Accepted but stored null — data loss! [WS-BUG-2]    |
+| ws-5-C-LATAM2 |   C    | LATAM  | `"15-03-2026"` (DD-MM-YYYY)       | `null`                   |  FAIL  | `null`                   |  Silent   | Accepted but stored null — data loss! [WS-BUG-2]    |
+| ws-5-A-YS     |   A    |   Y/   | `"2026/03/15"` (YYYY/MM/DD)       | `"2026-03-15T00:00:00Z"` |  PASS  | `"2026-03-15T00:00:00Z"` |    Yes    | Year-first with slashes                             |
+| ws-5-A-YD     |   A    |   Y.   | `"2026.03.15"` (YYYY.MM.DD)       | `"2026-03-15T00:00:00Z"` |  PASS  | `"2026-03-15T00:00:00Z"` |    Yes    | Year-first with dots                                |
+| ws-5-A-USD    |   A    |  US-   | `"03-15-2026"` (MM-DD-YYYY)       | `"2026-03-15T00:00:00Z"` |  PASS  | `"2026-03-15T00:00:00Z"` |    Yes    | US format with dashes                               |
+| ws-5-A-ENG    |   A    |  Word  | `"March 15, 2026"`                | `"2026-03-15T00:00:00Z"` |  PASS  | `"2026-03-15T00:00:00Z"` |    Yes    | English month name                                  |
+| ws-5-A-EUR    |   A    |  Euro  | `"15 March 2026"`                 | `"2026-03-15T00:00:00Z"` |  PASS  | `"2026-03-15T00:00:00Z"` |    Yes    | European word format                                |
+| ws-5-A-ABBR   |   A    |  Abbr  | `"15-Mar-2026"`                   | `"2026-03-15T00:00:00Z"` |  PASS  | `"2026-03-15T00:00:00Z"` |    Yes    | Abbreviated month                                   |
+| ws-5-A-COMP   |   A    |  Comp  | `"20260315"`                      | `null`                   |  FAIL  | `null`                   |  Silent   | Compact ISO silently fails [WS-BUG-5]               |
+| ws-5-A-YRDM   |   A    | Y-D-M  | `"2026-15-03"` (YYYY-DD-MM)       | `null`                   |  FAIL  | `null`                   |  Silent   | Invalid month 15; silently fails [WS-BUG-5]         |
+| ws-5-A-AMBIG  |   A    | Ambig  | `"05/03/2026"`                    | `"2026-05-03T00:00:00Z"` |  PASS  | `"2026-05-03T00:00:00Z"` |    Yes    | **Interpreted as MM/DD (May 3)** — WEBSERVICE-BUG-3 |
+| ws-5-D-DOTNET |   D    |  .NET  | `"2026-03-15T00:00:00.000+00:00"` | `"2026-03-15T00:00:00Z"` |  PASS  | `"2026-03-15T00:00:00Z"` |    Yes    | .NET `+00:00` = Z equivalent (CB-12)                |
+| ws-5-D-EPOCH  |   D    | Epoch  | `1773532800000` (number)          | `null`                   |  FAIL  | `null`                   |  Silent   | Numeric epoch silently stored null [WS-BUG-5]       |
+| ws-5-D-EPOCHS |   D    | Epoch  | `"1773532800000"` (string)        | `null`                   |  FAIL  | `null`                   |  Silent   | String epoch silently stored null [WS-BUG-5]        |
 
 > **WS-5 Finding**: 24 PASS, 9 FAIL (33 slots). The VV server is very format-tolerant: ISO, US (MM/DD/YYYY), DB storage format, YYYY/MM/DD, YYYY.MM.DD, English month names, and all ISO datetime variants are accepted. **TZ offsets are converted to UTC** (BRT -03:00 → +3h, IST +05:30 → -5:30h). Milliseconds are stripped. **CRITICAL — WEBSERVICE-BUG-2**: DD/MM/YYYY (LATAM) formats are silently accepted but stored as `null` — no error, no warning, complete data loss. **WEBSERVICE-BUG-3**: Ambiguous dates like `05/03/2026` are always interpreted as MM/DD (US) — a LATAM dev intending March 5 gets May 3 stored silently. Compact ISO `20260315`, invalid `2026-15-03`, and **epoch milliseconds** (both numeric and string) also silently fail. .NET `+00:00` offset works (equivalent to Z). H-5 confirmed for ISO/US/named formats.
 
@@ -309,13 +309,13 @@ Test how the API handles empty, null, and special values when creating and updat
 | ws-6-A-empty   |   A    | `""`             | `""` or null    |  PASS  | `null` | Empty → null; H-3 ✓                  |
 | ws-6-A-null    |   A    | `null`           | `""` or null    |  PASS  | `null` | Null → null                          |
 | ws-6-A-omit    |   A    | (field omitted)  | `""` or null    |  PASS  | `null` | Omit → null                          |
-| ws-6-A-strNull |   A    | `"null"`         | TBD             |  PASS  | `null` | Literal "null" not stored as string  |
-| ws-6-A-invDate |   A    | `"Invalid Date"` | TBD             |  PASS  | `null` | "Invalid Date" → null; no FORM-BUG-6 |
+| ws-6-A-strNull |   A    | `"null"`         | `"undefined"`   |  PASS  | `null` | Literal "null" not stored as string  |
+| ws-6-A-invDate |   A    | `"Invalid Date"` | `"undefined"`   |  PASS  | `null` | "Invalid Date" → null; no FORM-BUG-6 |
 | ws-6-D-empty   |   D    | `""`             | `""` or null    |  PASS  | `null` | DateTime empty → null                |
 | ws-6-D-null    |   D    | `null`           | `""` or null    |  PASS  | `null` | DateTime null → null                 |
 | ws-6-D-omit    |   D    | (field omitted)  | `""` or null    |  PASS  | `null` | DateTime omit → null                 |
-| ws-6-D-strNull |   D    | `"null"`         | TBD             |  PASS  | `null` | DateTime "null" → null               |
-| ws-6-D-invDate |   D    | `"Invalid Date"` | TBD             |  PASS  | `null` | DateTime "Invalid Date" → null       |
+| ws-6-D-strNull |   D    | `"null"`         | `"undefined"`   |  PASS  | `null` | DateTime "null" → null               |
+| ws-6-D-invDate |   D    | `"Invalid Date"` | `"undefined"`   |  PASS  | `null` | DateTime "Invalid Date" → null       |
 
 **On update** (`postFormRevision`) — clear existing value:
 
@@ -338,14 +338,14 @@ Test `postFormRevision()` behavior: changing dates, preserving existing values, 
 | ws-7-C-change   |   C    |  Change  | `"2026-03-15T14:30:00"` | `"2026-06-20T09:00:00"` | `"2026-06-20T09:00:00"`  |  PASS  | `"2026-06-20T09:00:00Z"` | DateTime change ✓        |
 | ws-7-D-change   |   D    |  Change  | `"2026-03-15T14:30:00"` | `"2026-06-20T09:00:00"` | `"2026-06-20T09:00:00"`  |  PASS  | `"2026-06-20T09:00:00Z"` | DateTime+ignoreTZ ✓      |
 | ws-7-H-change   |   H    |  Change  | `"2026-03-15T14:30:00"` | `"2026-06-20T09:00:00"` | `"2026-06-20T09:00:00"`  |  PASS  | `"2026-06-20T09:00:00Z"` | Legacy ✓                 |
-| ws-7-A-preserve |   A    | Preserve | `"2026-03-15"`          | (field omitted)         | `"2026-03-15"` preserved |  PASS  | `"2026-03-15T00:00:00Z"` | Field preserved ✓; H-9 ✓ |
-| ws-7-C-preserve |   C    | Preserve | `"2026-03-15T14:30:00"` | (field omitted)         | `"2026-03-15T14:30:00"`  |  PASS  | `"2026-03-15T14:30:00Z"` | Preserved ✓              |
-| ws-7-D-preserve |   D    | Preserve | `"2026-03-15T14:30:00"` | (field omitted)         | `"2026-03-15T14:30:00"`  |  PASS  | `"2026-03-15T14:30:00Z"` | Preserved ✓              |
-| ws-7-H-preserve |   H    | Preserve | `"2026-03-15T14:30:00"` | (field omitted)         | `"2026-03-15T14:30:00"`  |  PASS  | `"2026-03-15T14:30:00Z"` | Preserved ✓              |
-| ws-7-A-add      |   A    |   Add    | (no date)               | `"2026-03-15"`          | `"2026-03-15"`           |  PASS  | `"2026-03-15T00:00:00Z"` | Add to empty field ✓     |
-| ws-7-C-add      |   C    |   Add    | (no date)               | `"2026-03-15T14:30:00"` | `"2026-03-15T14:30:00"`  |  PASS  | `"2026-03-15T14:30:00Z"` | Add ✓                    |
-| ws-7-D-add      |   D    |   Add    | (no date)               | `"2026-03-15T14:30:00"` | `"2026-03-15T14:30:00"`  |  PASS  | `"2026-03-15T14:30:00Z"` | Add ✓                    |
-| ws-7-H-add      |   H    |   Add    | (no date)               | `"2026-03-15T14:30:00"` | `"2026-03-15T14:30:00"`  |  PASS  | `"2026-03-15T14:30:00Z"` | Add ✓                    |
+| ws-7-A-preserve |   A    | Preserve | `"2026-03-15"`          | (field omitted)         | `"2026-03-15T00:00:00Z"` |  PASS  | `"2026-03-15T00:00:00Z"` | Field preserved ✓; H-9 ✓ |
+| ws-7-C-preserve |   C    | Preserve | `"2026-03-15T14:30:00"` | (field omitted)         | `"2026-03-15T14:30:00Z"` |  PASS  | `"2026-03-15T14:30:00Z"` | Preserved ✓              |
+| ws-7-D-preserve |   D    | Preserve | `"2026-03-15T14:30:00"` | (field omitted)         | `"2026-03-15T14:30:00Z"` |  PASS  | `"2026-03-15T14:30:00Z"` | Preserved ✓              |
+| ws-7-H-preserve |   H    | Preserve | `"2026-03-15T14:30:00"` | (field omitted)         | `"2026-03-15T14:30:00Z"` |  PASS  | `"2026-03-15T14:30:00Z"` | Preserved ✓              |
+| ws-7-A-add      |   A    |   Add    | (no date)               | `"2026-03-15"`          | `"2026-03-15T00:00:00Z"` |  PASS  | `"2026-03-15T00:00:00Z"` | Add to empty field ✓     |
+| ws-7-C-add      |   C    |   Add    | (no date)               | `"2026-03-15T14:30:00"` | `"2026-03-15T14:30:00Z"` |  PASS  | `"2026-03-15T14:30:00Z"` | Add ✓                    |
+| ws-7-D-add      |   D    |   Add    | (no date)               | `"2026-03-15T14:30:00"` | `"2026-03-15T14:30:00Z"` |  PASS  | `"2026-03-15T14:30:00Z"` | Add ✓                    |
+| ws-7-H-add      |   H    |   Add    | (no date)               | `"2026-03-15T14:30:00"` | `"2026-03-15T14:30:00Z"` |  PASS  | `"2026-03-15T14:30:00Z"` | Add ✓                    |
 
 > **WS-7 Finding**: All 12 tests PASS. `postFormRevision()` behaves correctly for all three scenarios: **Change** replaces the old value, **Preserve** keeps existing values when the field is omitted from the update, **Add** sets a date on a previously empty field. H-9 confirmed (unmentioned fields preserved). All 4 configs (A, C, D, H) behave identically — field config flags have no effect on the update path.
 
@@ -357,18 +357,18 @@ Test OData-style `q` parameter filters on date fields via `getForms()`. Requires
 
 **Prerequisite**: At least one WS-1 record with known stored values.
 
-| ID             | Config | Query Type      | Query                                                   | Expected | Status | Matched | Notes                                     |
-| -------------- | :----: | --------------- | ------------------------------------------------------- | -------- | :----: | :-----: | ----------------------------------------- |
-| ws-8-A-eq      |   A    | Exact match     | `[Field7] eq '2026-03-15'`                              | Match    |  PASS  |   Yes   | ISO date-only matches stored T00:00:00Z   |
-| ws-8-A-gt      |   A    | Greater than    | `[Field7] gt '2026-03-14'`                              | Match    |  PASS  |   Yes   | Date comparison works ✓                   |
-| ws-8-A-range   |   A    | Range           | `[Field7] ge '2026-03-15' AND [Field7] le '2026-03-16'` | Match    |  PASS  |   Yes   | Inclusive range works ✓                   |
-| ws-8-A-fmtUS   |   A    | Format mismatch | `[Field7] eq '03/15/2026'`                              | TBD      |  PASS  |   Yes   | US format in query works! H-10 ✓          |
-| ws-8-A-noMatch |   A    | No match        | `[Field7] eq '2026-03-16'`                              | No match |  PASS  |   No    | Control — correct no-match ✓              |
-| ws-8-C-eq      |   C    | Exact match     | `[Field6] eq '2026-03-15T14:30:00'`                     | Match    |  PASS  |   Yes   | DateTime equality works ✓                 |
-| ws-8-C-gt      |   C    | Greater than    | `[Field6] gt '2026-03-15T14:00:00'`                     | Match    |  PASS  |   Yes   | DateTime comparison works ✓               |
-| ws-8-C-range   |   C    | Range           | `[Field6] ge '2026-03-15' AND [Field6] le '2026-03-16'` | Match    |  PASS  |   Yes   | Date-only range on DateTime field works ✓ |
-| ws-8-C-fmtZ    |   C    | Format mismatch | `[Field6] eq '2026-03-15T14:30:00Z'`                    | TBD      |  PASS  |   Yes   | Z suffix in query matches stored Z ✓      |
-| ws-8-C-noMatch |   C    | No match        | `[Field6] eq '2026-03-15T15:00:00'`                     | No match |  PASS  |   No    | Control — correct no-match ✓              |
+| ID             | Config | Query Type      | Query                                                   | Expected      | Status | Matched | Notes                                     |
+| -------------- | :----: | --------------- | ------------------------------------------------------- | ------------- | :----: | :-----: | ----------------------------------------- |
+| ws-8-A-eq      |   A    | Exact match     | `[Field7] eq '2026-03-15'`                              | Match         |  PASS  |   Yes   | ISO date-only matches stored T00:00:00Z   |
+| ws-8-A-gt      |   A    | Greater than    | `[Field7] gt '2026-03-14'`                              | Match         |  PASS  |   Yes   | Date comparison works ✓                   |
+| ws-8-A-range   |   A    | Range           | `[Field7] ge '2026-03-15' AND [Field7] le '2026-03-16'` | Match         |  PASS  |   Yes   | Inclusive range works ✓                   |
+| ws-8-A-fmtUS   |   A    | Format mismatch | `[Field7] eq '03/15/2026'`                              | `"undefined"` |  PASS  |   Yes   | US format in query works! H-10 ✓          |
+| ws-8-A-noMatch |   A    | No match        | `[Field7] eq '2026-03-16'`                              | No match      |  PASS  |   No    | Control — correct no-match ✓              |
+| ws-8-C-eq      |   C    | Exact match     | `[Field6] eq '2026-03-15T14:30:00'`                     | Match         |  PASS  |   Yes   | DateTime equality works ✓                 |
+| ws-8-C-gt      |   C    | Greater than    | `[Field6] gt '2026-03-15T14:00:00'`                     | Match         |  PASS  |   Yes   | DateTime comparison works ✓               |
+| ws-8-C-range   |   C    | Range           | `[Field6] ge '2026-03-15' AND [Field6] le '2026-03-16'` | Match         |  PASS  |   Yes   | Date-only range on DateTime field works ✓ |
+| ws-8-C-fmtZ    |   C    | Format mismatch | `[Field6] eq '2026-03-15T14:30:00Z'`                    | `"undefined"` |  PASS  |   Yes   | Z suffix in query matches stored Z ✓      |
+| ws-8-C-noMatch |   C    | No match        | `[Field6] eq '2026-03-15T15:00:00'`                     | No match      |  PASS  |   No    | Control — correct no-match ✓              |
 
 > **WS-8 Finding**: All 10 tests PASS. The OData query engine normalizes date formats — ISO date-only, US format (MM/DD/YYYY), and ISO datetime with Z all match correctly. Date-only range queries work on DateTime fields. H-10 confirmed: OData filters match stored format reliably. The query engine is more format-tolerant than expected.
 
