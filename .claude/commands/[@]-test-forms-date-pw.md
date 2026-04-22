@@ -39,7 +39,9 @@ See `testing/specs/date-handling/README.md` and `docs/guides/playwright-testing.
 
 **Batch + skip-verify:** `/test-forms-date-pw --skip-verify 1-A-BRT 1-B-BRT 2-A-BRT 3-A-BRT-BRT` — backfill multiple entries without opening a browser.
 
-The category ID identifies a row in `research/date-handling/forms-calendar/matrix.md` (e.g., `1-A-IST`, `9-D-BRT-8`, `7-C-isoNoZ`).
+**V2 sibling mode (auto-detected from `.V2` suffix):** `/test-forms-date-pw 11-H-BRT-roundtrip.V2` — creates a `scope: 'V2'` sibling entry in `test-data.js` from an existing V1 TC, using values observed under the current V2 environment. See [V2 Sibling Mode](#v2-sibling-mode) below.
+
+The category ID identifies a row in `research/date-handling/forms-calendar/matrix.md` (e.g., `1-A-IST`, `9-D-BRT-8`, `7-C-isoNoZ`). V2-suffixed IDs resolve to the base-ID matrix row (e.g., `11-H-BRT-roundtrip.V2` → `11-H-BRT-roundtrip`).
 
 ---
 
@@ -107,6 +109,38 @@ Skip-verify mode requires at least ONE of these to exist:
 - A TC spec with Expected Result values (fallback — less reliable)
 
 If none exist, report: "No verified data found for {id}. Run without --skip-verify to verify live."
+
+---
+
+## V2 Sibling Mode
+
+Auto-detected when a passed category ID ends with `.V2` **and** an exact-match row does not exist in `matrix.md` (the 8 `.V2` matrix rows from the initial cat-11 save-BRT-load-IST batch stay on the normal-mode path — `matrix.md` lookup succeeds and nothing special happens).
+
+**Intent:** add a `scope: 'V2'` sibling to `test-data.js` for a scenario already documented by a V1 TC spec, capturing values observed under the current V2 environment. The dominant existing pattern — 262 `.V2` test-data entries vs. only 8 `.V2` matrix rows — keeps the matrix as the scenario catalog and puts per-scope observed values in `test-data.js` only.
+
+### What it does differently
+
+1. **Phase 1 matrix lookup**: resolve the base ID by stripping `.V2`. The base-ID row must exist in `matrix.md`; it is the source for Config, TZ, input values, and scenario shape. If the base-ID row is missing, STOP and report: "V2 sibling mode requires an existing V1 matrix row for `<base-id>`."
+2. **V1 test-data entry must exist** for the base ID. The V2 sibling copies fields from it. If missing, STOP.
+3. **Phase 2 live-verify** runs as usual — observe `expectedRaw`/`expectedApi` under the V2 environment. Note: P5 (`useUpdatedCalendarValueLogic`) must return `true`; if it returns `false`, STOP and report — V2 sibling mode cannot run under a V1 platform.
+4. **Phase 3 skipped entirely.** Do NOT create `tc-{id}.V2.md`. V2 siblings reuse the V1 TC spec — the V2 test-data entry's `tcRef` points to the V1 file. V1 behavioral claims in the TC spec remain the platform-default reference; V2 differences are captured in the sibling entry's expected values and run file.
+5. **Phase 3B creates the V2 sibling:**
+    - Read the V1 entry's full source block from `test-data.js`.
+    - Clone it. Change `id` to `<base-id>.V2`. Add `scope: 'V2'`. Replace `expectedRaw` and `expectedApi` with Phase 2 observations. Leave `tcRef` unchanged (still points to the V1 spec). Leave `notes` — optionally append a one-line V2-observation note. Leave `bugs` empty for now; `npm run tag:v2 -- --write` assigns V2 tags later based on the diff pattern.
+    - Insert the cloned block **immediately after** the V1 entry's closing `    },` (same insertion strategy as `tools/analysis/rebaseline-v2.js` CREATE branch).
+    - If an entry with id `<base-id>.V2` already exists, STOP and report: "V2 sibling already exists. Use `npm run rebaseline:v2 --write` to refresh observed values."
+6. **Phase 4 skipped entirely.** No matrix row insertion. V2 siblings live only in `test-data.js`.
+7. **Phase 5A (run file):** filename uses the `.V2` id — `tc-{base-id}.V2-run-{N}.md`.
+8. **Phase 5B (summary):** filename uses the `.V2` id — `tc-{base-id}.V2.md`. The summary's **Spec** link still points to the V1 TC spec; add a **Scope** line stating `V2 sibling — shares spec with V1`.
+9. **Phase 5C (session index):** index entry references the `.V2` id and its run file.
+
+### Batch behavior
+
+V2 mode is per-ID. Passing a mix in one invocation works — the skill detects the `.V2` suffix per ID and routes each one to either normal mode or V2 sibling mode. TZ grouping still applies.
+
+### Why not modify the V1 entry instead?
+
+V1 and V2 must coexist. The spec's runtime scope filter (`cat-*.spec.js`) skips entries whose `scope` doesn't match the active platform. Both paths stay green — V1 entries are the reference baseline when investigating regressions across platform versions.
 
 ---
 
@@ -236,6 +270,8 @@ Read the following files before doing anything else:
     - The Expected column — the predicted stored/returned/displayed result
     - The Status (PASS/FAIL/PENDING) and any existing Actual value
     - The Evidence column — if a TC file or results.md link is listed, note it
+
+    **V2 sibling mode:** if the category ID ends with `.V2` and no exact match exists, strip the suffix and look up the base row — that row supplies the Config/TZ/input/scenario. The V2 observed values come from Phase 2, not from the matrix Expected column. See [V2 Sibling Mode](#v2-sibling-mode) for the full flow.
 
 2. `research/date-handling/forms-calendar/matrix.md` — **Field Configurations table** (top of file). Map the Config letter from step 1 to its flag values: `enableTime`, `ignoreTimezone`, `useLegacy`. Also note the Test Field name (e.g., Field5 for Config D) as a cross-check — but the field will be located dynamically in Phase 2 via P6.
 
@@ -434,6 +470,8 @@ Compare captured values against the Expected column from Phase 1. Note any discr
 ## Phase 3 — Generate the test case file
 
 **Before generating:** Check if `test-cases/tc-{id}.md` already exists. If it does, **skip Phase 3 entirely** — TC specs are immutable (see Constraints). Proceed directly to Phase 3B (test-data.js entry). Phase 5A (run file) and 5B (summary update) still run normally for the new execution.
+
+**V2 sibling mode:** always skip Phase 3. V2 siblings reuse the V1 TC spec — the `.V2` test-data entry's `tcRef` points to the V1 file. Never create `tc-{id}.V2.md`.
 
 **Determine filename:**
 `tc-{category-id}.md`
@@ -665,9 +703,26 @@ Read the file first, then append a new entry to the `TEST_DATA` array (before th
 - Add a category section comment (with `// ═══...`) if this is the first entry for a new category
 - Check that `testing/fixtures/test-data.js` exists; if not, stop and report
 
+**V2 sibling mode differs from the template above:**
+
+- Locate the V1 entry in `test-data.js` by its base id (e.g., `11-H-BRT-roundtrip`). Walk forward from `id: '<base-id>',` to the closing `    },` to capture the full block.
+- Clone that block and insert it **immediately after** the V1 entry's closing `    },`.
+- In the clone, change only:
+    - `id: '<base-id>.V2',`
+    - Add a `scope: 'V2',` line right after `categoryName`
+    - `expectedRaw:` → Phase 2 observed `raw`
+    - `expectedApi:` → Phase 2 observed `api`
+    - `bugs: [],` — leave empty; `npm run tag:v2 --write` fills this later based on the diff pattern against V1
+    - `notes:` — optionally append ` V2 observed: {raw}/{api} (captured {YYYY-MM-DD}, build {fingerprint}).` to the existing V1 notes; never replace
+- Leave `tcRef` unchanged — V2 siblings share the V1 TC spec
+- If `<base-id>.V2` already exists, STOP and report: "V2 sibling already exists. Use `npm run rebaseline:v2 -- --project {project} --write` to refresh observed values."
+- Do NOT create or modify the category spec file — V2 entries are picked up automatically by the existing `cat-*.spec.js` scope filter (`envScope !== entryScope` skip)
+
 ---
 
 ## Phase 4 — Update the matrix
+
+**V2 sibling mode:** skip Phase 4 entirely. V2 expected values live only in `test-data.js`. The matrix keeps V1 scope as the baseline reference; the 262 existing `.V2` entries in `test-data.js` have no matrix counterpart and that is the intended pattern.
 
 After writing the TC file, update `matrix.md` in two places:
 
@@ -691,6 +746,8 @@ Update the PASS/FAIL/PENDING/BLOCKED counts for the affected category row to ref
 Create `projects/{customer}/testing/date-handling/forms-calendar/runs/tc-{category-id}-run-{N}.md` from the Phase 2 observations. N is the next sequential integer for this TC (check whether previous run files exist first).
 
 **Run files are immutable after creation.** Never modify a run file — create a new one for each re-run.
+
+**V2 sibling mode:** use the `.V2` id in the filename — `tc-{base-id}.V2-run-{N}.md`. V1 and V2 run histories stay separate.
 
 ```markdown
 # TC-{ID} — Run {N} | {YYYY-MM-DD} | {TZ short} | {PASS / FAIL-N}
@@ -821,6 +878,7 @@ This prevents orphan browser processes. In **batch mode**, close the browser onc
 - **No Findings or Key Finding section in TC files.** TC files are test procedures, not analytical records. Observations about whether the matrix prediction was right or wrong, which bugs were confirmed, and what sibling rows imply belong exclusively in run files (Phase 5A). The title encodes the behavioral finding; Fail Conditions encode the risk reasoning. Do not add any other analytical sections to TC files.
 - **Screenshots go to `testing/config/screenshots/`** — never committed to git.
 - **Auth state files (`testing/config/auth-state*.json`) are never committed** — they contain session cookies.
+- **V2 sibling mode (ID ends with `.V2`)**: reuses the V1 TC spec (no `tc-*.V2.md` file), skips matrix row insertion (test-data.js only), requires the base V1 matrix row + V1 test-data entry to exist, and must observe a V2 platform (`useUpdatedCalendarValueLogic === true`). See [V2 Sibling Mode](#v2-sibling-mode) for the full flow.
 
 ## Artifact Sharing
 
