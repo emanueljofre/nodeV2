@@ -159,6 +159,20 @@ async function main() {
 
     console.log('Authenticated. Running harness...\n');
 
+    // Inject the active customer's FIELD_MAP so the harness writes to the
+    // right field names on any environment (vv5dev uses semantic names; vvdemo
+    // and WADNR use Field[N]). The harness falls back to its hardcoded default
+    // if FieldMap is empty or malformed.
+    let fieldMapJson = '';
+    try {
+        const { FIELD_MAP } = require('../../testing/fixtures/vv-config');
+        if (FIELD_MAP && Object.keys(FIELD_MAP).length > 0) {
+            fieldMapJson = JSON.stringify(FIELD_MAP);
+        }
+    } catch (err) {
+        console.warn(`Could not load FIELD_MAP from vv-config: ${err.message}`);
+    }
+
     // Build ffCollection
     const fields = [
         { name: 'Action', value: args.action },
@@ -167,6 +181,7 @@ async function main() {
         { name: 'InputDate', value: args.inputDate || '' },
         { name: 'InputFormats', value: args.inputFormats || '' },
         { name: 'TemplateName', value: args.templateName || '' },
+        { name: 'FieldMap', value: fieldMapJson },
         { name: 'Debug', value: args.debug ? 'true' : 'false' },
     ];
     const ffCollection = new clientLibrary.forms.formFieldCollection(fields);

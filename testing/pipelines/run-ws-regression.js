@@ -20,12 +20,27 @@ const fs = require('fs');
 const path = require('path');
 const { captureBuildContext } = require('../../tools/helpers/build-context');
 const { fingerprint } = require('../../tools/helpers/build-fingerprint');
+const { WS_TEMPLATE_NAME } = require('../fixtures/ws-config');
+const { vvConfig } = require('../fixtures/vv-config');
 
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
 const RUNNER_PATH = path.join(REPO_ROOT, 'tools', 'runners', 'run-ws-test.js');
-const RESULTS_DIR = path.join(REPO_ROOT, 'testing', 'tmp');
-const RESULTS_PATH = path.join(RESULTS_DIR, 'ws-regression-results-latest.json');
 const GENERATOR_PATH = path.join(REPO_ROOT, 'tools', 'generators', 'generate-ws-artifacts.js');
+
+// Route raw results to the active customer's project folder (personal/env-bound data).
+// Falls back to testing/tmp/ if no projects/{customer}/ folder exists.
+function resolveResultsPath() {
+    const customerKey = vvConfig.customerKey || vvConfig.customerAlias;
+    const projectSlug = customerKey ? customerKey.toLowerCase() : null;
+    const projectDir = projectSlug ? path.join(REPO_ROOT, 'projects', projectSlug) : null;
+    if (projectDir && fs.existsSync(projectDir)) {
+        return path.join(projectDir, 'testing', 'date-handling', 'web-services', 'ws-regression-results-latest.json');
+    }
+    return path.join(REPO_ROOT, 'testing', 'tmp', 'ws-regression-results-latest.json');
+}
+
+const RESULTS_PATH = resolveResultsPath();
+const RESULTS_DIR = path.dirname(RESULTS_PATH);
 
 // TZ mapping
 const TZ_ENV = {
@@ -158,12 +173,15 @@ async function main() {
                     );
                     continue;
                 }
-                inv.extraArgs = `--record-id ${recordId}`;
+                inv.extraArgs = `--record-id "${recordId}"`;
             }
 
             const tzEnv = TZ_ENV[inv.tz] || 'UTC';
             const cmdParts = [`TZ=${tzEnv}`, 'node', RUNNER_PATH, `--action ${inv.action}`, `--configs ${inv.configs}`];
             if (inv.inputDate) cmdParts.push(`--input-date ${inv.inputDate}`);
+            if (WS_TEMPLATE_NAME && WS_TEMPLATE_NAME !== 'DateTest') {
+                cmdParts.push(`--template-name "${WS_TEMPLATE_NAME}"`);
+            }
             if (inv.extraArgs) cmdParts.push(inv.extraArgs);
 
             const cmd = cmdParts.join(' ');
@@ -199,8 +217,19 @@ async function main() {
                     config: r.config,
                     fieldName: r.fieldName,
                     sent: r.sent,
-                    stored: r.stored,
-                    returned: r.returned,
+                    // Normalize each action's "observed final value" into `stored`
+                    // so downstream tooling has one field to compare against V1:
+                    //   WS-1/5/7: `stored`    (read-back after write)
+                    //   WS-2:     `apiReturn` (read-only)
+                    //   WS-3:     `finalRead` → `cycle2Read` → `cycle1Read`
+                    //   WS-6:     `stored`    (post-empty-write read-back)
+                    stored: r.stored ?? r.apiReturn ?? r.finalRead ?? r.cycle2Read ?? r.cycle1Read,
+                    returned: r.returned ?? r.apiReturn,
+                    // Preserve WS-3 cycle details for round-trip drift analysis
+                    cycle1Read: r.cycle1Read,
+                    cycle2Read: r.cycle2Read,
+                    finalRead: r.finalRead,
+                    drift: r.drift,
                     // Harness match is strict (sent vs stored); for regression we
                     // record the actual stored value — status is determined by the
                     // artifact generator comparing against matrix Expected values.

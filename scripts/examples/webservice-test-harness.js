@@ -72,8 +72,13 @@ module.exports.main = async function (ffCollection, vvClient, response) {
     let FORM_TEMPLATE_NAME = 'DateTest';
     const ROUND_TRIP_CYCLES = 2;
 
-    // Field configuration map — mirrors testing/fixtures/vv-config.js (lines 48-113)
-    const FIELD_MAP = {
+    // Field configuration map — mirrors testing/fixtures/vv-config.js (lines 48-113).
+    // Default targets the vvdemo/WADNR "DateTest" form (26 Field[N]-named fields).
+    // Overridable at runtime via the `FieldMap` ffCollection parameter (JSON
+    // string) — the direct runner passes the active customer's map from
+    // vv-config.js so environments with semantic field names (e.g. vv5dev
+    // "Date Test Harness") work without forking the harness.
+    let FIELD_MAP = {
         A: {
             field: 'Field7',
             preset: 'Field2',
@@ -1185,6 +1190,15 @@ module.exports.main = async function (ffCollection, vvClient, response) {
         const debug = getFieldValueByName('Debug', true).toLowerCase() === 'true';
         const templateNameParam = getFieldValueByName('TemplateName', true);
         if (templateNameParam) FORM_TEMPLATE_NAME = templateNameParam;
+        const fieldMapParam = getFieldValueByName('FieldMap', true);
+        if (fieldMapParam) {
+            try {
+                const parsed = JSON.parse(fieldMapParam);
+                if (parsed && typeof parsed === 'object') FIELD_MAP = parsed;
+            } catch (err) {
+                logger.warn(`FieldMap JSON parse failed: ${err.message} — using default FIELD_MAP`);
+            }
+        }
 
         if (output.errors.length > 0) {
             throw new Error();

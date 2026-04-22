@@ -548,3 +548,31 @@ Paired with Forms Cat 19. Does the Central Admin Customer TZ setting propagate t
 
 > **Expected finding (hypothesis)**: `DateTime.Now` will follow the harness server's `TZ` env var (not Customer TZ). `GETDATE()` will follow SQL Server OS TZ (not Customer TZ). If confirmed, **the Customer TZ setting is effectively display-only** for server-generated timestamps — a significant documentation gap to close.
 > **Cross-reference**: Cat 19 (Forms) tests server-generated timestamps from the form-save path (Created Date auto-field). WS-13 tests them from the script/SQL path. Combined picture tells us whether Customer TZ is enforced at any server layer.
+
+<!-- ws-v2-baseline:emanueljofre-vv5dev -->
+
+## V2 Baseline Additions — EmanuelJofre-vv5dev (2026-04-22)
+
+Auto-generated from [`v2-baseline-audit.json`](../../../projects/emanueljofre-vv5dev/testing/date-handling/web-services/v2-baseline-audit.json). Build fingerprint: `f36b65dd`. These slots were emitted by the harness but not enumerated in the sections above. Observed `stored` values from the run are used as the V1-baseline-equivalent Expected here — they document what VV currently returns for each slot and become the comparison target for future regression runs. Regenerate with `node tools/analysis/generate-ws-v2-matrix.js --project <name>`.
+
+| ID                    | Action | Config | TZ  | Variant/Format | Input Sent | Expected Stored        |  Status  |
+| --------------------- | :----: | :----: | :-: | :------------: | ---------- | ---------------------- | :------: |
+| `ws-5-a-brt`          |  WS-5  |   A    | BRT |       —        | `—`        | `2026-03-15T00:00:00Z` | BASELINE |
+| `ws-5-c-brt`          |  WS-5  |   C    | BRT |       —        | `—`        | `2026-03-15T00:00:00Z` | BASELINE |
+| `ws-5-d-brt`          |  WS-5  |   D    | BRT |       —        | `—`        | `2026-03-15T00:00:00Z` | BASELINE |
+| `ws-7-a-brt`          |  WS-7  |   A    | BRT |       —        | `—`        | `2026-03-15T00:00:00Z` | BASELINE |
+| `ws-7-c-brt`          |  WS-7  |   C    | BRT |       —        | `—`        | `2026-03-15T14:30:00Z` | BASELINE |
+| `ws-7-d-brt`          |  WS-7  |   D    | BRT |       —        | `—`        | `2026-03-15T14:30:00Z` | BASELINE |
+| `ws-7-h-brt`          |  WS-7  |   H    | BRT |       —        | `—`        | `2026-03-15T14:30:00Z` | BASELINE |
+| `ws-9-a-arithutc-utc` |  WS-9  |   A    | UTC |    arithUTC    | `—`        | `2026-04-14T00:00:00Z` | BASELINE |
+| `ws-9-a-safe-utc`     |  WS-9  |   A    | UTC |      safe      | `—`        | `2026-04-14T00:00:00Z` | BASELINE |
+| `ws-9-a-utc-utc`      |  WS-9  |   A    | UTC |      utc       | `—`        | `2026-03-15T00:00:00Z` | BASELINE |
+| `ws-9-c-arith-brt`    |  WS-9  |   C    | BRT |     arith      | `—`        | `2026-04-14T00:00:00Z` | BASELINE |
+| `ws-9-c-arithutc-brt` |  WS-9  |   C    | BRT |    arithUTC    | `—`        | `2026-04-14T00:00:00Z` | BASELINE |
+| `ws-9-c-locale-brt`   |  WS-9  |   C    | BRT |     locale     | `—`        | `2026-03-14T00:00:00Z` | BASELINE |
+| `ws-9-c-parts-brt`    |  WS-9  |   C    | BRT |     parts      | `—`        | `2026-03-15T03:00:00Z` | BASELINE |
+| `ws-9-c-safe-brt`     |  WS-9  |   C    | BRT |      safe      | `—`        | `2026-04-14T00:00:00Z` | BASELINE |
+| `ws-9-c-us-brt`       |  WS-9  |   C    | BRT |       us       | `—`        | `2026-03-15T03:00:00Z` | BASELINE |
+| `ws-9-c-utc-brt`      |  WS-9  |   C    | BRT |      utc       | `—`        | `2026-03-15T00:00:00Z` | BASELINE |
+
+<!-- /ws-v2-baseline:emanueljofre-vv5dev -->

@@ -9,11 +9,18 @@
  *
  * See research/date-handling/web-services/analysis/overview.md for API documentation.
  */
-const { vvConfig, FIELD_MAP } = require('./vv-config');
+const { vvConfig, FIELD_MAP, CUSTOMER_TEMPLATES } = require('./vv-config');
 
 // DateTest form template ID — same form used by Forms UI tests.
 // This is the formTemplateId GUID used in API calls (not the URL formid parameter).
 const FORM_TEMPLATE_ID = '6be0265c-152a-f111-ba23-0afff212cc87';
+
+// Per-customer WS harness template name. Resolved from CUSTOMER_TEMPLATES in
+// vv-config.js using the active customer key. The WS harness looks up the
+// template ID by name at runtime via vvClient.forms.getFormTemplateIdByName().
+const WS_TEMPLATE_NAME =
+    (CUSTOMER_TEMPLATES[vvConfig.customerKey] || CUSTOMER_TEMPLATES[vvConfig.customerAlias] || {}).templateName ||
+    'DateTest';
 
 // Customer and database identifiers for API authentication
 const API_CONFIG = {
@@ -44,6 +51,7 @@ const DATE_FORMATS = {
 
 module.exports = {
     FORM_TEMPLATE_ID,
+    WS_TEMPLATE_NAME,
     API_CONFIG,
     API_FIELD_KEY,
     DATE_FORMATS,

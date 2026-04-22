@@ -26,6 +26,9 @@ const vvConfig = loadConfig();
 // Keys match the .env.json customer key (e.g., "EmanuelJofre-vvdemo", "EmanuelJofre-vv5dev").
 const CUSTOMER_TEMPLATES = {
     'EmanuelJofre-vvdemo': {
+        xcid: '815eb44d-5ec8-eb11-8200-a8333ebd7939',
+        xcdid: '845eb44d-5ec8-eb11-8200-a8333ebd7939',
+        templateName: 'DateTest',
         dateTest:
             '/FormViewer/app?hidemenu=true' +
             '&formid=6be0265c-152a-f111-ba23-0afff212cc87' +
@@ -36,8 +39,15 @@ const CUSTOMER_TEMPLATES = {
             '&formid=203734a0-5433-f111-ba23-0afff212cc87' +
             '&xcid=815eb44d-5ec8-eb11-8200-a8333ebd7939' +
             '&xcdid=845eb44d-5ec8-eb11-8200-a8333ebd7939',
+        // DB-6 (dash-cross-layer) dashboard URL — FormDataDetails grid over DateTest instances
+        dashboardDateTest:
+            'https://vvdemo.visualvault.com/app/EmanuelJofre/Main/FormDataDetails' +
+            '?Mode=ReadOnly&ReportID=e522c887-e72e-f111-ba23-0e3ceb11fc25',
     },
     'EmanuelJofre-vv5dev': {
+        xcid: 'EmanuelJofre',
+        xcdid: 'Main',
+        templateName: 'Date Test Harness',
         // "Date Test Harness" form — 24 calendar fields with semantic names
         dateTest:
             '/FormViewer/app?hidemenu=true' +
@@ -59,6 +69,9 @@ const CUSTOMER_TEMPLATES = {
             '?Mode=ReadOnly&ReportID=0a00a253-f33c-f111-8312-f68855a47462',
     },
     WADNR: {
+        xcid: 'WADNR',
+        xcdid: 'fpOnline',
+        templateName: 'zzzDate Test Harness',
         dateTest:
             '/FormViewer/app?hidemenu=true' +
             '&formid=ff59bb37-b331-f111-830f-d3ae5cbd0a3d' +
@@ -79,17 +92,26 @@ const customerTemplates =
     CUSTOMER_TEMPLATES['EmanuelJofre-vvdemo'];
 
 // Per-customer document library test assets.
-// Each customer needs a test folder with a Date index field and at least one test document.
+// Keyed by .env.json customer key (EmanuelJofre-vvdemo, EmanuelJofre-vv5dev, WADNR).
+// Each customer needs a test folder with a Date index field and at least one test
+// document, AND its environment must have docapi enabled. If `null`, doc tests skip.
 const CUSTOMER_DOC_CONFIG = {
-    EmanuelJofre: {
+    'EmanuelJofre-vvdemo': {
         testDocumentId: '5c4c9e8c-25ca-eb11-8202-d7701a6d4070', // Test1003 in /TestFolder
         dateFieldLabel: 'Date', // Date index field (fieldType 4) assigned to /TestFolder
         testFolderPath: '/TestFolder',
     },
+    // vv5dev has `docapi.enabled=false` in environment.json; doc tests skip until a
+    // compatible environment is available (needs: docapi enabled + test document + date index field).
+    'EmanuelJofre-vv5dev': null,
     // WADNR: TBD — create zzz-prefixed test folder + document, add to writePolicy.documents[]
+    WADNR: null,
 };
 
-const customerDocConfig = CUSTOMER_DOC_CONFIG[vvConfig.customerAlias] || CUSTOMER_DOC_CONFIG.EmanuelJofre;
+const customerDocConfig =
+    CUSTOMER_DOC_CONFIG[vvConfig.customerKey] !== undefined
+        ? CUSTOMER_DOC_CONFIG[vvConfig.customerKey]
+        : CUSTOMER_DOC_CONFIG[vvConfig.customerAlias] || null;
 
 // DateTest form template URL — navigating here creates a fresh form instance with all fields empty.
 // Never use a saved record URL (DataID=) for tests that need a clean state.
@@ -260,6 +282,16 @@ const FIELD_MAP =
     FIELD_MAP_BY_CUSTOMER[vvConfig.customerAlias] ||
     FIELD_MAP_EMANUELJOFRE_VVDEMO;
 
+// DB-6 record → config assignment. Each entry maps a `RECORD_DEFINITIONS` key
+// (`db6-dateonly` / `db6-datetime`) to the list of configs populated in that
+// record. Customer-agnostic — field names resolve through the active FIELD_MAP
+// at runtime; record DataID + instanceName come from SAVED_RECORDS (created
+// fresh per build by global-setup). Used by `dash-cross-layer.spec.js`.
+const DB6_RECORD_CONFIGS = {
+    'db6-dateonly': ['A', 'B', 'E', 'F'],
+    'db6-datetime': ['C', 'D', 'G', 'H'],
+};
+
 // Record definitions for global-setup.js to create before tests run.
 // Each entry describes a form record to be saved via the browser UI, using the specified
 // input method per field. The global setup creates these records, extracts DataIDs via
@@ -331,6 +363,32 @@ const RECORD_DEFINITIONS = [
         fields: [{ name: FIELD_MAP.B.field, value: '03/15/2026', method: 'typed', input: DATE_INPUT }],
         description: 'IST save, Config B (date-only + ignoreTZ) = 03/15/2026 via typed input',
     },
+    // --- DB-6 (Dashboard Cross-Layer) reference records ---
+    // Two records populated with all 4 date-only (A/B/E/F) or all 4 DateTime (C/D/G/H) configs
+    // so the dashboard-cross-layer test can compare grid display vs form display for the same record.
+    // Created fresh per build — tied to buildFingerprint in saved-records.json.
+    {
+        key: 'db6-dateonly',
+        tz: BRT,
+        fields: [
+            { name: FIELD_MAP.A.field, value: '03/15/2026', method: 'typed', input: DATE_INPUT },
+            { name: FIELD_MAP.B.field, value: '03/15/2026', method: 'typed', input: DATE_INPUT },
+            { name: FIELD_MAP.E.field, value: '03/15/2026', method: 'typed', input: DATE_INPUT },
+            { name: FIELD_MAP.F.field, value: '03/15/2026', method: 'typed', input: DATE_INPUT },
+        ],
+        description: 'DB-6 reference record — date-only configs A/B/E/F populated with 03/15/2026',
+    },
+    {
+        key: 'db6-datetime',
+        tz: BRT,
+        fields: [
+            { name: FIELD_MAP.C.field, value: '03/15/2026 12:00 AM', method: 'typed', input: DATE_INPUT },
+            { name: FIELD_MAP.D.field, value: '03/15/2026 12:00 AM', method: 'typed', input: DATE_INPUT },
+            { name: FIELD_MAP.G.field, value: '03/15/2026 12:00 AM', method: 'typed', input: DATE_INPUT },
+            { name: FIELD_MAP.H.field, value: '03/15/2026 12:00 AM', method: 'typed', input: DATE_INPUT },
+        ],
+        description: 'DB-6 reference record — DateTime configs C/D/G/H populated with 03/15/2026 12:00 AM',
+    },
 ];
 
 // Fallback saved records for backward compatibility — used when saved-records.json
@@ -359,27 +417,48 @@ const HARDCODED_SAVED_RECORDS = {
 const SAVED_RECORDS_PATH = path.join(__dirname, '..', 'config', 'saved-records.json');
 
 /**
- * Get saved record URLs. Reads from saved-records.json (created by global-setup.js)
- * if available, otherwise falls back to hardcoded records for the vvdemo environment.
+ * Get saved records as a `{ key: { url, dataId?, instanceName? } }` map.
+ *
+ * Normalizes two legacy shapes:
+ *   - Old shape (HARDCODED_SAVED_RECORDS): `{ key: urlString }`
+ *   - New shape (global-setup output):     `{ key: { url, dataId, instanceName } }`
+ *
+ * Also filters out metadata keys prefixed with `__` (e.g., `__buildFingerprint`).
+ *
+ * Consumers that only need the URL: `SAVED_RECORDS[key].url`.
  */
 function getSavedRecords() {
-    if (fs.existsSync(SAVED_RECORDS_PATH)) {
-        return JSON.parse(fs.readFileSync(SAVED_RECORDS_PATH, 'utf8'));
+    const raw = fs.existsSync(SAVED_RECORDS_PATH)
+        ? JSON.parse(fs.readFileSync(SAVED_RECORDS_PATH, 'utf8'))
+        : HARDCODED_SAVED_RECORDS;
+    const out = {};
+    for (const [k, v] of Object.entries(raw)) {
+        if (k.startsWith('__')) continue;
+        if (typeof v === 'string') out[k] = { url: v };
+        else if (v && typeof v === 'object') out[k] = v;
     }
-    return HARDCODED_SAVED_RECORDS;
+    return out;
 }
 
 const SAVED_RECORDS = getSavedRecords();
+
+// Expose the raw JSON (including __buildFingerprint) for diagnostic tools.
+const SAVED_RECORDS_META = fs.existsSync(SAVED_RECORDS_PATH)
+    ? JSON.parse(fs.readFileSync(SAVED_RECORDS_PATH, 'utf8'))
+    : {};
 
 module.exports = {
     vvConfig,
     AUTH_STATE_PATH,
     CUSTOMER_TEMPLATES,
+    customerTemplates,
     CUSTOMER_DOC_CONFIG,
     customerDocConfig,
     FORM_TEMPLATE_URL,
     TARGET_FORM_TEMPLATE_URL,
     FIELD_MAP,
     SAVED_RECORDS,
+    SAVED_RECORDS_META,
     RECORD_DEFINITIONS,
+    DB6_RECORD_CONFIGS,
 };

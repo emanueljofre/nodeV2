@@ -84,6 +84,8 @@
         "env:profile:browser": "node tools/explore/environment-profile.js --with-browser",
         "build:timeline": "node tools/analysis/build-timeline.js",
         "task:status": "node tools/analysis/task-status.js",
+        "audit:ws:v2": "node tools/analysis/audit-ws-v2.js",
+        "matrix:ws:v2": "node tools/analysis/generate-ws-v2-matrix.js",
         "review": "node tools/review/review.js",
         "review:forms": "node tools/review/review-forms.js",
         "lint": "eslint lib/ scripts/",
