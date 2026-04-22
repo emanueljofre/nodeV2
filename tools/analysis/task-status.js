@@ -21,6 +21,7 @@
  */
 const fs = require('fs');
 const path = require('path');
+const { buildWsSlotId } = require('../helpers/ws-slot-id');
 
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
 const PROJECTS_DIR = path.join(REPO_ROOT, 'projects');
@@ -178,7 +179,9 @@ function perTcHistory(runs) {
     const history = new Map();
     for (const run of runs) {
         for (const r of run.results) {
-            const tc = r.tcId;
+            // WS runs predating the pipeline tcId stamp lack r.tcId — compose from
+            // (action, config, tz[, format|variant]) so the history map isn't empty.
+            const tc = r.tcId || buildWsSlotId(r);
             if (!tc) continue;
             if (!history.has(tc)) history.set(tc, []);
             history.get(tc).push({

@@ -19,6 +19,7 @@
  */
 const fs = require('fs');
 const path = require('path');
+const { buildWsSlotId } = require('../helpers/ws-slot-id');
 
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
 const ARTIFACTS_DIR = path.join(REPO_ROOT, 'research', 'date-handling', 'web-services');
@@ -228,13 +229,11 @@ function stripBackticks(s) {
     return clean;
 }
 
+// Slot ID: prefer the write-time-stamped r.tcId, fall back to composing from the
+// row fields (handles old regression JSONs and the testing/tmp path that predates
+// the pipeline stamp).
 function buildTcId(result) {
-    const action = result.action.toLowerCase();
-    const config = result.config;
-    const tz = result.tz;
-    if (result.format) return `${action}-${config}-${result.format}`;
-    if (result.variant) return `${action}-${config}-${result.variant}-${tz}`;
-    return `${action}-${config}-${tz}`;
+    return result.tcId || buildWsSlotId(result);
 }
 
 function getNextBatchRunNumber(prefix) {

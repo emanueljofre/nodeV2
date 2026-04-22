@@ -20,6 +20,7 @@
  */
 const fs = require('fs');
 const path = require('path');
+const { buildWsSlotId } = require('../helpers/ws-slot-id');
 
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
 const MATRIX_PATH = path.join(REPO_ROOT, 'research', 'date-handling', 'web-services', 'matrix.md');
@@ -145,14 +146,10 @@ function parseBugs(s) {
     return tokens.map((t) => t.toUpperCase());
 }
 
-// Build slot ID from a result row (same logic as generate-ws-artifacts.js).
+// Slot ID: prefer the write-time-stamped r.tcId, fall back to composing from the
+// row fields (handles old regression JSONs written before the pipeline stamped tcId).
 function buildTcId(r) {
-    const action = r.action.toLowerCase();
-    const config = r.config;
-    const tz = r.tz;
-    if (r.format) return `${action}-${config}-${r.format}`.toLowerCase();
-    if (r.variant) return `${action}-${config}-${r.variant}-${tz}`.toLowerCase();
-    return `${action}-${config}-${tz}`.toLowerCase();
+    return r.tcId || buildWsSlotId(r);
 }
 
 const TZ_MAP = {

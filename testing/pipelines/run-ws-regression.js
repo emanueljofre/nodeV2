@@ -20,6 +20,7 @@ const fs = require('fs');
 const path = require('path');
 const { captureBuildContext } = require('../../tools/helpers/build-context');
 const { fingerprint } = require('../../tools/helpers/build-fingerprint');
+const { buildWsSlotId } = require('../../tools/helpers/ws-slot-id');
 const { WS_TEMPLATE_NAME } = require('../fixtures/ws-config');
 const { vvConfig } = require('../fixtures/vv-config');
 
@@ -212,6 +213,15 @@ async function main() {
                 const jsonStr = output.substring(firstBrace).trim();
                 const result = JSON.parse(jsonStr);
                 const entries = (result.data?.results || []).map((r) => ({
+                    // Slot ID composed at write-time so downstream tools (task-status,
+                    // audit-ws-v2, generate-ws-artifacts) read `r.tcId` uniformly.
+                    tcId: buildWsSlotId({
+                        action: inv.action,
+                        tz: inv.tz,
+                        config: r.config,
+                        format: r.format,
+                        variant: r.variant || r.pattern,
+                    }),
                     action: inv.action,
                     tz: inv.tz,
                     config: r.config,
