@@ -82,7 +82,9 @@ run-regression.js (orchestrator)
 
 Three files in `testing/`:
 
-- `reporters/regression-reporter.js` — custom Playwright reporter that captures results + actual values to JSON. Also embeds `buildContext.fingerprint` (SHA-8 identity for the platform build) so the timeline tool (`npm run build:timeline`) can correlate runs with rollouts.
+- `reporters/regression-reporter.js` — custom Playwright reporter that captures results + actual values to JSON. Embeds `buildContext.fingerprint` (SHA-8 identity for the platform build) so the timeline tool (`npm run build:timeline`) can correlate runs with rollouts. `_extractTcId()` recognizes four title conventions: component-prefixed (`db-5-exact:`, `doc-1-iso-date:`), bare-digit (`15-vv-core —`, `12-dst-brazil —`), forms `TC-*:`, and category-level `DB-*:`/`DOC-*:`/`WF-*:`/`SP-*:`/`WS-*:`.
+- **Scope filter** (on parameterized specs) — `scope: 'V1' \| 'V2'` on a TC runs only in the matching env. Active env is detected via `VV.Form.calendarValueService.useUpdatedCalendarValueLogic`. Entries default to `V1` when omitted. V1 and V2 baselines coexist in `test-data.js`. Manage V2 side with `npm run rebaseline:v2` / `audit:v2` / `tag:v2`.
+- **`captureFieldValues`** helper normalizes Date objects and numbers to strings before returning raw/api. Observed original type is preserved as `rawType`/`apiType` for V1-vs-V2 drift detection. Tests compare semantic values, not internal representation.
 - `scripts/run-regression.js` — CLI entry point (runs tests then triggers artifact generation)
 - `tools/generators/generate-artifacts.js` — reads JSON, creates/updates markdown artifacts
 

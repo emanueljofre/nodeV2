@@ -731,6 +731,8 @@ The `ConfigureCustomerDatabaseDetails` page has its own 6-tab strip (Database De
 
 Practical consequence: **always check the database-scope toggle, not just the customer-scope one** before concluding a setting is off. Every test on vv5dev/EmanuelJofre so far has been running under database-scope V2, not V1 like vvdemo.
 
+**Scope of the V2 toggle — Forms-only, not REST API** (verified 2026-04-22): the `useUpdatedCalendarValueLogic` flag gates the Angular `initCalendarValueV1`/`V2` init paths in the Form Viewer. It does **not** affect the REST API surface. Running the 105-slot WS date-handling regression against vvdemo V1 (build fingerprint `b18dbfdb`) and vv5dev V2 (`f36b65dd`) produced byte-identical per-slot verdicts across all 79 audited slots. Implication: REST endpoints (`postForms`, `getForms`, `postFormRevision`, `forminstance/`) treat dates the same on both code paths; when investigating date behavior differences, the V1/V2 axis only matters if the data flows through the Form Viewer. Evidence: [`research/date-handling/web-services/analysis/overview.md § Executive Summary`](../../research/date-handling/web-services/analysis/overview.md#1-executive-summary).
+
 ### Configuration Sections Toolbar
 
 Both the customer-scope Configuration Settings page and the database-scope Database Settings page share a top toolbar with a **"Configuration Sections"** dropdown. Clicking an item postbacks and re-renders the form below with that section's settings. 15 sections in total:

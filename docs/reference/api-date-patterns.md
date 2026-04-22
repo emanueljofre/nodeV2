@@ -175,7 +175,11 @@ const params = { q: "[Field7] ge '2026-03-15' AND [Field7] lt '2026-03-16'" };
 
 **Rule of thumb:** Always use range queries (`ge` + `lt`) instead of exact equality (`eq`) when filtering on date-only fields. This is necessary because the VV server does not enforce date-only semantics — it stores whatever datetime value was provided, and the "date-only" concept only exists in the Forms client-side JS.
 
-**Lookup by record GUID**: `getForms` OData does **not** accept `[id] eq '<guid>'` as a query — it returns zero rows even when the GUID is valid. Query by `instanceName` instead (`[instanceName] eq 'DateTest-000123'`). The record GUID returned in `postForms` responses is the `revisionId` field (no `id` field is present), and that same GUID is what goes into the `DataID=` FormViewer URL param. Confirmed 2026-04-21 against vvdemo and vv5dev.
+**Lookup by record GUID**: `getForms` OData does **not** accept `[id] eq '<guid>'` as a query — it returns zero rows even when the GUID is valid. `[dataId] eq '<guid>'` is also rejected, with a server-side `400 BadRequest` and `"Invalid expression, invalid column: 'dataid', at loc:0"` (confirmed 2026-04-22 on vv5dev). Query by `instanceName` instead (`[instanceName] eq 'DateTest-000123'`). The record GUID returned in `postForms` responses is the `revisionId` field (no `id` field is present), and that same GUID is what goes into the `DataID=` FormViewer URL param. Confirmed 2026-04-21 against vvdemo and vv5dev.
+
+**Pagination cap**: `getForms` silently caps results at **200 rows per response**, even when `top` is set higher (observed: `top: 2000` returned 200 items on vv5dev against a template with ~4,000 records). Always paginate with `top` + `skip` and stop when a page returns fewer than 200 rows. There is no cursor or `nextLink` in the response.
+
+**Instance-name generation**: VV auto-generates record `instanceName` by taking the **first 8 characters of the form-template name** + a sequence suffix. Template `"DateTest"` (8 chars) yields `DateTest-000080`; template `"Date Test Harness"` (17 chars) yields `Date Tes-003949` on vv5dev. Suffix is a zero-padded 6-digit counter per template. When configuring write-policy allowlists or WS-2 record-read tests across environments, don't assume a consistent instance-name prefix unless the template names are identical.
 
 Empirically verified: [WEBSERVICE-BUG-6 audit](../../research/date-handling/web-services/analysis/ws-bug-6-no-date-only-enforcement.md) — exact equality returned 1 of 2 March 15 records; range query returned both.
 

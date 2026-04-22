@@ -4,32 +4,37 @@ Complete technical reference for all CLI tools in `tools/`. For folder-level ove
 
 ## Quick Reference
 
-| Script                                                 | npm alias          | Category  | Purpose                                      | Scope           | Writes                     |
-| ------------------------------------------------------ | ------------------ | --------- | -------------------------------------------- | --------------- | -------------------------- |
-| [extract.js](#extractjs)                               | —                  | Extract   | Unified extraction of VV admin components    | project         | disk-only                  |
-| [version-snapshot.js](#version-snapshotjs)             | `version:snapshot` | Explore   | Capture platform version state               | environment     | disk-only                  |
-| [version-diff.js](#version-diffjs)                     | `version:diff`     | Explore   | Compare two version snapshots                | general         | read-only                  |
-| [environment-profile.js](#environment-profilejs)       | `env:profile`      | Explore   | Generate environment metadata profile        | project         | disk-only                  |
-| [build-timeline.js](#build-timelinejs)                 | `build:timeline`   | Analysis  | Derived view of platform builds observed     | project         | read-only                  |
-| [task-status.js](#task-statusjs)                       | `task:status`      | Analysis  | Matrix slots executed vs pending per project | project         | disk-only (with `--write`) |
-| [review-forms.js](#review-formsjs)                     | `review:forms`     | Review    | Standards review of form template XMLs       | project         | disk-only                  |
-| [inventory-fields.js](#inventory-tools)                | —                  | Inventory | Calendar field config analysis               | project (WADNR) | disk-only                  |
-| [inventory-scripts.js](#inventory-tools)               | —                  | Inventory | Inline script interaction analysis           | project (WADNR) | disk-only                  |
-| [run-ws-test.js](#run-ws-testjs)                       | —                  | Runner    | WS test harness (direct Node.js)             | environment     | to-VV                      |
-| [run-sp-test.js](#run-sp-testjs)                       | —                  | Runner    | SP test harness (direct Node.js)             | environment     | to-VV                      |
-| [run-relate-test.js](#run-relate-testjs)               | —                  | Runner    | Relate/unrelate API round-trip               | environment     | to-VV                      |
-| [create-ws.js](#create-wsjs)                           | —                  | Admin     | Create web service via admin UI              | project         | to-VV                      |
-| [create-schedule.js](#admin-tools--compact-entries)    | —                  | Admin     | Create scheduled service via admin UI        | project         | to-VV                      |
-| [test-schedule.js](#admin-tools--compact-entries)      | —                  | Admin     | Test scheduled service end-to-end            | project         | to-VV                      |
-| [verify-ws.js](#admin-tools--compact-entries)          | —                  | Admin     | Verify web service existence via API         | project         | read-only                  |
-| [explore-admin.js](#admin-tools--compact-entries)      | —                  | Admin     | Discover admin page structure                | project         | read-only                  |
-| [audit-bug2–bug7](#audit--verification-tools)          | —                  | Audit     | Bug evidence collection (7 scripts)          | environment     | varies                     |
-| [explore-dashboard.js](#verification--probe-scripts)   | —                  | Audit     | Dashboard grid inspection                    | environment     | read-only                  |
-| [verify-ws\*-browser.js](#verification--probe-scripts) | —                  | Audit     | Browser-based WS verification                | environment     | read-only                  |
-| [probe-\*.js (SP)](#scheduled-process-probes)          | —                  | Explore   | SP research investigation (8 scripts)        | environment     | varies                     |
-| [generate-artifacts.js](#generator-tools)              | —                  | Generator | Forms regression → markdown artifacts        | general         | disk-only                  |
-| [generate-ws-artifacts.js](#generator-tools)           | —                  | Generator | WS regression → markdown artifacts           | general         | disk-only                  |
-| [generate-dash-artifacts.js](#generator-tools)         | —                  | Generator | Dashboard regression → markdown artifacts    | general         | disk-only                  |
+| Script                                                 | npm alias          | Category  | Purpose                                                                         | Scope           | Writes                       |
+| ------------------------------------------------------ | ------------------ | --------- | ------------------------------------------------------------------------------- | --------------- | ---------------------------- |
+| [extract.js](#extractjs)                               | —                  | Extract   | Unified extraction of VV admin components                                       | project         | disk-only                    |
+| [version-snapshot.js](#version-snapshotjs)             | `version:snapshot` | Explore   | Capture platform version state                                                  | environment     | disk-only                    |
+| [version-diff.js](#version-diffjs)                     | `version:diff`     | Explore   | Compare two version snapshots                                                   | general         | read-only                    |
+| [environment-profile.js](#environment-profilejs)       | `env:profile`      | Explore   | Generate environment metadata profile                                           | project         | disk-only                    |
+| [build-timeline.js](#build-timelinejs)                 | `build:timeline`   | Analysis  | Derived view of platform builds observed                                        | project         | read-only                    |
+| [task-status.js](#task-statusjs)                       | `task:status`      | Analysis  | Matrix slots executed vs pending per project                                    | project         | disk-only (with `--write`)   |
+| [rebaseline-v2.js](#rebaseline-v2js)                   | `rebaseline:v2`    | Analysis  | Create `.V2` siblings in `test-data.js` from V2-env observations                | project         | disk-only (with `--write`)   |
+| [audit-v2-baseline.js](#audit-v2-baselinejs)           | `audit:v2`         | Analysis  | Classify V1-vs-V2 expected diffs with bug-absorption guard                      | project         | disk-only (with `--write`)   |
+| [tag-v2-baseline.js](#tag-v2-baselinejs)               | `tag:v2`           | Analysis  | Add `FORM-BUG-V2-*` tags to UNFLAGGED V2 siblings (pattern-based)               | general         | disk-only (with `--write`)   |
+| [audit-ws-v2.js](#audit-ws-v2js)                       | `audit:ws:v2`      | Analysis  | Classify WS regression results vs matrix V1 baseline + tag WS-BUG-2/3/5/6       | project         | disk-only (with `--write`)   |
+| [generate-ws-v2-matrix.js](#generate-ws-v2-matrixjs)   | `matrix:ws:v2`     | Analysis  | Auto-append V2 Baseline Additions section to WS matrix from audit NOT_IN_MATRIX | project         | writes to `research/` matrix |
+| [review-forms.js](#review-formsjs)                     | `review:forms`     | Review    | Standards review of form template XMLs                                          | project         | disk-only                    |
+| [inventory-fields.js](#inventory-tools)                | —                  | Inventory | Calendar field config analysis                                                  | project (WADNR) | disk-only                    |
+| [inventory-scripts.js](#inventory-tools)               | —                  | Inventory | Inline script interaction analysis                                              | project (WADNR) | disk-only                    |
+| [run-ws-test.js](#run-ws-testjs)                       | —                  | Runner    | WS test harness (direct Node.js)                                                | environment     | to-VV                        |
+| [run-sp-test.js](#run-sp-testjs)                       | —                  | Runner    | SP test harness (direct Node.js)                                                | environment     | to-VV                        |
+| [run-relate-test.js](#run-relate-testjs)               | —                  | Runner    | Relate/unrelate API round-trip                                                  | environment     | to-VV                        |
+| [create-ws.js](#create-wsjs)                           | —                  | Admin     | Create web service via admin UI                                                 | project         | to-VV                        |
+| [create-schedule.js](#admin-tools--compact-entries)    | —                  | Admin     | Create scheduled service via admin UI                                           | project         | to-VV                        |
+| [test-schedule.js](#admin-tools--compact-entries)      | —                  | Admin     | Test scheduled service end-to-end                                               | project         | to-VV                        |
+| [verify-ws.js](#admin-tools--compact-entries)          | —                  | Admin     | Verify web service existence via API                                            | project         | read-only                    |
+| [explore-admin.js](#admin-tools--compact-entries)      | —                  | Admin     | Discover admin page structure                                                   | project         | read-only                    |
+| [audit-bug2–bug7](#audit--verification-tools)          | —                  | Audit     | Bug evidence collection (7 scripts)                                             | environment     | varies                       |
+| [explore-dashboard.js](#verification--probe-scripts)   | —                  | Audit     | Dashboard grid inspection                                                       | environment     | read-only                    |
+| [verify-ws\*-browser.js](#verification--probe-scripts) | —                  | Audit     | Browser-based WS verification                                                   | environment     | read-only                    |
+| [probe-\*.js (SP)](#scheduled-process-probes)          | —                  | Explore   | SP research investigation (8 scripts)                                           | environment     | varies                       |
+| [generate-artifacts.js](#generator-tools)              | —                  | Generator | Forms regression → markdown artifacts                                           | general         | disk-only                    |
+| [generate-ws-artifacts.js](#generator-tools)           | —                  | Generator | WS regression → markdown artifacts                                              | general         | disk-only                    |
+| [generate-dash-artifacts.js](#generator-tools)         | —                  | Generator | Dashboard regression → markdown artifacts                                       | general         | disk-only                    |
 
 ## Scope & Write Behavior Key
 
@@ -591,6 +596,117 @@ Covers all six date-handling components (`forms-calendar`, `web-services`, `dash
 **Requires the regression-reporter to know about the component's ID prefix** — `regression-reporter.js` extracts `TC-*:` (forms), `DB-*:`/`DOC-*:`/`WF-*:`/`SP-*:`/`WS-*:` category titles, and lowercase fine-grained slot IDs from test titles. Tests whose titles don't carry a recognizable slot ID are not tracked by this tool.
 
 Pairs with `build-timeline.js`: timeline tells you _which builds ran when_; task-status tells you _which slots have been covered and what they looked like_. Together they answer "did TC-X regress on build Y?".
+
+### rebaseline-v2.js
+
+**Purpose:** Create `.V2` siblings in `testing/fixtures/test-data.js` from the expected-vs-observed diffs of a V2-env regression run, so V2 entries can pass against V2 behavior while V1 entries stay untouched for V1 envs.
+**Scope:** project | **Write:** disk-only (with `--write`)
+**npm alias:** `npm run rebaseline:v2`
+**Path:** `tools/analysis/rebaseline-v2.js`
+
+```bash
+npm run rebaseline:v2 -- --project EmanuelJofre-vv5dev                 # dry-run (default)
+npm run rebaseline:v2 -- --project EmanuelJofre-vv5dev --write         # apply
+npm run rebaseline:v2 -- --project EmanuelJofre-vv5dev --tc 1-A-BRT    # single TC
+```
+
+For each TC in the latest regression JSON: if a `.V2` sibling already exists, updates its `expectedRaw`/`expectedApi` in place; otherwise clones the V1 entry, swaps `id` to `{base}.V2`, adds `scope: 'V2'`, and writes observed values. Skips entries whose V1 action is `umbrella/skip/theoretical`. Empty or null observations trigger a SKIP (reporter couldn't parse actuals). Uses `apiFallback` (api = raw) when only raw was captured (test stopped at first failing assertion).
+
+Refuses to run unless the regression JSON is from a V2 environment (identified by customer alias / fingerprint cross-check).
+
+### audit-v2-baseline.js
+
+**Purpose:** Classify every `.V2` sibling vs its V1 parent into five buckets so silently-absorbed V2 bugs are surfaced before the baseline is considered clean.
+**Scope:** project | **Write:** disk-only (with `--write`)
+**npm alias:** `npm run audit:v2`
+**Path:** `tools/analysis/audit-v2-baseline.js`
+
+```bash
+npm run audit:v2 -- --project EmanuelJofre-vv5dev
+npm run audit:v2 -- --project EmanuelJofre-vv5dev --write    # persist to v2-baseline-audit.md
+npm run audit:v2 -- --project EmanuelJofre-vv5dev --json     # machine-readable
+```
+
+Verdicts (per V2 sibling):
+
+| Verdict                | Meaning                                                                                             |
+| ---------------------- | --------------------------------------------------------------------------------------------------- |
+| `IDENTICAL`            | V2 expected == V1 expected. No action.                                                              |
+| `FORMAT_ONLY`          | Same UTC moment — only serialization differs. Benign.                                               |
+| `SAME_LOCAL_DATE`      | Same calendar date in the entry's TZ (different UTC representations). Usually benign for date-only. |
+| `KNOWN_BUG_PERSISTS`   | Semantic difference AND the V1 **or** V2 entry has `bugs: [...]`. Documented.                       |
+| `UNFLAGGED_DIFFERENCE` | Semantic difference AND neither entry has a bug marker. ★ Review required.                          |
+| `ORPHAN_V2`            | `.V2` sibling with no V1 parent by base ID. Structural issue.                                       |
+
+Parses `YYYY-MM-DD` as a calendar date in the entry's TZ (NOT UTC midnight) and compares calendar dates via `Intl.DateTimeFormat` with the right zone. UNFLAGGED count after tagging drives the v2-review-queue backlog.
+
+### tag-v2-baseline.js
+
+**Purpose:** Sweep UNFLAGGED `.V2` entries through pattern matchers and add V2-specific bug tags so the baseline documents why V2 differs, instead of silently absorbing the diff.
+**Scope:** general | **Write:** disk-only (with `--write`)
+**npm alias:** `npm run tag:v2`
+**Path:** `tools/analysis/tag-v2-baseline.js`
+
+```bash
+npm run tag:v2                # dry-run
+npm run tag:v2 -- --write     # apply
+npm run tag:v2 -- --json      # machine output
+```
+
+Five pattern matchers applied in order:
+
+| Pattern | Detection                                        | Tag                          |
+| ------- | ------------------------------------------------ | ---------------------------- |
+| A       | V1 bare date → V2 UTC midnight same day          | `FORM-BUG-V2-UTCMIDNIGHT`    |
+| B       | V1 naive ISO → V2 same ISO + `.000Z`             | `FORM-BUG-V2-LEGACY-Z`       |
+| C       | `action: 'preset'` with year/month shift V1→V2   | `FORM-BUG-V2-PRESET-YEAR`    |
+| D       | cat-6 `expectedRaw: 'false'` (reporter artifact) | (reset to `dynamic`, no tag) |
+| E       | V1 bare date → V2 UTC previous-day               | `FORM-BUG-7-persists-on-V2`  |
+
+Writes tags to the V2 sibling's `bugs: [...]` array (dedups existing entries). Leaves IDENTICAL/FORMAT_ONLY/KNOWN_BUG_PERSISTS/SAME_LOCAL_DATE untouched. Entries that no pattern matches are left for manual review via the project's `v2-review-queue.md`.
+
+### audit-ws-v2.js
+
+**Purpose:** Classify every slot in a WS regression run vs the V1 baseline parsed from `research/date-handling/web-services/matrix.md`, surfacing silent V2 divergence against documented expectations. Mirrors `audit-v2-baseline.js` but for WS — there's no `test-data.js` equivalent for pure WS specs, so the matrix is the source of truth.
+**Scope:** project | **Write:** disk-only (with `--write`)
+**npm alias:** `npm run audit:ws:v2`
+**Path:** `tools/analysis/audit-ws-v2.js`
+
+```bash
+npm run audit:ws:v2 -- --project EmanuelJofre-vv5dev
+npm run audit:ws:v2 -- --project EmanuelJofre-vv5dev --write    # persist v2-baseline-audit.{md,json}
+npm run audit:ws:v2 -- --project EmanuelJofre-vv5dev --json     # machine-readable
+```
+
+Verdicts (per slot):
+
+| Verdict                       | Meaning                                                                          |
+| ----------------------------- | -------------------------------------------------------------------------------- |
+| `IDENTICAL`                   | V2 observed stored == V1 matrix expected. No action.                             |
+| `FORMAT_ONLY`                 | Same UTC moment — V1/V2 differ only in serialization format.                     |
+| `SAME_LOCAL_DATE`             | Same calendar date in the slot's TZ (different UTC representations).             |
+| `KNOWN_BUG_PERSISTS`          | Semantic diff AND matrix has a `bugs` marker OR a bug-signature pattern matched. |
+| `UNFLAGGED_DIFFERENCE`        | Semantic diff AND no known-bug marker. ★ Review required.                        |
+| `NEW_IN_V2` / `MISSING_IN_V2` | Value appeared / disappeared vs V1 expected.                                     |
+| `NOT_IN_MATRIX`               | Slot observed but no matching matrix row (use `matrix:ws:v2` to baseline).       |
+
+Parses matrix headers that contain `Expected`, `Cycle 2`, or plain `Stored` so WS-1/2/3/5/6/7/8/9 tables all map cleanly despite inconsistent column names. Pattern matchers for WS-BUG-2/3/5/6 inject bug tags into the report when their signatures (e.g. WS-5 Latam formats → null, date-only accepting time) fire.
+
+Writes `projects/{name}/testing/date-handling/web-services/v2-baseline-audit.md` + `.json`. WS-2 UNFLAGGED entries get an auto-rendered explanatory note about pipeline-artifact causes (pipeline reads a fresh WS-1 record; configs not set in that record read back empty).
+
+### generate-ws-v2-matrix.js
+
+**Purpose:** Auto-generate a `V2 Baseline Additions — {project} ({date})` section in `research/date-handling/web-services/matrix.md` containing one row per `NOT_IN_MATRIX` audit slot, with the observed `stored` value as the new Expected. Idempotent via HTML anchor comments (replaces its own section on re-run).
+**Scope:** project | **Write:** writes to `research/date-handling/web-services/matrix.md`
+**npm alias:** `npm run matrix:ws:v2`
+**Path:** `tools/analysis/generate-ws-v2-matrix.js`
+
+```bash
+npm run matrix:ws:v2 -- --project EmanuelJofre-vv5dev              # apply
+npm run matrix:ws:v2 -- --project EmanuelJofre-vv5dev --dry-run    # preview
+```
+
+Reads the project's latest `v2-baseline-audit.json`, skips NOT_IN_MATRIX rows with no observed value (harness summary rows without stored data), and appends a markdown table inside `<!-- ws-v2-baseline:{project} -->` anchors. Subsequent runs replace the section rather than duplicating. Workflow: `test:ws:regression` → `audit:ws:v2 --write` → `matrix:ws:v2` → re-run `audit:ws:v2 --write` to confirm the NOT_IN_MATRIX slots flip to IDENTICAL.
 
 ## 9. Helper Modules
 
