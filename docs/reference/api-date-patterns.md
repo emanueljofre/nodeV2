@@ -177,11 +177,32 @@ const params = { q: "[Field7] ge '2026-03-15' AND [Field7] lt '2026-03-16'" };
 
 **Lookup by record GUID**: `getForms` OData does **not** accept `[id] eq '<guid>'` as a query — it returns zero rows even when the GUID is valid. `[dataId] eq '<guid>'` is also rejected, with a server-side `400 BadRequest` and `"Invalid expression, invalid column: 'dataid', at loc:0"` (confirmed 2026-04-22 on vv5dev). Query by `instanceName` instead (`[instanceName] eq 'DateTest-000123'`). The record GUID returned in `postForms` responses is the `revisionId` field (no `id` field is present), and that same GUID is what goes into the `DataID=` FormViewer URL param. Confirmed 2026-04-21 against vvdemo and vv5dev.
 
+**OData query format tolerance**: both ISO (`2026-03-15`) and US (`03/15/2026`) date formats are accepted inside the `q` parameter — the server normalizes before comparing against stored values. Verified 2026-04-22 on vv5dev: `[Field7] eq '03/15/2026'` matches records stored as `2026-03-15T00:00:00Z` (WS-8 `ws-8-A-fmtUS`). LATAM/DD-MM formats were not tested in queries.
+
 **Pagination cap**: `getForms` silently caps results at **200 rows per response**, even when `top` is set higher (observed: `top: 2000` returned 200 items on vv5dev against a template with ~4,000 records). Always paginate with `top` + `skip` and stop when a page returns fewer than 200 rows. There is no cursor or `nextLink` in the response.
 
 **Instance-name generation**: VV auto-generates record `instanceName` by taking the **first 8 characters of the form-template name** + a sequence suffix. Template `"DateTest"` (8 chars) yields `DateTest-000080`; template `"Date Test Harness"` (17 chars) yields `Date Tes-003949` on vv5dev. Suffix is a zero-padded 6-digit counter per template. When configuring write-policy allowlists or WS-2 record-read tests across environments, don't assume a consistent instance-name prefix unless the template names are identical.
 
 Empirically verified: [WEBSERVICE-BUG-6 audit](../../research/date-handling/web-services/analysis/ws-bug-6-no-date-only-enforcement.md) — exact equality returned 1 of 2 March 15 records; range query returned both.
+
+---
+
+## Clearing Date Fields — Null/Empty/Omit Equivalence
+
+Writing any of the following to a date field via `postForms` or `postFormRevision` produces the same stored state — an empty/null field value. Verified 2026-04-22 on vv5dev across Configs A (date-only) and D (DateTime+ignoreTZ):
+
+| Input                                            | Result                         |
+| ------------------------------------------------ | ------------------------------ |
+| `""` (empty string)                              | Field stored as null           |
+| `null`                                           | Field stored as null           |
+| `"null"` (literal string)                        | Field stored as null           |
+| `"Invalid Date"`                                 | Field stored as null           |
+| Field omitted from the payload                   | Field stored as null           |
+| `{ FieldN: null }` via `postFormRevision` update | Pre-existing value **cleared** |
+
+**Practical implication:** to clear a previously-set date field, send `null` (or `""`) in a `postFormRevision` update. No special "clear field" verb needed. There's no way to distinguish "user set null" from "user never set a value" in the stored state — both render as empty in Forms.
+
+See [WS-6 test cases](../../research/date-handling/web-services/matrix.md#ws-6-emptynull-handling) for the full matrix (6 scenarios × 2 configs).
 
 ---
 

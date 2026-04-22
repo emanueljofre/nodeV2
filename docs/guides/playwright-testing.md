@@ -153,8 +153,11 @@ Runs API-based regression tests via `run-ws-test.js` and generates equivalent ar
 ```
 run-ws-regression.js (orchestrator)
   → TZ={tz} node run-ws-test.js --action WS-N → JSON per invocation
-  → generate-ws-artifacts.js → batch run files, summaries, matrix.md, results.md
+  → pipeline stamps tcId + pass/fail on each row (via tools/helpers/ws-slot-id.js, ws-matrix-compare.js)
+  → generate-ws-artifacts.js → batch run files, summaries, results.md (matrix.md is NOT modified — it is authoritative)
 ```
+
+**Shared helpers**: `tools/helpers/ws-slot-id.js` (slot-ID composition from row fields), `tools/helpers/ws-matrix-compare.js` (matrix parsing + per-action pass/fail classifier, including action-dispatch for WS-6/8), `tools/helpers/ws-results-path.js` (per-customer output routing).
 
 #### Usage
 

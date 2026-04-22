@@ -15,7 +15,7 @@ Standalone CLI utilities for working with VV environments. Not tied to Playwrigh
 | `analysis/`   | Derived views + V2-baseline management over project artifacts | `npm run build:timeline`, `npm run task:status`, `npm run rebaseline:v2`, `npm run audit:v2`, `npm run tag:v2`, `npm run audit:ws:v2`, `npm run matrix:ws:v2` (each takes `--project <name>`) |
 | `admin/`      | Create/manage VV admin objects via Playwright                 | `node tools/admin/create-ws.js --project emanueljofre-vvdemo --name myWS`                                                                                                                     |
 | `review/`     | Standards compliance review + reports                         | `node tools/review/review.js --project wadnr`, `review.js --matrix`                                                                                                                           |
-| `helpers/`    | Shared libraries used by tools                                | `vv-admin.js`, `vv-templates.js`, `vv-formsapi.js`, `vv-probes.js`, `vv-sync.js`, `build-context.js`, `build-fingerprint.js`                                                                  |
+| `helpers/`    | Shared libraries used by tools                                | `vv-admin.js`, `vv-templates.js`, `vv-formsapi.js`, `vv-probes.js`, `vv-sync.js`, `build-context.js`, `build-fingerprint.js`, `ws-slot-id.js`, `ws-matrix-compare.js`, `ws-results-path.js`   |
 
 ## Explore Commands
 
