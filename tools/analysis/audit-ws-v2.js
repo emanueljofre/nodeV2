@@ -195,12 +195,20 @@ function toLocalDate(parsed, tzName) {
 }
 
 function classify(v1Val, v2Val, tzName) {
-    const v1Norm = v1Val == null ? '' : String(v1Val);
-    const v2Norm = v2Val == null ? '' : String(v2Val);
+    // Normalize null-like literals so matrix Expected `"undefined"` / `"null"`
+    // (used as "no-assertion" markers for WS-8 query-filter slots) compare
+    // IDENTICAL to an actually-missing v2 value.
+    const normalize = (v) => {
+        if (v == null) return '';
+        const s = String(v);
+        return s === 'undefined' || s === 'null' ? '' : s;
+    };
+    const v1Norm = normalize(v1Val);
+    const v2Norm = normalize(v2Val);
     if (v1Norm === v2Norm) return { verdict: 'IDENTICAL' };
 
     // Empty / null-like comparisons — highlight explicitly
-    const isEmpty = (x) => x === '' || x === 'null' || x == null;
+    const isEmpty = (x) => x === '' || x === 'null' || x === 'undefined' || x == null;
     if (isEmpty(v1Val) && !isEmpty(v2Val)) return { verdict: 'NEW_IN_V2' };
     if (!isEmpty(v1Val) && isEmpty(v2Val)) return { verdict: 'MISSING_IN_V2' };
 
