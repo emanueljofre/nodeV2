@@ -7,7 +7,7 @@ Automated regression tests for VisualVault date-handling behavior across Forms c
 The VisualVault platform has **16 confirmed date-handling bugs** across Forms (7), Web Services (6), Dashboards (1), and Document Library (2). This test suite:
 
 - Runs the same scenarios across BRT (UTC-3), IST (UTC+5:30), UTC+0, PST/PDT (UTC-8/-7), and JST (UTC+9) to expose timezone-dependent bugs
-- Covers **351 Forms slots** across 19 categories + **68 Document Library slots** across 10 categories (baseline + platform-scope backlog — see matrices for breakdown). Sibling matrices for Web Services (166), Dashboards (56), Workflows (22), and Scheduled Processes (14) add another ~258 slots.
+- Covers **364 Forms slots** across 20 categories + **68 Document Library slots** across 10 categories (baseline + platform-scope backlog — see matrices for breakdown). Sibling matrices for Web Services (166), Dashboards (56), Workflows (22), and Scheduled Processes (14) add another ~258 slots. Category 20 (Multi-User Concurrency, 13 slots) scaffolded 2026-04-22 — PENDING, no spec yet.
 - Produces both human-readable test documentation (in `research/date-handling/`) and reusable Playwright specs (here)
 
 **Platform Scope dimension** (added 2026-04-20): backlog categories (Forms Cat 14-D/17/18/19, WS-11/12/13, DB-9, DOC-9/10, WF-_, SP-_) exercise Central Admin toggles (V1/V2 calendar logic, T1/T2 TZ conversion, T3 mask, Customer Culture, Customer TZ). Scope-suffix ID convention (e.g. `1-D-BRT.V2+T1`) lets multiple scopes coexist in the same matrix. See `research/date-handling/forms-calendar/matrix.md § Platform Scope`.
