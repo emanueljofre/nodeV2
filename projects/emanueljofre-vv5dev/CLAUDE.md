@@ -63,7 +63,7 @@ V2 date-handling baseline — execution data in `testing/date-handling/`:
 - [`testing/date-handling/failures.json`](testing/date-handling/failures.json) — structured failure data
 - [`testing/date-handling/regression-results-latest.json`](testing/date-handling/regression-results-latest.json) — custom-reporter structured output (per-TC status + actual values + `buildContext.fingerprint`)
 - [`testing/date-handling/v2-baseline-audit.md`](testing/date-handling/v2-baseline-audit.md) — V1-vs-V2 diff audit with verdicts (IDENTICAL / FORMAT_ONLY / SAME_LOCAL_DATE / KNOWN_BUG_PERSISTS / UNFLAGGED_DIFFERENCE). Regenerate with `npm run audit:v2 -- --project EmanuelJofre-vv5dev --write`.
-- 📋 [`testing/date-handling/v2-review-queue.md`](testing/date-handling/v2-review-queue.md) — **6 entries pending manual review** (tag-or-revert decision). Must be resolved before the V2 baseline is considered complete.
+- ✅ [`testing/date-handling/v2-review-queue.md`](testing/date-handling/v2-review-queue.md) — **CLOSED 2026-04-22**. All 6 UNFLAGGED entries resolved; three new V2 bug tags landed (`FORM-BUG-V2-EPOCH-PRESERVED`, `FORM-BUG-V2-URL-PARAM-NORMALIZE`). One mid-sweep tag withdrawn (`FORM-BUG-V2-SAVE-RELOAD-EMPTY` — root cause was `saveFormAndReload` helper calling `page.reload()` on the template URL, not a platform issue). Audit `UNFLAGGED_DIFFERENCE = 0`.
 - `testing/date-handling/full-log.log` — raw playwright output
 
 ### Build timeline
