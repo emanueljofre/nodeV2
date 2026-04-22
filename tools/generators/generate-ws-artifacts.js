@@ -6,10 +6,11 @@
  * Expected column in matrix.md — the matrix is the single source of truth.
  * Updating an Expected value in the matrix changes PASS/FAIL on the next run.
  *
- * Creates/updates:
- *   - Run files (new, immutable) in research/date-handling/web-services/runs/
- *   - Summary files (update) in research/date-handling/web-services/summaries/
- *   - Session index (append) in research/date-handling/web-services/results.md
+ * Creates/updates (under the active customer's projects/{customer}/testing/
+ * date-handling/web-services/ folder — see tools/helpers/ws-results-path.js):
+ *   - Run files (new, immutable) in runs/
+ *   - Summary files (update) in summaries/
+ *   - Session index (append) in results.md
  *
  * Does NOT modify matrix.md Status/Actual columns — the matrix is authoritative.
  * Logs warnings if actual differs from Expected (potential regression).
@@ -21,16 +22,18 @@ const fs = require('fs');
 const path = require('path');
 const { buildWsSlotId } = require('../helpers/ws-slot-id');
 const { parseMatrixExpected, classifyRow } = require('../helpers/ws-matrix-compare');
-const { resolveResultsPath } = require('../helpers/ws-results-path');
+const { resolveResultsPath, resolveArtifactsDir } = require('../helpers/ws-results-path');
 
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
-const ARTIFACTS_DIR = path.join(REPO_ROOT, 'research', 'date-handling', 'web-services');
+// Matrix.md stays in research/ — it's shared platform truth (one file for every
+// customer). Per-run observed data (runs/, summaries/, results.md) routes to the
+// active customer's projects/ folder via resolveArtifactsDir().
+const MATRIX_PATH = path.join(REPO_ROOT, 'research', 'date-handling', 'web-services', 'matrix.md');
+const ARTIFACTS_DIR = resolveArtifactsDir();
 const RUNS_DIR = path.join(ARTIFACTS_DIR, 'runs');
 const SUMMARIES_DIR = path.join(ARTIFACTS_DIR, 'summaries');
-const MATRIX_PATH = path.join(ARTIFACTS_DIR, 'matrix.md');
 const RESULTS_PATH = path.join(ARTIFACTS_DIR, 'results.md');
-// Mirrors the pipeline's write location — per-customer projects/ folder when
-// present, fallback to testing/tmp/. Overridable via --input.
+// Mirrors the pipeline's write location. Overridable via --input.
 const DEFAULT_INPUT = resolveResultsPath();
 
 const TZ_MAP = {
@@ -218,9 +221,17 @@ function generateBatchRunFile({ action, tz, tzInfo, today, runNum, results, pass
         })
         .join('\n');
 
+    // Relative links from RUNS_DIR — matrix.md lives in research/ (shared),
+    // runs/ lives in projects/{customer}/ (per-customer). When running without
+    // a projects/ folder (testing/tmp/ fallback), the relative path shortens.
+    const matrixLink = path.relative(RUNS_DIR, MATRIX_PATH);
+    const analysisLink = path.relative(
+        RUNS_DIR,
+        path.join(REPO_ROOT, 'research', 'date-handling', 'web-services', 'analysis', 'overview.md')
+    );
     return `# ${action} — Batch Run ${runNum} | ${today} | ${tz} | ${passed}P/${failed}F
 
-**Matrix**: [matrix.md](../matrix.md) | **Analysis**: [analysis.md](../analysis.md)
+**Matrix**: [matrix.md](${matrixLink}) | **Analysis**: [analysis/overview.md](${analysisLink})
 
 ## Environment
 
