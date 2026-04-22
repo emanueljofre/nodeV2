@@ -6,7 +6,16 @@
  * For FAILED tests: parses "Received:" from assertion errors.
  * For SKIPPED tests: recorded but excluded from artifact generation.
  *
- * Output: testing/tmp/regression-results-{timestamp}.json
+ * Output: resolved via tools/helpers/forms-results-path.js — routes the
+ * Phase-1 JSON into projects/{customer}/testing/date-handling/ for the
+ * active customer (vvConfig), falling back to testing/tmp/ when no
+ * project folder exists. Mirrors the WS regression pipeline.
+ *
+ * Override precedence (when Playwright instantiates the reporter):
+ *   1. options.outputDir (explicit) —
+ *      --reporter=...,outputDir=/abs/path
+ *   2. VV_PROJECT_SLUG env var — pipeline passes a project override
+ *   3. vvConfig.customerKey — default (active customer in .env.json)
  *
  * Usage in playwright.config.js or CLI:
  *   --reporter=./testing/reporters/regression-reporter.js,list
@@ -14,13 +23,21 @@
 const fs = require('fs');
 const path = require('path');
 const { fingerprint } = require('../../tools/helpers/build-fingerprint');
+const { resolveResultsPath } = require('../../tools/helpers/forms-results-path');
 
 const BUILD_CONTEXT_PATH = path.join(__dirname, '..', 'config', 'build-context.json');
 
 class RegressionReporter {
     constructor(options = {}) {
         this.results = [];
-        this.outputDir = options.outputDir || path.join(__dirname, '..', 'tmp');
+        // Resolve output dir via the per-customer helper so Phase-1 JSON
+        // lands where the Phase-2 generator reads it by default.
+        // resolveResultsPath() returns the full path to regression-results-latest.json;
+        // dirname() is the directory we write both the timestamped and latest files to.
+        const resolvedLatestPath = resolveResultsPath({
+            projectSlug: process.env.VV_PROJECT_SLUG || null,
+        });
+        this.outputDir = options.outputDir || path.dirname(resolvedLatestPath);
         this.startTime = null;
         this.buildContext = null;
     }
