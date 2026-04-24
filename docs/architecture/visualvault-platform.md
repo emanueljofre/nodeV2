@@ -607,7 +607,9 @@ Named SQL queries defined on top of a connection. Used in dashboards, reports, a
 
 **Preview feature:** After entering SQL in the editor, click **Preview** to run the query and see results immediately without saving. Useful for ad-hoc DB inspection during testing.
 
-**API usage:** `vvClient.customQuery.getCustomQueryResultsByName({ queryName: 'MyQuery', ... })`
+**API usage:** `vvClient.customQuery.getCustomQueryResultsByName(queryName, params)` — positional args (name first, then params object). Also: `getCustomQueryResultsById(id, params)`. The client has no inline-SQL method — queries must be pre-registered here.
+
+**On-the-wire serialization (verified 2026-04-22 on vv5dev):** SQL `datetime` columns return as ISO-8601 with trailing `Z` (e.g. `"2026-04-22T18:28:40.987Z"`), and SQL `datetimeoffset` returns as ISO-8601 with explicit offset (e.g. `"2026-04-22T18:28:40.9993913+00:00"`). The raw SQL Server `.ToString()` format (`YYYY-MM-DD HH:mm:ss.SSS`) is NOT what callers see — `customQuery` normalizes to ISO-8601 UTC on the response. The `SYSDATETIMEOFFSET()` offset reveals the SQL host OS TZ.
 
 ### Form Database Schema
 
@@ -735,7 +737,12 @@ The `ConfigureCustomerDatabaseDetails` page has its own 6-tab strip (Database De
 
 Practical consequence: **always check the database-scope toggle, not just the customer-scope one** before concluding a setting is off. Every test on vv5dev/EmanuelJofre so far has been running under database-scope V2, not V1 like vvdemo.
 
-**Scope of the V2 toggle — Forms-only, not REST API** (verified 2026-04-22): the `useUpdatedCalendarValueLogic` flag gates the Angular `initCalendarValueV1`/`V2` init paths in the Form Viewer. It does **not** affect the REST API surface. Running the 105-slot WS date-handling regression against vvdemo V1 (build fingerprint `b18dbfdb`) and vv5dev V2 (`f36b65dd`) produced byte-identical per-slot verdicts across all 79 audited slots. Implication: REST endpoints (`postForms`, `getForms`, `postFormRevision`, `forminstance/`) treat dates the same on both code paths; when investigating date behavior differences, the V1/V2 axis only matters if the data flows through the Form Viewer. Evidence: [`research/date-handling/web-services/analysis/overview.md § Executive Summary`](../../research/date-handling/web-services/analysis/overview.md#1-executive-summary).
+**Scope of the V2 toggle — Form Viewer only** (verified 2026-04-22): the `useUpdatedCalendarValueLogic` flag gates the Angular `initCalendarValueV1`/`V2` init paths in the Form Viewer. It does **not** affect the REST API surface and does **not** affect Scheduled Process / server-script execution. Evidence:
+
+- WS parity: 2026-04-22 audit at build `f36b65dd` → **135/135 IDENTICAL / 0 unflagged divergences** between vvdemo V1 (`b18dbfdb`) and vv5dev V2. REST endpoints (`postForms`, `getForms`, `postFormRevision`, `forminstance/`) store dates identically on both code paths. See [`research/date-handling/web-services/analysis/overview.md § Executive Summary`](../../research/date-handling/web-services/analysis/overview.md#1-executive-summary).
+- SP parity: `DateTimeNowProbe` on vv5dev V2 returns the same Node + SQL clocks that V1 would; SP script execution never touches the Angular calendar pipeline. See [`research/date-handling/scheduled-processes/matrix.md`](../../research/date-handling/scheduled-processes/matrix.md).
+
+Implication: when investigating date-behavior differences, the V1/V2 axis only matters when the data flows through the Form Viewer.
 
 ### Configuration Sections Toolbar
 
@@ -806,15 +813,26 @@ Exposes the full app/form DB mapping — important for tracing data-flow issues:
 
 ### Customer Details Tab — Key Fields
 
-| Field             | Notes                                                                                                                                                                 |
-| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Name / Alias      | Display name + URL-segment alias (used in `/app/{alias}/{db}/...`)                                                                                                    |
-| Active (checkbox) | Soft-disable for the entire customer                                                                                                                                  |
-| **Time Zone**     | Telerik combobox → picks from Windows TZ list. **Server-side timestamps** (`GETDATE()`, `DateTime.Now`) use this. Same field as `utcOffset` in `/api/v1/.../version`. |
-| Culture           | Server-side culture — affects server-rendered date formats, number formatting                                                                                         |
-| Language          | Default UI language                                                                                                                                                   |
+| Field             | Notes                                                                                                                                                                                           |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Name / Alias      | Display name + URL-segment alias (used in `/app/{alias}/{db}/...`)                                                                                                                              |
+| Active (checkbox) | Soft-disable for the entire customer                                                                                                                                                            |
+| **Time Zone**     | Telerik combobox → picks from Windows TZ list. Same field as `utcOffset` in `/api/v1/.../version`. Drives UI rendering and some platform-side scheduling; see below for what it does NOT drive. |
+| Culture           | Server-side culture — affects server-rendered date formats, number formatting                                                                                                                   |
+| Language          | Default UI language                                                                                                                                                                             |
 
-**Per-customer time zone is set here**, and it's what `getTimeZone` in the env-profile tool reports. It's _not_ the user's browser TZ and not the SQL server's TZ — it's the customer's configured TZ, used for any server-generated timestamp.
+**Per-customer time zone is set here**, and it's what `getTimeZone` in the env-profile tool reports.
+
+**What Customer TZ does NOT drive (verified 2026-04-22 via SP-2/SP-4 probe on vv5dev):**
+
+| Clock source                             | Actually follows                | Customer TZ? |
+| ---------------------------------------- | ------------------------------- | :----------: |
+| `new Date().toISOString()` (Node script) | Real UTC — TZ-invariant by spec |      no      |
+| `new Date().toString()` / Intl (Node)    | Harness `process.env.TZ`        |      no      |
+| SQL `GETDATE()` / `GETUTCDATE()`         | SQL host OS TZ (UTC on vv5dev)  |      no      |
+| SQL `SYSDATETIMEOFFSET()` offset         | SQL host OS TZ                  |      no      |
+
+For **server-generated timestamps inside SPs and server scripts, Customer TZ is effectively display-only.** The VV ASP.NET server's own TZ and the SQL host OS TZ are independent hosts; changing Customer TZ in Central Admin does not move Node/SQL clock outputs. Relevant where Customer TZ DOES apply: UI rendering (form display, dashboards), scheduled trigger firing windows (untested but hypothesized — see scheduled-processes matrix SP-1).
 
 ### Per-Environment Snapshots
 
