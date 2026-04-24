@@ -11310,6 +11310,58 @@ const DOC_TEST_DATA = [
         bugs: ['DOC-BUG-1'],
         notes: 'GET /indexfields — defaultValue stored without Z suffix (DOC-BUG-1 extends to field defaults).',
     },
+    // --- DOC-7. Query & Search Behavior ---
+    // Verified 2026-04-24: GET /documents?q=<field> <op> '<value>' uses ODATA-style
+    // filter expressions. Direct params (?Date=...), ?indexFields=..., ?filter=... are
+    // all silently ignored. Null-literal (Date eq null) errors out; empty-string
+    // (Date eq '') is the workable "unset" query.
+    {
+        id: 'doc-7-query-exact',
+        category: 7,
+        categoryName: 'Query & Search',
+        action: 'query-exact',
+        seedValue: '2026-03-15T14:30:00',
+        queryFilter: "Date eq '2026-03-15T14:30:00'",
+        expectIncludesTestDoc: true,
+        bugs: [],
+        notes: 'Exact-match query on Date index field returns the test doc.',
+    },
+    {
+        id: 'doc-7-query-range',
+        category: 7,
+        categoryName: 'Query & Search',
+        action: 'query-range',
+        seedValue: '2026-03-15T14:30:00',
+        queryFilter: "Date gt '2026-03-01' and Date lt '2026-04-01'",
+        expectIncludesTestDoc: true,
+        bugs: [],
+        notes: 'Range query (gt/lt) on Date index field returns docs within the window.',
+    },
+    {
+        id: 'doc-7-query-offset-val',
+        category: 7,
+        categoryName: 'Query & Search',
+        action: 'query-offset',
+        seedValue: '2026-03-15T14:30:00-03:00', // stored as '2026-03-15T17:30:00' per DOC-BUG-1
+        queryFilterOriginal: "Date eq '2026-03-15T14:30:00'", // caller's local time — should NOT match
+        queryFilterStored: "Date eq '2026-03-15T17:30:00'", // stored UTC — MUST match
+        expectOriginalMatches: false,
+        expectStoredMatches: true,
+        bugs: ['DOC-BUG-1'],
+        notes: 'DOC-BUG-1 extends to query: consumers must search by the stored UTC value, not the original offset value they wrote.',
+    },
+    {
+        id: 'doc-7-query-null',
+        category: 7,
+        categoryName: 'Query & Search',
+        action: 'query-null',
+        queryFilterNull: 'Date eq null',
+        queryFilterEmpty: "Date eq ''",
+        expectNullErrors: true, // 'null' literal is not a valid column expression per VV q-filter
+        expectEmptyReturnsMany: true, // empty-string matches all docs where Date is unset (fresh/unfiltered docs)
+        bugs: [],
+        notes: 'Null/empty matching: `Date eq null` errors; `Date eq ""` is the workable syntax for finding docs with unset Date.',
+    },
 ];
 
 module.exports = { TEST_DATA, DOC_TEST_DATA };

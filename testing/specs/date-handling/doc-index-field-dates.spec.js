@@ -349,11 +349,86 @@ test.describe('DOC-11: Index Field Default Value', () => {
 });
 
 // ---------------------------------------------------------------------------
-// DOC-5 through DOC-10: Future categories (require additional infrastructure)
+// DOC-7 helpers — query documents via ODATA-style ?q= filter
+// ---------------------------------------------------------------------------
+
+async function queryDocuments(request, qFilter) {
+    const t = await getToken(request);
+    const url = `${BASE_URL}${API_BASE}/documents?q=${encodeURIComponent(qFilter)}`;
+    const resp = await request.get(url, { headers: { Authorization: `Bearer ${t}` } });
+    expect(resp.ok()).toBeTruthy();
+    const body = await resp.json();
+    return { meta: body?.meta, data: body?.data || [], errors: body?.meta?.errors || [] };
+}
+
+// ---------------------------------------------------------------------------
+// DOC-7: Query & Search Behavior
+// ---------------------------------------------------------------------------
+const doc7Tests = DOC_TEST_DATA.filter((t) => t.category === 7);
+
+test.describe('DOC-7: Query & Search', () => {
+    for (const tc of doc7Tests) {
+        test(`${tc.id}: ${tc.notes}`, async ({ request }) => {
+            if (tc.action === 'query-exact' || tc.action === 'query-range') {
+                // Seed the test doc with a known value, then query for it.
+                await writeDateField(request, tc.seedValue);
+                const stored = await readDateField(request);
+                expect(stored).toBe(tc.seedValue); // naive input stored as-is
+                const result = await queryDocuments(request, tc.queryFilter);
+                console.log(`[${tc.id}] q="${tc.queryFilter}" → len=${result.data.length}`);
+                if (tc.expectIncludesTestDoc) {
+                    const hit = result.data.find((d) => d.documentId === DOC_ID);
+                    expect(hit, `test doc ${DOC_ID} not in query results`).toBeTruthy();
+                }
+                return;
+            }
+
+            if (tc.action === 'query-offset') {
+                // Seed with an offset value → DOC-BUG-1 converts to UTC naive.
+                await writeDateField(request, tc.seedValue);
+                const stored = await readDateField(request);
+                console.log(`[${tc.id}] seed="${tc.seedValue}" → stored="${stored}"`);
+                // Query with the original local time caller wrote (minus offset) — should NOT match.
+                const origResult = await queryDocuments(request, tc.queryFilterOriginal);
+                const origHit = origResult.data.find((d) => d.documentId === DOC_ID);
+                expect(!!origHit).toBe(tc.expectOriginalMatches);
+                // Query with the stored UTC value — MUST match.
+                const storedResult = await queryDocuments(request, tc.queryFilterStored);
+                const storedHit = storedResult.data.find((d) => d.documentId === DOC_ID);
+                expect(!!storedHit).toBe(tc.expectStoredMatches);
+                console.log(
+                    `[${tc.id}] original-query matches=${!!origHit} (expected ${tc.expectOriginalMatches}); stored-query matches=${!!storedHit} (expected ${tc.expectStoredMatches})`
+                );
+                // Restore to canonical naive value so later test runs / other tests see a clean state.
+                await writeDateField(request, '2026-03-15T14:30:00');
+                return;
+            }
+
+            if (tc.action === 'query-null') {
+                // `Date eq null` should error (null literal not accepted by VV q-filter).
+                const nullResult = await queryDocuments(request, tc.queryFilterNull);
+                const hasErr = (nullResult.errors || []).length > 0;
+                console.log(
+                    `[${tc.id}] nullErrors=${hasErr} nullLen=${nullResult.data.length}  errMsg="${nullResult.errors?.[0]?.message || ''}"`
+                );
+                expect(hasErr).toBe(tc.expectNullErrors);
+                // `Date eq ''` should succeed and return many docs (all docs without a Date value).
+                const emptyResult = await queryDocuments(request, tc.queryFilterEmpty);
+                console.log(`[${tc.id}] emptyLen=${emptyResult.data.length}`);
+                if (tc.expectEmptyReturnsMany) expect(emptyResult.data.length).toBeGreaterThan(0);
+                return;
+            }
+
+            throw new Error(`Unknown DOC-7 action: ${tc.action}`);
+        });
+    }
+});
+
+// ---------------------------------------------------------------------------
+// DOC-5, DOC-6, DOC-8: Future categories (require additional infrastructure)
 //
 // DOC-5: UI Round-Trip — needs Playwright helper for RadDateTimePicker + checkout
 // DOC-6: Cross-Layer Comparison — needs forms test coordination
-// DOC-7: Query & Search — needs document query API investigation
 // DOC-8: DocAPI Infrastructure Differential — needs WADNR test document setup
 // DOC-9: Culture (ptBR) — needs Central Admin customer-culture toggle
 // DOC-10: Lifecycle defaults — needs fresh-doc uploads + date math verification

@@ -199,14 +199,16 @@ Same date value written to both a form calendar field AND a document index field
 
 Can documents be filtered by date index field values? Does the timezone ambiguity from DOC-BUG-1 break search queries?
 
-**Test method**: Use document search/query API with date filter criteria on index fields.
+**Test method**: `GET /documents?q=<field> <op> '<value>'` — ODATA-style filter. Direct params (`?Date=...`), `?indexFields=...`, and `?filter=...` are silently ignored (return unfiltered result set).
 
-| ID                     | Scenario                                               | Question                                           |
-| ---------------------- | ------------------------------------------------------ | -------------------------------------------------- |
-| doc-7-query-exact      | Query where Date index field = `2026-03-15T14:30:00`   | Does exact match work on index field values?       |
-| doc-7-query-range      | Query where Date between `2026-03-01` and `2026-03-31` | Do range filters work on index fields?             |
-| doc-7-query-offset-val | Query for value stored via offset (DOC-BUG-1)          | Must query use UTC value or original offset value? |
-| doc-7-query-null       | Query for documents with empty/null date index field   | Can you find documents with unset date fields?     |
+**Baseline (vv5dev, 2026-04-24, 4/4 PASS × 12 projects)**:
+
+| ID                     | Query                                                                                                                                                      | Result | Finding                                                                                                               |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | :----: | --------------------------------------------------------------------------------------------------------------------- |
+| doc-7-query-exact      | `Date eq '2026-03-15T14:30:00'`                                                                                                                            |   1    | Exact match works on index-field values.                                                                              |
+| doc-7-query-range      | `Date gt '2026-03-01' and Date lt '2026-04-01'`                                                                                                            |   1    | Range filter with `gt`/`lt` works; boolean `and` composes.                                                            |
+| doc-7-query-offset-val | Seed `2026-03-15T14:30:00-03:00` → stored `T17:30:00`. Query with original local (`T14:30:00`) → 0 matches. Query with stored UTC (`T17:30:00`) → 1 match. |   —    | **DOC-BUG-1 extends to query** — consumers must know the server-converted UTC value, not the offset value they wrote. |
+| doc-7-query-null       | `Date eq null` → `Invalid expression, invalid column: 'null'`. `Date eq ''` → many hits (docs without a Date value).                                       |   —    | Null literal rejected; use `Date eq ''` to find unset fields.                                                         |
 
 ---
 
