@@ -5,7 +5,7 @@ Analysis → `analysis/overview.md` | Spec → `testing/specs/date-handling/doc-
 
 **Execution results**: See `projects/{customer}/testing/date-handling/document-library/status.md` per environment.
 
-Total slots: 68 (52 baselined + 16 backlog — see [Open Gaps & Backlog](#open-gaps--backlog))
+Total slots: 74 (58 baselined + 16 backlog — see [Open Gaps & Backlog](#open-gaps--backlog))
 
 > **Note**: Baseline slots assume the **default Platform Scope** (en-US Culture, Doc Library Configuration Section at its default values — see [`forms-calendar/matrix.md § Platform Scope`](../forms-calendar/matrix.md#platform-scope) and [`projects/emanueljofre-vv5dev/analysis/central-admin/config-sections/document-library.json`](../../../projects/emanueljofre-vv5dev/analysis/central-admin/config-sections/document-library.json)).
 
@@ -54,7 +54,8 @@ Unlike form calendar fields (8 configs: enableTime × ignoreTimezone × useLegac
 | DOC-8. DocAPI Infrastructure Diff |   4    |    P1    | API (cross-env) |
 | DOC-9. Culture (Input + UI)       |   8    |    P1    | API + Browser   |
 | DOC-10. Lifecycle Date Defaults   |   8    |    P2    | API             |
-| **TOTAL**                         | **68** |          |                 |
+| DOC-11. Index Field Default Value |   6    |    P2    | API             |
+| **TOTAL**                         | **74** |          |                 |
 
 ---
 
@@ -280,6 +281,32 @@ These compute `due_date = creation_date + N days` at save time. **Untested**: wh
 
 ---
 
+## DOC-11. Index Field Default Value Behavior (6 slots)
+
+How a global index field's `defaultValue` (configured in Admin → Index Field Admin) behaves when a fresh document is uploaded. Parallels Forms Cat 5 (preset-date) — probes whether the default flows through the same normalization path as PUT writes, and whether DOC-BUG-1/2 extend to defaults.
+
+**Test asset**: a second global index field named `Date With Preset` (fieldType 4, Date Time) with `defaultValue = "2026-01-01T00:00:00"` assigned to the test folder.
+
+**Free finding (2026-04-24)**: The `defaultValue` is stored **naively** in the field definition (no Z suffix), same shape as DOC-BUG-1 output. Either the Admin UI strips Z on save, or the field-definition storage mechanism itself can't hold a TZ marker.
+
+**Test method**:
+
+- Slots needing a **fresh document**: upload a new `zzz-doc11-<timestamp>.txt` into the test folder, then GET/PUT against it.
+- Slots reusing the existing test document: PUT then GET against `testDocumentId`.
+
+| ID                              | Scenario                                                            | Expected                                   | Needs fresh doc | Tests                                                                |
+| ------------------------------- | ------------------------------------------------------------------- | ------------------------------------------ | :-------------: | -------------------------------------------------------------------- |
+| `doc-11-default-auto-populate`  | Upload fresh doc; GET index fields without any write                | `Date With Preset` = `2026-01-01T00:00:00` |       yes       | Does the default apply at doc creation?                              |
+| `doc-11-default-literal-copy`   | Upload fresh doc; compare returned value byte-for-byte vs field def | Identical string                           |       yes       | Server copies verbatim vs re-interprets in server TZ                 |
+| `doc-11-default-overwrite`      | Upload fresh doc (default applied); PUT `2026-06-15T10:00:00`; GET  | `2026-06-15T10:00:00`                      |       yes       | Default is overwritable                                              |
+| `doc-11-default-clear-fallback` | Upload fresh doc; PUT `""`; GET                                     | Default persists (or DOC-BUG-2 behavior)   |       yes       | Does clear revert to default, or inherit DOC-BUG-2 (previous value)? |
+| `doc-11-default-roundtrip`      | Existing doc: PUT `2026-01-01T00:00:00` (matches default), GET      | `2026-01-01T00:00:00`                      |       no        | Confirm no special treatment when explicit value equals default      |
+| `doc-11-default-z-strip`        | Inspect field definition's `defaultValue` via GET `/indexfields`    | `2026-01-01T00:00:00` (no Z)               |       no        | Confirm DOC-BUG-1 extends to field-definition defaults               |
+
+> **Bug-tag candidate**: if `doc-11-default-clear-fallback` reverts to the default instead of keeping the last-written value, that's a **behavior divergence** from DOC-BUG-2 — index fields with defaults behave differently than index fields without. Worth documenting either way.
+
+---
+
 ## Test Document Prerequisites
 
 ### vvdemo (EmanuelJofre)
@@ -287,6 +314,14 @@ These compute `due_date = creation_date + N days` at save time. **Untested**: wh
 - **Folder**: `/TestFolder` with "Date" index field (fieldType 4) assigned
 - **Document**: `Test1003` (ID: `5c4c9e8c-25ca-eb11-8202-d7701a6d4070`)
 - **Write policy**: `unrestricted` (development sandbox)
+
+### vv5dev (EmanuelJofre)
+
+- **Folder**: `/zzz-date-tests` (`70a66b3e-f36b-1410-85ef-001e45e95bc5`)
+- **Document**: `zzz-date-test-doc` — documentId `3b0b0f37-e83f-f111-8313-9bb7e317217d` (revisionId `72a66b3e-…`)
+- **Index fields**: `Date` (fieldType 4, no default) and `Date With Preset` (fieldType 4, defaultValue `2026-01-01T00:00:00`) — both assigned to folder
+- **Write policy**: `unrestricted` (development sandbox)
+- **Provision**: `node tools/admin/setup-doc-test-assets.js --project emanueljofre-vv5dev` (idempotent)
 
 ### vv5dev (WADNR)
 

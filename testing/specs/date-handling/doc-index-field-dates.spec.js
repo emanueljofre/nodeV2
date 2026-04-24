@@ -22,7 +22,7 @@ const { test, expect } = require('@playwright/test');
 const { loadConfig } = require('../../fixtures/env-config');
 const { customerDocConfig } = require('../../fixtures/vv-config');
 const { DOC_TEST_DATA } = require('../../fixtures/test-data');
-const { guardedPut } = require('../../helpers/vv-request');
+const { guardedPut, guardedPost } = require('../../helpers/vv-request');
 
 const config = loadConfig();
 const BASE_URL = config.baseUrl;
@@ -33,6 +33,9 @@ const API_BASE = `/api/v1/${config.customerAlias}/${config.databaseAlias}`;
 const DOC_ENABLED = !!(customerDocConfig && customerDocConfig.testDocumentId);
 const DOC_ID = customerDocConfig?.testDocumentId || null;
 const DATE_FIELD_LABEL = customerDocConfig?.dateFieldLabel || null;
+const PRESET_FIELD_LABEL = customerDocConfig?.presetDateFieldLabel || null;
+const TEST_FOLDER_ID = customerDocConfig?.testFolderId || null;
+const DOC11_ENABLED = DOC_ENABLED && !!PRESET_FIELD_LABEL && !!TEST_FOLDER_ID;
 
 let token;
 
@@ -214,10 +217,144 @@ test.describe('Cross-cutting: Z suffix behavior', () => {
 });
 
 // ---------------------------------------------------------------------------
-// DOC-5 through DOC-8: Future categories (require additional infrastructure)
+// DOC-11 helpers — fresh-doc upload and arbitrary-field read/write
+// ---------------------------------------------------------------------------
+
+async function uploadFreshDoc(request) {
+    const t = await getToken(request);
+    const name = `zzz-doc11-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
+    const resp = await guardedPost(request, `${BASE_URL}${API_BASE}/documents`, {
+        headers: { Authorization: `Bearer ${t}` },
+        multipart: {
+            name,
+            filename: `${name}.txt`,
+            folderId: TEST_FOLDER_ID,
+            description: 'DOC-11 fresh doc (auto-cleanup candidate)',
+            revision: '1',
+            indexFields: JSON.stringify({}),
+            fileUpload: {
+                name: `${name}.txt`,
+                mimeType: 'text/plain',
+                buffer: Buffer.from('DOC-11 test fixture', 'utf8'),
+            },
+        },
+    });
+    expect(resp.ok()).toBeTruthy();
+    const body = await resp.json();
+    const row = Array.isArray(body?.data) ? body.data[0] : body?.data;
+    expect(row?.id).toBeTruthy();
+    // POST /documents returns the revisionId as `id`. Resolve the stable documentId
+    // by re-listing the folder and matching on revision id.
+    const listResp = await request.get(`${BASE_URL}${API_BASE}/folders/${TEST_FOLDER_ID}/documents`, {
+        headers: { Authorization: `Bearer ${t}` },
+    });
+    expect(listResp.ok()).toBeTruthy();
+    const listed = (await listResp.json()).data || [];
+    const full = listed.find((d) => d.id === row.id);
+    expect(full?.documentId).toBeTruthy();
+    return { revisionId: full.id, documentId: full.documentId, name };
+}
+
+async function readFieldValue(request, docId, fieldLabel) {
+    const t = await getToken(request);
+    const resp = await request.get(`${BASE_URL}${API_BASE}/documents/${docId}/indexfields`, {
+        headers: { Authorization: `Bearer ${t}` },
+    });
+    expect(resp.ok()).toBeTruthy();
+    const data = (await resp.json()).data || [];
+    const f = data.find((x) => x.label === fieldLabel);
+    return f?.value ?? null;
+}
+
+async function writeFieldValue(request, docId, fieldLabel, value) {
+    const t = await getToken(request);
+    const resp = await guardedPut(request, `${BASE_URL}${API_BASE}/documents/${docId}/indexfields`, {
+        headers: { Authorization: `Bearer ${t}`, 'Content-Type': 'application/json' },
+        data: { indexFields: JSON.stringify({ [fieldLabel]: value }) },
+    });
+    expect(resp.ok()).toBeTruthy();
+}
+
+async function readFieldDefinition(request, fieldLabel) {
+    const t = await getToken(request);
+    const resp = await request.get(`${BASE_URL}${API_BASE}/indexfields`, {
+        headers: { Authorization: `Bearer ${t}` },
+    });
+    expect(resp.ok()).toBeTruthy();
+    const data = (await resp.json()).data || [];
+    return data.find((f) => f.label === fieldLabel || f.name === fieldLabel) || null;
+}
+
+// ---------------------------------------------------------------------------
+// DOC-11: Index Field Default Value Behavior
+// ---------------------------------------------------------------------------
+const doc11Tests = DOC_TEST_DATA.filter((t) => t.category === 11);
+
+test.describe('DOC-11: Index Field Default Value', () => {
+    test.beforeEach(() => {
+        test.skip(
+            !DOC11_ENABLED,
+            `DOC-11 skipped — customerDocConfig needs testFolderId + presetDateFieldLabel. Provision via: node tools/admin/setup-doc-test-assets.js`
+        );
+    });
+
+    for (const tc of doc11Tests) {
+        test(`${tc.id}: ${tc.notes}`, async ({ request }) => {
+            const fieldLabel = tc.field === 'preset' ? PRESET_FIELD_LABEL : DATE_FIELD_LABEL;
+            const skip = tc.expectedStored === null; // TBD slots — log actual and pass through
+
+            // Field-definition inspection (no doc needed)
+            if (tc.action === 'field-definition-inspect') {
+                const def = await readFieldDefinition(request, fieldLabel);
+                expect(def).toBeTruthy();
+                console.log(`[${tc.id}] defaultValue="${def.defaultValue}"`);
+                expect(def.defaultValue).toBe(tc.expectedStored);
+                expect(def.defaultValue).not.toContain('Z');
+                return;
+            }
+
+            // Existing-doc round-trip
+            if (tc.action === 'api-write-read') {
+                await writeFieldValue(request, DOC_ID, fieldLabel, tc.inputValue);
+                const stored = await readFieldValue(request, DOC_ID, fieldLabel);
+                expect(stored).toBe(tc.expectedStored);
+                return;
+            }
+
+            // Fresh-doc flows
+            const doc = await uploadFreshDoc(request);
+
+            if (tc.action === 'fresh-doc-read') {
+                const stored = await readFieldValue(request, doc.documentId, fieldLabel);
+                console.log(`[${tc.id}] doc=${doc.documentId} read="${stored}"`);
+                if (!skip) expect(stored).toBe(tc.expectedStored);
+                return;
+            }
+
+            if (tc.action === 'fresh-doc-update') {
+                // Read default first (if present) for context
+                const before = await readFieldValue(request, doc.documentId, fieldLabel);
+                await writeFieldValue(request, doc.documentId, fieldLabel, tc.inputValue);
+                const after = await readFieldValue(request, doc.documentId, fieldLabel);
+                console.log(
+                    `[${tc.id}] doc=${doc.documentId} before="${before}" wrote="${tc.inputValue}" after="${after}"`
+                );
+                if (!skip) expect(after).toBe(tc.expectedStored);
+                return;
+            }
+
+            throw new Error(`Unknown DOC-11 action: ${tc.action}`);
+        });
+    }
+});
+
+// ---------------------------------------------------------------------------
+// DOC-5 through DOC-10: Future categories (require additional infrastructure)
 //
 // DOC-5: UI Round-Trip — needs Playwright helper for RadDateTimePicker + checkout
 // DOC-6: Cross-Layer Comparison — needs forms test coordination
 // DOC-7: Query & Search — needs document query API investigation
 // DOC-8: DocAPI Infrastructure Differential — needs WADNR test document setup
+// DOC-9: Culture (ptBR) — needs Central Admin customer-culture toggle
+// DOC-10: Lifecycle defaults — needs fresh-doc uploads + date math verification
 // ---------------------------------------------------------------------------

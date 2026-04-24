@@ -11237,6 +11237,79 @@ const DOC_TEST_DATA = [
         bugs: [],
         notes: 'Same value written twice — idempotent, no change.',
     },
+    // --- DOC-11. Index Field Default Value Behavior ---
+    // Uses the `Date With Preset` index field (defaultValue = "2026-01-01T00:00:00")
+    // assigned to the test folder. Slots with needsFreshDoc=true upload a new doc
+    // per test and read the preset-field value without writing to it first.
+    {
+        id: 'doc-11-default-auto-populate',
+        category: 11,
+        categoryName: 'Default Value',
+        action: 'fresh-doc-read',
+        field: 'preset',
+        expectedStored: '2026-01-01T00:00:00',
+        needsFreshDoc: true,
+        bugs: [],
+        notes: 'Fresh doc; GET preset field — default should auto-populate.',
+    },
+    {
+        id: 'doc-11-default-literal-copy',
+        category: 11,
+        categoryName: 'Default Value',
+        action: 'fresh-doc-read',
+        field: 'preset',
+        expectedStored: '2026-01-01T00:00:00',
+        needsFreshDoc: true,
+        bugs: [],
+        notes: 'Fresh doc; verify byte-for-byte equality with field definition default.',
+    },
+    {
+        id: 'doc-11-default-overwrite',
+        category: 11,
+        categoryName: 'Default Value',
+        action: 'fresh-doc-update',
+        field: 'preset',
+        inputValue: '2026-06-15T10:00:00',
+        expectedStored: '2026-06-15T10:00:00',
+        needsFreshDoc: true,
+        bugs: [],
+        notes: 'Fresh doc (has default); overwrite with explicit value.',
+    },
+    {
+        id: 'doc-11-default-clear-fallback',
+        category: 11,
+        categoryName: 'Default Value',
+        action: 'fresh-doc-update',
+        field: 'preset',
+        inputValue: '',
+        expectedStored: null, // TBD — does clear revert to default, or stay on default (DOC-BUG-2 no-op), or persist the last write?
+        needsFreshDoc: true,
+        bugs: ['DOC-BUG-2'],
+        notes: 'Fresh doc; attempt clear — does it revert to default, or inherit DOC-BUG-2 (prior value persists)?',
+    },
+    {
+        id: 'doc-11-default-roundtrip',
+        category: 11,
+        categoryName: 'Default Value',
+        action: 'api-write-read',
+        field: 'preset',
+        inputValue: '2026-01-01T00:00:00',
+        expectedStored: '2026-01-01T00:00:00',
+        needsFreshDoc: false,
+        bugs: [],
+        notes: 'Existing doc; PUT value that equals the default — confirm no special treatment.',
+    },
+    {
+        id: 'doc-11-default-z-strip',
+        category: 11,
+        categoryName: 'Default Value',
+        action: 'field-definition-inspect',
+        field: 'preset',
+        expectedStored: '2026-01-01T00:00:00', // defaultValue in GET /indexfields response — must not contain Z
+        needsFreshDoc: false,
+        bugs: ['DOC-BUG-1'],
+        notes: 'GET /indexfields — defaultValue stored without Z suffix (DOC-BUG-1 extends to field defaults).',
+    },
 ];
 
 module.exports = { TEST_DATA, DOC_TEST_DATA };
