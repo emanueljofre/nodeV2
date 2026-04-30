@@ -52,7 +52,7 @@ function parseArgs() {
 WS Test Harness Runner
 
 Options:
-  --action <WS-1..WS-9>     Required. Test category to run.
+  --action <WS-1..WS-14>    Required. Test category to run (WS-1-10, WS-14).
   --configs <A,C,D|ALL>      Target configs. Default: ALL.
   --record-id <name>         Record instance name (for WS-2, WS-3).
   --input-date <date>        Date string to write (for WS-1, WS-3).

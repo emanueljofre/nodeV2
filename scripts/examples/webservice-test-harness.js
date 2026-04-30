@@ -23,12 +23,14 @@ module.exports.main = async function (ffCollection, vvClient, response) {
     Script Name:    DateTest WS Harness
     Customer:       VisualVault
     Purpose:        Multi-purpose test harness for date-handling web service tests.
-                    Supports 10 test categories (WS-1 through WS-10) via an Action parameter.
+                    Supports 11 test categories (WS-1 through WS-10, WS-14) via an Action parameter.
     Preconditions:
                     - DateTest form template must exist in the target environment
                     - For read actions (WS-2, WS-5): a saved record must exist
+                    - For WS-14: custom queries "DateTest - All Records" and
+                      "DateTest - By Instance Name" must exist in Control Panel
     Parameters:     Passed via ffCollection:
-                    Action:        Required. "WS-1" through "WS-10"
+                    Action:        Required. "WS-1" through "WS-10", or "WS-14"
                     TargetConfigs: Optional. Comma-separated config letters (A-H) or "ALL". Default: "ALL"
                     RecordID:      Optional. Instance name (e.g. "DateTest-000080") for read actions
                     InputDate:     Optional. ISO date string (e.g. "2026-03-15") for write actions
@@ -42,6 +44,7 @@ module.exports.main = async function (ffCollection, vvClient, response) {
     Last Rev Date:  04/02/2026
 
     Revision Notes:
+                    04/24/2026 - Emanuel Jofré: Add WS-14 (Custom Query read path) — vvClient.customQuery.getCustomQueryResultsByName
                     04/06/2026 - Emanuel Jofré: Add WS-10 (postForms vs forminstance/) for Freshdesk #124697
                     04/02/2026 - Emanuel Jofré: Initial harness with WS-1 and WS-2 actions
   */
@@ -1377,6 +1380,114 @@ module.exports.main = async function (ffCollection, vvClient, response) {
         return result;
     }
 
+    async function actionCustomQueryRead(targetConfigs, inputDate, isDebug) {
+        // WS-14: Read via vvClient.customQuery.getCustomQueryResultsByName — a
+        // distinct read path from forms.getForms. Tests whether the SQL custom-query
+        // layer normalizes date values identically to the OData forms API.
+        //
+        // Prerequisite custom queries (create in Control Panel, cache disabled):
+        //   1. "DateTest - All Records"       — SELECT TOP 1000 * FROM [DateTest]
+        //   2. "DateTest - By Instance Name"  — SELECT TOP 100 * FROM [DateTest] WHERE DhDocID = @instanceName
+        //
+        // Flow per config:
+        //   - Create a fresh record via postForms (self-contained, independent of WS-1)
+        //   - Read via customQuery filter path (Query 1 + q filter on instanceName)
+        //   - Read via customQuery params path (Query 2 + @instanceName param)
+        //   - Read via forms.getForms as control
+        //   - Report per variant: stored value + match against getForms control
+        const FILTER_QUERY = 'DateTest - All Records';
+        const PARAM_QUERY = 'DateTest - By Instance Name';
+        const baseDate = inputDate || '2026-03-15';
+
+        const allResults = [];
+
+        for (const configKey of targetConfigs) {
+            const fieldName = FIELD_MAP[configKey].field;
+            const value = FIELD_MAP[configKey].enableTime
+                ? `${baseDate.split('T')[0]}T14:30:00`
+                : baseDate.split('T')[0];
+
+            // Create fresh record
+            const created = await createFormRecord({ [fieldName]: value });
+            const instanceName = created.instanceName;
+
+            // Control read: forms.getForms
+            const controlRecord = await readFormRecord(instanceName);
+            const controlStored = extractDateFields(controlRecord, [configKey])[configKey];
+
+            // Variant 1: customQuery with q filter.
+            // NOTE: custom queries camelCase SQL columns in the response
+            // (SQL `DhDocID` → response `dhDocID`). The VV `q` layer operates
+            // on the response-shape names, so filter on `[dhDocID]`.
+            let filterStored = null;
+            let filterError = null;
+            try {
+                const res = await vvClient.customQuery
+                    .getCustomQueryResultsByName(FILTER_QUERY, {
+                        q: `[dhDocID] eq '${instanceName}'`,
+                    })
+                    .then((r) => parseRes(r))
+                    .then((r) => checkMetaAndStatus(r, `WS-14 filter ${configKey}`))
+                    .then((r) => checkDataPropertyExists(r, `WS-14 filter ${configKey}`));
+                const row = Array.isArray(res.data) ? res.data[0] : null;
+                filterStored = row ? extractDateFields(row, [configKey])[configKey] : null;
+            } catch (err) {
+                filterError = err.message || String(err);
+            }
+
+            // Variant 2: customQuery with SQL params
+            let paramStored = null;
+            let paramError = null;
+            try {
+                const res = await vvClient.customQuery
+                    .getCustomQueryResultsByName(PARAM_QUERY, {
+                        params: JSON.stringify([{ parameterName: 'instanceName', value: instanceName }]),
+                    })
+                    .then((r) => parseRes(r))
+                    .then((r) => checkMetaAndStatus(r, `WS-14 param ${configKey}`))
+                    .then((r) => checkDataPropertyExists(r, `WS-14 param ${configKey}`));
+                const row = Array.isArray(res.data) ? res.data[0] : null;
+                paramStored = row ? extractDateFields(row, [configKey])[configKey] : null;
+            } catch (err) {
+                paramError = err.message || String(err);
+            }
+
+            // `stored` is the primary value under test (customQuery return) —
+            // downstream classifier compares it against matrix Expected.
+            // `controlStored` keeps the getForms read for divergence detection.
+            allResults.push(
+                buildResultEntry(configKey, {
+                    variant: 'filter',
+                    sent: value,
+                    stored: filterStored,
+                    controlStored,
+                    match: filterStored === controlStored,
+                    recordID: instanceName,
+                    error: filterError,
+                })
+            );
+            allResults.push(
+                buildResultEntry(configKey, {
+                    variant: 'param',
+                    sent: value,
+                    stored: paramStored,
+                    controlStored,
+                    match: paramStored === controlStored,
+                    recordID: instanceName,
+                    error: paramError,
+                })
+            );
+        }
+
+        return {
+            action: 'WS-14',
+            targetConfigs,
+            inputDate: baseDate,
+            serverTime: new Date().toISOString(),
+            results: allResults,
+        };
+    }
+
     /* ---------------------------------- Main ---------------------------------- */
 
     logger.info(sanitizeLog(logEntry));
@@ -1445,10 +1556,11 @@ module.exports.main = async function (ffCollection, vvClient, response) {
             case 'WS-10':
                 output.data = await actionFormInstanceCompare(targetConfigs, inputDate, debug);
                 break;
+            case 'WS-14':
+                output.data = await actionCustomQueryRead(targetConfigs, inputDate, debug);
+                break;
             default:
-                throw new Error(
-                    `Unknown action: '${action}'. Valid: WS-1 through WS-10, WS-SETUP-BASELINE`
-                );
+                throw new Error(`Unknown action: '${action}'. Valid: WS-1 through WS-10, WS-14, WS-SETUP-BASELINE`);
         }
 
         // Enrich output with diagnostics

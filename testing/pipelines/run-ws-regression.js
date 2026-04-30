@@ -132,6 +132,16 @@ const TEST_INVOCATIONS = [
     { action: 'WS-9', tz: 'BRT', configs: 'A,C', inputDate: '2026-03-15', extraArgs: '' },
     { action: 'WS-9', tz: 'IST', configs: 'A', inputDate: '2026-03-15', extraArgs: '' },
     { action: 'WS-9', tz: 'UTC', configs: 'A', inputDate: '2026-03-15', extraArgs: '' },
+
+    // ═══════════════════════════════════════════════════════════════
+    // WS-14: Custom Query Read Path — 4 slots (A, C × filter, param)
+    // Prerequisites (Central Admin — create manually):
+    //   - "DateTest - All Records"      — SELECT TOP 1000 * FROM [DateTest]
+    //   - "DateTest - By Instance Name" — SELECT TOP 100 * FROM [DateTest] WHERE DhDocID = @instanceName
+    // Matrix slot IDs are TZ-agnostic (`ws-14-<config>-<variant>`); BRT-only
+    // run suffices — TZ-independent by hypothesis. Expand if divergent.
+    // ═══════════════════════════════════════════════════════════════
+    { action: 'WS-14', tz: 'BRT', configs: 'A,C', inputDate: '2026-03-15', extraArgs: '' },
 ];
 
 async function main() {
@@ -163,7 +173,7 @@ async function main() {
 
         if (invocations.length === 0) {
             console.error('No matching test invocations. Check --action and --tz filters.');
-            console.error('Available actions: WS-1 through WS-9');
+            console.error('Available actions: WS-1 through WS-9, WS-14');
             console.error('Available TZs: BRT, IST, UTC');
             process.exit(1);
         }

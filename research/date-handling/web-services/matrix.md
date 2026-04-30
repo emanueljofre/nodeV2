@@ -96,6 +96,7 @@ Platform-scope gaps identified from the Central Admin exploration on 2026-04-20.
 | WSG3 | Customer TZ effect on `DateTime.Now` / `GETDATE()` in scripts     | WS-9 tests script date math, but never varies Customer TZ. Scripts using customer-local time produce different outputs    | WS-13 (4 slots below)                      | **P1**   |
 | WSG4 | V2 code-path effect on cross-layer (WS-2 / WS-4)                  | Forms V2 changes how API-written values are re-read. Cross-ref Forms G1.                                                  | V2 rebaseline of WS-2/WS-4 (not a new cat) | **P0**   |
 | WSG5 | `Parse JSON Dropdownlist Values` — does it affect calendar JSON?  | Checkbox in Forms section. May or may not apply to calendar JSON template dropdown metadata.                              | Spot check — low priority                  | P3       |
+| WSG6 | SQL date-column param binding via customQuery                     | WS-14 validates VV ODATA + SQL string-param paths. Date-value SQL param binding (`WHERE [field] = @targetDate`) untested. | WS-14 date-param variant (per-customer)    | P2       |
 
 ### Cross-cutting references
 
@@ -119,6 +120,7 @@ Platform-scope gaps identified from the Central Admin exploration on 2026-04-20.
 |  7   | WS-6     | Empty/null — edge cases                                                                       |
 |  8   | WS-8     | Query filtering — uses WS-1 records                                                           |
 |  9   | WS-9     | Date computation — tests JS Date patterns across server TZs, requires `TZ=` env var switching |
+|  10  | WS-14    | Custom Query read path — requires custom queries pre-created in Central Admin                 |
 
 ### TZ Coverage Philosophy
 
@@ -135,6 +137,7 @@ The regression pipeline runs **multi-TZ for actions where server TZ changes outc
 | WS-7 (update path)        | BRT           | Same as WS-1 logic; TZ-inferred from WS-1 triple-TZ canary                                                     |
 | WS-8 (query filter)       | BRT           | OData query layer; TZ-independent                                                                              |
 | WS-9 (script date math)   | BRT, IST, UTC | Scripts call `new Date()` in server-TZ context — genuinely TZ-dependent                                        |
+| WS-14 (custom query read) | BRT           | Custom-query read path — hypothesis: TZ-independent (tests the read layer, not write). Expand if divergent     |
 | WS-10 (endpoint compare)  | BRT, IST      | Browser-only; TZ matters for cross-endpoint diffs                                                              |
 
 **When investigating a suspected TZ-specific bug** in an action currently BRT-only: add a temporary `TEST_INVOCATIONS` entry in `testing/pipelines/run-ws-regression.js` for the target TZ, run the scoped regression, capture findings, then revert. The matrix doesn't need rows unless the bug is confirmed and expected behavior differs per TZ — in which case add the rows as part of the bug documentation.
@@ -512,6 +515,34 @@ Record: DateTest-001568 → saved as ffc087e3-4a34-4ab9-9d2d-fdcd61cf2cdf
 | ws-10c-D-BRT |   D    |    BRT     | **`02:30 PM`** | `"2026-03-15T11:30:00"` | **`11:30 AM`** | `"2026-03-15T11:30:00"` |       Yes        |  FAIL  | **#124697**: Display shows original time on first open (ignoreTZ), save commits shifted value, display changes to shifted time on reopen. Exactly matches customer report. |
 
 > **WS-10C Finding**: 0 PASS, 2 FAIL. **Config D is the exact Freshdesk #124697 scenario**: display shows `02:30 PM` on first open (ignoreTZ preserves original DB time), rawValue already shifted to `T11:30:00` in memory. After save+reopen, display changes to `11:30 AM` (shifted value now in DB). Stable after first mutation — no further drift. Config C shifts both display and rawValue identically (no surprise — ignoreTZ=false).
+
+---
+
+## WS-14. Custom Query Read Path
+
+Test `vvClient.customQuery.getCustomQueryResultsByName` as an alternative read path. Two variants per config: `filter` (OData `q` on top of `SELECT * FROM [DateTest]`) and `param` (SQL `@instanceName` parameter binding). Control read via `forms.getForms` on the same record.
+
+**Hypothesis**: The SQL custom-query layer normalizes dates identically to the OData `getForms` path — both should return the same stored value. Any divergence indicates a new bug class (custom-query-specific date serialization).
+
+**Prerequisites**: Two custom queries created in Central Admin (see [`projects/emanueljofre-vvdemo/test-assets.md § Custom Queries`](../../../projects/emanueljofre-vvdemo/test-assets.md#custom-queries)).
+
+**Shape**: 2 configs (A = date-only, C = datetime) × 2 variants = 4 slots.
+
+| ID             | Config | Variant | Query                         | Path                      | Expected (= getForms)    | Status | Run Date   | Evidence                                           |
+| -------------- | :----: | :-----: | ----------------------------- | ------------------------- | ------------------------ | :----: | ---------- | -------------------------------------------------- |
+| ws-14-A-filter |   A    | filter  | `DateTest - All Records`      | `q: [dhDocID] eq …`       | `"2026-03-15T00:00:00Z"` |  PASS  | 2026-04-24 | emanueljofre-vv5dev, build `f36b65dd`, batch-run-5 |
+| ws-14-A-param  |   A    |  param  | `DateTest - By Instance Name` | `params: [@instanceName]` | `"2026-03-15T00:00:00Z"` |  PASS  | 2026-04-24 | emanueljofre-vv5dev, build `f36b65dd`, batch-run-5 |
+| ws-14-C-filter |   C    | filter  | `DateTest - All Records`      | `q: [dhDocID] eq …`       | `"2026-03-15T14:30:00Z"` |  PASS  | 2026-04-24 | emanueljofre-vv5dev, build `f36b65dd`, batch-run-5 |
+| ws-14-C-param  |   C    |  param  | `DateTest - By Instance Name` | `params: [@instanceName]` | `"2026-03-15T14:30:00Z"` |  PASS  | 2026-04-24 | emanueljofre-vv5dev, build `f36b65dd`, batch-run-5 |
+
+> **WS-14 Finding (2026-04-24)**: All 4 PASS. Custom-query read path returns byte-identical date values to `forms.getForms` for both date-only (A) and datetime (C) configs, across both filter (`q`) and SQL-param variants. No custom-query-specific date serialization divergence. Confirms the SQL read path inherits the same Z-suffix normalization as the OData API.
+>
+> **Two non-obvious platform mechanics uncovered during scaffolding** (documented to save the next investigator hours):
+>
+> 1. **`q` filter operates on camelCased response columns, not raw SQL names.** SQL column `DhDocID` is exposed as `dhDocID` in the custom-query response, and the `q` layer filters on the response-shape name. `[DhDocID]` or `[instanceName]` both silently return 0 rows (no error). Use `[dhDocID]`.
+> 2. **`TOP N` without `ORDER BY` hides fresh records from the `q` filter.** VV applies the `q` filter after SQL returns, so fresh rows sitting beyond the TOP cutoff are invisible. For any filter-path test that creates then reads, the underlying query must `ORDER BY vvCreateDate DESC` (or equivalent) to keep recent rows in the window.
+>
+> **Deferred (backlog)**: SQL date-column parameter binding (`WHERE [dateField] = @targetDate`) — tests whether date values round-trip through SQL parameter binding preserve format/TZ. Not portable across customers (vvdemo `Field7` vs vv5dev `dateTzAwareV2Empty`), so postponed. Tracked as WSG6.
 
 ---
 

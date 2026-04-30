@@ -150,16 +150,17 @@ This only affects the Node.js process — no need to change macOS system TZ or r
 
 ## Execution Order
 
-| Step | Category | Rationale                                           |
-| :--: | -------- | --------------------------------------------------- |
-|  1   | WS-2     | Read existing records — no setup needed             |
-|  2   | WS-1     | Create records — produces data for WS-3, WS-4, WS-8 |
-|  3   | WS-3     | Round-trip — uses WS-1 records                      |
-|  4   | WS-5     | Format tolerance — independent                      |
-|  5   | WS-7     | Update path — independent                           |
-|  6   | WS-4     | API→Forms — needs browser                           |
-|  7   | WS-6     | Empty/null — edge cases                             |
-|  8   | WS-8     | Query filtering — uses WS-1 records                 |
-|  9   | WS-9     | Date computation — requires TZ= env var switching   |
+| Step | Category | Rationale                                                                  |
+| :--: | -------- | -------------------------------------------------------------------------- |
+|  1   | WS-2     | Read existing records — no setup needed                                    |
+|  2   | WS-1     | Create records — produces data for WS-3, WS-4, WS-8                        |
+|  3   | WS-3     | Round-trip — uses WS-1 records                                             |
+|  4   | WS-5     | Format tolerance — independent                                             |
+|  5   | WS-7     | Update path — independent                                                  |
+|  6   | WS-4     | API→Forms — needs browser                                                  |
+|  7   | WS-6     | Empty/null — edge cases                                                    |
+|  8   | WS-8     | Query filtering — uses WS-1 records                                        |
+|  9   | WS-9     | Date computation — requires TZ= env var switching                          |
+|  10  | WS-14    | Custom Query read path — requires two queries pre-created in Central Admin |
 
 See `matrix.md` for full slot tables and `analysis/overview.md` for hypotheses and conclusions.
